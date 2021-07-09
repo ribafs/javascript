@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+       <meta charset="utf-8"/>
+       <title>Autocompletar lista HTML5</title>
+   </head>
+<body>
+
+ <h1 align="center">Autocompletar lista HTML5</h1>	
+
+  <p>
+    <label for="t1">What's your favorite fruit?<abbr title="This field is mandatory">*</abbr></label>
+    <input type="text" id="t1" name="fruit" list="l1" required pattern="[Bb]anana|[Cc]herry|[Aa]pple|[Ss]trawberry|[Ll]emon|[Oo]range">
+    <datalist id="l1">
+      <option>Banana</option>
+      <option>Cherry</option>
+      <option>Apple</option>
+      <option>Strawberry</option>
+      <option>Lemon</option>
+      <option>Orange</option>
+    </datalist>
+  </p>
+
+<!-- https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation -->

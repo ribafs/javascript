@@ -1,0 +1,113 @@
+<hhtml>
+<!-- TWO STEPS TO INSTALL TYPING TEST:
+
+   1.  Copy the coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  -->
+
+<!-- STEP ONE: Add this code into the HEAD of your HTML document  -->
+
+<HEAD><SCRIPT LANGUAGE="JavaScript">
+<!-- Original: Michael Tartaglia <stonedstan@hotmail.com> -->
+<!-- Web Site:  http://www.geocities.com/SiliconValley/Horizon/5235 -->
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+msg = new Array("A prática da digitação pode ajudar você a render mais em seu trabalho no micro.",
+"Um novo computador é vendido nos EUA a cada hora!",
+"Quando o pássaro migra do Norte para o Sul?",
+"Frases difíceis de digitar.")
+word = 10
+function m() {
+msg = new Array("A prática da digitação pode ajudar você a render mais em seu trabalho no micro.",
+"Um novo computador é vendido nos USA a cada hora!",
+"Quando o pássaro migra do Norte para o Sul?",
+"Frases difíceis de digitar.")
+word = 10
+}
+function e() {
+msg = new Array("Se você puder digite correta e rapidamente estas frases difíceis, você será um super digitador!",
+"Você será um super digitador se você puder digitar correta e rapidamente, digite estas frases longas.",
+"Eu acho que você é um bom digitador se digitar corretamente estas frases!",
+"Porque estas frases não são simples então você pode copiar isto?")
+word = 15
+}
+function s() {
+msg = new Array("Computadores são meios para o future.",
+"Você pode digitar esta frase mais rapidamente?",
+"Quem foi o presidente brasileiro anterior ao atual?",
+"Acredito que você pode digitar melhor!")
+word = 7
+}
+function beginIt() {
+randNum = Math.floor((Math.random() * 10)) % 4
+msgType = msg[randNum]
+day = new Date();
+startType = day.getTime();
+document.theForm.given.value = msgType
+document.theForm.typed.focus();
+document.theForm.typed.select();
+}
+function cheat() {
+alert("Você não pode mudar a frase!");
+document.theForm.typed.focus();
+}
+function stopIt() {
+dayTwo = new Date();
+endType = dayTwo.getTime();
+totalTime = ((endType - startType) / 1000)
+spd = Math.round((word/totalTime) * 60)
+if (document.theForm.typed.value == document.theForm.given.value) {
+alert("\nVocê digitou as " + word + " palavra(s) da frase em " 
++ totalTime + " segundos a uma velocidade mais ou menos de " + spd + " palavras por minuto!")
+}
+else {
+alert("Você cometeu erro(s), mas digitou a uma velocidade de " + spd + " palavras por minutoe.")
+   }
+}
+// End -->
+</SCRIPT>
+</HEAD>
+<!-- STEP ONE: Put this code into the BODY of your HTML document  -->
+
+<BODY>
+
+<CENTER>
+<h1>RibaFS</h1>
+<h2>Joguinhos em Javascript</h2>
+<h3>TESTE DE DIGITAÇÃO</h3>
+</center>
+
+<br>
+<b>1 - Selecione o nível: Catador de Milho :), Médio ou Expert;<br>
+2 - Clique no botão "Clique para sortear uma frase";<br>
+3 - Digite abaixo a frase sorteada o mais rápido possível;<br>
+4 - Ao concluir clique no botão Concluído para ver o relatório do seu desempenho.<br></b>
+<br><br>
+
+<center>
+<FORM name="theForm">
+<TABLE BORDER=3 CELLSPACING=0 CELLPADDING=0>
+<TR>
+<TD align=right>Selecione o nível</TD>
+<TD align=center><input type=radio name="sme" value="Beginner" onClick="s()" checked>Catador de Milho
+<input type=radio name="sme" value="Novice" onClick="m()">Regular
+<input type=radio name="sme" value="Expert" onClick="e()">Expert</TD>
+</TR>
+<TR><TD colspan=2><BR>
+<center><input type=button value="Clique para sortear uma frase" name="start" onClick="beginIt()"></center><P>
+<textarea name="given" cols=53 rows=3 wrap=on onFocus="cheat()"></textarea></TD>
+</TR>
+<TR><TD colspan=2><center><input type=text name="typed" size=45>
+<input type=button value="Concluído"  name="stop"  onClick="stopIt()"></center></TD>
+</TR>
+</TABLE></FORM>
+</CENTER>
+
+<p><center>
+<font face="arial, helvetica" size="-2">JavaScripts oferecido gentilmente por:<br>
+<a href="http://javascriptsource.com">The JavaScript Source</a></font>
+</center><p>
+
+<!-- Script Size:  3.33 KB  -->

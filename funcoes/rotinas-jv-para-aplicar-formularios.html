@@ -1,0 +1,627 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />	
+	<title>Anexo I: Rotinas JS para aplicar aos formulários</title><link rel="STYLESHEET" type="text/css" href="/estilos2008.css" />
+		<meta name="title" content="Anexo I: Rotinas JS para aplicar aos formulários" />
+	<meta name="description" content="Veremos vários exemplos de scripts JavaScript aplicáveis a formulários que aumentarão a funcionalidade deste." /><meta name="keywords" content="formularios,javascript,scripts,aplicaveis,aumentarao,deste,funcionalidade,exemplos,varios,js,rotinas,aplicar,aos,veremos,anexo" /><meta http-equiv="Content-Language" content="pt-br" />
+	<meta name="language" content="pt" />
+	<meta name="robot" content="index, follow" />
+	<script>
+	var url_origen="/artigos/rotinas-jv-para-aplicar-formularios.html"	</script>
+	<script src="/mootools-1.2-core-yc.js" type="text/javascript"></script>
+	<script src="/criarweb.js" type="text/javascript"></script>
+	<script language="javascript" type="text/javascript" src="/js/votacion.js"></script><script language="javascript" type="text/javascript" src="/mootools-1.2-more.js"></script><style>
+<!--
+p
+{ margin-top: 0; margin-bottom: 0; font-family: arial; font-size: 9pt; color: #333333; }
+body
+{ font-family: verdana; font-size: 9pt; color: #333333; }
+blockquote
+{ margin-top: 3; margin-bottom: 3;}
+table
+{ margin-top: 0; margin-bottom: 0; font-family: arial; font-size: 9pt; color: #333333; }
+td
+{ margin-top: 0; margin-bottom: 0; font-family: arial; font-size: 9pt; color: #333333; }
+.code1
+{ color: blue; font-size: 9pt; font-family: Courier New; }
+.code1js1
+{ color: #800000; font-size: 9pt; font-family: Courier New; }
+.titulo
+{ font-size: 18pt; font-weight: bold; }
+.subtit
+{ font-size: 18pt; }
+-->
+</style></head>
+
+
+<body><div id="container"><div id="cuerpoizq"><br /><div id="principal">		
+
+		<div class="fondotituloup"><div class="fondotitulodwgris"><h1>Anexo I: Rotinas JS para aplicar aos formulários</h1></div></div>
+		<div id="cajadescripcion">
+			<div id="textodescripcion">
+				<b>Veremos vários exemplos de scripts JavaScript aplicáveis a formulários que aumentarão a funcionalidade deste.</b>
+			</div>
+			<div id="derechadescripcion">
+			Publicado em: <b>16/1/09</b><br />		
+			</div>
+			<div class="nofloat"></div>
+		</div>
+	<div id="HOTWordsTxt" name="HOTWordsTxt" style="position: relative;"><br /><p><b>1. Colocar o foco em um determinado campo ao carregar a página</b></p>
+
+  <p>&nbsp;</p>
+  <div>
+  <p class="code1">&lt;BODY <font color="#800000">onLoad="this.document.ejemplo1.campo1.focus()"</font>&gt;</p>
+  <p class="code1">&nbsp;</p>
+  <p class="code1">&lt;form name="exemplo1" method="GET" action="pagina.htm" target="_blank"&gt;</p>
+  <p class="code1">Escreva seu nome: &lt;input type="text" name="campo1" size="15"&gt; </p>
+  <p class="code1">&lt;input type="submit" value="Enviar"&gt;</p>
+  <p class="code1">&lt;/form&gt;</p>
+  </div>
+  <p>&nbsp;</p>
+  <div>
+  <form name="exemplo1" method="get" action="pagina.htm" target="_blank">
+    <p>Escreva seu nome: <input name="campo1" size="15" type="text" />
+    <input value="Enviar" type="submit" /> </p>
+  </form>
+  </div>
+
+
+  <p>&nbsp;</p>
+
+  <p><b>2. Converte a primeira letra de cada palavra em maiúscula</b></p>
+  <p>&nbsp;</p>
+  
+  <div>
+  <p class="code1js1">&lt;script language="javascript"&gt;<br />
+  function Converter(objeto)  </p>
+  <p class="code1js1">{<br />
+  var index;<br />
+  var tmpStr;<br />
+  var tmpChar;<br />
+  var preString;<br />
+  var postString;<br />
+  var strlen;<br />
+  tmpStr = objeto.value.toLowerCase();<br />
+  strLen = tmpStr.length;<br />
+&nbsp;&nbsp;&nbsp; if (strLen &gt; 0) <br />
+&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp; for (index = 0; index &lt; strLen; index++) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (index == 0) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tmpChar = 
+  tmpStr.substring(0,1).toUpperCase();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; postString = 
+  tmpStr.substring(1,strLen);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tmpStr = 
+  tmpChar + postString;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tmpChar = 
+  tmpStr.substring(index, index+1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  if (tmpChar == " " &amp;&amp; index &lt; (strLen-1)) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  tmpChar = tmpStr.substring(index+1, index+2).toUpperCase();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  preString = tmpStr.substring(0, index+1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  postString = tmpStr.substring(index+2,strLen);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  tmpStr = preString + tmpChar + postString;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  }<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp;&nbsp; }<br />
+  objeto.value = tmpStr;<br />
+  }<br />
+  &lt;/script&gt;</p>
+  <p>&nbsp;</p>
+  <p class="code1">&lt;form name="exemplo2" method="GET" action="pagina.htm" target="_blank"&gt;</p>
+  <p class="code1">Escreva seu nome: &lt;input type="text" name="campo1" size="15" onKeyUp="Converter(this.exemplo2.campo1)"&gt;<br />
+  &lt;input type="submit" value="Enviar"&gt;<br />
+  &lt;/form&gt;</p>
+  </div>
+  <p class="code1">&nbsp;</p>
+  <div>
+    <br />
+    <form name="exemplo2" method="get" action="pagina.htm" target="_blank">
+      <p>
+      Escreva seu nome:
+      <input name="campo1" onkeyup="Converter(this.form.campo1)" size="15" type="text" />
+      <input value="Enviar" type="submit" /> </p>
+    </form>
+  </div>
+
+
+  <p>&nbsp;</p>
+
+  <p><b>3. Converte a primeira letra do texto em maiúsculas </b>(ao enviar o 
+  formulário)</p>
+  
+  <p>&nbsp;</p>
+  <div>
+  <p class="code1js1">&lt;script language="javascript"&gt;<br />
+  function Converter2(form)<br />
+  {<br />
+  texto=form.campo1.value+" ";<br />
+  texto=texto.toLowerCase();<br />
+  texto1="";<br />
+  punc=",.?!:;)'";<br />
+  punc+='"';<br />
+  while ((texto.length&gt;0)&amp;&amp;(texto.indexOf(" ")&gt;-1))<br />
+&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp; pos=texto.indexOf(" ");<br />
+&nbsp;&nbsp;&nbsp; wrd=texto.substring(0,pos);<br />
+&nbsp;&nbsp;&nbsp; wrdpre="";<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (punc.indexOf(wrd.substring(0,1))&gt;-1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wrdpre=wrd.substring(0,1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wrd=wrd.substring(1,wrd.length);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmp=" "+wrd+" ";<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (var i=0;i&lt;9;i++)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; p=wrd.indexOf(punc.substring(i,i+1));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (p==wrd.length-1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmp=" "+wrd.substring(0,wrd.length-1)+" 
+  ";<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i=9;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp;&nbsp; if (cmp.indexOf(cmp)&lt;0)<br />
+&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp; ltr=wrd.substring(0,1);<br />
+&nbsp;&nbsp;&nbsp; ltr=ltr.toUpperCase();<br />
+&nbsp;&nbsp;&nbsp; wrd=ltr+wrd.substring(1,wrd.length);<br />
+&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp;&nbsp; texto1+=wrdpre+wrd+" "; <br />
+&nbsp;&nbsp;&nbsp; texto=texto.substring((pos+1),texto.length);<br />
+&nbsp;&nbsp;&nbsp; }<br />
+  ltr=texto1.substring(0,1);<br />
+  ltr=ltr.toUpperCase();<br />
+  texto1=ltr+texto1.substring(1,texto1.length-1);<br />
+  form.campo1.value=texto1;<br />
+  }<br />
+  &lt;/script&gt;</p>
+  <p class="code1js1">&nbsp;</p>
+  <p class="code1">&lt;form name="exemplo3" method="GET" action="pagina.htm" target="_blank"&gt;<br />
+  Escreva seu nome: &lt;input type="text" name="campo1" size="15"&gt;<br />
+  &lt;input type="button" value="Enviar" onClick="Converter2(this.form)"&gt;<br />
+  &lt;/form&gt;</p>
+  </div>
+  <p>&nbsp;</p>
+  <div>
+<br />
+
+<form name="exemplo3" method="get" action="pagina.htm" target="_blank">
+Escreva seu nome: <input name="campo1" size="15" type="text" />
+<input value="Enviar" onclick="Converter2(this.form)" type="button" />
+</form>
+
+  </div>
+  <p>&nbsp;</p>
+
+
+<p><b>4. Escreve um valor indicado em outra janela, no formulário aberto</b></p>
+
+  <p>&nbsp;</p>
+  <div>
+    <u>Formulário da página atual</u><p class="code1">&lt;form name="exemplo8" method="GET" action="pagina.htm" target="_blank"&gt;</p>
+    <p class="code1">Por favor, introduz o código correspondente à cor</p>
+    <p class="code1">Código cor: &lt;input type="text" name="campo1" size="7"&gt;
+    </p>
+    <p class="code1"><font color="#800000">&lt;a onClick="window.open('exemplos/<b>paleta.htm</b>',null,'widht=150,height=100')" 
+    style="cursor: hand"&gt;</font>Ver 
+    Paleta&lt;/a&gt;</p>
+    <p class="code1">&lt;input type="submit" value="Enviar"&gt;<br />
+  &lt;/form&gt;</p>
+    <p>&nbsp;</p>
+    <p><u>Paleta de cores (paleta.htm)</u></p>
+    <p class="code1">&lt;form name="cores"&gt;</p>
+    <p class="code1">&lt;input type="radio" name="color" value="#800000" 
+    <font color="#800000">onClick="opener.document.exemplo8.campo1.value=cores.color[0].value"</font>&gt;&lt;font 
+    color="#800000"&gt;marrom&lt;/font&gt;</p>
+    <p class="code1">&lt;br&gt;</p>
+    <p class="code1">&lt;input type="radio" name="color" value="#FF00FF" 
+    <font color="#800000">onClick="opener.document.exemplo8.campo1.value=cores.color[1].value"</font>&gt;&lt;font 
+    color="#FF00FF"&gt;roxo&lt;/font&gt;</p>
+    <p class="code1">&lt;br&gt;<br />
+    &lt;a href="javascript:window.close()"&gt;&lt;b&gt;x fechar janela&lt;/b&gt;&lt;/a&gt;<br />
+    &lt;/form&gt;</p></div>
+  <p>&nbsp;</p>
+    <div>
+        <form name="exemplo8" method="get" action="pagina.htm" target="_blank">
+Por favor, introduza o código correspondente à cor
+      <p>Código cor: <input name="campo1" size="7" type="text" />
+      <a onclick="window.open('exemplos/paleta.htm',null,'widht=150,height=100')" style="">Ver Paleta</a></p>
+      <p><input value="Enviar" type="submit" />  
+
+    </p></form></div>
+  <p>&nbsp;</p>
+
+
+  <p><b>5. Comprova que o valor ingressado em dois campos não seja o mesmo</b></p>
+  
+  <p>&nbsp;</p>
+    <div>
+  <p class="code1js1">&lt;script languaje="javascritp"&gt;</p>
+  <p class="code1js1">function validarCampos1(form)</p>
+  <p class="code1js1">{</p>
+  <p class="code1js1">&nbsp;&nbsp;&nbsp; if(form.campo1.value == form.campo2.value)</p>
+  <p class="code1js1">&nbsp;&nbsp;&nbsp; {</p>
+  <p class="code1js1">&nbsp;&nbsp;&nbsp; alert("A senha não pode ser igual 
+  ao nome de usuário");</p>
+  <p class="code1js1">&nbsp;&nbsp;&nbsp; form.campo2.value = ""; form.campo2.focus(); 
+  return true;</p>
+  <p class="code1js1">&nbsp;&nbsp;&nbsp; }</p>
+  <p class="code1js1">form.submit()</p>
+  <p class="code1js1">}</p>
+  <p class="code1js1">&lt;/script&gt;</p>
+  <p>&nbsp;</p>
+  <p class="code1">&lt;form name="exemplo9" method="POST" action="pagina.htm" target="_blank"&gt;</p>
+  <p class="code1">Usuário: &lt;input type="text" name="campo1"&gt;&lt;br&gt;</p>
+  <p class="code1">Senha: &lt;input type="password" name="campo2"&gt;&lt;br&gt;</p>
+  <p class="code1">&lt;input type="button" value="Registrar-se" onClick="validarCampos1(this.form)"&gt;</p>
+  <p class="code1">&lt;/form&gt;</p>
+    </div>
+  <p>&nbsp;</p>
+    <br />
+    <div>
+      <form name="exemplo9" method="post" action="pagina.htm" target="_blank">
+        <p>Usuário: <input name="campo1" size="20" type="text" /><br />
+        Senha: <input name="campo2" size="20" type="password" /><br />
+        <input value="Registrar-se" onclick="validarCampos1(this.form)" type="button" />
+        </p>
+      </form>
+    </div>
+
+  <p>&nbsp;</p>
+  <p><b>6. Comprova que o valor ingressado em dois campos seja igual</b></p>
+  
+  <p>&nbsp;</p>
+  <div>
+  <p class="code1js1">&lt;script languaje="javascritp"&gt;</p>
+  <p class="code1js1">function validarCampos2(form)</p>
+  <p class="code1js1">{</p>
+  <p class="code1js1">&nbsp;&nbsp;&nbsp; if(form.campo2.value == form.campo1.value)</p>
+  <p class="code1js1">&nbsp;&nbsp;&nbsp; { form.submit(); }</p>
+  <p class="code1js1">&nbsp;&nbsp;&nbsp; else</p>
+  <p class="code1js1">&nbsp;&nbsp;&nbsp; {</p>
+  <p class="code1js1">&nbsp;&nbsp;&nbsp; alert("A repetição da senha não 
+  coincide.");</p>
+  <p class="code1js1">&nbsp;&nbsp;&nbsp; form.campo2.value = ""; form.campo2.focus(); 
+  return true;</p>
+  <p class="code1js1">&nbsp;&nbsp;&nbsp; }</p>
+  <p class="code1js1">}</p>
+  <p class="code1js1">&lt;/script&gt;</p>
+  <p>&nbsp;</p>
+  <p class="code1">&lt;form name="exemplo10" method="POST" action="pagina.htm" target="_blank"&gt;</p>
+  <p class="code1">Senha: &lt;input type="password" name="campo1"&gt;&lt;br&gt;</p>
+  <p class="code1">Repetir senha: &lt;input type="password" name="campo2"&gt;&lt;br&gt;</p>
+  <p class="code1">&lt;input type="button" value="Registrar-se" onClick="validarCampos2(this.form)"&gt;</p>
+  <p class="code1">&lt;/form&gt;</p>
+  </div>
+  <p class="code1">&nbsp;</p>
+    <br />
+    <div>
+    <form name="exemplo10" method="post" action="pagina.htm" target="_blank">
+      <p>Senha: <input name="campo1" size="20" type="password" /><br />
+      Repetir senha: <input name="campo2" size="20" type="password" /><br />
+      <input value="Registrar-se" onclick="validarCampos2(this.form)" type="button" />
+      </p>
+    </form>
+  </div>
+  <p class="code1">&nbsp;</p>
+  
+
+<p><b>7. Permite selecionar só uma determinada quantidade de checkbox do 
+mesmo nome</b></p>
+  
+
+<p>&nbsp;</p>
+    <div>
+
+<p class="code1js1">&lt;script language="javascript"&gt;<br />
+function limitarSelecção(campo,form) </p>
+
+<p class="code1js1">{<br />
+a = campo.form.campo1[0].checked;<br />
+b = campo.form.campo1[1].checked;</p>
+      <p class="code1js1">c = campo.form.campo1[2].checked;</p>
+      <p class="code1js1">d = campo.form.campo1[3].checked;</p>
+
+<p class="code1js1">e = campo.form.campo1[4].checked;</p>
+
+<p class="code1js1"><br />
+contador = (a ? 1 : 0) + (b ? 1 : 0) + (c ? 1 : 0) + (d ? 1 : 0) + (e ? 1 : 0);<br />
+<br />
+&nbsp;&nbsp;&nbsp; if (contador &gt; <b>3</b>) </p>
+
+<p class="code1js1">&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp; alert("Só pode selecionar 3 opções");<br />
+&nbsp;&nbsp;&nbsp; campo.checked = false;<br />
+&nbsp;&nbsp;&nbsp; }<br />
+}<br />
+&lt;/script&gt;</p>
+
+<p>&nbsp;</p>
+
+<p class="code1">&lt;form name="exemplo11" method="GET" action="pagina.htm" target="_blank"&gt;</p>
+
+<p class="code1">Por favor, selecione 3 opções como máximo:&lt;br&gt;</p>
+
+<p class="code1">&lt;input type="checkbox" name="campo1" value="Opcao 1" onClick="limitarSeleção(this,this.form)"&gt;Opção 
+1&lt;br&gt;</p>
+
+<p class="code1">&lt;input type="checkbox" name="campo1"&nbsp; value="Opcao 2" 
+onClick="limitarSeleção(this,this.form)"&gt;Opção 2&lt;br&gt;</p>
+
+<p class="code1">&lt;input type="checkbox" name="campo1"&nbsp; value="Opcao 3" 
+onClick="limitarSeleção(this,this.form)"&gt;Opção 3&lt;br&gt;</p>
+
+<p class="code1">&lt;input type="checkbox" name="campo1"&nbsp; value="Opcao 4" 
+onClick="limitarSeleção(this,this.form)"&gt;Opção 4&lt;br&gt;</p>
+
+<p class="code1">&lt;input type="checkbox" name="campo1"&nbsp; value="Opcao 5" 
+onClick="limitarSeleção(this,this.form)"&gt;Opção 5&lt;br&gt;</p>
+
+<p class="code1">&lt;input type="submit" value="Enviar"&gt;</p>
+
+<p class="code1">&lt;/form&gt;</p>
+    </div>
+
+<p>&nbsp;</p>
+
+<br />
+<div>
+  <form name="exemplo11" method="get" action="pagina.htm" target="_blank">
+    <p>Por favor, selecione 3 opções como máximo:<br />
+    <input name="campo1" value="Opcao 1" onclick="limitarSeleção(this,this.form)" type="checkbox" />Opção 
+    1<br />
+    <input name="campo1" value="Opcao 2" onclick="limitarSeleção(this,this.form)" type="checkbox" />Opção 
+    2<br />
+    <input name="campo1" value="Opcao 3" onclick="limitarSeleção(this,this.form)" type="checkbox" />Opção 
+    3<br />
+    <input name="campo1" value="Opcao 4" onclick="limitarSeleção(this,this.form)" type="checkbox" />Opção 
+    4<br />
+    <input name="campo1" value="Opcao 5" onclick="limitarSeleção(this,this.form)" type="checkbox" />Opção 
+    5<br />
+    <input value="Enviar" type="submit" /> </p>
+  </form>
+</div>
+
+<p>&nbsp;</p>
+
+  
+
+<p><b>8. Seleciona todos os checkbox com um só clique ou desmarca a seleção</b></p>
+
+
+
+<p>&nbsp;</p>
+
+<div>
+
+<p class="code1js1">&lt;script language="javascript"&gt;<br />
+function todos(form) <br />
+{<br />
+&nbsp;&nbsp;&nbsp; for (i = 0; i &lt; form.campo1.length; i++)<br />
+&nbsp;&nbsp;&nbsp; form.campo1[i].checked = true;<br />
+&nbsp;&nbsp;&nbsp; form.desmarcatodos.checked = false;<br />
+}<br />
+<br />
+function ninguno(form) <br />
+{<br />
+&nbsp;&nbsp;&nbsp; for (i = 0; i &lt; form.campo1.length; i++)<br />
+&nbsp;&nbsp;&nbsp; form.campo1[i].checked = false;<br />
+&nbsp;&nbsp;&nbsp; form.marcatodos.checked = false;<br />
+}<br />
+&lt;/script&gt;</p>
+
+<p>&nbsp;</p>
+
+  <p class="code1">&lt;form name="exemplo12" method="GET" action="pagina.htm" target="_blank"&gt;</p>
+  <p class="code1">&lt;input type="checkbox" name="marcatodos" onClick="todos(this.form)"&gt;Marcar 
+  todos | </p>
+  <p class="code1">&lt;input type="checkbox" name="desmarcatodos" onClick="ninguno(this.form)"&gt;Desmarcar 
+  todos</p>
+  <p class="code1">&lt;hr&gt;</p>
+  <p class="code1">&lt;input type="checkbox" name="campo1" value="Opcao 1"&gt;Opção 1&lt;br&gt;<br />
+  &lt;input type="checkbox" name="campo1" value="Opcao 2"&gt;Opção 2&lt;br&gt;<br />
+  &lt;input type="checkbox" name="campo1" value="Opcao 3"&gt;Opção 3&lt;br&gt;<br />
+  &lt;input type="checkbox" name="campo1" value="Opcao 4"&gt;Opção 4&lt;br&gt;<br />
+  &lt;input type="checkbox" name="campo1" value="Opcao 5"&gt;Opção 5&lt;br&gt;</p>
+  <p class="code1">&lt;hr&gt;</p>
+  <p class="code1">&lt;input type="submit" value="Enviar"&gt;<br />
+  &lt;/form&gt;</p>
+  </div>
+  <br />
+  <div>
+    <br />
+    <form name="exemplo12" method="get" action="pagina.htm" target="_blank">
+      <p>
+      <input name="marcatodos" onclick="todos(this.form)" value="ON" type="checkbox" />Marcar 
+      todos |
+      <input name="desmarcatodos" onclick="nenhum(this.form)" value="ON" type="checkbox" />Desmarcar 
+      todos </p>
+      <hr />
+      <p><input name="campo1" value="Opcao 1" type="checkbox" />Opção 1<br />
+      <input name="campo1" value="Opcao 2" type="checkbox" />Opção 2<br />
+      <input name="campo1" value="Opcao 3" type="checkbox" />Opção 3<br />
+      <input name="campo1" value="Opcao 4" type="checkbox" />Opção 4<br />
+      <input name="campo1" value="Opcao 5" type="checkbox" />Opção 5<br />
+      </p>
+      <hr />
+      <p><input value="Enviar" type="submit" /> </p>
+    </form>
+</div>
+  
+
+<p>&nbsp;</p>
+
+<p><b>9. Seleciona todos os checkbox com um só clique ou desmarca a seleção ou inverte a seleção</b></p>
+
+  <p>&nbsp;</p>
+
+
+
+<div>
+
+<p class="code1js1">&lt;script language="javascript"&gt;<br />
+function todos2(form) <br />
+{<br />
+&nbsp;&nbsp;&nbsp; for (i = 0; i &lt; form.campo1.length; i++)<br />
+&nbsp;&nbsp;&nbsp; form.campo1[i].checked = true;<br />
+&nbsp;&nbsp;&nbsp; form.desmarcatodos.checked = false;</p>
+
+<p class="code1js1">&nbsp;&nbsp;&nbsp; form.inverte.checked = false;</p>
+
+<p class="code1js1">}<br />
+<br />
+function nenhum2(form) <br />
+{<br />
+&nbsp;&nbsp;&nbsp; for (i = 0; i &lt; form.campo1.length; i++)<br />
+&nbsp;&nbsp;&nbsp; form.campo1[i].checked = false;<br />
+&nbsp;&nbsp;&nbsp; form.marcatodos.checked = false;</p>
+
+<p class="code1js1">&nbsp;&nbsp;&nbsp; form.inverte.checked = false;</p>
+
+<p class="code1js1">}</p>
+
+<p class="code1js1">&nbsp;</p>
+
+<p class="code1js1">function inverter(form) <br />
+{<br />
+&nbsp;&nbsp;&nbsp; for (i = 0; i &lt; form.campo1.length; i++)<br />
+&nbsp;&nbsp;&nbsp; form.casilla1[i].checked = !form.campo1[i].checked;<br />
+&nbsp;&nbsp;&nbsp; form.marcatodos.checked = false;</p>
+
+<p class="code1js1">&nbsp;&nbsp;&nbsp; form.desmarcatodos.checked = false;</p>
+
+<p class="code1js1">}<br />
+&lt;/script&gt;</p>
+
+<p>&nbsp;</p>
+
+  <p class="code1">&lt;form name="exemplo13" method="GET" action="pagina.htm" target="_blank"&gt;</p>
+  <p class="code1">&lt;input type="checkbox" name="marcatodos" onClick="todos(this.form)"&gt;Marcar 
+  todos | </p>
+  <p class="code1">&lt;input type="checkbox" name="desmarcatodos" onClick="nenhum(this.form)"&gt;Desmarcar 
+  todos | </p>
+  <p class="code1">&lt;input type="checkbox" name="inverte" onClick="inverter(this.form)"&gt;Inverter 
+  seleção</p>
+  <p class="code1">&lt;hr&gt;</p>
+  <p class="code1">&lt;input type="checkbox" name="campo1" value="Opcao 1"&gt;Opção 1&lt;br&gt;<br />
+  &lt;input type="checkbox" name="campo1" value="Opcao 2"&gt;Opção 2&lt;br&gt;<br />
+  &lt;input type="checkbox" name="campo1" value="Opcao 3"&gt;Opção 3&lt;br&gt;<br />
+  &lt;input type="checkbox" name="campo1" value="Opcao 4"&gt;Opção 4&lt;br&gt;<br />
+  &lt;input type="checkbox" name="campo1" value="Opcao 5"&gt;Opção 5&lt;br&gt;</p>
+  <p class="code1">&lt;hr&gt;</p>
+  <p class="code1">&lt;input type="submit" value="Enviar"&gt;<br />
+  &lt;/form&gt;</p>
+  </div>
+
+  <p align="justify">&nbsp;</p>
+
+  <br />
+<div>
+  <form name="exemplo13" method="get" action="pagina.htm" target="_blank">
+    <p>
+    <input name="marcatodos" onclick="todos(this.form)" value="ON" type="checkbox" />Marcar 
+    todos |
+    <input name="desmarcatodos" onclick="nenhum(this.form)" value="ON" type="checkbox" />Desmarcar 
+    todos |
+    <input name="invierte" onclick="inverter(this.form)" value="ON" type="checkbox" />Inverter 
+    seleção </p>
+    <hr />
+    <p><input name="campo1" value="Opcao 1" type="checkbox" />Opção 1<br />
+    <input name="campo1" value="Opcao 2" type="checkbox" />Opção 2<br />
+    <input name="campo1" value="Opcao 3" type="checkbox" />Opção 3<br />
+    <input name="campo1" value="Opcao 4" type="checkbox" />Opção 4<br />
+    <input name="campo1" value="Opcao 5" type="checkbox" />Opção 5<br />
+    </p>
+    <hr />
+    <p><input value="Enviar" type="submit" /> </p>
+  </form>
+</div>
+  
+
+  <p align="justify">&nbsp;</p>
+
+  <p align="justify"><b>10. Conta a quantidade de checkbox ou radio que há selecionados</b></p>
+
+  <p align="justify">&nbsp;</p>
+  
+
+  <div>
+
+  <p class="code1js1" align="justify">&lt;script languaje="javascript"&gt;</p>
+
+  <p class="code1js1" align="justify">function ContarCampos(form)</p>
+
+  <p class="code1js1" align="justify">{</p>
+
+  <p class="code1js1" align="justify">var total = 0;</p>
+
+  <p class="code1js1" align="justify">var maximo = form.campo1.length;</p>
+
+  <p class="code1js1" align="justify">&nbsp;</p>
+
+  <p class="code1js1" align="justify">&nbsp;&nbsp;&nbsp; for(i = 0; i &lt; maximo; i++)</p>
+
+  <p class="code1js1" align="justify">&nbsp;&nbsp;&nbsp; if (form.campo1[i].checked == true)</p>
+
+  <p class="code1js1" align="justify">&nbsp;&nbsp;&nbsp; { total +=1; }</p>
+
+  <p class="code1js1" align="justify">&nbsp;</p>
+
+  <p class="code1js1" align="justify">alert("Selecionaram " + total + " opções")</p>
+
+  <p class="code1js1" align="justify">}</p>
+
+  <p class="code1js1" align="justify">&lt;/script&gt;</p>
+
+  <p align="justify">&nbsp;</p>
+
+  <p class="code1" align="justify">&lt;form name="exemplo14" method="GET" action="pagina.htm" target="_blank"&gt;</p>
+
+  <p class="code1" align="justify">&lt;input type="checkbox" name="campo1" value="Vermelho"&gt;Vermelho&lt;br&gt;</p>
+
+  <p class="code1" align="justify">&lt;input type="checkbox" name="campo1" value="Azul"&gt;Azul&lt;br&gt;</p>
+
+  <p class="code1" align="justify">&lt;input type="checkbox" name="campo1" value="Amarelo"&gt;Amarelo&lt;br&gt;</p>
+
+  <p class="code1" align="justify">&lt;input type="checkbox" name="campo1" value="Verde"&gt;Verde&lt;br&gt;</p>
+
+  <p class="code1" align="justify">&lt;input type="button" value="Contar campos" onClick="ContarCampos(this.form)"&gt;</p>
+
+  <p class="code1" align="justify">&lt;/form&gt;</p>
+
+  </div>
+
+  <p>&nbsp;</p>
+  <br />
+  <div>
+    <form name="exemplo14" method="get" action="pagina.htm" target="_blank">
+      <p><input name="campo1" value="Vermelho" type="checkbox" />Vermelho<br />
+      <input name="campo1" value="Azul" type="checkbox" />Azul<br />
+      <input name="campo1" value="Amarelo" type="checkbox" />Amarelo<br />
+      <input name="campo1" value="Verde" type="checkbox" />Verde<br />
+      <input value="Contar campos" onclick="ContarCampos(this.form)" type="button" />
+      </p>
+    </form>
+  </div>
+  
+  <p>&nbsp;</p></div><div><span class="fuente8">Informe de  <a href="../contato/contacta.php?destinatario=30"><b>Eugenia Bahit</b></a><br />URL: <a href="http://www.cmzk.com.ar"><b>http://www.cmzk.com.ar</b></a><br /></span>	</div>
+	<br style="clear: both;" /><br />
+	
+	
+	
+	<div class="caja730verdetitulo">Manual: <a href="../formularios-javascript">Formulários e Javascript</a></div><div class="caja730verdecuerpo"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td class="siganterior" width="1"><a href="../artigos/enviar-formulario-ao-clicar-link-javascript.html"><img src="../images/atras.png" border="0" /></a></td><td class="siganterior" width="50%"><a href="../artigos/enviar-formulario-ao-clicar-link-javascript.html">Enviar um formulário ao clicar um link, com Javascript</a></td><td width="8"></td><td width="50%"></td></tr></tbody></table></div></div></div></div><br />
+	</body></html>

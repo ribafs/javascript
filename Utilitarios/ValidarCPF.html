@@ -1,0 +1,82 @@
+<html>
+<head><title>Adaptação de Ribamar FS</title><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+<body bgcolor="#0066FF" onload="cadastro.CPFCGC.focus()">
+
+<font color="#FFFFFF">
+<center>
+<h1>Adaptação de Ribamar FS</h1>
+<br>
+<font face="Arial" size="5">
+<strong>Gerador de Digito Verificador do CPF</strong></font><br>
+<br>
+<b>Digite apenas os primeiros 9 dígitos do CPF, sem pontos<br>
+</font>
+<form method="GET" name="cadastro">
+<table><tr><td>
+     <font color="#FFFFFF">
+     <input type="text" name="CPFCGC" size="10" maxlength=9 onkeyup="if(this.value.length==9) valida()">
+     </font></td><td>
+       <font color="#FFFFFF">
+       <input type="text" name="dv" size="2" maxlength="2" readonly>
+       </font></td></tr>
+<tr>
+</table>  
+  </form>
+<font color="#FFFFFF"><br>
+<script language="JavaScript">
+document.cadastro.CPFCGC.value = "";
+document.cadastro.dv.value = "";
+
+function valida()  {
+  CPFCGC = document.cadastro.CPFCGC.value;
+  document.cadastro.dv.value = "";
+// rotina para retirar caracteres nao-numericos do CPFCGC
+  temp = 0
+  potencia = 1
+  for (var i=CPFCGC.length-1;i>=0; i--) {
+    if ( parseInt(CPFCGC.substring(i,i+1),10) == CPFCGC.substring(i,i+1) ) {
+      temp = temp + parseInt(CPFCGC.substring(i,i+1),10)* potencia
+	  potencia = potencia *10
+      }
+    }
+  	CPFCGC = temp + "";
+
+  if (CPFCGC.length == 9) {
+// rotina para testar CPF
+    somacpf = 0;
+    for (var i = 0; i<9; i++) { 
+      somacpf = somacpf + CPFCGC.substring(i,i+1)*(10-i) 
+	  }
+    cpfdv = 11 - (somacpf % 11)
+    if ( cpfdv == 10 ) { 
+      cpfdv = 0 
+      }
+    somacpf = 0;
+    for (var i = 0; i<9; i++) {
+      somacpf = somacpf + CPFCGC.substring(i,i+1)*(11-i)
+      }
+    somacpf = somacpf + cpfdv * 2;
+    cpfdv2 = 11 - (somacpf%11)
+    if ( cpfdv2 == 10 ) { 
+      cpfdv2 = 0 
+	  }
+    cpfdv = ( cpfdv * 10 ) + cpfdv2
+    document.cadastro.dv.value = cpfdv
+	}
+return false;
+}
+function isNumber(text) {
+
+ for (var i = 0; i <= text.length-1; i++) {
+    if (isNaN(parseInt(text.substring(i,i+1)))) {
+        return (false); 
+   }
+ }
+ return (true);
+}
+//}
+</script>
+
+</font>
+</body>
+</html>

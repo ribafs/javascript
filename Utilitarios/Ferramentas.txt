@@ -1,0 +1,49 @@
+NetBeans 8.2
+https://netbeans.org/downloads/8.2/
+JDK - https://www.oracle.com/technetwork/java/javase/downloads/jdk12-downloads-5295953.html
+
+Eclipse para PHP
+https://www.eclipse.org/pdt/
+
+VSCode
+http://code.visualstudio.com
+
+NotePad ++
+http://notepad-plus-plus.org
+
+Sublime
+https://www.sublimetext.com/
+
+WebMaker
+https://webmakerapp.com/app/
+
+Google Chrome
+https://www.google.com.br/chrome/
+
+Opera
+https://www.opera.com/pt-br
+
+Extensões para o navegador Firefox
+Inspetor
+ColorZilla
+MeasureIt
+TeXZilla
+WebDeveloper
+
+Ferramentas para desenvolvedor no Firefox
+Existem semelhantes em outros navegadores
+
+Ferramentas - Web Developer
+- Inspetor - Ctrl+Shift+C
+- Web console - Ctrl+Shift+K
+- Style editor - Shift+F7
+- Scratchpad
+- Código fonte da página - Ctrl+U
+Entre outras
+
+Extra - Text To Speech
+http://www.voicerss.org/
+
+Scratch for Windows offline
+https://scratch.mit.edu/download
+Online - https://scratch.mit.edu

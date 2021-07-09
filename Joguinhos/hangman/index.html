@@ -1,0 +1,173 @@
+<!--
+//========================================================================
+//   "WebHangman"  JavaScript Hangman  
+//
+//   Copyright (C) 2000,2001  Jan Mulder
+//
+//   This program is free software; you can redistribute it and/or modify
+//   it under the terms of the GNU General Public License as published by
+//   the Free Software Foundation; either version 2 of the License, or
+//   (at your option) any later version, and as long as this notice is
+//   kept unmodified at the top of the script source code.
+//
+//   This program is distributed in the hope that it will be useful,
+//   but WITHOUT ANY WARRANTY; without even the implied warranty of
+//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//   GNU General Public License (license.txt) for more details.
+//
+//   To contact me visit: http://janmulder.com/contact/
+//
+//=======================================================================
+-->
+<html>
+<head>
+<title>RibaFS Portal - Javascript Hangman Example</title>
+<!--
+Hangman Script by Jan Mulder.
+For help or feedback contact: info@EnglishCafe.co.uk
+
+This script is free. You may use it as-is or modify it to suit your needs.
+Please put an acknowledgement to me (see above) somewhere in the head section
+of your page source. Some visible acknowledgement, while not necessary, is
+customary and would be nice.
+
+This script has been written from the ground up so
+DO NOT COPY IT AND PASS IT OFF AS YOUR OWN.
+-->
+
+<!--
+Below you is the hangman data.
+
+"sourceDir" is the location of the hangman script (and images) relative to this file.
+I usually put them in a subfolder called "hangman". You can also place them in the
+same folder as this file. "sourceDir" would then be nothing. You will need to
+include the line:
+
+var sourceDir = "";
+
+"words" is an array of word pairs used in the game. The first word is the actual
+word to guess. The second is an optional hint. This can be a word or phrase.
+If you don't want to use hints you just leave this field with an empty string.
+
+For example:
+
+var words = new Array(
+ "word1", "",
+ "word2", "",
+ "word3", ""
+);
+
+Notice that the last item in the array is NOT followed by a comma. This is standard
+JavaScript and if you put it there it will crash.
+-->
+
+<SCRIPT language="JavaScript">
+var sourceDir = "hangman/";
+
+var words = new Array(
+ "TABLE","Dining room",
+ "CHAIR","Goes with table",
+ "COOKER","In the kitchen",
+ "DISHWASHER","In the kitchen",
+ "SINK","For washing",
+ "WASHING MACHINE","For your clothes",
+ "TELEPHONE","Electronic",
+ "RECORD PLAYER","Electronic",
+ "TUNER","Part of your HI-FI",
+ "AMPLIFIER","Part of your HI FI",
+ "COMPUTER","Electronic",
+ "BOOKSHELF","In the livingroom",
+ "ARMCHAIR","In the livingroom",
+ "CARPET","You walk on it",
+ "SCANNER","Electronic",
+ "TELEVISION","Electronic",
+ "IRONING BOARD","For your clothes",
+ "RADIATOR","For comfort",
+ "BLANKET","Keeps you warm",
+ "COFFEE MAKER","For drinks",
+ "KETTLE","For drinks",
+ "KNIFE","In the kitchen",
+ "FORK","In the kitchen",
+ "SPOON","In the kitchen",
+ "Curtain","For privacy",
+ "shower","Keeps you clean",
+ "BATH","Nice and warm"
+);
+</SCRIPT>
+
+
+<!--
+Now we include the script file "hangman.js"
+This must be done AFTER the words data has been defined. (see above)
+-->
+<SCRIPT SRC="hangman/hangman.js"></SCRIPT>
+
+<!--
+The rest is straightforward.
+Some in the page you must call the following functions:
+drawHangman();   - this draws the hangman picture
+drawControl();   - this draws the control panel with letters
+drawAnswer();    - this draws the answer display
+drawHint();      - this draws the hint button and display. (optional)
+
+You can choose the layout and design of your page because you can call the
+functions anywhere in the page.
+-->
+
+</HEAD>
+<BODY bgcolor="#FFFFF0" LINK="blue" VLINK="blue">
+<p>
+<b>RibaFS Portal - JavaScript Hangman Example - Household items</b> - by Jan Mulder.<br>
+<i>Click on the letters and guess the words.<br>
+A hint will cost you one guess!</i>
+<br>
+<br>
+
+<table cellpadding=10>
+<tr>
+<td align="center">
+
+<table border=0 bgcolor="#FFFFF0" cellpadding=10>
+<tr><td>
+
+<SCRIPT language=JavaScript>
+  drawHangman();
+</SCRIPT>
+
+<BR><BR>
+</td></tr>
+</table>
+</td>
+<td>
+<BR>
+
+<SCRIPT language=JavaScript>
+ drawControl();
+</SCRIPT>
+
+<BR><BR><BR>
+
+<SCRIPT language=JavaScript>
+  drawAnswer();
+</SCRIPT>
+
+<br>
+
+<SCRIPT language=JavaScript>
+  drawHint();
+</SCRIPT>
+
+</TD>
+</TR>
+</TABLE>
+
+<BR><BR>
+<A HREF="http://JanMulder.co.uk/download/webhangman.zip">Download this game...</A>
+
+<BR><BR>
+<p><SMALL>
+Contact: http://janmulder.com/contact/
+</SMALL>
+
+</body>
+</html>

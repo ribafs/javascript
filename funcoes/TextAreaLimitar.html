@@ -1,0 +1,90 @@
+LIMITAR UMA TEXTAREA 
+  
+
+<html> 
+<head> 
+<title>formularios - javascript y textarea - ejemplo 1</title> 
+<script language="JavaScript" type="text/javascript"> 
+
+<!-- Begin 
+function checkchars(form) { 
+var max=15; 
+if (form.chars.value.length > max) { 
+alert("No puede entrar mas de 15 caracteres.  PPor favor, entre de nuevo el texto."); 
+return false; 
+   } 
+else return true; 
+} 
+// End --> 
+</script> 
+
+</head> 
+
+<body bgcolor="#ffff99"> 
+  
+
+</body> 
+</html> 
+  
+
+Outra: 
+  
+<HTML> 
+  
+<HEAD> 
+  
+<TITLE></TITLE> 
+  
+</HEAD> 
+  
+<BODY> 
+  
+<table> 
+  
+<tr> 
+  
+<td> 
+  
+<textarea onkeyup="max(this)" onkeypress="max(this)" rows="2" cols="35" name="Area"></textarea><br> 
+  
+<font id=Digitado color=red>0</font> Caracteres digitados &nbsp; / &nbsp; restam <font id=Restante color=red>100</font> 
+  
+</td> 
+  
+</tr> 
+  
+</table> 
+  
+  
+<SCRIPT LANGUAGE=javascript> 
+  
+function max(txarea) 
+  
+{ 
+  
+total = 100; 
+  
+tam = txarea.value.length; 
+  
+str=""; 
+  
+str=str+tam; 
+  
+Digitado.innerHTML = str; 
+  
+Restante.innerHTML = total - str; 
+  
+  
+if (tam > total){ 
+  
+aux = txarea.value; 
+  
+txarea.value = aux.substring(0,total); 
+  
+Digitado.innerHTML = total 
+  
+Restante.innerHTML = 0 
+} 
+} 
+</SCRIPT> 
+</BODY></HTML>

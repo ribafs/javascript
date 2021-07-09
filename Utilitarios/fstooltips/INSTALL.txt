@@ -1,0 +1,26 @@
+To install FSTooltips simply:
+
+
+1. Copy the following files into the same directory as your HTML files:
+
+fstooltips.css  (dictates what the tooltip will look like)
+fstooltips.js   (tooltip script)
+fstooltips.png  (tooltip icon)
+
+
+
+2. Copy the following lines into the head of your HTML page:
+
+<link rel="stylesheet" type="text/css" href="fstooltips.css">
+<SCRIPT language="JavaScript" type="text/javascript" src="fstooltips.js"></SCRIPT>
+
+
+
+3. Use tags similar to the following in the body of your HTML page to call the script
+
+<a href="index.html" onmouseover="tooltip('FSTooltips','FSTooltips Example 1','Working on Links');" onmouseout="exit();">FSTooltips</A>
+
+<img src="anyimage.jpg" border=0 onmouseover="tooltip('FSTooltips','FSTooltips Example 2','Working on Images');" onmouseout="exit();">
+
+
+http://www.fusionscriptz.com/fstooltips/index.php

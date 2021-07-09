@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teste seus Reflexos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<center>
+<h1 class="text-primary">RibaFS - Joguinhos em Javascript</h1>
+<h2 class="text-success">Teste seus Reflexos!</h2>
+<b class="text-danger">Clique em "Iniciar" primeiro, e aguarde até que a cor do fundo mude. O mais rápido que conseguir clique em "Parar" para ser avaliado.</b>
+<br><br>
+<script language="JavaScript">
+<!--
+
+//Reflext Tester- By Andy Scott (based on script by Jasper van Zandbeek)
+//http://www.geocities.com/SiliconValley/Station/4320/
+//Submitted to Dynamic Drive for inclusion
+//Visit http://www.dynamicdrive.com for this script
+
+var startTime=new Date();
+var endTime=new Date();
+var startPressed=false;
+var bgChangeStarted=false;
+var maxWait=20;
+var timerID;
+
+
+var colors=new Array("tomato","chocolate","limegreen","crimson","darkslategray",
+"aliceblue","mediumslateblue","cornflowerblue","darkorchid","darkkhaki","coral",
+"darkolivegreen","cadetblue")
+
+if (document.all||document.getElementById)
+document.write('<div id="reflex" style="width:135px;height:135px;border:1px solid black" onClick="stopTest()"></div>')
+
+function startTest()
+{
+        if (document.all)
+        document.all.reflex.style.backgroundColor=colors[Math.floor(Math.random()*colors.length)];
+        else if (document.getElementById)
+	document.getElementById("reflex").style.backgroundColor=colors[Math.floor(Math.random()*colors.length)];
+        else if (document.layers)
+        document.reflexns.document.reflexns_sub.document.bgColor=colors[Math.floor(Math.random()*colors.length)];
+	bgChangeStarted=true;
+	startTime=new Date();
+}
+
+function remark(responseTime)
+{
+	var responseString="";
+	if (responseTime < 0.10)
+		responseString="Muito bom!";
+	if (responseTime >= 0.10 && responseTime < 0.20)
+		responseString="Legal!";
+	if (responseTime >=0.20 && responseTime < 0.30)
+		responseString="Pode melhorar...";
+	if (responseTime >=0.30 && responseTime < 0.60)
+		responseString="Continue praticando!";
+	if (responseTime >=0.60 && responseTime < 1)
+		responseString="Muito lento!";
+	if (responseTime >=1)
+		responseString="Quase parando!";
+
+	return responseString;
+}
+
+function stopTest()
+{
+	if(bgChangeStarted)
+	{
+		endTime=new Date();
+		var responseTime=(endTime.getTime()-startTime.getTime())/1000;
+                if (document.all)
+		document.all.reflex.style.backgroundColor="white";
+                else if (document.getElementById)
+		document.getElementById("reflex").style.backgroundColor="white";
+                else if (document.layers)
+                document.reflexns.document.reflexns_sub.document.bgColor="white";      
+		alert("Seu tempo de resposta é: " + responseTime + " segundos " + "\n" + remark(responseTime));
+		startPressed=false;
+		bgChangeStarted=false;
+	}
+	else
+	{
+		if (!startPressed)
+		{
+			alert("press start first to start test");
+		}
+		else
+		{       
+			clearTimeout(timerID);
+			startPressed=false;             
+			alert("cheater! you pressed too early!");
+		}               
+	}
+}
+
+var randMULTIPLIER=0x015a4e35;
+var randINCREMENT=1;
+var today=new Date();
+var randSeed=today.getSeconds();
+function randNumber()
+{
+	randSeed = (randMULTIPLIER * randSeed + randINCREMENT) % (1 << 31);
+	return((randSeed >> 15) & 0x7fff) / 32767;
+}
+
+function startit()
+{
+	if(startPressed)
+	{
+		alert("Já foi iniciado. Pressione stop para parar");
+		return;
+	}
+	else
+	{
+		startPressed=true; 
+		timerID=setTimeout('startTest()', 6000*randNumber());
+	}
+}
+// --> 
+</script>
+<br>
+
+<ilayer id="reflexns" width=135; height=135;><layer id="reflexns_sub" width=135; height=135; left=0 top=0 bgColor=yellow></layer></ilayer>
+
+<form name="response">
+<div class="form-group">
+<input class="btn btn-default" type="button" value="Iniciar" onClick="startit()" style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input class="btn btn-danger" type="button" value="Parar" onClick="stopTest()" style="font-weight:bold">
+</div>
+</form>
+</center>
+
+<p align="center"><font face="Arial" size="-2">Free DHTML scripts provided by<br>
+<a href="http://www.dynamicdrive.com">Dynamic Drive</a></font></p>

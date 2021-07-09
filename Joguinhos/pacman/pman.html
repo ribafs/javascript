@@ -1,0 +1,664 @@
+<HTML>
+<FORM NAME="PMAN">
+<HEAD>
+<TITLE>Pman</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var timerID = null
+var timerINT = 300                            //interval (ms)
+var tmps = new Array(20);                     //temp array
+var mapd = new Array(420);                    //map data array
+var inkey = 0                                 //mouse status
+var acti = 0                                  //on play and key flag
+var ptnflg = 0                                //paturn flag
+var myX = 0
+var myY = 0
+var myPOS=0
+var myPTN=4
+var myPOSold=313
+var score=0
+var remain=157
+var ofno=0
+var acno=0
+var enno=0
+var oldDOT = new Array(5);
+var enewait = new Array(5);
+var eneacti = new Array(5);
+var eneX = new Array(5);
+var eneY = new Array(5);
+var enePOS = new Array(5);
+var enePOSold = new Array(5);
+var bluewait = 0
+var blueflag=1
+var blueacti=0
+var bonus = 100
+var URAWAZA = 1
+var URAflag = 0
+
+var icons = new Array(20);                          //chr image
+icons[0] =new Image();icons[0].src ="bl0.gif";
+icons[1] =new Image();icons[1].src ="block.gif";
+icons[2] =new Image();icons[2].src ="dots.gif";
+icons[3] =new Image();icons[3].src ="dotl.gif";
+icons[4] =new Image();icons[4].src ="pman0.gif";
+icons[5] =new Image();icons[5].src ="pman1.gif";
+icons[6] =new Image();icons[6].src ="pman2.gif";
+icons[7] =new Image();icons[7].src ="pman3.gif";
+icons[8] =new Image();icons[8].src ="pman4.gif";
+icons[9] =new Image();icons[9].src ="gate.gif";
+icons[10]=new Image();icons[10].src="enemy1.gif";
+icons[11]=new Image();icons[11].src="enemy2.gif";
+icons[12]=new Image();icons[12].src="enemy3.gif";
+icons[13]=new Image();icons[13].src="enemy4.gif";
+icons[14]=new Image();icons[14].src="enemy5.gif";
+
+//restarter
+function restarter(){
+document.PMAN.CTRL.value="0"
+tmpacti="0"
+readstyle()
+PARAset()
+}
+
+
+//init
+function init(){
+PARAset()
+
+  timerID = setTimeout("interval1()",timerINT)
+
+}
+
+function PARAset(){
+score=0
+remain=157
+myX=9
+myY=16
+myPOSold=313
+ptnflg=0
+enewait[1]=0
+enewait[2]=10
+enewait[3]=20
+enewait[4]=30
+eneacti[1]=1
+eneacti[2]=2
+eneacti[3]=1
+eneacti[4]=2
+eneX[1]=9
+eneY[1]=8
+eneX[2]=8
+eneY[2]=10
+eneX[3]=9
+eneY[3]=10
+eneX[4]=10
+eneY[4]=10
+enePOSold[1]=161
+enePOSold[2]=198
+enePOSold[3]=199
+enePOSold[4]=200
+oldDOT[1]=0
+oldDOT[2]=0
+oldDOT[3]=0
+oldDOT[4]=0
+bluewait=0
+blueflag=1
+blueacti=0
+bonus = 100
+URAWAZA = 1
+URAflag = 0
+}
+
+
+function interval1(){
+tmpacti=document.PMAN.CTRL.value
+  clearTimeout(timerID)
+  timerID = setTimeout("interval1()",timerINT)
+
+//restart check
+  if (tmpacti == "11"){
+     tmpURA=parent.Pcontrol.document.Pcontrol.MES.value
+     URAWAZA=1
+     URAflag=0
+     if (tmpURA == "EASY"){URAWAZA=4}
+     if (tmpURA == "EASIEST"){URAWAZA=2}
+
+     if (score == 0){document.PMAN.CTRL.value="1"
+                     tmpacti="1"
+     }else{restarter()}
+  }
+
+//active flag check
+if (tmpacti != "0"){
+  blueflag=1
+  if (bluewait > 0){
+   bluewait=bluewait-1
+   blueflag=-1
+  }else{
+   blueacti=0
+  }
+
+  //new left check
+  if (tmpacti == "1"){
+     tmppos=myY*19+myX-1
+     if (mapd[tmppos] != 1){acti=1}
+     if (myX == 0){acti=1}
+  }
+  //new right check
+  if (tmpacti == 3){
+     tmppos=myY*19+myX+1
+     if (mapd[tmppos] != 1){acti=3}
+     if (myX == 18){acti=3}
+  }
+  //new up check
+  if (tmpacti == 2){
+     tmppos=myY*19-19+myX
+     if (mapd[tmppos] != 1){acti=2}
+  }
+  //new down check
+  if (tmpacti == 4){
+     tmppos=myY*19+19+myX
+     if (mapd[tmppos] != 1){acti=4}
+  }
+
+
+
+  //left check
+  if (acti == 1){
+     tmppos=myY*19+myX-1
+     if (mapd[tmppos] != 1){myX=myX-1
+     }else{if (myX == 0){myX=18
+           }else{if (mapd[tmppos-18] != 1){acti=2
+                 parent.Pcontrol.document.Pcontrol.tenkey.value="8"
+                 }else{acti=4
+                 parent.Pcontrol.document.Pcontrol.tenkey.value="2"
+                 }
+           }
+     }
+  }
+  //right check
+  if (acti == 3){
+     tmppos=myY*19+myX+1
+     if (mapd[tmppos] != 1){myX=myX+1
+     }else{if (myX == 18){myX=0
+          }else{if (mapd[tmppos-20] != 1){acti=2
+                parent.Pcontrol.document.Pcontrol.tenkey.value="8"
+                }else{acti=4
+                parent.Pcontrol.document.Pcontrol.tenkey.value="2"
+                }
+          }
+     }
+  }
+  //up check
+  if (acti == 2){
+     tmppos=myY*19-19+myX
+     if (mapd[tmppos] != 1){myY=myY-1
+     }else{if (mapd[tmppos+18] != 1){acti=1
+                                     myX=myX-1
+           parent.Pcontrol.document.Pcontrol.tenkey.value="4"
+          }else{acti=3
+           myX=myX+1
+           parent.Pcontrol.document.Pcontrol.tenkey.value="6"
+          }
+     }
+  }
+  //down check
+  if (acti == 4){
+     tmppos=myY*19+19+myX
+     if (mapd[tmppos] != 1){myY=myY+1
+     }else{if (mapd[tmppos-20] != 1){acti=1
+                                     myX=myX-1
+           parent.Pcontrol.document.Pcontrol.tenkey.value="4"
+          }else{acti=3
+           myX=myX+1
+           parent.Pcontrol.document.Pcontrol.tenkey.value="6"
+          }
+     }
+  }
+
+//move P-MAN
+  myPOS=myY*19+myX
+  ptnflg=ptnflg+1
+  myPTN=4
+  if (ptnflg == 2){ptnflg=0
+  }else{myPTN=4+acti
+  }
+
+//move enemy
+
+tmpURAflag=1
+URAflag=URAflag+1
+if (URAflag >= URAWAZA){
+  tmpURAflag=0
+  URAflag=0
+}
+if (URAWAZA == 1){tmpURAflag=1}
+
+if (blueflag == -1){
+ blueacti=blueacti+1
+ if (blueacti == 2){blueacti=0}
+}
+
+for (ij=1; ij<5; ij++){
+  enno=ij
+  if (blueacti !=1){
+                    if (tmpURAflag == 1){calenemy()}
+                    }
+  enePOS[ij]=eneY[ij]*19+eneX[ij]
+}
+
+
+//score check
+  if (mapd[myPOS] == 2){mapd[myPOS]=0
+                        remain=remain-1
+                        score=score+10}
+  if (mapd[myPOS] == 3){mapd[myPOS]=0
+                        remain=remain-1
+                        bluewait=30
+                        blueacti=0
+                        bonus=100
+                        score=score+50}
+  parent.Pcontrol.document.Pcontrol.MES.value=score+"pts"
+
+//ending
+  for (iz=1; iz<5; iz++){
+    if (enePOSold[iz] == myPOS){
+      if (enePOS[iz] == myPOSold){
+        enePOS[iz]=myPOS
+      }
+    }
+    if (enePOS[iz] == myPOS){
+      if (blueflag == 1){
+        document.PMAN.CTRL.value="0"
+        parent.Pcontrol.document.Pcontrol.MES.value=score+"pts NG"
+      }else{
+        enewait[iz]=5
+        enePOS[iz]=199
+        eneX[iz]=9
+        eneY[iz]=10
+        eneacti[iz]=1
+        score=score+bonus
+        bonus=bonus*2
+        parent.Pcontrol.document.Pcontrol.MES.value=score+"pts"
+      }
+    }
+  }
+  if (remain == 0){document.PMAN.CTRL.value="0"
+     parent.Pcontrol.document.Pcontrol.MES.value=score+"pts OK"
+  }
+
+
+//old CHR clear
+  SetIcon(0,myPOSold)
+  for (ij=1; ij<5; ij++){
+  SetIcon(oldDOT[ij],enePOSold[ij])
+  }
+
+//new CHR write
+  mapd[myPOS]=0
+  SetIcon(myPTN,myPOS)
+  myPOSold=myPOS
+  for (ij=1; ij<5; ij++){
+  tmpenePOS=enePOS[ij]
+  oldDOT[ij]=mapd[tmpenePOS]
+  tmpenePTN=14
+  if (bluewait == 0){tmpenePTN=9+ij}
+  if (bluewait == 2){tmpenePTN=9+ij}
+  if (bluewait == 4){tmpenePTN=9+ij}
+  if (bluewait == 6){tmpenePTN=9+ij}
+  if (bluewait == 8){tmpenePTN=9+ij}
+  if (bluewait == 10){tmpenePTN=9+ij}
+
+  SetIcon(tmpenePTN,tmpenePOS)
+  enePOSold[ij]=enePOS[ij]
+  }
+}
+}
+
+//paturn write
+function SetIcon(flag, position){
+document.images[position].src=icons[flag].src;
+}
+
+
+function readstyle(){
+for (id=0; id<22; id++){;
+for (ie=0; ie<19; ie++){;
+ ig = tmps[id].charAt(ie);
+ ih = id*19+ie;
+   if (ig == "0"){mapd[ih] = 0};
+   if (ig == "1"){mapd[ih] = 1};
+   if (ig == "2"){mapd[ih] = 2};
+   if (ig == "3"){mapd[ih] = 3};
+
+   SetIcon (mapd[ih],ih);
+};
+};
+SetIcon(9,180)
+SetIcon(10,161)
+SetIcon(11,198)
+SetIcon(12,199)
+SetIcon(13,200)
+}
+
+
+function calenemy(){
+ if (enewait[enno] >= 1){
+   if (enewait[enno] == 1){
+                           SetIcon(oldDOT[enno],enePOSold[enno])
+                           eneX[enno]=9
+                           eneY[enno]=8
+   }
+   enewait[enno]=enewait[enno]-1
+ }else{
+   if (enno == 1){enetype1()}
+   if (enno == 2){enetype2()}
+   if (enno == 3){enetype3()}
+   if (enno == 4){enetype4()}
+ }
+}
+
+function offsetcal(acno){
+if (acno == 1){ofno=-1}
+if (acno == 2){ofno=-19}
+if (acno == 3){ofno=1}
+if (acno == 4){ofno=19}
+}
+
+function eneXYcal(){
+if (eneacti[enno] == 1){eneX[enno]=eneX[enno]-1}
+if (eneacti[enno] == 2){eneY[enno]=eneY[enno]-1}
+if (eneacti[enno] == 3){eneX[enno]=eneX[enno]+1}
+if (eneacti[enno] == 4){eneY[enno]=eneY[enno]+1}
+}
+
+function enetype1(){
+//crossing chaser
+
+tmpLR=0
+tmpeneacti1=eneacti[enno]+1
+if (tmpeneacti1 >= 5){tmpeneacti1=tmpeneacti1-4}
+offsetcal(tmpeneacti1)
+tmpenepos=eneY[enno]*19+eneX[enno]+ofno
+if (mapd[tmpenepos] != 1){tmpLR=1}
+tmpeneacti1=eneacti[enno]+3
+if (tmpeneacti1 >= 5){tmpeneacti1=tmpeneacti1-4}
+offsetcal(tmpeneacti1)
+tmpenepos=eneY[enno]*19+eneX[enno]+ofno
+if (mapd[tmpenepos] != 1){tmpLR=1}
+if (eneX[enno] == 18){tmpLR=1}
+if (eneX[enno] == 0){tmpLR=1}
+if (tmpLR == 1){
+ eneacti[enno]=0
+ if (myX*blueflag >= eneX[enno]*blueflag){
+  tmpenepos=eneY[enno]*19+eneX[enno]+1
+  if (mapd[tmpenepos] != 1){eneacti[enno]=3}
+ }else{
+  tmpenepos=eneY[enno]*19+eneX[enno]-1
+  if (mapd[tmpenepos] != 1){eneacti[enno]=1}
+ }
+ tmpsubY=myY-eneY[enno]
+ if (tmpsubY <= 0){tmpsubY=-tmpsubY}
+ tmpsubX=myX-eneX[enno]
+ if (tmpsubX <= 0){tmpsubX=-tmpsubX}
+ tmpsubXY=tmpsubY-tmpsubX
+ if (eneacti[enno] == 0){tmpsubXY=1}
+ if (tmpsubXY*blueflag >= 0){
+  if (myY*blueflag >= eneY[enno]*blueflag){
+   tmpenepos=eneY[enno]*19+eneX[enno]+19
+   if (mapd[tmpenepos] != 1){eneacti[enno]=4}
+  }else{
+   tmpenepos=eneY[enno]*19+eneX[enno]-19
+   if (mapd[tmpenepos] != 1){eneacti[enno]=2}
+  }
+ }
+ if (eneacti[enno] == 0){
+  tmpenepos=eneY[enno]*19+eneX[enno]-1
+  if (mapd[tmpenepos] != 1){eneacti[enno]=1}
+  if (eneacti[enno] == 0){
+   tmpenepos=eneY[enno]*19+eneX[enno]-19
+   if (mapd[tmpenepos] != 1){eneacti[enno]=2}
+   if (eneacti[enno] == 0){
+    tmpenepos=eneY[enno]*19+eneX[enno]+1
+    if (mapd[tmpenepos] != 1){eneacti[enno]=3
+    }else{eneacti[enno]=4
+    }
+   }
+  }
+ }
+}
+ eneXYcal()
+}
+
+function enetype2(){
+//straight lover
+
+offsetcal(eneacti[enno])
+tmpenepos=eneY[enno]*19+eneX[enno]+ofno
+if (mapd[tmpenepos] == 1){
+ eneacti[enno]=0
+ if (myX*blueflag >= eneX[enno]*blueflag){
+  tmpenepos=eneY[enno]*19+eneX[enno]+1
+  if (mapd[tmpenepos] != 1){eneacti[enno]=3}
+ }else{
+  tmpenepos=eneY[enno]*19+eneX[enno]-1
+  if (mapd[tmpenepos] != 1){eneacti[enno]=1}
+ }
+ tmpsubY=myY-eneY[enno]
+ if (tmpsubY <= 0){tmpsubY=-tmpsubY}
+ tmpsubX=myX-eneX[enno]
+ if (tmpsubX <= 0){tmpsubX=-tmpsubX}
+ tmpsubXY=tmpsubY-tmpsubX
+ if (eneacti[enno] == 0){tmpsubXY=1}
+ if (tmpsubXY*blueflag >= 0){
+  if (myY*blueflag >= eneY[enno]*blueflag){
+   tmpenepos=eneY[enno]*19+eneX[enno]+19
+   if (mapd[tmpenepos] != 1){eneacti[enno]=4}
+  }else{
+   tmpenepos=eneY[enno]*19+eneX[enno]-19
+   if (mapd[tmpenepos] != 1){eneacti[enno]=2}
+  }
+ }
+ if (eneacti[enno] == 0){
+  tmpenepos=eneY[enno]*19+eneX[enno]-1
+  if (mapd[tmpenepos] != 1){eneacti[enno]=1}
+  if (eneacti[enno] == 0){
+   tmpenepos=eneY[enno]*19+eneX[enno]-19
+   if (mapd[tmpenepos] != 1){eneacti[enno]=2}
+   if (eneacti[enno] == 0){
+    tmpenepos=eneY[enno]*19+eneX[enno]+1
+    if (mapd[tmpenepos] != 1){eneacti[enno]=3
+    }else{eneacti[enno]=4
+    }
+   }
+  }
+ }
+}
+ eneXYcal()
+}
+
+function enetype3(){
+//crossing turner
+
+tmpeneacti1=eneacti[enno]+1
+if (tmpeneacti1 >= 5){tmpeneacti1=tmpeneacti1-4}
+tmptmpacti=eneacti[enno]
+eneacti[enno]=0
+turncheck()
+if (eneacti[enno] == 0){
+ tmpeneacti1=eneacti[enno]+3
+ if (tmpeneacti1 >= 5){tmpeneacti1=tmpeneacti1-4}
+ turncheck()
+}
+if (eneacti[enno] == 0){
+eneacti[enno]=tmptmpacti
+
+offsetcal(eneacti[enno])
+tmpenepos=eneY[enno]*19+eneX[enno]+ofno
+if (mapd[tmpenepos] == 1){
+
+ eneacti[enno]=0
+ if (myX*blueflag >= eneX[enno]*blueflag){
+  tmpenepos=eneY[enno]*19+eneX[enno]+1
+  if (mapd[tmpenepos] != 1){eneacti[enno]=3}
+ }else{
+  tmpenepos=eneY[enno]*19+eneX[enno]-1
+  if (mapd[tmpenepos] != 1){eneacti[enno]=1}
+ }
+ tmpsubY=myY-eneY[enno]
+ if (tmpsubY <= 0){tmpsubY=-tmpsubY}
+ tmpsubX=myX-eneX[enno]
+ if (tmpsubX <= 0){tmpsubX=-tmpsubX}
+ tmpsubXY=tmpsubY-tmpsubX
+ if (eneacti[enno] == 0){tmpsubXY=1}
+ if (tmpsubXY*blueflag >= 0){
+  if (myY*blueflag >= eneY[enno]*blueflag){
+   tmpenepos=eneY[enno]*19+eneX[enno]+19
+   if (mapd[tmpenepos] != 1){eneacti[enno]=4}
+  }else{
+   tmpenepos=eneY[enno]*19+eneX[enno]-19
+   if (mapd[tmpenepos] != 1){eneacti[enno]=2}
+  }
+ }
+ if (eneacti[enno] == 0){
+  tmpenepos=eneY[enno]*19+eneX[enno]-1
+  if (mapd[tmpenepos] != 1){eneacti[enno]=1}
+  if (eneacti[enno] == 0){
+   tmpenepos=eneY[enno]*19+eneX[enno]-19
+   if (mapd[tmpenepos] != 1){eneacti[enno]=2}
+   if (eneacti[enno] == 0){
+    tmpenepos=eneY[enno]*19+eneX[enno]+1
+    if (mapd[tmpenepos] != 1){eneacti[enno]=3
+    }else{eneacti[enno]=4
+    }
+   }
+  }
+ }
+}
+}
+ eneXYcal()
+}
+
+function enetype4(){
+//everytime chaser
+
+ eneacti[enno]=0
+ if (myX*blueflag >= eneX[enno]*blueflag){
+  tmpenepos=eneY[enno]*19+eneX[enno]+1
+  if (mapd[tmpenepos] != 1){eneacti[enno]=3}
+ }else{
+  tmpenepos=eneY[enno]*19+eneX[enno]-1
+  if (mapd[tmpenepos] != 1){eneacti[enno]=1}
+ }
+ tmpsubY=myY-eneY[enno]
+ if (tmpsubY <= 0){tmpsubY=-tmpsubY}
+ tmpsubX=myX-eneX[enno]
+ if (tmpsubX <= 0){tmpsubX=-tmpsubX}
+ tmpsubXY=tmpsubY-tmpsubX
+ if (eneacti[enno] == 0){tmpsubXY=1}
+ if (tmpsubXY*blueflag >= 0){
+  if (myY*blueflag >= eneY[enno]*blueflag){
+   tmpenepos=eneY[enno]*19+eneX[enno]+19
+   if (mapd[tmpenepos] != 1){eneacti[enno]=4}
+  }else{
+   tmpenepos=eneY[enno]*19+eneX[enno]-19
+   if (mapd[tmpenepos] != 1){eneacti[enno]=2}
+  }
+ }
+ if (eneacti[enno] == 0){
+  tmpenepos=eneY[enno]*19+eneX[enno]-1
+  if (mapd[tmpenepos] != 1){eneacti[enno]=1}
+  if (eneacti[enno] == 0){
+   tmpenepos=eneY[enno]*19+eneX[enno]-19
+   if (mapd[tmpenepos] != 1){eneacti[enno]=2}
+   if (eneacti[enno] == 0){
+    tmpenepos=eneY[enno]*19+eneX[enno]+1
+    if (mapd[tmpenepos] != 1){eneacti[enno]=3
+    }else{eneacti[enno]=4
+    }
+   }
+  }
+ }
+ eneXYcal()
+}
+
+function turncheck(){
+ if (tmpeneacti1 == 1){
+  if (myX*blueflag < eneX[enno]*blueflag){
+    tmpenepos=eneY[enno]*19+eneX[enno]-1
+    if (mapd[tmpenepos] != 1){eneacti[enno]=1}
+  }
+ }
+ if (tmpeneacti1 == 3){
+  if (myX*blueflag > eneX[enno]*blueflag){
+    tmpenepos=eneY[enno]*19+eneX[enno]+1
+    if (mapd[tmpenepos] != 1){eneacti[enno]=3}
+  }
+ }
+ if (tmpeneacti1 == 2){
+  if (myY*blueflag < eneY[enno]*blueflag){
+    tmpenepos=eneY[enno]*19+eneX[enno]-19
+    if (mapd[tmpenepos] != 1){eneacti[enno]=2}
+  }
+ }
+ if (tmpeneacti1 == 4){
+  if (myY*blueflag < eneY[enno]*blueflag){
+    tmpenepos=eneY[enno]*19+eneX[enno]+19
+    if (mapd[tmpenepos] != 1){eneacti[enno]=4}
+  }
+ }
+}
+
+
+//-->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR="#FFFF00" TEXT="#004400" LINK="#FFFF00" VLINK="#FFFF00" ONLOAD="init()">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+//screen fill
+document.write("<PRE><CENTER>");
+for (iad=0; iad<22; iad++){;
+for (iac=0; iac<19; iac++){document.write("<IMG BORDER=0 WIDTH=16 HEIGHT=16 SRC='bl0.gif'>")};
+document.write("<BR>");
+};
+document.write("</CENTER></PRE>");
+
+tmps[0] ="1111111111111111111";
+tmps[1] ="1222222221222222221";
+tmps[2] ="1211211121211121121";
+tmps[3] ="1311211121211121131";
+tmps[4] ="1222222222222222221";
+tmps[5] ="1211212111112121121";
+tmps[6] ="1222212221222122221";
+tmps[7] ="1111211101011121111";
+tmps[8] ="1111210000000121111";
+tmps[9] ="1111210111110121111";
+tmps[10]="0000200100010020000";
+tmps[11]="1111210111110121111";
+tmps[12]="1111210000000121111";
+tmps[13]="1111210111110121111";
+tmps[14]="1222222221222222221";
+tmps[15]="1211211121211121121";
+tmps[16]="1321222222222221231";
+tmps[17]="1121212111112121211";
+tmps[18]="1222212221222122221";
+tmps[19]="1211111121211111121";
+tmps[20]="1222222222222222221";
+tmps[21]="1111111111111111111";
+//read style data
+readstyle();
+//-->
+</SCRIPT>
+
+
+<BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P><BR><P>
+
+
+
+<INPUT TYPE="text" NAME="CTRL" SIZE=10 VALUE = "0" >
+
+</BODY>
+</FORM>
+</HTML>

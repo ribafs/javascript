@@ -1,0 +1,278 @@
+ <input id="id1" type="number" min="100" max="300" required>
+<button onclick="myFunction()">OK</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var inpObj = document.getElementById("id1");
+    if (!inpObj.checkValidity()) {
+        document.getElementById("demo").innerHTML = inpObj.validationMessage;
+    }
+}
+</script> 
+
+ <input id="id1" type="number" max="100">
+<button onclick="myFunction()">OK</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var txt = "";
+    if (document.getElementById("id1").validity.rangeOverflow) {
+       txt = "Value too large";
+    }
+    document.getElementById("demo").innerHTML = txt;
+}
+</script> 
+
+<input id="id1" type="number" min="100">
+<button onclick="myFunction()">OK</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var txt = "";
+    if (document.getElementById("id1").validity.rangeUnderflow) {
+       txt = "Value too small";
+    }
+    document.getElementById("demo").innerHTML = txt;
+}
+</script>
+
+<form>
+  <label for="choose">Would you prefer a banana or cherry?</label>
+  <input id="choose" name="i_like" required>
+  <button>Submit</button>
+</form>
+
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:valid {
+  border: 2px solid black;
+}
+
+<form>
+  <div>
+    <label for="choose">Would you prefer a banana or a cherry?</label>
+    <input id="choose" name="i_like" required minlength="6" maxlength="6">
+  </div>
+  <div>
+    <label for="number">How many would you like?</label>
+    <input type="number" id="number" name="amount" value="1" min="1" max="10">
+  </div>
+  <div>
+    <button>Submit</button>
+  </div>
+</form>
+
+
+<form>
+  <p>
+    <fieldset>
+      <legend>Title<abbr title="This field is mandatory">*</abbr></legend>
+      <input type="radio" required name="title" id="r1" value="Mr"><label for="r1">Mr.</label>
+      <input type="radio" required name="title" id="r2" value="Ms"><label for="r2">Ms.</label>
+    </fieldset>
+  </p>
+  <p>
+    <label for="n1">How old are you?</label>
+    <!-- The pattern attribute can act as a fallback for browsers which
+         don't implement the number input type but support the pattern attribute.
+         Please note that browsers that support the pattern attribute will make it
+         fail silently when used with a number field.
+         Its usage here acts only as a fallback -->
+    <input type="number" min="12" max="120" step="1" id="n1" name="age"
+           pattern="\d+">
+  </p>
+  <p>
+    <label for="t1">What's your favorite fruit?<abbr title="This field is mandatory">*</abbr></label>
+    <input type="text" id="t1" name="fruit" list="l1" required
+           pattern="[Bb]anana|[Cc]herry|[Aa]pple|[Ss]trawberry|[Ll]emon|[Oo]range">
+    <datalist id="l1">
+      <option>Banana</option>
+      <option>Cherry</option>
+      <option>Apple</option>
+      <option>Strawberry</option>
+      <option>Lemon</option>
+      <option>Orange</option>
+    </datalist>
+  </p>
+  <p>
+    <label for="t2">What's your e-mail?</label>
+    <input type="email" id="t2" name="email">
+  </p>
+  <p>
+    <label for="t3">Leave a short message</label>
+    <textarea id="t3" name="msg" maxlength="140" rows="5"></textarea>
+  </p>
+  <p>
+    <button>Submit</button>
+  </p>
+</form>
+
+body {
+  font: 1em sans-serif;
+  padding: 0;
+  margin : 0;
+}
+
+form {
+  max-width: 200px;
+  margin: 0;
+  padding: 0 5px;
+}
+
+p > label {
+  display: block;
+}
+
+input[type=text],
+input[type=email],
+input[type=number],
+textarea,
+fieldset {
+/* required to properly style form 
+   elements on WebKit based browsers */
+  -webkit-appearance: none;
+  
+  width : 100%;
+  border: 1px solid #333;
+  margin: 0;
+  
+  font-family: inherit;
+  font-size: 90%;
+  
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+<form>
+  <label for="mail">I would like you to provide me an e-mail</label>
+  <input type="email" id="mail" name="mail">
+  <button>Submit</button>
+</form>
+
+var email = document.getElementById("mail");
+
+email.addEventListener("input", function (event) {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity("I expect an e-mail, darling!");
+  } else {
+    email.setCustomValidity("");
+  }
+});
+
+
+<form novalidate>
+  <p>
+    <label for="mail">
+      <span>Please enter an email address:</span>
+      <input type="email" id="mail" name="mail">
+      <span class="error" aria-live="polite"></span>
+    </label>
+  </p>
+  <button>Submit</button>
+</form>
+
+/* This is just to make the example nicer */
+body {
+  font: 1em sans-serif;
+  padding: 0;
+  margin : 0;
+}
+
+form {
+  max-width: 200px;
+}
+
+p * {
+  display: block;
+}
+
+input[type=email]{
+  -webkit-appearance: none;
+
+  width: 100%;
+  border: 1px solid #333;
+  margin: 0;
+
+  font-family: inherit;
+  font-size: 90%;
+
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* This is our style for the invalid fields */
+input:invalid{
+  border-color: #900;
+  background-color: #FDD;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+/* This is the style of our error messages */
+.error {
+  width  : 100%;
+  padding: 0;
+ 
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+ 
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
+}
+
+// There are many ways to pick a DOM node; here we get the form itself and the email
+// input box, as well as the span element into which we will place the error message.
+
+var form  = document.getElementsByTagName('form')[0];
+var email = document.getElementById('mail');
+var error = document.querySelector('.error');
+
+email.addEventListener("input", function (event) {
+  // Each time the user types something, we check if the
+  // email field is valid.
+  if (email.validity.valid) {
+    // In case there is an error message visible, if the field
+    // is valid, we remove the error message.
+    error.innerHTML = ""; // Reset the content of the message
+    error.className = "error"; // Reset the visual state of the message
+  }
+}, false);
+form.addEventListener("submit", function (event) {
+  // Each time the user tries to send the data, we check
+  // if the email field is valid.
+  if (!email.validity.valid) {
+    
+    // If the field is not valid, we display a custom
+    // error message.
+    error.innerHTML = "I expect an e-mail, darling!";
+    error.className = "error active";
+    // And we prevent the form from being sent by canceling the event
+    event.preventDefault();
+  }
+}, false);
+
+

@@ -1,0 +1,107 @@
+<html>
+<head><title>CPF - CGC</title></head>
+<body><center>
+<font face="Arial" size="5" color="#0E440E">
+<strong>Gerador de Digito Verificador para CPF/CNPJ</strong></font><br>
+<b>Digite 9 digitos para CPF ou 12 para CNPJ</b>
+<form method="GET" name="cadastro">
+<table><tr><td>
+     <input type="text" name="CPFCGC" size="12" maxlength=12>
+</td><td>
+     <input type="text" name="dv" size="2" maxlength="2" readonly tabindex="2">
+</td></tr>
+<tr>
+<tr><td>
+</td><td colspan=2 align="center">
+  <input type="button" name="botao" value="Calcular" tabindex="7" onClick="valida()">
+</td></tr>
+</table>  
+  </center>
+</form>
+<br>
+<script language="JavaScript">
+document.cadastro.CPFCGC.value = "";
+document.cadastro.dv.value = "";
+
+function valida()  {
+  CPFCGC = document.cadastro.CPFCGC.value;
+  document.cadastro.dv.value = "";
+// rotina para retirar caracteres nao-numericos do CPFCGC
+  temp = 0
+  potencia = 1
+  for (var i=CPFCGC.length-1;i>=0; i--) {
+    if ( parseInt(CPFCGC.substring(i,i+1),10) == CPFCGC.substring(i,i+1) ) {
+      temp = temp + parseInt(CPFCGC.substring(i,i+1),10)* potencia
+	  potencia = potencia *10
+      }
+    }
+  	CPFCGC = temp + "";
+
+  if (CPFCGC.length == 12) {
+// rotina para gerar CGC
+    somacgc = 0;
+    for (var i = 0; i<4; i++) { 
+      somacgc = somacgc + CPFCGC.substring(i,i+1)*(5-i) 
+	  }
+    for (var i = 4; i<12; i++) { 
+      somacgc = somacgc + CPFCGC.substring(i,i+1)*(13-i) 
+	  }
+    cgcdv = 11 - (somacgc % 11)
+    if ( cgcdv == 10 ) { 
+      cgcdv = 0 
+      }
+    somacgc = 0;
+    for (var i = 0; i<5; i++) { 
+      somacgc = somacgc + CPFCGC.substring(i,i+1)*(6-i) 
+	  }
+    for (var i = 5; i<12; i++) { 
+      somacgc = somacgc + CPFCGC.substring(i,i+1)*(14-i) 
+	  }
+    somacgc = somacgc + cgcdv * 2;
+    cgcdv2 = 11 - (somacgc%11)
+    if ( cgcdv2 == 10 ) { 
+      cgcdv2 = 0 
+	  }
+    cgcdv = ( cgcdv * 10 ) + cgcdv2
+    document.cadastro.dv.value = cgcdv
+	  }	
+
+  else if (CPFCGC.length == 9) {
+// rotina para testar CPF
+    somacpf = 0;
+    for (var i = 0; i<9; i++) { 
+      somacpf = somacpf + CPFCGC.substring(i,i+1)*(10-i) 
+	  }
+    cpfdv = 11 - (somacpf % 11)
+    if ( cpfdv == 10 ) { 
+      cpfdv = 0 
+      }
+    somacpf = 0;
+    for (var i = 0; i<9; i++) {
+      somacpf = somacpf + CPFCGC.substring(i,i+1)*(11-i)
+      }
+    somacpf = somacpf + cpfdv * 2;
+    cpfdv2 = 11 - (somacpf%11)
+    if ( cpfdv2 == 10 ) { 
+      cpfdv2 = 0 
+	  }
+    cpfdv = ( cpfdv * 10 ) + cpfdv2
+    document.cadastro.dv.value = cpfdv
+	}
+return false;
+}
+function isNumber(text) {
+
+ for (var i = 0; i <= text.length-1; i++) {
+    if (isNaN(parseInt(text.substring(i,i+1)))) {
+        return (false); 
+   }
+ }
+ return (true);
+
+}
+//}
+</script>
+
+</body>
+</html>

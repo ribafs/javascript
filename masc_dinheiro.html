@@ -1,0 +1,87 @@
+<script>
+// Original: http://forum.imasters.uol.com.br/index.php?/topic/176011-mascara-para-dinheiro/
+function mascara_moeda(cur,len)
+{
+   n='__0123456789';
+   d=cur.value;
+   l=d.length;
+   r='';
+   if (l > 0)
+   {
+        z=d.substr(0,l-1);
+        s='';
+        a=2;
+        for (i=0; i < l; i++)
+        {
+                c=d.charAt(i);
+                if (n.indexOf(c) > a)
+                {
+                        a=1;
+                        s+=c;
+                };
+        };
+        l=s.length;
+        t=len-1;
+        if (l > t)
+        {
+                l=t;
+                s=s.substr(0,t);
+        };
+        if (l > 2)
+        {
+                r=s.substr(0,l-2)+','+s.substr(l-2,2);
+        }
+        else
+        {
+                if (l == 2)
+                {
+                        r='0,'+s;
+                }
+                else
+                {
+                        if (l == 1)
+                        {
+                                r='0,0'+s;
+                        };
+                };
+        };
+        if (r == '')
+        {
+                r='0,00';
+        }
+        else
+        {
+                l=r.length;
+                if (l > 6)
+                {
+                        j=l%3;
+                        w=r.substr(0,j);
+                        wa=r.substr(j,l-j-6);
+                        wb=r.substr(l-6,6);
+                        if (j > 0)
+                        {
+                                w+='.';
+                        };
+                        k=(l-j)/3-2;
+                        for (i=0; i < k; i++)
+                        {
+                                w+=wa.substr(i*3,3)+'.';
+                        };
+                        r=w+wb;
+                };
+        };
+   };
+   if (r.length <= len)
+   {
+        cur.value=r;
+   }
+   else
+   {
+        cur.value=z;
+   };
+   return 'ok';
+};
+</script>
+
+<input type=text name='amfcurr' onkeyup='mascara_moeda(this,12)' onblur='mascara_moeda(this,12)' size=20 maxsize=15>
+

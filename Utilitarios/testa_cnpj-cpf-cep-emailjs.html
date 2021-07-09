@@ -1,0 +1,182 @@
+
+<script language="JavaScript"><!--
+////
+
+function validar(Form) {
+	var invalid, s;
+	invalid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+
+	var s;
+
+
+// inicio de verificacao de cnpj ou cpf
+	if (Form.cnpj.value.length == 0) {
+		alert("O CNPJ/CPF é um campo obrigatório !");
+		Form.cnpj.focus();
+		return false;	}
+		
+	s = limpa_string(Form.cnpj.value);
+	
+	
+	// checa se é cpf	
+	if (s.length == 11) {
+		if (valida_CPF(Form.cnpj.value) == false ) {
+			alert("O CPF não é válido !");
+			Form.cnpj.focus();
+			return false;	}
+     }
+     
+     // checa se é cgc
+	else if (s.length == 14) {
+		if (valida_CGC(Form.cnpj.value) == false ) {
+			alert("O CNPJ não é válido !");
+			Form.cnpj.focus();
+			return false;	}
+			}
+		else {
+			alert("O CPF/CNPJ não é válido !");
+			Form.cnpj.focus();
+			return false;
+		}
+
+// final da verificacao de cnpj ou cpf
+
+
+	// verifica o cep
+	// primeiro deixa somente numeros no cep
+	// obs.:a chamada abaixo tambem pode ser utilizada para checar telefones
+	
+	s = limpa_string(Form.cep.value);
+	if (s.length < 8) {
+		alert("Digite corretamente o CEP: 99999-999 !");
+		Form.cep.focus();
+		return false; }
+
+
+	// verifica se o email é válido
+	if (Form.email.value.length == 0)	{
+		alert("Digite corretamente seu E-mail por favor!");
+		Form.email.focus();
+		return false;	}
+
+	if (invalid.test(document.cadastro.email.value) == false) {
+		// caso o teste falhe, para mudar a cor do texto na caixa, mude na linha abaixo
+		document.cadastro.email.style.color = "red";
+		
+		alert("Endereço de E-mail inválido !");
+		Form.email.focus();
+		return (false); }
+
+     return true;
+}
+// fim da funcao validar()
+
+
+function limpa_string(S){
+	// Deixa so' os digitos no numero
+	var Digitos = "0123456789";
+	var temp = "";
+	var digito = "";
+
+	for (var i=0; i<S.length; i++)	{
+		digito = S.charAt(i);
+		if (Digitos.indexOf(digito)>=0)	{
+			temp=temp+digito	}
+	} //for
+
+	return temp
+}
+// fim da funcao
+
+
+function valida_CPF(s)	{
+	var i;
+	s = limpa_string(s);
+	var c = s.substr(0,9);
+	var dv = s.substr(9,2);
+	var d1 = 0;
+	for (i = 0; i < 9; i++)
+	{
+		d1 += c.charAt(i)*(10-i);
+	}
+        if (d1 == 0) return false;
+	d1 = 11 - (d1 % 11);
+	if (d1 > 9) d1 = 0;
+	if (dv.charAt(0) != d1)
+	{
+		return false;
+	}
+
+	d1 *= 2;
+	for (i = 0; i < 9; i++)
+	{
+		d1 += c.charAt(i)*(11-i);
+	}
+	d1 = 11 - (d1 % 11);
+	if (d1 > 9) d1 = 0;
+	if (dv.charAt(1) != d1)
+	{
+		return false;
+	}
+        return true;
+}
+
+function valida_CGC(s)
+{
+	var i;
+	s = limpa_string(s);
+	var c = s.substr(0,12);
+	var dv = s.substr(12,2);
+	var d1 = 0;
+	for (i = 0; i < 12; i++)
+	{
+		d1 += c.charAt(11-i)*(2+(i % 8));
+	}
+        if (d1 == 0) return false;
+        d1 = 11 - (d1 % 11);
+	if (d1 > 9) d1 = 0;
+	if (dv.charAt(0) != d1)
+	{
+		return false;
+	}
+
+	d1 *= 2;
+	for (i = 0; i < 12; i++)
+	{
+		d1 += c.charAt(11-i)*(2+((i+1) % 8));
+	}
+	d1 = 11 - (d1 % 11);
+	if (d1 > 9) d1 = 0;
+	if (dv.charAt(1) != d1)
+	{
+		return false;
+	}
+	return true;
+}
+
+// -->
+</script>
+
+<!-- formulario exemplo	-->
+
+<form action="" method="POST" name="cadastro" onsubmit="return validar(this)">
+	<table border="0" cellpadding="2" cellspacing="1">		
+		<tr>
+			<td>CNPJ/CPF:</td>
+			<td><input type="text" size="20" maxlength="20" name="cnpj"></td>
+		</tr>
+		
+		<tr>
+			<td>CEP:</tr>
+			<td><input type="text" size="9" name="cep"></td>
+		</tr>
+
+		<tr>
+			<td>E-mail:</td>
+			<td><input type="text" size="50" maxlength="50" name="email"></td>
+		</tr>
+		<tr>
+			<td align="center"><input type="submit" name="submit" value="Enviar"></td>
+		</tr>
+	</table>
+</form>

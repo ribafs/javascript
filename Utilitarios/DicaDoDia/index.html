@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<TITLE>Dica do dia</TITLE>
+</HEAD>
+<Body Bgcolor="#BFBFBF" Text="#000000" style="font-size:10pt;font-family:Arial" onLoad="dspltip()">
+<Div style="position:absolute;left:10;top:10;background-color:#808080;text-align:center;width:58;height:79%">
+<IMG SRC="totd.gif" width="23" height="31" BORDER="0" style="position:relative;top:18"><BR>
+<Span Id="cntr" style="position:relative;top:140px;font-family:Arial;font-size:10pt;font-weight:bold;color:#FFFFF0">
+</Span>
+</Div>
+<Div style="position:absolute;left:68;top:10;background-color:#FFFFFF;width:386;height:79%;border:solid 1px #808080">
+<b><p aling="right" align="right"><a href="http://www.geekbrasil.com.br" target="_blank"><font color="#FF0000">www.geekbrasil.com.br</font></a><font color="#000080"><br>
+</font></b><FONT FACE="Times New Roman" SIZE="+1"><B>Você sabia que...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</B></FONT>
+<HR size="1" style="position:relative;top:10">
+<Span Id="mtxt" style="position:relative;top:10px;padding:15px 10px 10px 10px;font-family:Arial;font-size:10pt;width:100%;overflow:auto;height:138px">
+</Span>
+</Div>
+<Div style="position:absolute;left:10;top:222;width:100%">
+<Input id="dspl1" type="checkbox" checked>&nbsp;<Span onclick="chgstatus()">Mostrar
+dicas ao iniciar</Span><Input type="button" Value="Próxima" style="width:70;position:relative;left:113;background-color:#BFBFBF;color:#000000;font-family:Arial;font-size:9pt;border:2px outset #FFFFFF" onclick="ntip()"><Input type="button" Value="Fechar" style="width:70;position:relative;left:123;background-color:#BFBFBF;color:#000000;font-family:Arial;font-size:9pt;border:2px outset #FFFFFF" onclick="endf()">
+</Div>
+
+<Script Language="JavaScript" Src="totdmsg.js">
+</Script>
+<Script Language="JavaScript">
+cnt=0;
+todmsg.sort(rndm)
+
+function rndm(a,b){
+return (Math.random()-Math.random())
+}
+
+function chgstatus(){
+if (dspl1.checked)
+dspl1.checked=false;
+else
+dspl1.checked=true;
+}
+
+function dspltip(){
+mtxt.innerHTML=todmsg[0]
+cntr.innerHTML="1/"+todmsg.length
+}
+
+function ntip(){
+if (cnt<todmsg.length-1)
+cnt++;
+else
+cnt=0;
+mtxt.innerHTML=todmsg[cnt];
+cntr.innerHTML=(cnt+1)+"/"+todmsg.length
+}
+
+function endf(){
+if (!dspl1.checked)
+window.returnValue=1
+else
+window.returnValue=0
+window.close();
+}
+</Script>
+</BODY>
+</HTML>

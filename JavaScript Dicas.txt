@@ -1,0 +1,19 @@
+JavaScript Dicas
+
+Concatenação de strings com variáveis
+
+<script>
+var nome = 'Ribamar FS';
+var teste = `O ${nome} está aqui`;
+alert(teste);
+</script>
+
+Java script bolean:
+
+(exp1 && exp2 && exp3)  Se todas são verdadeiras retoranrá a primeira
+
+(exp1 && exp2 && exp3)  Se uma for falsa retoranrá a primeira falsa
+
+Únicos null em JS:
+null, undefined, 0, false, ''
+

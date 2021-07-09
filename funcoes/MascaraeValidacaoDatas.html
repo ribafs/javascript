@@ -1,0 +1,58 @@
+<html>
+<head><title>Máscara e Validação de Datas</title>
+<!--Exemplo de Máscara e Validação de Datas-->
+<script>
+function mascara_data(recebedata,ind){
+	// ind é o número correspondente ao índice do campo no form
+	// Form com 4 campos: ind=0 para o primeiro e ind=3 para o último
+	var mydata = "";
+	mydata = mydata + recebedata;
+	if (mydata.length == 2){
+		mydata = mydata + "/";
+		document.forms[0].elements[ind].value = mydata;
+	}
+	if (mydata.length == 5){
+		mydata = mydata + "/";
+		document.forms[0].elements[ind].value = mydata;
+	}
+	if (mydata.length == 10){
+		verifica_data(ind);
+	}
+}
+
+function verifica_data (ind) {
+	dia = (document.forms[0].elements[ind].value.substring(0,2));
+	mes = (document.forms[0].elements[ind].value.substring(3,5));
+	ano = (document.forms[0].elements[ind].value.substring(6,10));
+	situacao = "";
+	// verifica o dia valido para cada mes
+	if ((dia < "01")||(dia < "01" || dia > "30") && ( mes == "04" || mes == "06" || mes == "09" || mes == "11" ) || dia > "31") {
+		situacao = "falsa";
+	}
+	// verifica se o mes e valido
+	if (mes < 01 || mes > 12 ) {
+		situacao = "falsa";
+	}
+	// verifica se e ano bissexto
+	if (mes == "2" && ( dia < "01" || dia > "29" || ( dia > "28" && (parseInt(ano / 4) != ano / 4)))) {
+		situacao = "falsa";
+	}
+	if (document.forms[0].elements[ind].value == "") {
+		situacao = "falsa";
+	}
+	//12
+	if (situacao == "falsa") {
+		alert("Data inválida!");
+		document.forms[0].elements[ind].focus();
+	}
+}
+</script>
+</head>
+
+<body bgcolor=#FFFFC0 onload=document.frmferias.data.focus();>
+<h3>Curso de PHP - UNIFOR</h3>
+<h4>Bom exemplo de Máscara e Validação de Datas</h4>
+<form name=frmferias method=post action=escala.php>
+	<b>Data (Ex.: 25/12/2005): <input type="text" name="data" OnKeyUp="mascara_data (this.value,0)">
+	<input type=submit value=Confirmar>
+</form></body></html>

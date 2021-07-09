@@ -1,0 +1,65 @@
+.binary-2-decimal-text h1 {
+  margin-top: 15%;
+  font-size: 16px;
+}
+
+.fluid-header {
+  box-shadow: 0px 1px 9px 0px #acdcdd;
+}
+
+.row-header {
+  text-align: center;
+}
+
+.row-title h2 {
+  text-align: center;
+}
+
+.row-convert-button {
+  text-align: center;
+}
+
+.row-convert-button button {
+  width: 50%;
+}
+
+.box-result {
+  background: rgb(248, 248, 248);
+  width: 45%;
+  text-align: center;
+  border: solid 1px rgb(235, 235, 235);
+}
+
+.box-result h2 {
+  font-size: 72px;
+}
+
+.principal .row-convert-button button {
+  background-color: #30d3d7;
+}
+
+.principal .row-convert-button button:hover {
+  background-color: #57e1e4;
+  transition: 400ms;
+}
+
+footer {
+  text-align: center;
+  box-shadow: 0px -1px 9px 0px #acdcdd;
+}
+
+footer a {
+  color: black;
+}
+
+footer p {
+  font-weight: 500;
+}
+
+/*Responsive*/
+
+@media (max-width: 992px) {
+  footer {
+    position: unset !important;
+  }
+}

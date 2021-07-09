@@ -1,0 +1,124 @@
+#about{
+    margin: 0px auto;
+    padding-top: 500px;
+    width: 775px;
+	color: #FFF;
+    text-align: center;
+}
+
+#comentarios{
+	width: 750px;
+	height: auto;
+	margin: 20px auto 0 auto;
+	background: #7CB4FC;
+    border: 2px solid #6FA3FF;
+    padding-left: 25px;
+    text-align: left;
+}
+
+#comTitulo{
+	text-align: center;
+	font-size: 32px;
+    margin: 8px 0 10px;
+}
+
+#comCount{
+	font-size: 22px;
+}
+/*
+#comDejarLink{
+	position: absolute;
+	overflow: hidden;
+	width: 190px;
+	height: auto;
+	right: 15px;
+	margin: 60px 0px;
+	background: #6FA3FF;
+	text-align: center;
+}
+#comDejarLink a{
+	color: #FFF;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+}
+*/
+.comentario{
+	width: 500px;
+	margin-bottom: 15px;
+	background: #6FA3FF;
+	padding: 7px;
+    float: left;
+    font-weight: bold;
+	font-size: 14px;
+	color: #FFF;
+	text-decoration: none;
+	overflow: hidden;
+}
+
+.comCuerpo{
+	margin-left: 13px;
+	font-size: 13px;
+    font-weight: normal;
+}
+
+.comInfo{
+    float: left;
+    margin-left: 10px;
+    width: 200px;
+    color: #BEDAFE;
+}
+
+.comNumero{
+    font-size: 34px;
+    width: 63px;
+    float: left;
+}
+.comFecha{
+    width: 117px;
+    font-size: 14px;
+    float: left;
+    padding-top: 3px;
+}
+.comClear{
+    clear: both;
+}
+.comFormTitulo{
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+.comFormNombre{
+    margin: 0 0 1px 15px;
+}
+.comFormEmail{
+    margin: 4px 0 1px 15px;
+}
+.comFormInput{
+    margin-left: 15px;
+    border: 2px solid #6FA3FF;
+    background: #93C0FD;
+    color: #555;
+    width: 180px;
+    padding: 3px 2px 3px 2px;
+}
+.comFormComentario{
+    margin: 6px 0 0 15px;
+}
+.comFormTextarea{
+    margin-left: 15px;
+    border: 2px solid #6FA3FF;
+    background: #93C0FD;
+    color: #555;
+    width: 280px;
+    height: 90px;
+    padding: 4px;
+}
+
+.comFormSubmit{
+    margin: 6px 0 0 15px;
+    border: 2px solid #6FA3FF;
+    background: #87B9FC; /*93C0FD*/
+    color: #fff;
+    padding: 2px;
+    font-family: "Trebuchet MS",Trebuchet,Verdana,Arial,Helvetica,sans-serif;
+}

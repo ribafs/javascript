@@ -1,0 +1,695 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+	
+	<title>Javascript Super Mario Bros + Complete Level 1 and 2 + Map Editor | By Guillermo Bruchmann</title>
+	
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Guillermo Bruchmann">
+	<meta name="keywords" content="javascript super mario bross map level editor mario war kart world">
+	<meta name="distribution" content="global">
+	<meta name="audience" content="all">
+	<meta name="author-mail" content="gbruchmann@guic.com.ar">
+	<meta name="publisher" content="Guillermo Bruchmann">
+	
+	<link rel="shortcut icon" href="http://jsmario.com.ar/imgs/favicon.ico">
+	<link href="includes/style.css" type="text/css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="includes/comentarios.css">
+
+    <script type="text/javascript" src="includes/cookies.js"></script>
+    <script type="text/javascript" src="includes/funciones.js"></script>
+    <script type="text/javascript" src="includes/actualizacion.js"></script>
+    <script type="text/javascript" src="includes/incio.js"></script>
+    <script type="text/javascript" src="includes/actualizacionBichos.js"></script>
+    <script type="text/javascript" src="includes/efectos.js"></script>
+    <script type="text/javascript" src="includes/mapa.js"></script>
+    <script type="text/javascript" src="includes/get.js"></script>
+    <script type="text/javascript" src="includes/resize.js"></script>
+    <script type="text/javascript" src="includes/cubos.js"></script>
+    <script type="text/javascript" src="includes/editor.js"></script>
+    <script type="text/javascript" src="includes/precargar.js"></script>
+    <script type="text/javascript" src="includes/comentarios.js"></script>
+
+</head><body onkeydown="return keyDown(event.keyCode);" onkeyup="return keyUp(event.keyCode);" onmouseup="mouseUp();" onmousemove="mouseDown(event);">
+    
+	<div id="leftAd">
+		
+	</div>
+	
+	<div id="trace"></div>
+    <!--<div style="position: absolute; height: 100%; width: 100%; top: 0px; left: 0px;"></div>-->
+	
+	<img src="includes/borde.png" id="sombra" alt="sombra" style="display: inline; position: absolute; height: 519px; width: 580px; left: 50%; top: 0px; margin-top: -10px; margin-left: -290px;">
+	
+    <div style="display: none;" id="imgsPrecargarBar">
+    	<div style="width: 100%;" id="imgsPrecargarBarC">100%</div>
+    </div>
+    <div style="visibility: hidden;" id="imgsPreloadImgs">184 / 184 images</div>
+    <div id="imgsPrecargar"><img alt="89" src="includes/background.gif"><img alt="81" src="includes/background2.gif"><img alt="663" src="includes/background3.gif"><img alt="411" src="includes/bicho.gif"><img alt="248" src="includes/bicho_muerto.gif"><img alt="196" src="includes/tortuga_agachada_002.gif"><img alt="396" src="includes/bolita.gif"><img alt="426" src="includes/estrella.gif"><img alt="454" src="includes/flor.gif"><img alt="195" src="includes/hongo1.gif"><img alt="179" src="includes/hongo2.gif"><img alt="355" src="includes/tortuga_muerta_002.gif"><img alt="615" src="includes/tortuga_normal_derecha_002.gif"><img alt="649" src="includes/tortuga_normal_izquierda_002.gif"><img alt="597" src="includes/tortuga_2_normal_derecha.gif"><img alt="643" src="includes/tortuga_2_normal_izquierda.gif"><img alt="196" src="includes/tortuga_2_agachada.gif"><img alt="184" src="includes/tortuga_2_muerta.gif"><img alt="138" src="includes/bichoAplastado_002.gif"><img alt="179" src="includes/hongo3.gif"><img alt="556" src="includes/planta_002.gif"><img alt="99" src="includes/hongoSeleccionar.gif"><img alt="239" src="includes/moneda2.gif"><img alt="169" src="includes/bandera.gif"><img alt="166" src="includes/cubo_escalera.gif"><img alt="185" src="includes/cubo_piso_002.gif"><img alt="141" src="includes/cubo_rompible_002.gif"><img alt="139" src="includes/cubo_roto.gif"><img alt="478" src="includes/explocion.gif"><img alt="199" src="includes/fragmento_cubo_rompible.gif"><img alt="364" src="includes/moneda.gif"><img alt="461" src="includes/signo_002.gif"><img alt="203" src="includes/barra.gif"><img alt="191" src="includes/tuboBL_006.gif"><img alt="199" src="includes/tuboBR_005.gif"><img alt="180" src="includes/tuboTL.gif"><img alt="165" src="includes/tuboTR_005.gif"><img alt="191" src="includes/tuboBL_003.gif"><img alt="152" src="includes/tuboBR_007.gif"><img alt="169" src="includes/tuboTL_003.gif"><img alt="110" src="includes/tuboTR_008.gif"><img alt="204" src="includes/tuboBL_007.gif"><img alt="201" src="includes/tuboBR_004.gif"><img alt="191" src="includes/tuboTL_007.gif"><img alt="201" src="includes/tuboTR_004.gif"><img alt="191" src="includes/tuboBL_004.gif"><img alt="199" src="includes/tuboBR_002.gif"><img alt="191" src="includes/tuboTL_004.gif"><img alt="199" src="includes/tuboTR.gif"><img alt="70" src="includes/mario-0.gif"><img alt="70" src="includes/mario-1.gif"><img alt="70" src="includes/mario-2.gif"><img alt="70" src="includes/mario-3.gif"><img alt="70" src="includes/mario-4.gif"><img alt="70" src="includes/mario-5.gif"><img alt="70" src="includes/mario-6.gif"><img alt="70" src="includes/mario-7.gif"><img alt="70" src="includes/mario-8.gif"><img alt="70" src="includes/mario-9.gif"><img alt="70" src="includes/mario-.gif"><img alt="70" src="includes/mario-_003.gif"><img alt="70" src="includes/mario-_004.gif"><img alt="70" src="includes/mario--.gif"><img alt="70" src="includes/mario-_.gif"><img alt="70" src="includes/mario-_002.gif"><img alt="70" src="includes/mario-A.gif"><img alt="70" src="includes/mario-B.gif"><img alt="70" src="includes/mario-C.gif"><img alt="70" src="includes/mario-D.gif"><img alt="70" src="includes/mario-E.gif"><img alt="70" src="includes/mario-F.gif"><img alt="70" src="includes/mario-G.gif"><img alt="70" src="includes/mario-H.gif"><img alt="70" src="includes/mario-I.gif"><img alt="70" src="includes/mario-J.gif"><img alt="70" src="includes/mario-K.gif"><img alt="70" src="includes/mario-L.gif"><img alt="70" src="includes/mario-M.gif"><img alt="70" src="includes/mario-N.gif"><img alt="70" src="includes/mario-O.gif"><img alt="70" src="includes/mario-P.gif"><img alt="70" src="includes/mario-Q.gif"><img alt="70" src="includes/mario-R.gif"><img alt="70" src="includes/mario-S.gif"><img alt="70" src="includes/mario-T.gif"><img alt="70" src="includes/mario-U.gif"><img alt="70" src="includes/mario-V.gif"><img alt="70" src="includes/mario-W.gif"><img alt="70" src="includes/mario-X.gif"><img alt="70" src="includes/mario-Y.gif"><img alt="70" src="includes/mario-Z.gif"><img alt="565" src="includes/corriendo1_003.gif"><img alt="565" src="includes/corriendo1r_002.gif"><img alt="510" src="includes/corriendo2_002.gif"><img alt="510" src="includes/corriendo2r_002.gif"><img alt="181" src="includes/mario1_002.gif"><img alt="185" src="includes/mario2_003.gif"><img alt="217" src="includes/mario3_002.gif"><img alt="216" src="includes/mario4_002.gif"><img alt="194" src="includes/mario5_003.gif"><img alt="194" src="includes/mario6_002.gif"><img alt="203" src="includes/marioMuerte.gif"><img alt="326" src="includes/mario11_002.gif"><img alt="203" src="includes/mario12_002.gif"><img alt="183" src="includes/mario13_003.gif"><img alt="923" src="includes/corriendo1.gif"><img alt="923" src="includes/corriendo1r.gif"><img alt="930" src="includes/corriendo2_003.gif"><img alt="930" src="includes/corriendo2r_003.gif"><img alt="335" src="includes/mario1.gif"><img alt="374" src="includes/mario2_002.gif"><img alt="346" src="includes/mario3.gif"><img alt="385" src="includes/mario4.gif"><img alt="368" src="includes/mario5_002.gif"><img alt="371" src="includes/mario6.gif"><img alt="447" src="includes/mario7.gif"><img alt="370" src="includes/mario8.gif"><img alt="544" src="includes/mario11.gif"><img alt="323" src="includes/mario12_003.gif"><img alt="284" src="includes/mario13.gif"><img alt="373" src="includes/mario1_004.gif"><img alt="498" src="includes/mario2.gif"><img alt="951" src="includes/corriendo1_002.gif"><img alt="951" src="includes/corriendo1r_003.gif"><img alt="1400" src="includes/corriendo2.gif"><img alt="1400" src="includes/corriendo2r.gif"><img alt="335" src="includes/mario1_003.gif"><img alt="466" src="includes/mario2_004.gif"><img alt="491" src="includes/mario3_003.gif"><img alt="574" src="includes/mario4_003.gif"><img alt="343" src="includes/mario5.gif"><img alt="497" src="includes/mario6_003.gif"><img alt="282" src="includes/mario7_002.gif"><img alt="395" src="includes/mario8_002.gif"><img alt="307" src="includes/mario9.gif"><img alt="437" src="includes/mario10.gif"><img alt="544" src="includes/mario11_003.gif"><img alt="333" src="includes/mario12.gif"><img alt="287" src="includes/mario13_002.gif"><img alt="166" src="includes/cubo_escalera_002.gif"><img alt="185" src="includes/cubo_piso.gif"><img alt="135" src="includes/cubo_rompible.gif"><img alt="139" src="includes/cubo_roto_002.gif"><img alt="183" src="includes/fragmento_cubo_rompible_002.gif"><img alt="461" src="includes/signo.gif"><img alt="191" src="includes/tuboBL_008.gif"><img alt="199" src="includes/tuboBR_006.gif"><img alt="180" src="includes/tuboTL_005.gif"><img alt="165" src="includes/tuboTR_006.gif"><img alt="191" src="includes/tuboBL_002.gif"><img alt="152" src="includes/tuboBR_008.gif"><img alt="169" src="includes/tuboTL_008.gif"><img alt="110" src="includes/tuboTR_002.gif"><img alt="204" src="includes/tuboBL.gif"><img alt="201" src="includes/tuboBR_003.gif"><img alt="191" src="includes/tuboTL_006.gif"><img alt="201" src="includes/tuboTR_007.gif"><img alt="191" src="includes/tuboBL_005.gif"><img alt="199" src="includes/tuboBR.gif"><img alt="191" src="includes/tuboTL_002.gif"><img alt="199" src="includes/tuboTR_003.gif"><img alt="376" src="includes/bicho_002.gif"><img alt="194" src="includes/bicho_muerto_002.gif"><img alt="138" src="includes/bichoAplastado.gif"><img alt="556" src="includes/planta.gif"><img alt="196" src="includes/tortuga_agachada.gif"><img alt="199" src="includes/tortuga_muerta.gif"><img alt="637" src="includes/tortuga_normal_derecha.gif"><img alt="558" src="includes/tortuga_normal_izquierda.gif"><img alt="563" src="includes/figura1.gif"><img alt="310" src="includes/figura2.gif"><img alt="369" src="includes/figura3.gif"><img alt="503" src="includes/figura4.gif"><img alt="631" src="includes/figura5.gif"><img alt="244" src="includes/figura6.gif"><img alt="318" src="includes/figura7.gif"><img alt="686" src="includes/figura8.gif"><img alt="1500" src="includes/figura9.gif"><img alt="512" src="includes/figura10.gif"><img alt="159" src="includes/barra_002.gif"><img alt="187" src="includes/mapaSortLeft.gif"><img alt="341" src="includes/bichos.gif"><img alt="253" src="includes/cubos.gif"><img alt="262" src="includes/figuras.gif"></div>
+    <script type="text/javascript">
+		precargar();
+	</script>
+	
+	
+    <div id="contenedor" style="display: inline; top: 250px;">
+        
+		<div style="display: inline; width: 510px; left: -255px; height: 450px; top: -225px;" id="menu">
+			<div style="left: 175px; width: 220px; bottom: 180px;" id="jugar"><label><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-1.gif" alt="1" id="letra1"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-.gif" alt=" " id="letra "><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-P.gif" alt="P" id="letraP"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-L.gif" alt="L" id="letraL"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-A.gif" alt="A" id="letraA"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-Y.gif" alt="Y" id="letraY"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-E.gif" alt="E" id="letraE"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-R.gif" alt="R" id="letraR"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-.gif" alt=" " id="letra "><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-G.gif" alt="G" id="letraG"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-A.gif" alt="A" id="letraA"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-M.gif" alt="M" id="letraM"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-E.gif" alt="E" id="letraE"></label></div>
+			<div style="left: 175px; width: 220px; bottom: 235px;" id="jugarInstrucciones"><label><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-U.gif" alt="U" id="letraU"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-S.gif" alt="S" id="letraS"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-E.gif" alt="E" id="letraE"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-.gif" alt=" " id="letra "><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-A.gif" alt="A" id="letraA"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-.gif" alt=" " id="letra "><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-A.gif" alt="A" id="letraA"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-N.gif" alt="N" id="letraN"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-D.gif" alt="D" id="letraD"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-.gif" alt=" " id="letra "><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-S.gif" alt="S" id="letraS"></label></div>
+            <div style="left: 175px; width: 220px; bottom: 145px;" id="cargarMapa"><label><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-L.gif" alt="L" id="letraL"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-O.gif" alt="O" id="letraO"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-A.gif" alt="A" id="letraA"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-D.gif" alt="D" id="letraD"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-.gif" alt=" " id="letra "><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-M.gif" alt="M" id="letraM"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-A.gif" alt="A" id="letraA"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-P.gif" alt="P" id="letraP"></label></div>
+            <div style="left: 175px; width: 220px; bottom: 110px;" id="crearMapa"><label><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-M.gif" alt="M" id="letraM"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-A.gif" alt="A" id="letraA"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-P.gif" alt="P" id="letraP"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-.gif" alt=" " id="letra "><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-E.gif" alt="E" id="letraE"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-D.gif" alt="D" id="letraD"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-I.gif" alt="I" id="letraI"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-T.gif" alt="T" id="letraT"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-O.gif" alt="O" id="letraO"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-R.gif" alt="R" id="letraR"></label></div>
+            <div style="left: 175px; width: 220px; bottom: 60px;" id="puntosTop"><label><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-T.gif" alt="T" id="letraT"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-O.gif" alt="O" id="letraO"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-P.gif" alt="P" id="letraP"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-.gif" alt=" " id="letra "><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario--.gif" alt="-" id="letra-"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-.gif" alt=" " id="letra "><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"></label></div>
+            <img style="left: 145px; width: 16px; bottom: 180px; height: 32px;" src="includes/hongoSeleccionar.gif" alt="" id="hongoSeleccionar">
+		</div>
+        
+        <div style="opacity: 0; display: inline; width: 510px; left: -255px; height: 450px; top: -225px;" id="inicio">
+            <div style="top: 150px;" id="mundoInicio"><label><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-W.gif" alt="W" id="letraW"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-O.gif" alt="O" id="letraO"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-R.gif" alt="R" id="letraR"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-L.gif" alt="L" id="letraL"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-D.gif" alt="D" id="letraD"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-.gif" alt=" " id="letra "><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-1.gif" alt="1" id="letra1"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario--.gif" alt="-" id="letra-"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-1.gif" alt="1" id="letra1"></label></div>
+            <div style="top: 200px;" id="vidas">
+                <img style="width: 24px; height: 32px;" id="marioVidas" src="includes/mario1_002.gif" name="24x32" alt="mario">
+                <label id="vidasN"><nobr></nobr><label><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-.gif" alt=" " id="letra "><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-_004.gif" alt="," id="letra,"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-.gif" alt=" " id="letra "><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-3.gif" alt="3" id="letra3"></label></label>
+            </div>
+        </div>
+        <div style="width: 510px; left: -255px; height: 450px; top: -225px;" id="gameOver">
+        	<div style="bottom: 195px;" id="gameOverTxt"><label><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-G.gif" alt="G" id="letraG"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-A.gif" alt="A" id="letraA"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-M.gif" alt="M" id="letraM"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-E.gif" alt="E" id="letraE"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-.gif" alt=" " id="letra "><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-O.gif" alt="O" id="letraO"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-V.gif" alt="V" id="letraV"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-E.gif" alt="E" id="letraE"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-R.gif" alt="R" id="letraR"></label></div>
+        </div>
+        
+		<div style="width: 510px; left: -255px; height: 450px; top: -225px;" id="interfaz">
+            <div id="mario" class="display" style="margin-top: -12px; padding-top: 12px; width: 32px; left: 0px; height: 64px; top: 0px;">
+            	
+            	<div id="marioNormal">
+                	
+                    <img style="width: 24px; height: 32px;" id="mario1" src="includes/mario1_002.gif" name="24x32" alt="mario">
+                    <img style="width: 24px; height: 32px;" id="mario2" src="includes/mario2_003.gif" class="display" name="24x32" alt="mario">
+                    <img style="width: 32px; height: 32px;" id="mario3" src="includes/mario3_002.gif" class="display" name="32x32" alt="mario">
+                    <img style="width: 32px; height: 32px;" id="mario4" src="includes/mario4_002.gif" class="display" name="32x32" alt="mario">
+                    <a style="width: 30px; height: 32px;" id="corriendo1" class="display" name="30x32">
+                        <img style="width: 30px; height: 32px;" id="corriendo1_1" src="includes/corriendo1_003.gif" name="30x32" alt="mario">
+                        <img style="width: 30px; height: 32px;" id="corriendo1_2" src="includes/corriendo1r_002.gif" class="display" name="30x32" alt="mario">
+                    </a>
+                    <a style="width: 30px; height: 32px;" id="corriendo2" class="display" name="30x32">
+                        <img style="width: 30px; height: 32px;" id="corriendo2_1" src="includes/corriendo2_002.gif" name="30x32" alt="mario">
+                        <img style="width: 30px; height: 32px;" id="corriendo2_2" src="includes/corriendo2r_002.gif" class="display" name="30x32" alt="mario">
+                    </a>
+                    <img style="width: 28px; height: 32px;" id="mario5" src="includes/mario5_003.gif" class="display" name="28x32" alt="mario">
+                    <img style="width: 28px; height: 32px;" id="mario6" src="includes/mario6_002.gif" class="display" name="28x32" alt="mario">
+                    <img style="width: 32px; height: 32px;" id="mario11" src="includes/mario11_002.gif" class="display" name="32x32" alt="mario">
+                    <img style="width: 32px; height: 32px;" id="mario12" src="includes/mario12_002.gif" class="display" name="32x32" alt="mario">
+                    <img style="width: 32px; height: 32px;" id="mario13" src="includes/mario13_003.gif" class="display" name="32x32" alt="mario">
+                    <img style="width: 32px; height: 32px;" id="marioMuerte" src="includes/marioMuerte.gif" class="display" name="32x32" alt="mario">
+                    <img style="width: 32px; height: 64px;" id="gmario1" src="includes/mario1.gif" class="display gmario" name="32x64" alt="mario">
+                    <img style="width: 32px; height: 64px;" id="gmario2" src="includes/mario2_002.gif" class="display gmario" name="32x64" alt="mario">
+                    <img style="width: 32px; height: 64px;" id="gmario3" src="includes/mario3.gif" class="display gmario" name="32x64" alt="mario">
+                    <img style="width: 32px; height: 64px;" id="gmario4" src="includes/mario4.gif" class="display gmario" name="32x64" alt="mario">
+                    <a style="width: 32px; height: 64px;" id="gcorriendo1" class="display gmario" name="32x64">
+                        <img style="width: 32px; height: 64px;" id="gcorriendo1_1" src="includes/corriendo1.gif" class="gmario" name="32x64" alt="mario">
+                        <img style="width: 32px; height: 64px;" id="gcorriendo1_2" src="includes/corriendo1r.gif" class="display gmario" name="32x64" alt="mario">
+                    </a>
+                    <a style="width: 32px; height: 64px;" id="gcorriendo2" class="display" name="32x64">
+                        <img style="width: 32px; height: 64px;" id="gcorriendo2_1" src="includes/corriendo2_003.gif" class="gmario" name="32x64" alt="mario">
+                        <img style="width: 32px; height: 64px;" id="gcorriendo2_2" src="includes/corriendo2r_003.gif" class="display gmario" name="32x64" alt="mario">
+                    </a>
+                    <img style="width: 32px; height: 64px;" id="gmario5" src="includes/mario5_002.gif" class="display gmario" name="32x64" alt="mario">
+                    <img style="width: 32px; height: 64px;" id="gmario6" src="includes/mario6.gif" class="display gmario" name="32x64" alt="mario">
+                    <img id="gmario7" src="includes/mario7.gif" class="display gmario" name="32x64" style="margin-top: -12px; width: 32px; height: 64px;" alt="mario">
+                    <img id="gmario8" src="includes/mario8.gif" class="display gmario" name="32x64" style="margin-top: -12px; width: 32px; height: 64px;" alt="mario">
+                    <img style="width: 32px; height: 64px;" id="gmario11" src="includes/mario11.gif" class="display gmario" name="32x64" alt="mario">
+                    <img style="width: 32px; height: 64px;" id="gmario12" src="includes/mario12_003.gif" class="display gmario" name="32x64" alt="mario">
+                    <img id="gmario13" src="includes/mario13.gif" class="display gmario" name="32x64" alt="mario">
+                    <img style="width: 32px; height: 64px;" id="smario1" src="includes/mario1_003.gif" class="display smario" name="32x64" alt="mario">
+                    <img style="width: 32px; height: 64px;" id="smario2" src="includes/mario2_004.gif" class="display smario" name="32x64" alt="mario">
+                    <img style="width: 32px; height: 64px;" id="smario3" src="includes/mario3_003.gif" class="display smario" name="32x64" alt="mario">
+                    <img style="width: 32px; height: 64px;" id="smario4" src="includes/mario4_003.gif" class="display smario" name="32x64" alt="mario">
+                    <a style="width: 32px; height: 64px;" id="scorriendo1" class="display gmario" name="32x64">
+                        <img style="width: 32px; height: 64px;" id="scorriendo1_1" src="includes/corriendo1_002.gif" class="smario" name="32x64" alt="mario">
+                        <img style="width: 32px; height: 64px;" id="scorriendo1_2" src="includes/corriendo1r_003.gif" class="display smario" name="32x64" alt="mario">
+                    </a>
+                    <a style="width: 32px; height: 64px;" id="scorriendo2" class="display" name="32x64">
+                        <img style="width: 32px; height: 64px;" id="scorriendo2_1" src="includes/corriendo2.gif" class="smario" name="32x64" alt="mario">
+                        <img style="width: 32px; height: 64px;" id="scorriendo2_2" src="includes/corriendo2r.gif" class="display smario" name="32x64" alt="mario">
+                    </a>
+                    <img style="width: 32px; height: 64px;" id="smario5" src="includes/mario5.gif" class="display smario" name="32x64" alt="mario">
+                    <img style="width: 32px; height: 64px;" id="smario6" src="includes/mario6_003.gif" class="display smario" name="32x64" alt="mario">
+                    <img id="smario7" src="includes/mario7_002.gif" class="display smario" name="32x64" style="margin-top: -12px; width: 32px; height: 64px;" alt="mario">
+                    <img id="smario8" src="includes/mario8_002.gif" class="display smario" name="32x64" style="margin-top: -12px; width: 32px; height: 64px;" alt="mario">
+                    <img style="width: 32px; height: 64px;" id="smario11" src="includes/mario11_003.gif" class="display smario" name="32x64" alt="mario">
+                    <img style="width: 32px; height: 64px;" id="smario12" src="includes/mario12.gif" class="display smario" name="32x64" alt="mario">
+                    <img id="smario13" src="includes/mario13_002.gif" class="display smario" name="32x64" alt="mario">
+                </div>
+                
+                <div id="marioDisparo" class="display">
+                    <img style="width: 32px; height: 64px;" id="smario9" src="includes/mario9.gif" class="smario" name="32x64" alt="mario">
+                    <img style="width: 32px; height: 64px;" id="smario10" src="includes/mario10.gif" class="display smario" name="32x64" alt="mario">
+                </div>
+            </div>
+            
+            <a style="left: 50px; top: 16px;" id="marioTxt"><label><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-M.gif" alt="M" id="letraM"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-A.gif" alt="A" id="letraA"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-R.gif" alt="R" id="letraR"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-I.gif" alt="I" id="letraI"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-O.gif" alt="O" id="letraO"></label></a>
+            <a style="left: 50px; top: 32px;" id="puntosTxt"><label><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"></label></a>
+            <a style="left: 180px; top: 32px;" id="monedasTxt"><label><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-_.gif" alt="_" id="letra_"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-_004.gif" alt="," id="letra,"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"></label></a>
+            <a style="left: 288px; top: 16px;" id="mundoTxt"><label><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-W.gif" alt="W" id="letraW"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-O.gif" alt="O" id="letraO"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-R.gif" alt="R" id="letraR"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-L.gif" alt="L" id="letraL"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-D.gif" alt="D" id="letraD"></label></a>
+
+            <a style="left: 288px; width: 80px; top: 32px;" id="mundoNTxt"><label><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-1.gif" alt="1" id="letra1"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario--.gif" alt="-" id="letra-"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-1.gif" alt="1" id="letra1"></label></a>
+            <a style="left: 300px; width: 160px; top: 16px;" id="tiempoTxt"><label><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-T.gif" alt="T" id="letraT"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-I.gif" alt="I" id="letraI"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-M.gif" alt="M" id="letraM"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-E.gif" alt="E" id="letraE"></label></a>
+            <a style="left: 300px; width: 160px; top: 32px;" id="tiempoNTxt"><label><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-4.gif" alt="4" id="letra4"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"><img style="height: 14px; width: 14px; padding-left: 1.5px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"></label></a>
+        </div>
+        
+        <div style="background-color: rgb(92, 148, 252); width: 510px; left: -255px; height: 450px; top: -225px;" id="juego">
+        	<div id="figurasDiv"><img style="position: absolute; left: 0px; top: 304px; width: 160px; height: 96px;" src="includes/figura1.gif"><img style="position: absolute; left: 256px; top: 80px; width: 80px; height: 48px;" src="includes/figura3.gif"><img style="position: absolute; left: 352px; top: 368px; width: 144px; height: 32px;" src="includes/figura8.gif"></div>
+            <div style="left: 1480px;" id="mapax"></div>
+            <div id="bichosDiv"></div>
+            <div id="cubosDiv"><img id="cubo1" style="left: 0px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo2" style="left: 0px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo3" style="left: 32px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo4" style="left: 32px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo5" style="left: 64px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo6" style="left: 64px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo7" style="left: 96px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo8" style="left: 96px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo9" style="left: 128px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo10" style="left: 128px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo11" style="left: 160px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo12" style="left: 160px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo13" style="left: 192px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo14" style="left: 192px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo15" style="left: 224px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo16" style="left: 224px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo17" style="left: 256px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo18" style="left: 256px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo19" style="left: 288px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo20" style="left: 288px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo21" style="left: 320px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo22" style="left: 320px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo23" style="left: 352px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo24" style="left: 352px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo25" style="left: 384px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo26" style="left: 384px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo27" style="left: 416px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo28" style="left: 416px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo29" style="left: 448px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo30" style="left: 448px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo31" style="left: 480px; top: 400px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"><img id="cubo32" style="left: 480px; top: 432px; width: 32px; height: 32px; z-index: 1;" class="cubo" src="includes/cubo_piso_002.gif"></div>
+        </div>
+        
+        <div style="width: 510px; left: -255px; height: 450px; top: -225px;" id="resize">
+            <div style="opacity: 0;" id="derecha" onmousedown="redimensionJuego(0,event);" onmouseover="if(!resize){this.style.cursor = 'w-resize'}" onmouseout="this.style.cursor = ''" title="resize the game"></div>
+            
+            <div style="opacity: 0;" id="abajo" onmousedown="redimensionJuego(3,event);" onmouseover="if(!resize){this.style.cursor = 's-resize'}" onmouseout="this.style.cursor = ''" title="resize the game"></div>
+            
+            <div id="abajoDerecha" onmousedown="redimensionJuego(4,event);" onmouseover="if(!resize){this.style.cursor = 'se-resize'}" onmouseout="this.style.cursor = ''" title="resize the game"></div>
+            
+            <div id="resizeInfoC">
+                <a id="resizeInfoFondo"></a>
+                <a id="resizeInfo"></a>
+            </div>
+        </div>
+    
+         <div style="width: 510px; left: -255px; height: 450px; top: -225px;" id="resizeB"></div>
+    </div>
+    <div id="contenedorE">
+    	
+    	<div id="inicioE">
+            
+            <div id="editorTxt"></div>
+            
+            <div id="mapasBox" onmousedown="return false"></div>
+            
+            <div id="mapasBoxTop">
+                <div id="mapasTxt"></div>
+                <div id="configBoton" onmouseover="bgcolor( this, '#69A5FB' );" onmouseout="bgcolor( this, '' );" onclick="cargarConfig();">
+                </div>
+                <div id="mapasAgregar" onmouseover="bgcolor( this, '#69A5FB' );" onmouseout="bgcolor( this, '' );" onclick="nuevoMapa();">
+                </div>
+            </div>
+            
+            <div id="configGeneral">
+                <div id="configGeneralBox">
+                	<div id="configForm">
+                    	
+                    	<div id="configFormD1"></div>
+                        <div id="configFormD2">
+                        	<input class="textInput" id="configFormD2Inp" value="0" onkeydown="return checkNum( event );" type="text">
+                        </div>
+                        <div id="configFormD3"></div>
+                        <div id="configFormD4">
+                        	<input class="textInput" id="configFormD4Inp" value="0" onkeydown="return checkNum( event );" type="text">
+                        </div>
+                        <div id="configFormD5"></div>
+                        <div id="configFormD6">
+                        	<input class="textInput" id="configFormD6Inp" value="0" onkeydown="return checkNum( event );" type="text">
+                        </div>
+                        <div id="configFormD7">
+                        	<div id="configFormDone" class="boton" style="margin: 0pt auto;" onclick="configDone();" onmouseover="bgcolor( this, '#69A5FB' );" onmouseout="bgcolor( this, '' );"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div id="configGeneralTop">
+                <div id="configGeneralTxt"></div>
+                <div id="configGeneralEsc" onmouseover="bgcolor( this, '#69A5FB' );" onmouseout="bgcolor( this, '' );" onclick="salirConfig();"></div>
+            </div>
+            
+            
+            
+            <div id="mapaEdit">
+                <div id="mapaEditBox">
+                    <div id="editForm1">
+                    	
+                    	<div id="editFormD1">
+                        	<div id="editFormD1Inp" class="boton2" style="margin: 0pt auto;" onclick="cargarConfigM();" onmouseover="bgcolor( this, '#69A5FB' );" onmouseout="bgcolor( this, '' );"></div>
+                        </div>
+                        <div id="editFormD2">
+                        	<div id="editFormD2Inp" class="boton2" style="margin: 0pt auto;" onclick="modificarMapa();" onmouseover="bgcolor( this, '#69A5FB' );" onmouseout="bgcolor( this, '' );"></div>
+                        </div>
+                        <div id="editFormD3">
+                        	<div id="editFormD3Inp" class="boton2" style="margin: 0pt auto;" onmouseover="bgcolor( this, '#69A5FB' );" onmouseout="bgcolor( this, '' );"></div>
+                        </div>
+                        <div id="editFormD4">
+                        	<div id="editFormDone1" class="boton" style="margin: 0pt auto;" onclick="editarMapaDone();" onmouseover="bgcolor( this, '#69A5FB' );" onmouseout="bgcolor( this, '' );"></div>
+                        </div>
+                        
+                    </div>
+                    <div id="editForm2">
+                     
+                   		<div id="editFormD5"></div>
+                        <div id="editFormD6">
+                        	<input class="textInput" id="editFormD6Inp" value="" maxlength="7" type="text">
+                        </div>
+                        <div id="editFormD7"></div>
+                        <div id="editFormD8">
+                        	<select class="select" id="editFormD8Sel">
+                            	<option id="editFormD8O1" value="1">NORMAL</option>
+                                <option id="editFormD8O2" value="2">TUNNEL</option>
+                            </select>
+                        </div>
+                        <div id="editFormD9"></div>
+                        <div id="editFormD10">
+                        	<input class="textInput" id="editFormD10Inp" value="0" onkeydown="return checkNum( event );" type="text">
+                        </div>
+                        <div id="editFormD11">
+                        	<div id="editFormDone2" class="boton" style="margin: 0pt auto;" onclick="salirConfigM();" onmouseover="bgcolor( this, '#69A5FB' );" onmouseout="bgcolor( this, '' );"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div id="mapaEditTop">
+                <div id="mapaEditTxt"></div>
+            </div>
+            
+            <div id="modificarMapa">
+            	<div id="modificarMapaObjetos">
+                	<div id="grillaY"></div>
+                    <div id="grillaX"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modificarMapaMenu">
+            <div id="mapaMenuTxt"></div>
+            <div id="herramientas">
+            	<img src="includes/cubos.gif" alt="" id="cubosHerramienta" onclick="cambiarCapas( 'cubos' )" onmouseover="bgcolor( this, herramientaBG( 'cubos', 1 ) );  editorTrace( 'ETcubos' );" onmouseout="bgcolor( this, herramientaBG( 'cubos' ) ); editorTrace( '' );" style="background-color: rgb(33, 109, 243);">
+                
+            	<img src="includes/bichos.gif" alt="" id="bichosHerramienta" onclick="cambiarCapas( 'bichos' )" onmouseover="bgcolor( this, herramientaBG( 'bichos', 1 ) ); editorTrace( 'ETbichos' );" onmouseout="bgcolor( this, herramientaBG( 'bichos' ) ); editorTrace( '' );">
+                
+                <img src="includes/figuras.gif" alt="" id="figurasHerramienta" onclick="cambiarCapas( 'figuras' )" onmouseover="bgcolor( this, herramientaBG( 'figuras', 1 )); editorTrace( 'ETfiguras' );" onmouseout="bgcolor( this, herramientaBG( 'figuras' ) ); editorTrace( '' );">
+          </div>
+            
+            
+            <div id="objetoInfo">
+            	<div id="objetoInfocubosP" style="display: none;">
+                	
+                	<div id="cubosPTxt" class="objetoInfoTxt"></div>
+                	
+                    <div class="objetoInfoD1" id="cubosPD1"></div>
+                    <div class="objetoInfoD2" id="cubosPD2">
+                        <input id="cubosPD2Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'left' );" maxlength="3" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD3" id="cubosPD3"></div>
+                    <div class="objetoInfoD4" id="cubosPD4">
+                        <input id="cubosPD4Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'top' );" maxlength="2" type="text">
+                    </div>
+            		
+                </div>
+                <div id="objetoInfocubosP2" style="display: none;">
+                	
+                	<div id="cubosP2Txt" class="objetoInfoTxt"></div>
+                	
+                    <div class="objetoInfoD1" id="cubosP2D1"></div>
+                    <div class="objetoInfoD2" id="cubosP2D2">
+                        <input id="cubosP2D2Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'left' );" maxlength="3" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD3" id="cubosP2D3"></div>
+                    <div class="objetoInfoD4" id="cubosP2D4">
+                        <input id="cubosP2D4Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'top' );" maxlength="2" type="text">
+                    </div>
+            		
+                </div>
+				<div id="objetoInfosigno" style="display: none;">
+                	
+                	<div id="signoTxt" class="objetoInfoTxt"></div>
+                	
+                    <div class="objetoInfoD1" id="signoD1"></div>
+                    <div class="objetoInfoD2" id="signoD2">
+                        <input id="signoD2Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'left' );" maxlength="3" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD3" id="signoD3"></div>
+                    <div class="objetoInfoD4" id="signoD4">
+                        <input id="signoD4Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'top' );" maxlength="2" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD5" id="signoD5"></div>
+                    <div class="objetoInfoD6" id="signoD6">
+                    	<select class="select2" id="signoD6Sel" onchange="cambiarPropiedad( this, 'drop' );">
+                        	<option value="1">Money</option>
+                            <option value="2">Fungus</option>
+                            <option value="3">Life fungus</option>
+                            <option value="4">Die fungus</option>
+                            <option value="5">Star</option>
+                        </select>
+                    </div>
+                    
+                    <div class="objetoInfoD7" id="signoD7"></div>
+                    <div class="objetoInfoD8" id="signoD8">
+                    	<select class="select2" id="signoD8Sel" onchange="cambiarPropiedad( this, 'invisible' );">
+                        	<option value="0">Yes</option>
+                            <option value="1">No</option>
+                        </select>
+                    </div>
+                    
+                    <div class="objetoInfoD9" id="signoD9"></div>
+                    <div class="objetoInfoD10" id="signoD10">
+                        <input id="signoD10Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'puntos' );" maxlength="4" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD11" id="signoD11"></div>
+                    <div class="objetoInfoD12" id="signoD12">
+                        <input id="signoD12Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'tiempo' );" maxlength="4" type="text">
+                    </div>
+                    
+                </div>
+                <div id="objetoInforompible" style="display: none;">
+                	
+                	<div id="rompibleTxt" class="objetoInfoTxt"></div>
+                	
+                    <div class="objetoInfoD1" id="rompibleD1"></div>
+                    <div class="objetoInfoD2" id="rompibleD2">
+                        <input id="rompibleD2Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'left' );" maxlength="3" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD3" id="rompibleD3"></div>
+                    <div class="objetoInfoD4" id="rompibleD4">
+                        <input id="rompibleD4Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'top' );" maxlength="2" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD5" id="rompibleD5"></div>
+                    <div class="objetoInfoD6" id="rompibleD6">
+                    	<select class="select2" id="rompibleD6Sel" onchange="cambiarPropiedad( this, 'drop' );">
+                        	<option value="0">Nothing</option>
+                        	<option value="1">Money</option>
+                            <option value="2">Fungus</option>
+                            <option value="3">Life fungus</option>
+                            <option value="4">Die fungus</option>
+                            <option value="5">Star</option>
+                        </select>
+                    </div>
+                    
+                    <div class="objetoInfoD7" id="rompibleD7"></div>
+                    <div class="objetoInfoD8" id="rompibleD8">
+                    	<select class="select2" id="rompibleD8Sel" onchange="cambiarPropiedad( this, 'invisible' );">
+                        	<option value="0">Yes</option>
+                            <option value="1">No</option>
+                        </select>
+                    </div>
+                    
+                    <div class="objetoInfoD9" id="rompibleD9"></div>
+                    <div class="objetoInfoD10" id="rompibleD10">
+                        <input id="rompibleD10Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'puntos' );" maxlength="4" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD11" id="rompibleD11"></div>
+                    <div class="objetoInfoD12" id="rompibleD12">
+                        <input id="rompibleD12Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'tiempo' );" maxlength="4" type="text">
+                    </div>
+                    
+                </div>
+                <div id="objetoInfomoneda" style="display: none;">
+                	
+                	<div id="monedaTxt" class="objetoInfoTxt"></div>
+                	
+                    <div class="objetoInfoD1" id="monedaD1"></div>
+                    <div class="objetoInfoD2" id="monedaD2">
+                        <input id="monedaD2Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'left' );" maxlength="3" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD3" id="monedaD3"></div>
+                    <div class="objetoInfoD4" id="monedaD4">
+                        <input id="monedaD4Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'top' );" maxlength="2" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD5" id="monedaD5"></div>
+                    <div class="objetoInfoD6" id="monedaD6">
+                        <input id="monedaD6Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'puntos' );" maxlength="4" type="text">
+                    </div>
+                    
+                </div>
+                <div id="objetoInfobicho" style="display: none;">
+                	
+                	<div id="bichoTxt" class="objetoInfoTxt"></div>
+                	
+                    <div class="objetoInfoD1" id="bichoD1"></div>
+                    <div class="objetoInfoD2" id="bichoD2">
+                        <input id="bichoD2Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'left' );" maxlength="3" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD3" id="bichoD3"></div>
+                    <div class="objetoInfoD4" id="bichoD4">
+                        <input id="bichoD4Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'top' );" maxlength="2" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD5" id="bichoD5"></div>
+                    <div class="objetoInfoD6" id="bichoD6">
+                        <input id="bichoD6Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'puntos' );" maxlength="4" type="text">
+                    </div>
+                    
+                </div>
+                <div id="objetoInfotortuga" style="display: none;">
+                	
+                	<div id="tortugaTxt" class="objetoInfoTxt"></div>
+                	
+                    <div class="objetoInfoD1" id="tortugaD1"></div>
+                    <div class="objetoInfoD2" id="tortugaD2">
+                        <input id="tortugaD2Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'left' );" maxlength="3" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD3" id="tortugaD3"></div>
+                    <div class="objetoInfoD4" id="tortugaD4">
+                        <input id="tortugaD4Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'top' );" maxlength="2" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD5" id="tortugaD5"></div>
+                    <div class="objetoInfoD6" id="tortugaD6">
+                    	<select class="select2" id="tortugaD6Sel" onchange="cambiarPropiedad( this, 'tipoT' );">
+                        	<option value="1">Green</option>
+                            <option value="2">Red</option>
+                        </select>
+                    </div>
+                    
+                    <div class="objetoInfoD7" id="tortugaD7"></div>
+                    <div class="objetoInfoD8" id="tortugaD8">
+                        <input id="tortugaD8Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'puntos' );" maxlength="4" type="text">
+                    </div>
+                    
+                </div>
+                <div id="objetoInfotubo" style="display: none;">
+                	
+                	<div id="tuboTxt" class="objetoInfoTxt"></div>
+                	
+                    <div class="objetoInfoD1" id="tuboD1"></div>
+                    <div class="objetoInfoD2" id="tuboD2">
+                        <input id="tuboD2Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'left' );" maxlength="3" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD3" id="tuboD3"></div>
+                    <div class="objetoInfoD4" id="tuboD4">
+                        <input id="tuboD4Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'top' );" maxlength="2" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD5" id="tuboD5"></div>
+                    <div class="objetoInfoD6" id="tuboD6">
+                        <input id="tuboD6Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'alto' );" maxlength="2" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD7" id="tuboD7"></div>
+                    <div class="objetoInfoD8" id="tuboD8">
+                    	<select class="select2" id="tuboD8Sel" onchange="cambiarPropiedad( this, 'tipoT' );">
+                        	<option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    
+                    <div class="objetoInfoD9" id="tuboD9"></div>
+                    <div class="objetoInfoD10" id="tuboD10">
+                    	<select class="select2" id="tuboD10Sel" onchange="cambiarPropiedad( this, 'bicho' );">
+                        	<option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    
+                </div>
+                <div id="objetoInfofigura" style="display: none;">
+                	
+                	<div id="figuraTxt" class="objetoInfoTxt"></div>
+                	
+                    <div class="objetoInfoD1" id="figuraD1"></div>
+                    <div class="objetoInfoD2" id="figuraD2">
+                        <input id="figuraD2Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'left' );" maxlength="3" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD3" id="figuraD3"></div>
+                    <div class="objetoInfoD4" id="figuraD4">
+                        <input id="figuraD4Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'top' );" maxlength="2" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD5" id="figuraD5"></div>
+                    <div class="objetoInfoD6" id="figuraD6">
+                    	<select class="select2" id="figuraD6Sel" onchange="cambiarPropiedad( this, 'tipoT' );">
+                        	<option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </div>
+                    
+                </div>
+                <div id="objetoInfobandera" style="display: none;">
+                	
+                	<div id="banderaTxt" class="objetoInfoTxt"></div>
+                	
+                    <div class="objetoInfoD1" id="banderaD1"></div>
+                    <div class="objetoInfoD2" id="banderaD2">
+                        <input id="banderaD2Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'left' );" maxlength="3" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD3" id="banderaD3"></div>
+                    <div class="objetoInfoD4" id="banderaD4">
+                        <input id="banderaD4Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'top' );" maxlength="2" type="text">
+                    </div>
+                    
+                </div>
+                <div id="objetoInfobarra" style="display: none;">
+                	
+                	<div id="barraTxt" class="objetoInfoTxt"></div>
+                	
+                    <div class="objetoInfoD1" id="barraD1"></div>
+                    <div class="objetoInfoD2" id="barraD2">
+                        <input id="barraD2Inp" class="textInput2" onkeyup="cambiarPropiedad( this, 'left' );" maxlength="3" type="text">
+                    </div>
+                    
+                    <div class="objetoInfoD3" id="barraD3"></div>
+                    <div class="objetoInfoD4" id="barraD4">
+                    	<select class="select2" id="barraD4Sel" onchange="cambiarPropiedad( this, 'direccion' );">
+                        	<option value="0">Down to Up</option>
+                            <option value="1">Up to Down</option>
+                        </select>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            <div id="editorTrace">
+                <div id="ETcubos"></div>
+                <div id="ETbichos"></div>
+                <div id="ETfiguras"></div>
+                
+                <div id="ETscroll"></div>
+                <div id="ETobjeto"></div>
+            </div>
+        </div>
+        
+        <div style="opacity: 0.5;" id="editorScrollContenedor" onmouseover="editorTrace( 'ETscroll' );" onmouseout="editorTrace( '' );">
+        	<div id="editorScroll" onmousedown="editor.scroll.empezar();"></div>
+        </div>
+        
+        <div id="grillaYT" onclick="grillaY();"></div>
+        <div id="grillaXT" onclick="grillaX();"><div id="grillaXL"></div></div>
+        
+    </div>
+	
+	<div style="padding-top: 500px;" id="about">
+
+		<script type="text/javascript"><!--
+		google_ad_client = "pub-1842707947344889";
+		/* 728x90, creado 24/01/09 */
+		google_ad_slot = "8771473553";
+		google_ad_width = 728;
+		google_ad_height = 90;
+		</script>
+		<script style="display: none;" type="text/javascript" src="includes/show_ads.js">
+		</script>
+	
+		<div id="comentarios">
+            <div id="_comentarios">
+                <div id="comTitulo">
+    				Comments!
+    			</div>
+<div class="comentario">fede:<div class="comCuerpo">nice =)</div></div><div class="comInfo"><div class="comNumero" style="width: 44px;">#1</div><div class="comFecha">February 3, 2009<br>at 11:21</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">j0hn:<div class="comCuerpo">awesome!</div></div><div class="comInfo"><div class="comNumero" style="width: 44px;">#2</div><div class="comFecha">February 3, 2009<br>at 11:38</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">tommy:<div class="comCuerpo">nothing</div></div><div class="comInfo"><div class="comNumero" style="width: 44px;">#3</div><div class="comFecha">February 3, 2009<br>at 13:01</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">dequis:<div class="comCuerpo">pretty good</div></div><div class="comInfo"><div class="comNumero" style="width: 44px;">#4</div><div class="comFecha">February 3, 2009<br>at 17:09</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Amy:<div class="comCuerpo">memory</div></div><div class="comInfo"><div class="comNumero" style="width: 44px;">#5</div><div class="comFecha">February 3, 2009<br>at 17:10</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">jianhui:<div class="comCuerpo">nice</div></div><div class="comInfo"><div class="comNumero" style="width: 44px;">#6</div><div class="comFecha">February 3, 2009<br>at 17:15</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">lhaojob:<div class="comCuerpo">comment</div></div><div class="comInfo"><div class="comNumero" style="width: 44px;">#7</div><div class="comFecha">February 3, 2009<br>at 17:17</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">å�¨å�°:<div class="comCuerpo">  ä¸�ç�¥é��æ�¯ä»�ä¹�</div></div><div class="comInfo"><div class="comNumero" style="width: 44px;">#8</div><div class="comFecha">February 3, 2009<br>at 17:34</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Amy:<div class="comCuerpo">come again</div></div><div class="comInfo"><div class="comNumero" style="width: 44px;">#9</div><div class="comFecha">February 3, 2009<br>at 17:39</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">aaa:<div class="comCuerpo">good!</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#10</div><div class="comFecha">February 3, 2009<br>at 18:17</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">fzxp:<div class="comCuerpo">good!!!</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#11</div><div class="comFecha">February 3, 2009<br>at 19:23</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">6u:<div class="comCuerpo">uhjdrtujdrtuh</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#12</div><div class="comFecha">February 3, 2009<br>at 19:39</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">cheney:<div class="comCuerpo">you win<br>
+</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#13</div><div class="comFecha">February 3, 2009<br>at 20:22</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">m_gray:<div class="comCuerpo">i think your javascript so awesome  could you send me  the   source code  if you can!<br>
+<br>
+</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#14</div><div class="comFecha">February 3, 2009<br>at 20:41</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">kyomic:<div class="comCuerpo">some memory!</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#15</div><div class="comFecha">February 3, 2009<br>at 21:09</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">qmdx31:<div class="comCuerpo">nice game<br>
+I like it~~</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#16</div><div class="comFecha">February 3, 2009<br>at 21:11</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">ä¹�å¤©:<div class="comCuerpo">ä½&nbsp;å¤ªç��äº�</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#17</div><div class="comFecha">February 3, 2009<br>at 21:38</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">cnbeta:<div class="comCuerpo">CBè§�å��å�¢</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#18</div><div class="comFecha">February 3, 2009<br>at 21:54</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">villa:<div class="comCuerpo">very good! <br>
+<br>
+nice.</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#19</div><div class="comFecha">February 3, 2009<br>at 22:25</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">heart:<div class="comCuerpo">Brighten</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#20</div><div class="comFecha">February 3, 2009<br>at 22:52</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">lvngel:<div class="comCuerpo">good!verygood~~</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#21</div><div class="comFecha">February 3, 2009<br>at 23:36</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">hedan:<div class="comCuerpo">what a good program,and classic game,bring back memories!</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#22</div><div class="comFecha">February 4, 2009<br>at 00:04</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">however:<div class="comCuerpo">how to ref this to my blog?<br>
+tell me?</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#23</div><div class="comFecha">February 4, 2009<br>at 00:41</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">hd:<div class="comCuerpo">what a good program,what a classic game!bring back memories!</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#24</div><div class="comFecha">February 4, 2009<br>at 00:47</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">è�«å­�:<div class="comCuerpo">å�ªä¸ªæ�¯è·³ï¼�æ��æ��ä¹�é�½ä¸�ä¼�ç�©ä¹�ä¸�é�¢ç��äººæ��ä¹�é�½ç�¨è�±æ��ï¼�</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#25</div><div class="comFecha">February 4, 2009<br>at 01:33</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">POWER:<div class="comCuerpo">...comment</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#26</div><div class="comFecha">February 4, 2009<br>at 03:39</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">jyo:<div class="comCuerpo">good job</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#27</div><div class="comFecha">February 4, 2009<br>at 04:07</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">jyo:<div class="comCuerpo">but if the comment of the js code can write down with english will be better</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#28</div><div class="comFecha">February 4, 2009<br>at 04:13</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Abdihabar.Ablajan:<div class="comCuerpo">Intayin
+yaxshiken, kurunishtila emes, konopka we herkettiki dawamlishish, tiz
+oynash usulliri noqtisidinmu eslidikige oxshash iqtidar emelge
+ashurulghan. heqiqeten Javascript Canvas ning tipik misali
+bolalaydiken. </div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#29</div><div class="comFecha">February 4, 2009<br>at 05:15</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Â·Â·Â·:<div class="comCuerpo">æ��æ��ä½&nbsp;å¦�</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#30</div><div class="comFecha">February 4, 2009<br>at 06:37</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">pak:<div class="comCuerpo">Great job...<br>
+but just found a bug ;)<br>
+you can jump over the flag and after this you can't go left (back to the flag)....<br>
+But real good job... wtg</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#31</div><div class="comFecha">February 4, 2009<br>at 07:02</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">ikinari:<div class="comCuerpo">å¾�å¥½å¾�å¥½</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#32</div><div class="comFecha">February 4, 2009<br>at 07:17</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Rail Tracer:<div class="comCuerpo">Great!!<br>
+<br>
+but my computer is 600Mhz.<br>
+I play very slow mario.<br>
+I want Java version of this mario.</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#33</div><div class="comFecha">February 4, 2009<br>at 08:18</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">duo9:<div class="comCuerpo">WOW!!!!<br>
+Its a great project!!<br>
+the real javacript?cool!!</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#34</div><div class="comFecha">February 4, 2009<br>at 11:20</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Qzi:<div class="comCuerpo">ç��</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#35</div><div class="comFecha">February 4, 2009<br>at 12:23</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Jeremy:<div class="comCuerpo">The editor wouldn't work</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#36</div><div class="comFecha">February 4, 2009<br>at 12:31</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">joanna:<div class="comCuerpo">nice</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#37</div><div class="comFecha">February 4, 2009<br>at 19:07</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">panny:<div class="comCuerpo">i cann't find myself at the world 1-2,is there any wrong?</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#38</div><div class="comFecha">February 4, 2009<br>at 19:09</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">  å�� :<div class="comCuerpo">é�¿é£�</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#39</div><div class="comFecha">February 4, 2009<br>at 19:55</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">zhi:<div class="comCuerpo">pretty good</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#40</div><div class="comFecha">February 4, 2009<br>at 21:05</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">v:<div class="comCuerpo">not very good</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#41</div><div class="comFecha">February 4, 2009<br>at 21:09</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">chairui:<div class="comCuerpo">pretty good!</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#42</div><div class="comFecha">February 4, 2009<br>at 21:23</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">cvvc:<div class="comCuerpo">å¥½</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#43</div><div class="comFecha">February 5, 2009<br>at 00:29</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Bill:<div class="comCuerpo">If can exchange A and S,that's good!</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#44</div><div class="comFecha">February 5, 2009<br>at 01:49</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">yhbzwj:<div class="comCuerpo">è�½ä¸�è�½å�&nbsp;ä¸�å£°é�³å��</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#45</div><div class="comFecha">February 5, 2009<br>at 03:22</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">xuyuan:<div class="comCuerpo">is very googï¼�</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#46</div><div class="comFecha">February 5, 2009<br>at 04:17</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">ourbaozi:<div class="comCuerpo">Fantastic!</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#47</div><div class="comFecha">February 5, 2009<br>at 05:13</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">guhxe:<div class="comCuerpo">is very good</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#48</div><div class="comFecha">February 5, 2009<br>at 06:36</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">jojo:<div class="comCuerpo">good!!!</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#49</div><div class="comFecha">February 5, 2009<br>at 08:59</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">å��å°�ç��:<div class="comCuerpo">è¶�çº§å±�ã��</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#50</div><div class="comFecha">February 5, 2009<br>at 15:51</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">è°¢è°¢:<div class="comCuerpo">è°¢è°¢</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#51</div><div class="comFecha">February 5, 2009<br>at 17:27</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">hexin:<div class="comCuerpo">go</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#52</div><div class="comFecha">February 5, 2009<br>at 18:44</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">siqiang:<div class="comCuerpo">ä¸�é��!</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#53</div><div class="comFecha">February 5, 2009<br>at 19:06</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">siqiang:<div class="comCuerpo">perfect</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#54</div><div class="comFecha">February 5, 2009<br>at 19:07</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">å®�å®�:<div class="comCuerpo">123456789</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#55</div><div class="comFecha">February 5, 2009<br>at 19:14</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">omega:<div class="comCuerpo">hahaha,nice,but had a little lag</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#56</div><div class="comFecha">February 5, 2009<br>at 19:52</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">aaa:<div class="comCuerpo">ä¸�é��</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#57</div><div class="comFecha">February 5, 2009<br>at 21:01</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">å��æ��:<div class="comCuerpo">å��å�¾â�®(â�¯â�½â�°)â�­</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#58</div><div class="comFecha">February 5, 2009<br>at 21:14</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">yi:<div class="comCuerpo">verygood!but have not any sound</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#59</div><div class="comFecha">February 5, 2009<br>at 23:11</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Allen:<div class="comCuerpo">wonderfulï¼�</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#60</div><div class="comFecha">February 5, 2009<br>at 23:13</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">sanzjy:<div class="comCuerpo">good</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#61</div><div class="comFecha">February 6, 2009<br>at 00:05</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">shj:<div class="comCuerpo">å½¼æ­¤ç¯�ï¼�å��ç��</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#62</div><div class="comFecha">February 6, 2009<br>at 00:21</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">ggmm:<div class="comCuerpo">zks007520</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#63</div><div class="comFecha">February 6, 2009<br>at 01:35</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">ibio:<div class="comCuerpo">nice!~ä½&nbsp;æ�¯ä¸ªå¤©æ��ï¼�å�µå�µï¼�~</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#64</div><div class="comFecha">February 6, 2009<br>at 01:47</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">a:<div class="comCuerpo">good</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#65</div><div class="comFecha">February 6, 2009<br>at 02:01</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">a:<div class="comCuerpo">å¤ªç�½äº�ï¼�</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#66</div><div class="comFecha">February 6, 2009<br>at 02:27</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">ç§�é£�:<div class="comCuerpo">å¥½ã��</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#67</div><div class="comFecha">February 6, 2009<br>at 08:37</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">pconcool:<div class="comCuerpo">é��å¸¸å¥½</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#68</div><div class="comFecha">February 6, 2009<br>at 16:53</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">KnarfJ:<div class="comCuerpo">Fantasticï¼�</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#69</div><div class="comFecha">February 6, 2009<br>at 17:18</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">albert:<div class="comCuerpo">å¤ªå��å®³äº�.</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#70</div><div class="comFecha">February 6, 2009<br>at 21:32</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">TiiNï¼�:<div class="comCuerpo">è¯�è¯�ï¼�æ�¯æ��æ±�è¯­å��ï¼�</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#71</div><div class="comFecha">February 6, 2009<br>at 23:39</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">kevin:<div class="comCuerpo">å¤§å®¶é�½è¯´è�±è¯­ï¼�æ��é�½ä¸�å¥½æ��æ��è¯´ä¸­æ��äº�ã��ã��ã��ã��ã��how a good game </div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#72</div><div class="comFecha">February 7, 2009<br>at 01:10</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">cuikai:<div class="comCuerpo">cool!</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#73</div><div class="comFecha">February 7, 2009<br>at 02:18</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">fa:<div class="comCuerpo">å¾�å¥½</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#74</div><div class="comFecha">February 7, 2009<br>at 05:29</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">ofzhengyi:<div class="comCuerpo">greatï¼�It's mazingã��<br>
+å¤ªå¼ºäº�ï½�å�µå�µ</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#75</div><div class="comFecha">February 7, 2009<br>at 09:14</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">æ��æ¡¦:<div class="comCuerpo">å¨�å°�å°±æ��ä»¶æ�©æ¬§æ��è�³ç��</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#76</div><div class="comFecha">February 7, 2009<br>at 17:30</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Alexandre:<div class="comCuerpo">Nice!<br>
+www.turbodigital.com.br</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#77</div><div class="comFecha">February 7, 2009<br>at 22:18</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">ä¸­å�½:<div class="comCuerpo">ä»�ä¹�ç�©æ��ï¼�</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#78</div><div class="comFecha">February 8, 2009<br>at 02:50</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">oliver:<div class="comCuerpo">amazing</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#79</div><div class="comFecha">February 8, 2009<br>at 20:37</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">micahlee:<div class="comCuerpo">good</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#80</div><div class="comFecha">February 8, 2009<br>at 20:52</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">3213a1:<div class="comCuerpo">dsmfidncgjirfjgv    </div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#81</div><div class="comFecha">February 8, 2009<br>at 22:15</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">FLORA:<div class="comCuerpo">uuii</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#82</div><div class="comFecha">February 8, 2009<br>at 22:52</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">nicho:<div class="comCuerpo">cool</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#83</div><div class="comFecha">February 8, 2009<br>at 23:19</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Eric Fine:<div class="comCuerpo">U gotta be kiddin' me!</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#84</div><div class="comFecha">February 8, 2009<br>at 23:45</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">TomC:<div class="comCuerpo">my god~~</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#85</div><div class="comFecha">February 9, 2009<br>at 01:16</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">candy:<div class="comCuerpo">good</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#86</div><div class="comFecha">February 9, 2009<br>at 03:08</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">kiki:<div class="comCuerpo">very good</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#87</div><div class="comFecha">February 9, 2009<br>at 08:30</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">daca:<div class="comCuerpo">eee???</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#88</div><div class="comFecha">February 9, 2009<br>at 09:33</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">daca:<div class="comCuerpo">how do u edit?</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#89</div><div class="comFecha">February 9, 2009<br>at 09:37</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">siwe:<div class="comCuerpo">hellow</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#90</div><div class="comFecha">February 9, 2009<br>at 18:37</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">god:<div class="comCuerpo">god</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#91</div><div class="comFecha">February 9, 2009<br>at 21:10</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">CC:<div class="comCuerpo">I can't beleve that it's true.</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#92</div><div class="comFecha">February 9, 2009<br>at 21:12</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">å¤�æ�&nbsp;ç�&nbsp;:<div class="comCuerpo">ç��å¼ºå¤§</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#93</div><div class="comFecha">February 9, 2009<br>at 21:19</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">fzz:<div class="comCuerpo">å¤ªå¼ºå¤§äº�</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#94</div><div class="comFecha">February 9, 2009<br>at 21:20</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">wangyan:<div class="comCuerpo">nb!</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#95</div><div class="comFecha">February 9, 2009<br>at 21:32</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">cjue:<div class="comCuerpo">it' unbelieveble to exchnge c/ to b/ </div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#96</div><div class="comFecha">February 9, 2009<br>at 22:02</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">cctv:<div class="comCuerpo">how are you yesterday?</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#97</div><div class="comFecha">February 9, 2009<br>at 23:03</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">@mg@:<div class="comCuerpo">wow..long time no play quite unusual</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#98</div><div class="comFecha">February 10, 2009<br>at 05:53</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">dasads:<div class="comCuerpo">GOOD</div></div><div class="comInfo"><div class="comNumero" style="width: 63px;">#99</div><div class="comFecha">February 10, 2009<br>at 06:52</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">MadeuZ:<div class="comCuerpo">can i download it anyweare? tell me please!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#100</div><div class="comFecha">February 10, 2009<br>at 07:18</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">lnqyZ:<div class="comCuerpo">Thanks!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#101</div><div class="comFecha">February 10, 2009<br>at 11:11</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">dongming:<div class="comCuerpo">very good!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#102</div><div class="comFecha">February 10, 2009<br>at 19:12</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">lp:<div class="comCuerpo">good</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#103</div><div class="comFecha">February 10, 2009<br>at 21:31</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">bisht:<div class="comCuerpo">i play this game</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#104</div><div class="comFecha">February 10, 2009<br>at 22:37</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">girdhar bisht:<div class="comCuerpo">i play this game<br>
+<br>
+</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#105</div><div class="comFecha">February 10, 2009<br>at 22:39</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">girdhar bisht:<div class="comCuerpo">ok</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#106</div><div class="comFecha">February 10, 2009<br>at 22:41</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">chin:<div class="comCuerpo">very nice </div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#107</div><div class="comFecha">February 10, 2009<br>at 23:57</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">zhujy:<div class="comCuerpo">ok<br>
+</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#108</div><div class="comFecha">February 11, 2009<br>at 18:50</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">pazll:<div class="comCuerpo">nice script.<br>
+jvcript cn do nything</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#109</div><div class="comFecha">February 11, 2009<br>at 19:25</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Tony:<div class="comCuerpo">nice script.</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#110</div><div class="comFecha">February 11, 2009<br>at 20:00</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">knjing:<div class="comCuerpo">ç��æ£�</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#111</div><div class="comFecha">February 11, 2009<br>at 20:44</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Liu mingxing:<div class="comCuerpo">So Excellent</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#112</div><div class="comFecha">February 12, 2009<br>at 00:42</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">gurkking:<div class="comCuerpo">a bit slow, but very nice to play. i also found the 1up champignon :)</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#113</div><div class="comFecha">February 12, 2009<br>at 02:23</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">sa:<div class="comCuerpo">javescricpt,Excellent!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#114</div><div class="comFecha">February 12, 2009<br>at 07:13</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Sun:<div class="comCuerpo">good!!!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#115</div><div class="comFecha">February 12, 2009<br>at 20:02</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Billy:<div class="comCuerpo">Very nice</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#116</div><div class="comFecha">February 13, 2009<br>at 09:02</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">[::<div class="comCuerpo">hello billy </div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#117</div><div class="comFecha">February 13, 2009<br>at 09:06</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Shane Sheffer:<div class="comCuerpo">My name is Shane Sheffer.  Hi.</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#118</div><div class="comFecha">February 13, 2009<br>at 09:18</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Muzikphrek:<div class="comCuerpo">VERY NICE</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#119</div><div class="comFecha">February 13, 2009<br>at 10:41</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">autumn :<div class="comCuerpo">hi alex :)</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#120</div><div class="comFecha">February 13, 2009<br>at 10:44</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">alex:<div class="comCuerpo">hi autumn</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#121</div><div class="comFecha">February 13, 2009<br>at 10:46</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">autumn:<div class="comCuerpo">lets stalk shane</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#122</div><div class="comFecha">February 13, 2009<br>at 10:47</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">your name or.. whatever: :<div class="comCuerpo">blah blah blah blah blah</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#123</div><div class="comFecha">February 13, 2009<br>at 10:48</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">alex:<div class="comCuerpo">y hes gross</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#124</div><div class="comFecha">February 13, 2009<br>at 10:50</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">autumn:<div class="comCuerpo">hes gonna look on this website and see this ha...<br>
+<br>
+MAAAAAAAAAAAAh!!<br>
+<br>
+HI NICKY!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#125</div><div class="comFecha">February 13, 2009<br>at 10:51</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">oh,my god :<div class="comCuerpo">good</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#126</div><div class="comFecha">February 13, 2009<br>at 22:28</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">JuliO:<div class="comCuerpo">xD aNO</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#127</div><div class="comFecha">February 14, 2009<br>at 07:36</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">pon:<div class="comCuerpo">ã��ã�ªã�ªï¾�ï½±ï¾�ï½§( Â´Ð�ï½�)</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#128</div><div class="comFecha">February 14, 2009<br>at 08:19</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">sara:<div class="comCuerpo">a nooooo</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#129</div><div class="comFecha">February 14, 2009<br>at 09:04</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">å�¶ç�¶å�¦iio-:<div class="comCuerpo">igodpktoeiä¸�è¿�iokjhjiokikgæ¬§å¹¿é��æ¬§å¹¿é��</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#130</div><div class="comFecha">February 15, 2009<br>at 04:11</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">é¾�å°�:<div class="comCuerpo">å¾�ä¸�é��</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#131</div><div class="comFecha">February 15, 2009<br>at 09:10</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">jayelupt:<div class="comCuerpo">so great!<br>
+warship you!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#132</div><div class="comFecha">February 16, 2009<br>at 06:04</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">ljiyouxi.cn:<div class="comCuerpo">very good!~<br>
+<br>
+girls http://www.ljiyouxi.cn/gg/</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#133</div><div class="comFecha">February 16, 2009<br>at 07:42</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">www.ljiyouxi.cn:<div class="comCuerpo">very good!~<br>
+http://www.lajiyouxi.cn/gg/</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#134</div><div class="comFecha">February 16, 2009<br>at 07:44</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">jump:<div class="comCuerpo">How to jump?</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#135</div><div class="comFecha">February 16, 2009<br>at 07:45</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">eh?:<div class="comCuerpo">where can i download this game?</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#136</div><div class="comFecha">February 16, 2009<br>at 16:55</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">SONTIE:<div class="comCuerpo">there is a bug!<br>
+in the SECOND mission,MARIO disappear!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#137</div><div class="comFecha">February 16, 2009<br>at 19:29</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">dii:<div class="comCuerpo">y como hago para descargar es ejuegoÂ¡Â¡</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#138</div><div class="comFecha">February 16, 2009<br>at 21:42</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">1234:<div class="comCuerpo">å¥½å��</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#139</div><div class="comFecha">February 17, 2009<br>at 21:39</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Naveen:<div class="comCuerpo">Hello very interesting game </div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#140</div><div class="comFecha">February 18, 2009<br>at 04:21</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">lambert:<div class="comCuerpo">pretty good!~!!~1`</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#141</div><div class="comFecha">February 18, 2009<br>at 18:49</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">low:<div class="comCuerpo">Slow speed of some</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#142</div><div class="comFecha">February 18, 2009<br>at 19:08</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">yanchangmin:<div class="comCuerpo">super good é��å¸¸å¥½</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#143</div><div class="comFecha">February 18, 2009<br>at 20:38</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">å�°å��:<div class="comCuerpo">å¤ªNBäº�ã��ã��ã��</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#144</div><div class="comFecha">February 19, 2009<br>at 07:19</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Mr.Shluge:<div class="comCuerpo">...give me the source code....please</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#145</div><div class="comFecha">February 19, 2009<br>at 07:45</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">wichu:<div class="comCuerpo">sopas quick</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#146</div><div class="comFecha">February 19, 2009<br>at 14:52</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">lucia:<div class="comCuerpo">Hello I love Mario galax</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#147</div><div class="comFecha">February 19, 2009<br>at 15:29</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">minsbrz:<div class="comCuerpo">how long dose it take for making the game</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#148</div><div class="comFecha">February 19, 2009<br>at 21:48</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">sun:<div class="comCuerpo">å¤ªå¥½äº�ï¼�</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#149</div><div class="comFecha">February 20, 2009<br>at 00:09</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">just:<div class="comCuerpo">g dzs</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#150</div><div class="comFecha">February 20, 2009<br>at 23:55</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">jc:<div class="comCuerpo">é��å¸¸å¥½ç�©</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#151</div><div class="comFecha">February 22, 2009<br>at 04:16</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">bingo:<div class="comCuerpo">excellent</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#152</div><div class="comFecha">February 22, 2009<br>at 08:52</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">rainel:<div class="comCuerpo">tequiero contar que estoy loca mamamelo</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#153</div><div class="comFecha">February 22, 2009<br>at 09:21</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Eddy:<div class="comCuerpo">oh my god!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#154</div><div class="comFecha">February 22, 2009<br>at 09:29</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">ebi:<div class="comCuerpo">ã�ªã��ã�¨ã��ã��ï¼�ï¼�ï¼�</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#155</div><div class="comFecha">February 23, 2009<br>at 22:21</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Gray:<div class="comCuerpo">my god!!GOooooooooooooooooooooooooood!!!!<br>
+å¤ªå¥½äº�ï¼�</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#156</div><div class="comFecha">February 23, 2009<br>at 23:58</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">å¤©ç©º:<div class="comCuerpo">ç��</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#157</div><div class="comFecha">February 24, 2009<br>at 00:04</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">amanda:<div class="comCuerpo">i love this game and i thought i could play it but oh well..:( bummer!!!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#158</div><div class="comFecha">February 26, 2009<br>at 12:51</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">jhood:<div class="comCuerpo">dis is fucking gay</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#159</div><div class="comFecha">February 27, 2009<br>at 06:31</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">luigi 21 nome                                :<div class="comCuerpo">this is game funky.Please enjoy an production no flash sory of image.<br>
+<br>
+<br>
+luigi 21 pokemon.php flv pxid.</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#160</div><div class="comFecha">February 27, 2009<br>at 10:40</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">madman-524:<div class="comCuerpo">æ��å��æ¬¢ï¼�@<br>
+<br>
+</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#161</div><div class="comFecha">February 27, 2009<br>at 21:57</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Flyer:<div class="comCuerpo">if you want the source code, please save the webpage and see the attachment.</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#162</div><div class="comFecha">February 28, 2009<br>at 05:31</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">nostay:<div class="comCuerpo">I Love It...</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#163</div><div class="comFecha">March 1, 2009<br>at 00:18</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Danny:<div class="comCuerpo">:) esse jogo e otimo ...........e show de bola..bjsss:)</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#164</div><div class="comFecha">March 1, 2009<br>at 08:18</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">hallo:<div class="comCuerpo">how do i jump???</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#165</div><div class="comFecha">March 1, 2009<br>at 10:45</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Liu:<div class="comCuerpo">u are greate js programer!<br>
+can i learn someting from your code?<br>
+E-mail:fengchui911@163.com</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#166</div><div class="comFecha">March 2, 2009<br>at 00:32</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">11:<div class="comCuerpo">111</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#167</div><div class="comFecha">March 2, 2009<br>at 02:22</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">JSè¶�çº§:<div class="comCuerpo">è¿�æ¸¸æ��ä¸�é��å�¦,ä¸�è¿�å¥½è±¡é�½æ�¯äº�å¤�å�½ç�©å®¶å�¨ç�©é¥¿   é�¾é��æ��æ�¯ç¬¬ä¸�ä¸ªä¸­å�½ç�©å®¶??</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#168</div><div class="comFecha">March 2, 2009<br>at 05:48</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">D4rky:<div class="comCuerpo">secret passage on lv 2 isn't working (it breaks the gme)</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#169</div><div class="comFecha">March 2, 2009<br>at 12:17</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">lor tyfgvz:<div class="comCuerpo">loeryfgdrer wa cc<br>
+mvntrrd4ew<br>
+ rygf6</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#170</div><div class="comFecha">March 2, 2009<br>at 14:23</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">lacy:<div class="comCuerpo">your dick is so big</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#171</div><div class="comFecha">March 2, 2009<br>at 15:24</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">zhangsidi:<div class="comCuerpo">NO</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#172</div><div class="comFecha">March 3, 2009<br>at 00:00</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">george:<div class="comCuerpo">the best</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#173</div><div class="comFecha">March 3, 2009<br>at 09:21</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">george:<div class="comCuerpo">cool game</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#174</div><div class="comFecha">March 3, 2009<br>at 13:07</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">frog:<div class="comCuerpo">my child memory! play it with my tear eyes...</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#175</div><div class="comFecha">March 3, 2009<br>at 22:15</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">nicholas:<div class="comCuerpo">sick</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#176</div><div class="comFecha">March 4, 2009<br>at 12:44</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">å¾®é£�:<div class="comCuerpo">nice! ä¸�é��å��ï¼�</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#177</div><div class="comFecha">March 4, 2009<br>at 20:23</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">cary:<div class="comCuerpo">open my eyes</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#178</div><div class="comFecha">March 6, 2009<br>at 02:55</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">é�©å�¯å�²:<div class="comCuerpo">å¾�èµ�ç��æ¸¸æ��</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#179</div><div class="comFecha">March 6, 2009<br>at 11:43</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">whatever:<div class="comCuerpo">lol</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#180</div><div class="comFecha">March 6, 2009<br>at 11:53</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">vn vb:<div class="comCuerpo">å¥½å��</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#181</div><div class="comFecha">March 7, 2009<br>at 22:39</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">QW:<div class="comCuerpo">WQ</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#182</div><div class="comFecha">March 8, 2009<br>at 11:14</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">QW:<div class="comCuerpo">THANK YOU MARIO BUT THE PRINCESES IS IN A ANTHER CASTLE</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#183</div><div class="comFecha">March 8, 2009<br>at 11:17</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">javier tunessi:<div class="comCuerpo">QUIERO JUGAR</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#184</div><div class="comFecha">March 8, 2009<br>at 17:05</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Tt:<div class="comCuerpo">ç��X</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#185</div><div class="comFecha">March 8, 2009<br>at 19:58</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">wulala:<div class="comCuerpo">good</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#186</div><div class="comFecha">March 9, 2009<br>at 01:30</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">15:<div class="comCuerpo">how could you do that</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#187</div><div class="comFecha">March 9, 2009<br>at 03:49</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Mario fan:<div class="comCuerpo">when i entered world 1-2, the Marioâ��s image disappeared from the game, but it still works. How to solve this problem?</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#188</div><div class="comFecha">March 9, 2009<br>at 04:05</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">110:<div class="comCuerpo">54546651</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#189</div><div class="comFecha">March 10, 2009<br>at 01:57</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">æ��ç�±æ´ªæ¬£:<div class="comCuerpo">æ´ªæ¬£æ��ç�±ä½&nbsp;</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#190</div><div class="comFecha">March 11, 2009<br>at 04:27</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">alison:<div class="comCuerpo">hehe haoa </div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#191</div><div class="comFecha">March 11, 2009<br>at 04:35</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">q9i:<div class="comCuerpo">I FREAKIN LOVE THIS GAME WOOOOOOOOOO BLAST TO THE PAST BABY!!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#192</div><div class="comFecha">March 12, 2009<br>at 11:42</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">cocobear:<div class="comCuerpo">ä¸�é��ï¼�ï¼�</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#193</div><div class="comFecha">March 12, 2009<br>at 21:36</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">å¥½:<div class="comCuerpo">å¤ªå¥½äº�</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#194</div><div class="comFecha">March 13, 2009<br>at 01:20</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">solosky:<div class="comCuerpo">great job!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#195</div><div class="comFecha">March 14, 2009<br>at 19:27</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">mimy:<div class="comCuerpo">å¤ªå¥½äº�</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#196</div><div class="comFecha">March 15, 2009<br>at 20:42</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">#2:<div class="comCuerpo">#2 #2 #2</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#197</div><div class="comFecha">March 17, 2009<br>at 03:41</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">zulufighter:<div class="comCuerpo">but only two level?! :-(((</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#198</div><div class="comFecha">March 17, 2009<br>at 10:56</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Brett Bybell:<div class="comCuerpo">SMB is radly awesome!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#199</div><div class="comFecha">March 17, 2009<br>at 14:24</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Brett Bybell:<div class="comCuerpo">Based on the classic NES game but I always get stuck on World 1-2.</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#200</div><div class="comFecha">March 17, 2009<br>at 14:25</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Linzhang George:<div class="comCuerpo">It's very nice! The Web is becoming more and more strong!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#201</div><div class="comFecha">March 18, 2009<br>at 06:19</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">cnsoft:<div class="comCuerpo">so cool!!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#202</div><div class="comFecha">March 18, 2009<br>at 07:58</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">grafix fckn loek:<div class="comCuerpo">THizZ SHiET FCKN KRAKS WHEN YEWR BLOWNzZKiES</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#203</div><div class="comFecha">March 18, 2009<br>at 09:57</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">yoh-hey:<div class="comCuerpo">amazing!!!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#204</div><div class="comFecha">March 19, 2009<br>at 01:04</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Wang Wei:<div class="comCuerpo">Oh my god..........</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#205</div><div class="comFecha">March 20, 2009<br>at 06:05</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">sunny:<div class="comCuerpo">excellent</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#206</div><div class="comFecha">March 21, 2009<br>at 19:26</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">sunny:<div class="comCuerpo">å¾�å¥½å��</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#207</div><div class="comFecha">March 21, 2009<br>at 19:27</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">franky:<div class="comCuerpo">cool .</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#208</div><div class="comFecha">March 22, 2009<br>at 06:14</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">huangqun:<div class="comCuerpo">I like this game.thanks ,you are very strong</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#209</div><div class="comFecha">March 22, 2009<br>at 06:19</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">how to start:<div class="comCuerpo"> Excellent,My Favoriate in my ChildHood!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#210</div><div class="comFecha">March 23, 2009<br>at 18:29</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Oeezee:<div class="comCuerpo">Ah haï¼�Nice Program.</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#211</div><div class="comFecha">March 24, 2009<br>at 04:51</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">æ�¹:<div class="comCuerpo">very good!!!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#212</div><div class="comFecha">March 25, 2009<br>at 03:40</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">ToXic:<div class="comCuerpo">Nice but many bugs!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#213</div><div class="comFecha">March 25, 2009<br>at 04:58</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Emilio:<div class="comCuerpo">how do you play?</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#214</div><div class="comFecha">March 25, 2009<br>at 19:54</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Emilio:<div class="comCuerpo">this is the best game ever!!!!but how do make a map?</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#215</div><div class="comFecha">March 25, 2009<br>at 20:05</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">hite:<div class="comCuerpo">owesome</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#216</div><div class="comFecha">March 26, 2009<br>at 00:23</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">tamara:<div class="comCuerpo">i love mario itis the best game ever i can play whenever i want to<br>
+<br>
+<br>
+tamara vasovic</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#217</div><div class="comFecha">March 28, 2009<br>at 04:41</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">Emma :<div class="comCuerpo">how do you play and where is the map Emma</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#218</div><div class="comFecha">March 28, 2009<br>at 04:43</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">foetodzo mizzah:<div class="comCuerpo">trinity presbymd2710adwesokoforiduaghana.thanks.</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#219</div><div class="comFecha">March 29, 2009<br>at 05:07</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">air:<div class="comCuerpo">good ,but,if add sound that very good~</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#220</div><div class="comFecha">March 29, 2009<br>at 09:54</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">MisterEd:<div class="comCuerpo">SuppaCool :)</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#221</div><div class="comFecha">March 29, 2009<br>at 15:45</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">xxnatexx:<div class="comCuerpo">that was awsome and it's a great memory to i played it i don't know how many time!!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#222</div><div class="comFecha">March 29, 2009<br>at 16:35</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">YY:<div class="comCuerpo">ragra ilubwqlelqww</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#223</div><div class="comFecha">March 30, 2009<br>at 08:45</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">air:<div class="comCuerpo">Why did only two pass?</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#224</div><div class="comFecha">March 30, 2009<br>at 23:06</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">ERICK:<div class="comCuerpo">ä¸�é��ã��ã��ä¸�è¿�æ��bugï¼�ç¬¬äº�å�³ä¸�å�°æ��ä¸�é�¢ä»¥å��æ²¡å��æ³�ä¸�å�»äº�ã��ã��ã��</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#225</div><div class="comFecha">March 31, 2009<br>at 03:43</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">frankie:<div class="comCuerpo">i keep dying<br>
+</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#226</div><div class="comFecha">March 31, 2009<br>at 18:08</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">frankie:<div class="comCuerpo">why dosen,t the map editer come<br>
+up</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#227</div><div class="comFecha">March 31, 2009<br>at 18:12</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">sunwenyong:<div class="comCuerpo">i keep dying</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#228</div><div class="comFecha">April 1, 2009<br>at 02:12</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">å£«å¤§å¤«:<div class="comCuerpo">æ�¾å�°å�°ä¸�</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#229</div><div class="comFecha">April 1, 2009<br>at 04:34</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">charles:<div class="comCuerpo">why do i keep becoming invisible on world 1-2</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#230</div><div class="comFecha">April 1, 2009<br>at 07:31</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">amanda:<div class="comCuerpo">awesome!</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#231</div><div class="comFecha">April 1, 2009<br>at 11:06</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">caca:<div class="comCuerpo">estoas no son tipos de juegos estupidos el k los puso el k se kiera informar para el sexo mi msn es gotica_raya2@http.com</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#232</div><div class="comFecha">April 2, 2009<br>at 17:42</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">ygung:<div class="comCuerpo">excellent</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#233</div><div class="comFecha">April 2, 2009<br>at 18:01</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">bluebell:<div class="comCuerpo">good</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#234</div><div class="comFecha">April 3, 2009<br>at 03:17</div><div class="comClear"></div></div><div class="comClear"></div><div class="comentario">cameron:<div class="comCuerpo">i,m editing a level i like editing levels and playing it</div></div><div class="comInfo"><div class="comNumero" style="width: 77px;">#235</div><div class="comFecha">April 5, 2009<br>at 17:00</div><div class="comClear"></div></div><div class="comClear"></div>                
+
+                
+            </div>
+            <form action="commentsController.php" onsubmit="postComment();return false;" id="postComForm">
+                <div class="comFormTitulo">Post a comment:</div>
+    			<div class="comFormNombre">Your name or.. whatever:</div>
+                <input name="name" maxlength="60" class="comFormInput" type="text">
+    			<div class="comFormEmail">Email:</div>
+                <input name="email" class="comFormInput" type="text">
+    			<div class="comFormComentario">Comment:</div>
+                <textarea name="comment" class="comFormTextarea"></textarea><br>
+                <input class="comFormSubmit" value="Post" type="submit">
+            </form>
+            
+			<br>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script><script src="includes/ga.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-6594673-1");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+<div style="display: none;" id="letrasDiv"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-_003.gif" alt="$" id="letra$"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-.gif" alt=" " id="letra "><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-_.gif" alt="_" id="letra_"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario--.gif" alt="-" id="letra-"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-_004.gif" alt="," id="letra,"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-_002.gif" alt="+" id="letra+"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-Q.gif" alt="Q" id="letraQ"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-W.gif" alt="W" id="letraW"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-E.gif" alt="E" id="letraE"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-R.gif" alt="R" id="letraR"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-T.gif" alt="T" id="letraT"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-Y.gif" alt="Y" id="letraY"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-U.gif" alt="U" id="letraU"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-I.gif" alt="I" id="letraI"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-O.gif" alt="O" id="letraO"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-P.gif" alt="P" id="letraP"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-A.gif" alt="A" id="letraA"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-S.gif" alt="S" id="letraS"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-D.gif" alt="D" id="letraD"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-F.gif" alt="F" id="letraF"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-G.gif" alt="G" id="letraG"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-H.gif" alt="H" id="letraH"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-J.gif" alt="J" id="letraJ"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-K.gif" alt="K" id="letraK"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-L.gif" alt="L" id="letraL"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-Z.gif" alt="Z" id="letraZ"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-X.gif" alt="X" id="letraX"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-C.gif" alt="C" id="letraC"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-V.gif" alt="V" id="letraV"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-B.gif" alt="B" id="letraB"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-N.gif" alt="N" id="letraN"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-M.gif" alt="M" id="letraM"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-0.gif" alt="0" id="letra0"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-1.gif" alt="1" id="letra1"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-2.gif" alt="2" id="letra2"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-3.gif" alt="3" id="letra3"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-4.gif" alt="4" id="letra4"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-5.gif" alt="5" id="letra5"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-6.gif" alt="6" id="letra6"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-7.gif" alt="7" id="letra7"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-8.gif" alt="8" id="letra8"><img style="height: 14px; width: 14px;" classname="letras" src="includes/mario-9.gif" alt="9" id="letra9"></div></body></html>

@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Testes de JavaScript - CPF</TITLE>
+   <META NAME="Author" CONTENT="Flavio Mendes Neto">
+   
+<SCRIPT LANGUAGE="JavaScript1.1">
+
+<!--
+
+/*
+
+Este programa (JavaScript, Netscape 3.0) e' linkware,
+ou seja, voce pode usa-lo e abusa-lo desde que, nas
+paginas aonde usa-lo, mantenha um link para a minha pagina
+http://www2.ita.br/~flavio informando a autoria do mesmo. 
+A mesma regra se aplica para partes do codigo
+aqui contido. Por favor mande-me um 
+(http://www2.ita.br/~flavio/escreva.html) e-mail se usar 
+este programa.
+
+This program (JavaScript, Netscape 3.0) is
+linkware, I mean, you can use and abuse it since, in those pages
+you use it, you keep a link to my homepage 
+http://www2.ita.br/~flavio informing its author. 
+The same rule applies for pieces of the code herein.
+Please send me a (http://www2.ita.br/~flavio/escreva.html) e-mail if
+you use this program.
+
+*/
+
+// (C) 1997 by Flavio Mendes  
+
+function Limpa(S){
+//
+// Deixa so' os digitos no numero
+//
+var Digitos = "0123456789";
+var temp = "";
+var digito = "";
+    for (var i=0; i<S.length; i++){
+      digito = S.charAt(i);
+      if (Digitos.indexOf(digito)>=0){temp=temp+digito}
+    }
+    return temp
+}
+
+function Inverte(S){
+//
+// Inverte o string S
+//
+var temp="";
+    for (var i=0; i<S.length; i++){
+        temp=S.charAt(i)+temp
+    }
+    return temp
+}
+
+function Resto(S){
+//
+// Retorna o digito verificador (entrar com S "limpo")
+//
+var invertido = Inverte(Limpa(S));
+var soma = 0;
+    for (var i=0; i<invertido.length; i++){
+        soma=soma+(i+2)*eval(invertido.charAt(i))
+    }
+    soma*=10;
+    document.CPF.cpfok.value="";
+    return ((soma % 11) % 10)
+}
+
+function Confere(){
+//
+// Confere se o CPF dado esta' OK
+//
+var result = "";
+var OK = false;
+var temp = Limpa(document.CPF.cpf.value);
+    if (temp.length>10){
+       var work=temp.substring(0,(temp.length)-2)
+       var resto = Resto(work);
+       OK = (resto==eval(temp.charAt((temp.length)-2)));
+       if (OK){
+          work=work+resto;
+          resto= Resto(work);
+          OK = (resto==eval(temp.charAt((temp.length)-1)));
+       }
+    }
+    if (OK){result="CPF valido"}else{result="CPF invalido"}    
+    document.CPF.cpfok.value=result;
+}
+
+function ApagaDepois(Source,Chars){
+var temp =  Source;
+var i = Source.indexOf(Chars);
+    if (i>=0){
+       temp = Source.substring(0,i)
+    }
+    return temp
+}
+
+function Completa(){
+//
+// 
+//
+var temp = document.CPF.cpf.value;
+    temp = ApagaDepois(temp,'-');
+    temp = ApagaDepois(temp,'/');
+    document.CPF.cpf.value = temp;
+var digito1 = Resto(temp);
+var digito2 = Resto(temp+digito1)
+    document.CPF.cpf.value = 
+      document.CPF.cpf.value+"-"+digito1+digito2;
+    Confere()
+}
+
+function MostraCampos(){
+//
+// Mostra o campo de edicao
+//
+   document.writeln("<FORM NAME='CPF'>");
+   document.writeln("<center><B>CPF: &nbsp;</B><INPUT TYPE='text' NAME='cpf' SIZE='14' VALUE='XXX.XXX.XXX-XX'>");
+   document.writeln("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <B>Conclus&atilde;o: &nbsp;</B><INPUT TYPE='text' NAME='cpfok' SIZE='15' VALUE='CPF nao avaliado'></center>");
+   document.writeln("<center><INPUT TYPE='button' NAME='Conf' Value='Confere' OnClick='Confere()'>");
+   document.writeln("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE='button' NAME='Compl' Value='Completa' OnClick='Completa()'></center>");
+   document.writeln("</FORM>")
+}
+
+// -->
+</SCRIPT>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<H1 ALIGN=CENTER>Programa CPF</H1>
+
+<H2 ALIGN=CENTER>por <A HREF="http://www2.ita.br/~flavio/escreva.html">Fl&aacute;vio
+Mendes Neto</A> </H2>
+
+<CENTER><P><SCRIPT Language="JavaScript1.1"><!--
+   MostraCampos();
+// --></SCRIPT></P></CENTER>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B>Este programa (JavaScript, Netscape 3.0) &eacute; <I>linkware</I>,
+ou seja, voc&ecirc; pode us&aacute;-lo e abus&aacute;-lo desde que, nas
+p&aacute;ginas aonde us&aacute;-lo, mantenha um link para a minha p&aacute;gina
+<A HREF="http://www2.ita.br/~flavio">http://www2.ita.br/~flavio</A>
+informando a autoria do mesmo. A mesma regra se aplica para partes do c&oacute;digo
+aqui contido. Por favor mande-me um <A HREF="http://www2.ita.br/~flavio/escreva.html">e-mail</A>
+se usar este programa.</B></P>
+
+<P>
+<HR WIDTH="100%"></P>
+
+<P><B><FONT COLOR="#0000FF">This program (JavaScript, Netscape 3.0) is
+<I>linkware</I>, I mean, you can use and abuse it since, in those pages
+you use it, you keep a link to my homepage <A HREF="http://www2.ita.br/~flavio">http://www2.ita.br/~flavio</A>
+informing its author. The same rule applies for pieces of the code herein.
+Please send me a <A HREF="http://www2.ita.br/~flavio/escreva.html">e-mail</A>
+if you use this program.</FONT></B></P>
+
+<CENTER><ADDRESS>
+<HR WIDTH="100%"></ADDRESS></CENTER>
+
+<ADDRESS><FONT SIZE=-1>&copy; 1997 by Fl&aacute;vio Mendes Neto</FONT></ADDRESS>
+
+<ADDRESS><FONT SIZE=-1>Implanta&ccedil;&atilde;o: 28 mai 1997; &Uacute;ltima
+atualiza&ccedil;&atilde;o: 12 ago 1997</FONT></ADDRESS>
+
+<ADDRESS><FONT SIZE=-1>P&aacute;gina integrante do endere&ccedil;o: <A HREF="http://www2.ita.br/~flavio/">http://www2.ita.br/~flavio/</A></FONT></ADDRESS>
+
+</BODY>
+</HTML>

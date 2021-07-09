@@ -1,0 +1,103 @@
+<html> 
+<body bgcolor=#1e90ff> 
+<head> 
+<!--DIA DA SEMANA EM QUE NASCEU-->
+<script LANGUAGE="LiveScript"> 
+function mod(x, x_div){ 
+ for (var i=x; i>=x_div; i -= x_div); 
+  return i; 
+} 
+
+function checkNum(str, min, max) { 
+ if (str == "") { 
+  alert("Enter a number in the field, please."); 
+  return false; 
+ } 
+ for (var i = 0; i < str.length; i++) { 
+  var ch = str.substring(i, i + 1); 
+  if (ch < "0" || ch > "9") { 
+   alert("Try a number, please."); 
+   return false; 
+  } 
+ } 
+ var val = parseInt(str, 10); 
+ if ((val < min) || (val > max)) { 
+  alert("Try a number from 1 to "+max+"."); 
+  return false; 
+ } 
+ return true; 
+} 
+
+function pushbutton(form){ 
+
+ if ((checkNum(form.day.value,1,31)) && (checkNum(form.month.value,1,12)) && (checkNum(form.year.value,0,99))){ 
+  var cur_day = parseInt(form.day.value,10); 
+  var cur_month = parseInt(form.month.value,10); 
+  var cur_year = parseInt(form.year.value,10); 
+
+ var sig_val; 
+ if (cur_month == 1) 
+  sig_val = 0; 
+ else if (cur_month == 2) 
+  sig_val = 3; 
+ else if (cur_month == 3) 
+  sig_val = 3; 
+ else if (cur_month == 4) 
+  sig_val = 6; 
+ else if (cur_month == 5) 
+  sig_val = 1; 
+ else if (cur_month == 6) 
+  sig_val = 4; 
+ else if (cur_month == 7) 
+  sig_val = 6; 
+ else if (cur_month == 8) 
+  sig_val = 2; 
+ else if (cur_month == 9) 
+  sig_val = 5; 
+ else if (cur_month == 10) 
+  sig_val = 0; 
+ else if (cur_month == 11) 
+  sig_val = 3; 
+ else if (cur_month == 12) 
+  sig_val = 5; 
+  var val1 = mod((cur_year + parseInt(cur_year/4) + cur_day + sig_val),7); 
+  
+ //Display the correct file 
+  if (val1 == 0) 
+   alert("Domingo"); 
+         else if (val1 == 1) 
+   alert("Segunda-feira"); 
+  else if (val1 == 2) 
+   alert("Terça-feira"); 
+  else if (val1 == 3) 
+   alert("Quarta-feira"); 
+  else if (val1 == 4) 
+   alert("Quinta-feira"); 
+  else if (val1 == 5) 
+   alert("Sexta-feira"); 
+  else if (val1 == 6) 
+   alert("Sábado"); 
+   return true; 
+  } 
+  else 
+  return false; 
+} 
+
+</script> 
+
+<h1 align="center"><br> 
+<font color="#FFFFCC" size="4">Digite o dia, mês, e ano em que você nasceu. Exemplo: Dia: 26 Mês: 07 Ano: 80</font></h1> 
+
+<form NAME="What_Day"> 
+<div align="center"><center><pre><b><font size="2" color="#FFFFFF">Dia: formato 07 
+<input TYPE="num" name="day" onChange="if (!checkNum(this.value, 1, 31)){this.focus();this.select();} else {}" size="10" value>
+<b><font color="#FFFFFF">Mês: formato 08</font></b> 
+<input TYPE="num" name="month" onChange="if (!checkNum(this.value, 1, 12)){this.focus();this.select();} else {}" size="10" value> 
+<font color="#FFFFFF"><b>Ano: formato 75</b> </font> 
+<input TYPE="num" name="year" onChange="if (!checkNum(this.value, 0, 99)){this.focus();this.select();} else {}" size="10" value> 
+<input TYPE="button" name="Find_Out" value="Qual o Dia?" onclick="pushbutton(this.form)"></pre> 
+</center></div> 
+</form> 
+
+</body> 
+</html> 

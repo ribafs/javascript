@@ -1,0 +1,43 @@
+Uma página enviando valor para outra página
+
+pagina1.html
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Acknowledgement</title>
+</head>
+<body>
+<script>
+var value1="valor 1";
+var value2="valor 2";
+var queryString = "?para1=" + value1 + "&para2=" + value2;
+window.location.href = "t2.html" + queryString;
+</script> 
+</body>
+</html>
+
+pagina2.html
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Acknowledgement</title>
+</head>
+<body>
+<h4>These are the data from page1.html.</h4>
+<script>
+ 
+var queryString = decodeURIComponent(window.location.search);
+queryString = queryString.substring(1);
+var queries = queryString.split("&");
+for (var i = 0; i < queries.length; i++)
+{
+  document.write(queries[i] + "<br>");
+}
+ 
+</script> 
+</body>
+</html>
+https://www.codeproject.com/Questions/795191/Passing-JavaScript-data-values-between-HTML-pages
+

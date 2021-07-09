@@ -1,0 +1,195 @@
+Algumas funções em JS
+
+function validateRequired() {
+    var x = document.forms["myForm"]["nome"].value;
+    if (x == "") {
+        alert("Nome must be filled out");
+        return false;
+    }
+} 
+
+      function validate()
+      {
+      
+         if( document.myForm.Name.value == "" )
+         {
+            alert( "Please provide your name!" );
+            document.myForm.Name.focus() ;
+            return false;
+         }
+         
+         if( document.myForm.Zip.value == "" ||
+         isNaN( document.myForm.Zip.value ) ||
+         document.myForm.Zip.value.length != 8 )
+         {
+            alert( "Please provide a zip in the format ########." );
+            document.myForm.Zip.focus() ;
+            return false;
+         }
+         
+         if( document.myForm.Country.value == "-1" )
+         {
+            alert( "Please provide your country!" );
+            return false;
+         }
+         return( true );
+      }
+
+function validateUsername(fld) {
+    var error = "";
+    var illegalChars = /\W/; // allow letters, numbers, and underscores
+ 
+    if (fld.value == "") {
+        fld.style.background = 'Yellow'; 
+        error = "You didn't enter a username.\n";
+    } else if ((fld.value.length < 5) || (fld.value.length > 15)) {
+        fld.style.background = 'Yellow'; 
+        error = "The username is the wrong length.\n";
+    } else if (illegalChars.test(fld.value)) {
+        fld.style.background = 'Yellow'; 
+        error = "The username contains illegal characters.\n";
+    } else {
+        fld.style.background = 'White';
+    }
+    return error;
+}
+
+function validatePassword(fld) {
+    var error = "";
+    var illegalChars = /[\W_]/; // allow only letters and numbers 
+ 
+    if (fld.value == "") {
+        fld.style.background = 'Yellow';
+        error = "You didn't enter a password.\n";
+    } else if ((fld.value.length < 7) || (fld.value.length > 15)) {
+        error = "The password is the wrong length. \n";
+        fld.style.background = 'Yellow';
+    } else if (illegalChars.test(fld.value)) {
+        error = "The password contains illegal characters.\n";
+        fld.style.background = 'Yellow';
+    } else if (!((fld.value.search(/(a-z)+/)) && (fld.value.search(/(0-9)+/)))) {
+        error = "The password must contain at least one numeral.\n";
+        fld.style.background = 'Yellow';
+    } else {
+        fld.style.background = 'White';
+    }
+   return error;
+}   
+
+function trim(s)
+{
+  return s.replace(/^\s+|\s+$/, '');
+}
+
+function validatePhone(fld) {
+    var error = "";
+    var stripped = fld.value.replace(/[\(\)\.\-\ ]/g, '');    
+
+   if (fld.value == "") {
+        error = "You didn't enter a phone number.\n";
+        fld.style.background = 'Yellow';
+    } else if (isNaN(parseInt(stripped))) {
+        error = "The phone number contains illegal characters.\n";
+        fld.style.background = 'Yellow';
+    } else if (!(stripped.length == 10)) {
+        error = "The phone number is the wrong length. Make sure you included an area code.\n";
+        fld.style.background = 'Yellow';
+    }
+    return error;
+}
+
+function allLetter(uname)
+{ 
+    var letters = /^[A-Za-z]+$/;
+    if(uname.value.match(letters))
+    {
+        return true;
+    }
+    else
+    {
+        alert('Username must have alphabet characters only');
+        uname.focus();
+        return false;
+    }
+}
+
+function alphanumeric(uadd)
+{ 
+    var letters = /^[0-9a-zA-Z]+$/;
+    if(uadd.value.match(letters))
+    {
+        return true;
+    }
+    else
+    {
+        alert('User address must have alphanumeric characters only');
+        uadd.focus();
+        return false;
+    }
+}
+
+De um select
+<li><label for="country">Country:</label></li>
+<li><select name="country">
+<option selected="" value="Default">(Please select a country)</option>
+<option value="AF">Australia</option>
+<option value="AL">Canada</option>
+<option value="DZ">India</option>
+<option value="AS">Russia</option>
+<option value="AD">USA</option>
+</select></li>
+
+function countryselect(ucountry)
+{
+    if(ucountry.value == "Default")
+    {
+        alert('Select your country from the list');
+        ucountry.focus();
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+function formValidation()
+{
+var uid = document.registration.userid;
+var passid = document.registration.passid;
+var uname = document.registration.username;
+var uadd = document.registration.address;
+var ucountry = document.registration.country;
+var uzip = document.registration.zip;
+var uemail = document.registration.email;
+var umsex = document.registration.msex;
+var ufsex = document.registration.fsex;
+if(userid_validation(uid,5,12))
+{
+    if(passid_validation(passid,7,12))
+    {
+        if(allLetter(uname))
+        {
+            if(alphanumeric(uadd))
+            { 
+                if(countryselect(ucountry))
+                {
+                    if(allnumeric(uzip))
+                    {
+                        if(ValidateEmail(uemail))
+                        {
+                            if(validsex(umsex,ufsex))
+                            {
+                            }
+                        } 
+                    }
+                } 
+            }
+        }
+    }
+}
+return false;
+
+}
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+    <link href="http://easydigging.com/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://easydigging.com/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="http://easydigging.com/assets/css/easydigging.css" rel="stylesheet">
+  </head>
+<!-- https://www.sitepoint.com/community/t/simple-php-math-captcha-to-minimize-bots-sending-you-junky-emails/24441/2 -->
+  <body>
+
+    <div class="container-fluid">
+      <div class="span12">
+        <div class="row-fluid">
+          <div class="span5">
+            <form id="edf" method="post" autocomplete="off" action="verificar.php" >
+              <fieldset>
+                <legend>Contact Form</legend>
+                <label for="reporting">Message</label>
+
+                <textarea class="input-block-level" rows="3" name="reporting" id="reporting" maxlength="1000"></textarea>
+
+                <span class="help-block">
+                  If you would like us to reply to your message, please enter at least two of the following questions.
+                </span>
+
+                <label for="person">Name</label>
+                <input class="input-block-level" type="text" name="person" id="person">
+
+                <label for="onlineaddress">Email</label>
+                <input class="input-block-level" type="text" name="onlineaddress" id="onlineaddress">
+
+                <label for="ringer">Phone Number</label>
+                <input class="input-block-level" type="text" name="ringer" id="ringer">
+
+                <label>Please enter the following number into the field below: <span id="verifyNum"></span></label>
+                <input type="hidden" value="701469" id="verifyNumHidden" name="verifyNumHidden" />
+                <input type="text" id="enterVerify" name="enterVerify" />
+
+                <button class="btn btn-large btn-primary" type="submit" style="display:block;margin-top:15px;">Send Message</button>
+              </fieldset>
+            </form>
+          </div>	
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function(){
+        function randomgen()
+        {
+          var rannumber='';
+          for(ranNum=1; ranNum<=6; ranNum++){
+            rannumber+=Math.floor(Math.random()*10).toString();
+          }
+          $('#verifyNum').html(rannumber);
+          $('#verifyNumHidden').val(rannumber);
+        }
+        randomgen();
+
+        $('#edf').submit(function() {
+          if($('#enterVerify').val() != $('#verifyNumHidden').val() ) {
+            alert("Please Enter Correct Verification Number");
+            randomgen();
+            $('#enterVerify').select();
+            $('#enterVerify').focus();
+            return false;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

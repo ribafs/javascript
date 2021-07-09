@@ -1,0 +1,188 @@
+Top 10 custom JavaScript functions of all time
+
+Tuesday, November 29th, 2005
+
+UPDATE: For anyone who lands on this article "months after the fact", there is now a podcast entry about this article reviewing each and every function.
+
+If there was ever a universal common.js shared among the entire develosphere, you’d fine these ten (plus one bonus) functions. It would be the swiss army knife no developer would go into production without. They have no doubt been tested tried and true and have proven usefulness and helpfulness to all those who’ve used them. So without further ado, here are what I believe to the top ten greatest custom JavaScript functions in use today.
+
+Upon further reading this article, it is suggested that for this article in particular the reader should use an alternate style with cleaner whitespace and larger margins. This is available by selecting Clean with Whitespace available on the side bar.
+10) addEvent()
+
+Surely a staple to event attachment! Regardless to what version you use written by whatever developer, it does what it says it does. And of course as you might of known, I’ve put together quite a handy version myself recently of addEvent() with some help from the contest winner and Mark Wubben along with a few minor syntax adjustments. But just to be fair to Scott Andrew, here is the original that started it all.
+Scott Andrew’s original addEvent() function
+
+function addEvent(elm, evType, fn, useCapture) {
+	if (elm.addEventListener) {
+		elm.addEventListener(evType, fn, useCapture);
+		return true;
+	}
+	else if (elm.attachEvent) {
+		var r = elm.attachEvent('on' + evType, fn);
+		return r;
+	}
+	else {
+		elm['on' + evType] = fn;
+	}
+}
+
+9) addLoadEvent()
+
+Originally written by Simon Willison and highly adopted by many others as a simple way to add events to trigger after the page has loaded. This of course attaches all your events to the onload event handler which some still see as necessary, nevertheless it does exactly what it’s supposed to, and does it well.
+addLoadEvent() by Simon Willison
+
+function addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	}
+	else {
+		window.onload = function() {
+			oldonload();
+			func();
+		}
+	}
+}
+
+Of course another method is to simply assign multiple event listeners to the window by using addEvent() as described in number 10 as follows:
+assigning multiple load events to window
+
+addEvent(window,'load',func1,false);
+addEvent(window,'load',func2,false);
+addEvent(window,'load',func3,false);
+
+8) getElementsByClass()
+
+Originially written by nobody in particular. Several developers have implemented their own version and no one single version has proven to be better than another. As you might expect, my humble self has even had a crack at it. This function was spawned from developers needing a quick and elegant way of grabbing elements by a className and to a developer’s surprise, it’s not an original DOM method as one might think…afterall, we have getElementById, getElementsByName(), getElementsByTagName, what the hell happened to getElementsByClass??? Here it is in all its glory:
+getElementsByClass by Dustin Diaz
+
+function getElementsByClass(searchClass,node,tag) {
+	var classElements = new Array();
+	if ( node == null )
+		node = document;
+	if ( tag == null )
+		tag = '*';
+	var els = node.getElementsByTagName(tag);
+	var elsLen = els.length;
+	var pattern = new RegExp('(^|\\\\s)'+searchClass+'(\\\\s|$)');
+	for (i = 0, j = 0; i < elsLen; i++) {
+		if ( pattern.test(els[i].className) ) {
+			classElements[j] = els[i];
+			j++;
+		}
+	}
+	return classElements;
+}
+
+Simply add a class name to the beginning of the funciton and the 2nd and 3rd arguments are optional and the magic is done for you!
+
+7) cssQuery()
+
+Originally written by Dean Edwards as a way to query the DOM according to CSS properties which supports a multitude of selectors. However in all fairness, this is more like a mini-library and not quite so light on the weight factor, but still, a very kick-ass function. Due to its length (and CC lisencing) I won’t post it on this site. Full documentation can be found on the myCssQuery reference and download page.
+6) toggle()
+
+To be totally honest, there are probably more variations of this function than there needs to be. The history of ‘toggling’ basically comes down to showing/hiding an element upon an event being fired. To make matters much simpler, I too have put one together. But by no means is it considered the ultimate toggle function, but it does do the basic functionality of showing and hiding.
+toggle() by the masses
+
+function toggle(obj) {
+	var el = document.getElementById(obj);
+	if ( el.style.display != 'none' ) {
+		el.style.display = 'none';
+	}
+	else {
+		el.style.display = '';
+	}
+}
+
+5) insertAfter()
+
+As far as I know, Jeremy Keith sort of came up with this idea even though one would have thought this too would be a DOM core method. But just like getElementsByClass, it isn’t. So rather than pulling the function straight out of the book, I’ll leave that up to you to buy it yourself. Instead I’ve pulled this simple method from public domain:
+insertAfter() on public domain
+
+function insertAfter(parent, node, referenceNode) {
+	parent.insertBefore(node, referenceNode.nextSibling);
+}
+
+4) inArray()
+
+This too is very sad that this isn’t part of the DOM core functionality. But hey, it makes for fun references like this! This function however isn’t quite a function; it’s a prototype that extends the DOM Array object. I remember one day thinking to myself “surely I can do this in PHP, it’s gotta be in JavaScript.” Well, this extension makes it work just like you’d expect if you’re a PHP developer. Here is a version from EmbiMEDIA
+inArray Prototype Array object by EmbiMedia
+
+
+Array.prototype.inArray = function (value) {
+	var i;
+	for (i=0; i < this.length; i++) {
+		if (this[i] === value) {
+			return true;
+		}
+	}
+	return false;
+};
+
+3, 2, & 1) getCookie(), setCookie(), deleteCookie()
+
+I honestly don’t know what I would do without these guys. I hate the DOM implementations of setting cookies in JavaScript. In PHP it’s so easy, and it’s easy for one main reason, they work just like the functions below. All three of these functions were found to be public domain and free to use.
+getCookie(), setCookie(), deleteCookie() open domain
+
+function getCookie( name ) {
+	var start = document.cookie.indexOf( name + "=" );
+	var len = start + name.length + 1;
+	if ( ( !start ) && ( name != document.cookie.substring( 0, name.length ) ) ) {
+		return null;
+	}
+	if ( start == -1 ) return null;
+	var end = document.cookie.indexOf( ';', len );
+	if ( end == -1 ) end = document.cookie.length;
+	return unescape( document.cookie.substring( len, end ) );
+}
+
+function setCookie( name, value, expires, path, domain, secure ) {
+	var today = new Date();
+	today.setTime( today.getTime() );
+	if ( expires ) {
+		expires = expires * 1000 * 60 * 60 * 24;
+	}
+	var expires_date = new Date( today.getTime() + (expires) );
+	document.cookie = name+'='+escape( value ) +
+		( ( expires ) ? ';expires='+expires_date.toGMTString() : '' ) + //expires.toGMTString()
+		( ( path ) ? ';path=' + path : '' ) +
+		( ( domain ) ? ';domain=' + domain : '' ) +
+		( ( secure ) ? ';secure' : '' );
+}
+
+function deleteCookie( name, path, domain ) {
+	if ( getCookie( name ) ) document.cookie = name + '=' +
+			( ( path ) ? ';path=' + path : '') +
+			( ( domain ) ? ';domain=' + domain : '' ) +
+			';expires=Thu, 01-Jan-1970 00:00:01 GMT';
+}
+
+Last but not least, a bonus function: The Prototype Dollar Function
+
+This function straight up kicks so much ass. First of all, just look at it.
+Prototype function $
+
+function $() {
+	var elements = new Array();
+	for (var i = 0; i < arguments.length; i++) {
+		var element = arguments[i];
+		if (typeof element == 'string')
+			element = document.getElementById(element);
+		if (arguments.length == 1)
+			return element;
+		elements.push(element);
+	}
+	return elements;
+}
+
+// Sample Usage:
+var obj1 = document.getElementById('element1');
+var obj2 = document.getElementById('element2');
+function alertElements() {
+  var i;
+  var elements = $('a','b','c',obj1,obj2,'d','e');
+  for ( i=0;i
+
+Tell me that’s not beautiful! Short not only by name, but by reference. It not only takes in strings, it takes objects too. You can pass it one argument, or pass it many! This by far is my favorite function of all time which will provide years and years of handiness.
+
+Fonte: http://www.dustindiaz.com/top-ten-javascript/
