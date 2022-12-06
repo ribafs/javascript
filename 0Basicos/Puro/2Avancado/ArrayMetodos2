@@ -1,0 +1,153 @@
+Métodos dos arrays
+
+O objeto Array possui os seguintes métodos:
+
+concat() une dois arrays e retorna um novo array.
+
+var myArray = new Array('1', '2', '3');
+myArray = myArray.concat('a', 'b', 'c');
+// myArray agora é ["1", "2", "3", "a", "b", "c"]
+
+join(deliminator = ',') une todos os elementos de um array dentro de um string.
+
+var myArray = new Array('Vento', 'Chuva', 'Fogo');
+var lista = myArray.join(' - '); // lista é "Vento - Chuva - Fogo"
+
+push() adiciona um ou mais elementos no fim de um array e retorna o comprimento resultante do array.
+
+var myArray = new Array('1', '2');
+myArray.push('3'); // myArray é agora ["1", "2", "3"]
+
+pop() remove o último elemento de um array e retorna esse elemento.
+
+var myArray = new Array('1', '2', '3');
+var ultimo = myArray.pop();
+// myArray é agora ["1", "2"], ultimo = "3"
+
+shift() remove o primeiro elemento de um array e retorna esse elemento.
+
+var myArray = new Array('1', '2', '3');
+var primeiro = myArray.shift();
+// myArray agora é ["2", "3"], primeiro é "1"
+
+unshift() adiciona um ou mais elementos ao início do array e retorna o novo comprimento do array.
+
+var myArray = new Array('1', '2', '3');
+myArray.unshift('4', '5');
+// myArray torna-se ["4", "5", "1", "2", "3"]
+
+slice(start_index, upto_index) extrai uma seção de um array e retorna um novo array.
+
+var myArray = new Array('a', 'b', 'c', 'd', 'e');
+myArray = myArray.slice(1, 4); // inicia no índice 1 e extrai todos os elementos
+                               // até o índice 3, retornado [ "b", "c", "d"]
+
+splice(index, count_to_remove, addElement1, addElement2, ...) remove elementos de um array e (opcionalmente) o substitui, e retorna os itens que foram removidos do array.
+
+var myArray = new Array('1', '2', '3', '4', '5');
+myArray.splice(1, 3, 'a', 'b', 'c', 'd');
+// myArray é agora ["1", "a", "b", "c", "d", "5"]
+// Este código iniciou no índice um (ou onde o "2" estava),
+// removeu 3 elementos a partir dali, e então inseriu todos os elementos
+// consecutivos em seus lugares.
+
+reverse() transpõe (inverte) os elementos de um array, in situ: o primeiro elemento do array se torna o último e o último torna-se o primeiro, e retorna uma referência para o array.
+
+var myArray = new Array('1', '2', '3');
+myArray.reverse();
+// transpõe o array de modo que myArray = [ "3", "2", "1" ]
+
+sort() ordena os elementos de um array in situ, e retorna uma referência para o array.
+
+var myArray = new Array('Neve', 'Chuva', 'Fogo');
+myArray.sort();
+// ordena o array de modo que myArray = [ "Chuva", "Fogo", "Neve" ]
+
+sort() também pode 'pegar' uma função callback para determinar como os elementos do array são comparados.
+
+O método sort, assim como outros métodos abaixo que tomam um callback são conhecidos como métodos iterativos, porque eles iteram sobre o array de alguma forma. Cada um pega um segundo argumento opcional chamado thisObject. Se fornecido, thisObject se torna o valor da palavra chave this dentro do corpo da função callback. Se não fornecido, como em outros casos onde uma função é invocada fora do contexto explícito de um objeto, this fará referência ao objeto global (window).
+
+A função callback é na verdade chamada com três argumentos. O primeiro é o valor do item corrente, o segundo é o índice do array e o terceiro é uma referência ao próprio array. Funções javaScript ignoram qualquer argumento que não são nomeados na lista de parâmetros, portanto é seguro prover uma função callback que toma somente um único argumento, como a função alert.
+
+A função abaixo compara dois valores e retorna um dos tres valores: -1, 0 ou 1.
+
+Por exemplo, o seguinte trecho de código vai ordenar pela última letra da string:
+
+var sortFn = function(a, b){
+  if (a[a.length - 1] < b[b.length - 1]) return -1;
+  if (a[a.length - 1] > b[b.length - 1]) return 1;
+  if (a[a.length - 1] == b[b.length - 1]) return 0;
+}
+myArray.sort(sortFn);
+// ordena o array de modo que myArray = ["Chuva","Neve","Fogo"]
+
+    se a for menor que b pelo sistema de ordenação, retorna -1 (ou qualquer número negativo)
+    se a for maior que b pelo sistema de ordenação, retorna 1 (ou qualquer número positivo)
+    se a e b forem considerados equivalentes, retornará 0.
+
+indexOf(searchElement[, fromIndex]) busca searchElement no array e retorna o índice da primeira ocorrência.
+
+var a = ['a', 'b', 'a', 'b', 'a'];
+console.log(a.indexOf('b'));    // mostra 1
+// Agora tente novamente, iniciando após o último resultado de busca
+console.log(a.indexOf('b', 2)); // mostra 3
+console.log(a.indexOf('z'));    // mostra -1, porque 'z' não foi encontrado
+
+lastIndexOf(searchElement[, fromIndex]) funciona como indexOf, mas começa no fim e busca de trás para a frente.
+
+var a = ['a', 'b', 'c', 'd', 'a', 'b'];
+console.log(a.lastIndexOf('b'));    // mostra 5
+// Agora tente novamente, iniciando antes do último resultado de busca
+console.log(a.lastIndexOf('b', 4)); // mostra 1
+console.log(a.lastIndexOf('z'));    // mostra -1
+
+forEach(callback[, thisObject]) executa um callback em cada item do array e retorna undefined.
+
+var a = ['a', 'b', 'c'];
+a.forEach(function(element) { console.log(elemento); });
+// mostra cada item por vez
+
+map(callback[, thisObject]) retorna um novo array do valor retornado da execução do callback em cada item do array.
+
+var a1 = ['a', 'b', 'c'];
+var a2 = a1.map(function(item) { return item.toUpperCase(); });
+console.log(a2); // logs ['A', 'B', 'C']
+
+filter(callback[, thisObject]) retorna um novo array contendo os items verdadeiros ao executar o callback.
+
+var a1 = ['a', 10, 'b', 20, 'c', 30];
+var a2 = a1.filter(function(item) { return typeof item === 'number'; });
+console.log(a2); // mostra [10, 20, 30]
+
+every(callback[, thisObject]) retorna verdadeiro se o callback retornar verdadeiro para cada item no array.
+
+function isNumber(valor) {
+  return typeof valor === 'number';
+}
+var a1 = [1, 2, 3];
+console.log(a1.every(isNumber)); // mostra true
+var a2 = [1, '2', 3];
+console.log(a2.every(isNumber)); // mostra false
+
+some(callback[, thisObject]) retorna verdadeiro se o callback retornar verdadeiro para pelo menos um item no array.
+
+function isNumber(valor) {
+  return typeof valor === 'number';
+}
+var a1 = [1, 2, 3];
+console.log(a1.some(isNumber)); // mostra true
+var a2 = [1, '2', 3];
+console.log(a2.some(isNumber)); // mostra true
+var a3 = ['1', '2', '3'];
+console.log(a3.some(isNumber)); // mostra false
+
+reduce(callback[, initialValue]) aplica callback(firstValue, secondValue) para reduzir a lista de itens para um único valor e retorna este valor.
+
+var a = [10, 20, 30];
+var total = a.reduce(function(primeiro, segundo) { return primeiro + segundo; }, 0);
+console.log(total) // mostra 60
+
+reduceRight(callback[, initalvalue]) funciona como reduce(), mas inicia com o último elemento.
+
+reduce e reduceRight são os métodos iterativos menos óbvios dos arrays. Eles devem ser usados para algorítmos que combinam dois valores de maneira recursiva com a finalidade de reduzir uma sequência para um único valor.
+

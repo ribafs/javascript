@@ -1,0 +1,23 @@
+
+1) O código javascript é executado em sequência
+De cima para baixo, linha a linha
+
+Ou seja, somente posso executar um código javascript se ele estiver definido antes
+Uma exceção é para uma função que podemos defini-la e chamar acima ou abaixo
+
+Exemplo que não funciona
+
+<script>
+document.getElementById('aqui').innerHTML = "Alterado pelo Javascript"
+<script>
+
+<div id="aqui"></a>
+
+O id precisa ser definido antes do comando com DOM
+
+
+2) O código javascript é case sensitive, ou seja, distingue maiúsculas de minúsculas.
+
+"var Nome" é diferente de "var nome"
+
+

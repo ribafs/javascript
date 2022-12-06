@@ -1,0 +1,27 @@
+
+Métodos de String
+Método 	Descrição
+charAt, charCodeAt, codePointAt 	Retorna o código do caractere ou o caractere em uma posição específica na string.
+
+indexOf, lastIndexOf 	Retorna a posição de uma substring específica na string ou a última posição da substring específica, respectivamente.
+
+startsWith, endsWith, includes 	Retorna se uma string começa, termina ou contém uma outra string específica.
+
+concat 	Concatena o texto de duas strings e retorna uma nova string.
+
+fromCharCode, fromCodePoint 	Cria uma string a partir de uma sequência específica de valores Unicode. Esse é um método da classe String, não de uma instância do tipo String.
+
+split 	Separa um objeto String em um array de strings, separando a string em substrings.
+
+slice 	Extrai uma seção de uma string e retorna uma nova string.
+substring, substr 	Retorna um subconjunto específico de uma string, definindo os índices inicial e final, ou definindo um índice e um tamanho.
+
+match, replace, search 	Trabalha com expressões regulares.
+
+toLowerCase, toUpperCase 	
+
+Retorna a string com todos caracteres em minúsculo, ou maiúsculo, respectivamente.
+normalize 	Retorna a Forma Normalizada Unicode (Unicode Normalization Form) da string que chama o método.
+repeat 	Retorna uma string contendo os elementos do objeto repetidos pela quantidade de vezes dada.
+trim 	Retira espaços em branco no começo e no final da string.
+

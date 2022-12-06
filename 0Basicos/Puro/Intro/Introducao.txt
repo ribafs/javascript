@@ -1,0 +1,136 @@
+Inrodução ao JavaScript
+
+- Classes (introduzidas pelo ECMAScript 2015)
+- Palavras reservadas: https://www.w3schools.com/js/js_reserved.asp
+- Versões - https://www.w3schools.com/js/js_versions.asp
+
+JavaScript é uma linguagem de script que funciona no lado cliente, ou seja, é interpretada pelo 
+próprio navegador. É usada para tornar o site interativo, podendo disparar ações em eventos, 
+enviar mensagens, efetuar algumas ações.
+
+Atualmente o JavaScript está em alta, pois com a chegada do HTML5 e CSS3 ele ganhou muito destaque e
+força. A cada dia aparecem novos frameworks para criação de jogos e aplicativos para celular usando
+JavaScript. Se fizer uma busca por frameworks em Javascript para a criação de jogos encontrará uma
+enormidade.
+
+O JavaScript foi criado para que os usuários pudessem interagir diretamente com o seu navegador, sem a necessidade que suas ações precisassem "viajar" até o servidor para serem processadas e então voltassem para serem exibidas na tela. Todo esse processo poderia causar uma lentidão nas respostas e prejudicar a experiência do usuário.
+
+Como atualmente o número de sites na internet chega aos bilhões, o JavaScript se tornou uma das linguagens mais utilizadas no mundo.
+
+O Node.js é um framework do JavaScript que realiza suas operações no servidor. Tem como principal objetivo "fornecer uma maneira fácil para construir programas de rede escaláveis", pois outras linguagens, como o Java ou PHP, consomem uma quantidade significativa de memória, limitando o número de usuários por servidor.
+
+Quanto aos salários, apesar de ser uma das linguagens mais populares, os valores do JavaScript estão um pouco abaixo da média, ficando entre R$ 3.500 e R$ 4 mil.
+
+Já para Node.js os salários são maiores. A média fica em torno de de R$ 6 mil. Seu salário inicial também é maior, começando em R$ 3 mil. Isso pode ser devido ao fato de para programar em Node.js você já deve ter alguma experiência com JavaScript.
+
+Por ser uma linguagem "da internet", vale a pena estudar essas duas linguagens.
+
+O foco do JavaScript é implementar o comportamento ou a inteligência das páginas.
+
+De forma semelhane ao CSS podemos usar o JavaScript com o HTML de 3 formas:
+
+- Inline - dentro das tags do HTML
+- Internamente - como um trecho de código da página HTML, usando a tag <script>
+- Externamente - criando um arquivo externo com código JS e fazendo o include no arquivo HTML, sem
+	a tag <script>
+
+A forma mais flexível é usando um arquivo externo, quando se fica mais a vontade e inclusive separa
+o HTML do JavaScript, organizando melhor o código.
+
+Para incluir um arquivo externo entramos na tag <head> a linha:
+<script type="text/javascript" src="script.js"></script>
+
+Comentários
+
+// Comentário de uma única linha
+
+/* Comentário
+ * para
+ * várias
+ * linhas
+ */
+
+É uma linguagem completa, inclusive tem orientação a objetos.
+Conta com as estruturas: if, for, while, switch, etc.
+
+Variáveis
+
+var nomeVar = valor;
+
+Escopo: local e global
+
+Funções
+
+Pequeno exemplo de uso de objetos:
+
+var pessoa = new Object();
+pessoa.nome = "Ribamar";
+pessoa.idade = 59;
+pessoa.profissao = "Programador";
+
+Outra forma:
+
+var pessoa = {
+	nome: "Ribamar",
+	idade: 59,
+	profissao = "Programador",
+	
+	digaNome: function(){
+		alert(this.nome);
+	}
+};
+
+var formacaoJava = {
+ sigla : " K10", nome : " Formação Desenvolvedor Java ",
+ cursos : [
+ {
+	sigla : "K11 ",
+	nome : " Orientação a Objetos em Java "
+ },
+ {
+	sigla : "K12 ",
+	nome : " Desenvolvimento Web com JSF2 e JPA2 "
+ },
+ ]
+};
+
+Manipulação de Eventos
+
+<input type="button" value="Click Me" onclick="alert('Clicked')" />
+
+<input type="button" value="Click Me" onclick="alert(&quot;Clicked&quot;)" />
+
+Eventos
+load
+resize
+scroll
+focus
+change
+blur
+select
+submit
+reset
+mousedown
+mouseup
+click
+dblclick
+mousemove
+mouseover
+mouseout
+keydown
+keypress
+keyup
+
+
+Algumas Ferramentas
+- Firebug é uma ótima extensão para o Firefox
+- Netbeans para HTML5/JavaScript - http://netbeans.org
+- Eclipse para JavaScript - http://www.eclipse.org/downloads/packages/eclipse-ide-javascript-web-developers/heliossr1
+
+Apareceram vários frameworks sobre o JavaScript:
+- AngularJS - https://angularjs.org/
+- Backbone - http://backbonejs.org/
+- TypeScript - https://www.typescriptlang.org/
+
+Mais sobre JavaScript:
+http://www.w3schools.com/JS/

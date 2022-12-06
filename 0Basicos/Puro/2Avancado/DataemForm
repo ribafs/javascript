@@ -1,0 +1,17 @@
+<script>
+// Mostrar a data atual do sistema num campo de form
+function dataAtual(){
+    var utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+    return document.write(utc);
+}
+
+window.onload = function(){
+  document.getElementById("date").value = dataAtual();
+}
+
+
+</script>
+
+<form name="frmTeste">
+<input id="date" name="date" value="">
+</forom>

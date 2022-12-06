@@ -1,0 +1,18 @@
+CARACTERÍSTICAS DA LINGUAGEM
+O JavaScript, como o próprio nome sugere, é uma linguagem de scripting. Uma linguagem de
+scripting é comumente definida como uma linguagem de programação que permite ao programador
+controlar uma ou mais aplicações de terceiros. No caso do JavaScript, podemos controlar alguns
+comportamentos dos navegadores através de trechos de código que são enviados na página HTML.
+Outra característica comum nas linguagens de scripting é que normalmente elas são linguagens
+interpretadas, ou seja, não dependem de compilação para serem executadas. Essa característica é
+presente no JavaScript: o código é interpretado e executado conforme é lido pelo navegador, linha a
+linha, assim como o HTML.
+O JavaScript também possui grande tolerância a erros, uma vez que conversões automáticas são
+realizadas durante operações. Como será visto no decorrer das explicações, nem sempre essas
+conversões resultam em algo esperado, o que pode ser fonte de muitos bugs, caso não conheçamos bem
+esse mecanismo.
+O script do programador é enviado com o HTML para o navegador, mas como o navegador saberá
+diferenciar o script de um código html? Para que essa diferenciação seja possível, é necessário envolver
+o script dentro da tag <script> .
+
+https://www.caelum.com.br/apostila-html-css-javascript/

@@ -1,0 +1,19 @@
+Arrow Function
+Introduzida no ES6 reduz o código
+
+let myFunction = (a, b) => a * b;
+
+Similar a
+
+function myFunction(a, b){
+    return a*b
+}
+
+console.log(myFunction(4, 5))
+
+const outraFuncao = () => {
+    console.log(this)
+}
+
+console.log(outraFuncao)
+

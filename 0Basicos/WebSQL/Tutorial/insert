@@ -1,0 +1,24 @@
+Operação INSERT
+
+Para criar entradas na tabela, adicionamos uma consulta SQL simples no exemplo acima da seguinte forma -
+
+var db = openDatabase ('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+
+db.transaction (function (tx) {
+    tx.executeSql ('CRIAR TABELA SE NÃO EXISTIR LOGS (id único, log)');
+    tx.executeSql ('INSERT INTO LOGS (id, log) VALUES (1, "foobar")');
+    tx.executeSql ('INSERT INTO LOGS (id, log) VALUES (2, "logmsg")');
+});
+
+Podemos passar valores dinâmicos ao criar a entrada da seguinte maneira -
+
+var db = openDatabase ('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+
+db.transaction (function (tx) {
+    tx.executeSql ('CRIAR TABELA SE NÃO EXISTIR LOGS (id único, log)');
+    tx.executeSql ('INSERT INTO LOGS (id, log) VALUES (?,?'), [e_id, e_log];
+});
+
+Aqui, e_id e e_log são variáveis externas, e executeSql mapeia cada item no argumento da matriz para os "?" S.
+
+https://www.tutorialspoint.com/html5/html5_web_sql.htm

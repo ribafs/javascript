@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Título da Página</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
+</head>
+<body>
+<!-- Crédito
+http://nighto.github.io/jquery-mobile-documentation-pt-br/pages/docs-pages.html
+-->
+<!-- Começo da primeira página -->
+<div data-role="page" id="foo">
+
+	<div data-role="header">
+		<h1>Foo</h1>
+
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<p>Eu venho primeiro no código então eu sou exibida como página.</p>
+		<p>Veja a página interna chamada <a href="#bar">bar</a></p>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Rodapé</h4>
+	</div><!-- /header -->
+</div><!-- /page -->
+
+
+<!-- Começo da segunda página -->
+<div data-role="page" id="bar">
+
+	<div data-role="header">
+		<h1>Bar</h1>
+
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<p>Como eu venho depois no código, sou considerada uma página interna.</p>
+		<p><a href="#foo">Voltar para foo</a></p>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Rodapé</h4>
+	</div><!-- /header -->
+</div><!-- /page -->
+
+</body>
+</html>

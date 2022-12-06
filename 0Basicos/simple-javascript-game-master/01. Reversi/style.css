@@ -1,0 +1,23 @@
+#myCanvas{
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    display: none;
+}
+
+#status{
+    display: none;
+    font-size: 18px;
+    font-family: "Calibri";
+    width: 640px;
+    text-align: center;
+}
+
+#information{
+    display: none;
+    font-size: 20px;
+    font-family: "Calibri";
+    width: 640px;
+    text-align: center;
+    font-weight: bold;
+}

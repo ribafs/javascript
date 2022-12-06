@@ -1,0 +1,33 @@
+window.onload = () => {
+    fetch('/path/to/page.html')
+    .then(data => {
+      return data.text()
+    })
+    .then( data => {
+      document.getElementById("parentContainer").innerHTML = data;
+    })
+}
+
+function load(target, url) {
+  var r = new XMLHttpRequest();
+  r.open("GET", url, true);
+  r.onreadystatechange = function () {
+    if (r.readyState != 4 || r.status != 200) return;
+    target.innerHTML = r.responseText;
+  };
+  r.send();
+}
+
+load(document.getElementById('header'), 'includes/header.txt');
+
+pode optar por colocar um loading ou placeholder
+
+az um script no github actions que processa os includes a cada merge, criando o html final no repositório.
+
+Pre-loading, resolve inclusive é uma das práticas para diminuir os indicadores web metrics LCP (larger content paint) e o CLS (Cumulative layout shift)
+
+Enrico Dias
+Augusto Paiva Mas scripts e similares já são carregados só uma vez, eles ficam em cache no navegador. Se tiver server push, eles vem até junto com o html sem precisar de request extra. Um load() feito na unha com js não tem como ser enviado por push e não iria ficar em cache.
+Existe um padrão pra sitemaps, você upa como xml na raiz do domínio. Não precisa estar relacionado com páginas específicas do site. Também tem como upar diretamente no webmasters tools do google, mas links externos para aquele conteúdo já são suficiente para indexarem.
+Meu ponto era que o mais importante numa página é o conteúdo, porque é com ele que o match nas buscas é feito e os previews (nas buscas e midias sociais) são feitos. O maior content paint também vai ser o conteúdo, que também é o que o usuário mais quer. Em todos os sentidos, é preferível ter um delay na exibição da navegação do que na exibição do conteúdo.
+Temos de partir do princípio que um usuário não vai necessariamente começar a navegação em um ponto especifico e sair clicando pelo site. Ele vai entrar pela página que cair na pesquisa dele, a página que tem o conteúdo que ele quer.

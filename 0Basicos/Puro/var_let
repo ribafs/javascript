@@ -1,0 +1,162 @@
+var minhaVariavelGlobal = 10;
+
+function func1(){
+  console.log(minhaVariavelGlobal);
+}
+
+function func2(){
+  console.log(minhaVariavelGlobal);
+}
+
+
+function func3(){
+  console.log(minhaVariavelGlobal);
+}
+
+
+console.log(minhaVariavelGlobal);
+
+
+let minhaVariavelGlobal = 10;
+
+
+function func1(){
+  console.log(minhaVariavelGlobal);
+}
+
+
+function func2(){
+  console.log(minhaVariavelGlobal);
+}
+
+
+function func3(){
+  console.log(minhaVariavelGlobal);
+}
+
+
+console.log(minhaVariavelGlobal);
+
+
+// Consegue manipular a variável victor
+
+function func1(){
+  var victor = "Lima";
+  console.log(victor);
+}
+
+
+// NÃO Consegue manipular a variável victor
+
+function func2(){
+  console.log(victor);
+}
+
+
+// NÃO Consegue manipular a variável victor
+
+function func3(){
+  console.log(victor);
+}
+
+
+var condicao = true;
+
+
+
+if(condicao){
+
+  let minhaVariavel = 10;
+
+  // É possível manipular a let, pois ela foi declarada
+
+  // neste bloco
+
+  console.log(minhaVariavel);
+
+}
+
+
+// ERRO, Não é possível acessar a variável, pois ela tem escopo de bloco.
+
+function func1(){
+
+  console.log(minhaVariavel);
+
+}
+
+// ERRO, Não é possível acessar a variável, pois ela tem escopo de bloco.
+
+function func2(){
+
+  console.log(minhaVariavel);
+
+}
+
+// ERRO, Não é possível acessar a variável, pois ela tem escopo de bloco.
+
+function func3(){
+
+  console.log(minhaVariavel);
+
+}
+
+// ERRO, Não é possível acessar a variável, pois ela tem escopo de bloco.
+
+console.log(minhaVariavel);
+
+
+var condicao = true;
+
+
+if(condicao){
+
+  var minhaVariavel = 10;
+
+  console.log(minhaVariavel);
+
+}
+
+
+// Funciona, pois o escopo de bloco não existe para var
+
+function func1(){
+
+  console.log(minhaVariavel);
+
+}
+
+// Funciona, pois o escopo de bloco não existe para var
+
+function func2(){
+
+  console.log(minhaVariavel);
+
+}
+
+// Funciona, pois o escopo de bloco não existe para var
+
+function func3(){
+
+  console.log(minhaVariavel);
+
+}
+
+// Funciona, pois o escopo de bloco não existe para var
+
+console.log(minhaVariavel);
+https://blog.schoolofnet.com/diferenca-entre-var-e-let-no-javascript/
+
+
+if( true ){
+    var variavel1 = 'teste';
+}
+console.log(variavel1);// <-- Funciona com "var"
+
+if( true ){
+    let variavel2 = 'teste';
+    console.log(variavel2);// <-- Funciona dentro do bloco do IF
+}
+console.log(variavel2);// <-- NÃO funciona com "let"
+
+

@@ -1,0 +1,75 @@
+UM POUQUINHO DA HISTÓRIA DO
+JAVASCRIPT
+No início da Internet as páginas eram pouco ou nada interativas, eram documentos que apresentavam
+seu conteúdo exatamente como foram criados para serem exibidos no navegador. Existiam algumas
+tecnologias para a geração de páginas no lado do servidor, mas havia limitações no que diz respeito a
+como o usuário consumia aquele conteúdo. Navegar através de links e enviar informações através de
+formulários era basicamente tudo o que se podia fazer.
+57.1 HISTÓRIA
+Visando o potencial da Internet para o público geral e a necessidade de haver uma interação maior
+do usuário com as páginas, a Netscape, criadora do navegador mais popular do início dos anos 90, de
+mesmo nome, criou o Livescript, uma linguagem simples que permitia a execução de scripts contidos
+nas páginas dentro do próprio navegador.
+Aproveitando o iminente sucesso do Java, que vinha conquistando cada vez mais espaço no mercado
+de desenvolvimento de aplicações corporativas, a Netscape logo rebatizou o Livescript como JavaScript
+num acordo com a Sun para alavancar o uso das duas. A então vice-líder dos navegadores, Microsoft,
+adicionou ao Internet Explorer o suporte a scripts escritos em VBScript e criou sua própria versão de
+JavaScript, o JScript.
+JavaScript é a linguagem de programação mais popular no desenvolvimento Web. Suportada por
+todos os navegadores, a linguagem é responsável por praticamente qualquer tipo de dinamismo que
+queiramos em nossas páginas.
+Se usarmos todo o poder que ela tem para oferecer, podemos chegar a resultados impressionantes.
+Excelentes exemplos disso são aplicações Web complexas como Gmail, Google Maps e Google Docs.
+
+https://www.caelum.com.br/apostila-html-css-javascript/
+
+Histórico de JavaScript
+A linguagem JavaScript foi criada pela Netscape Communications Corporation 4
+e foi desenvolvida com o nome de Mocha, depois passou a se chamar LiveScript
+e foi finalmente lançada como JavaScript em 1995 integrando a versão 2.0B3
+do navegador Netscape e visava implementar uma tecnologia de processamento
+modo cliente.
+A denominação da linguagem, JavaScript, se deve a similaridades com a sin-
+taxe do Java e embora as duas linguagens não tenham nenhuma outra relação
+além desta, os nomes ainda causam confusão para alguns usuários.
+Mais tarde, a linguagem tornou-se um padrão da ECMA (European Compu-
+ter Manufacturers Association) que atualmente é seguido por outros desenvol-
+vedores como os da Adobe com a linguagem ActionScript. A implementação da
+Microsoft do ECMAScript é chamada de JScript ou ActiveScript, popularmente
+conhecido como ActiveX, usada nos navegadores Internet Explorer.
+JavaScript permite criar pequenos programas embutidos no próprio código
+de uma página HTML e capazes de gerar números, processar alguns dados,
+verificar formulários, alterar valor de elementos HTML e criar elementos HTML.
+Tudo isso diretamente no computador cliente, evitando a troca de informações
+com o servidor e o tempo passa a depender somente do processamento local do
+cliente, não mais da latência da rede 5 .
+A versão mais recente da linguagem é a 1.7, até o momento de redação deste
+documento. Esta versão 1.7 é suportada pela versão 2.0 do Mozilla Firefox, mas
+versões anteriores continuam funcionando. Além disso, outras versões de testes
+já estão sendo desenvolvidas, por exemplo, a versão, chamada de JavaScript
+2.0, desenvolvida pela Mozilla que pode vir a se tornar padrão.
+JavaScript é uma linguagem completa e poderosa que possui muitas das
+qualidades de diversas outras linguagens, como: listas associativas, tipagem di-
+nâmica 6 e expressões regulares de Perl e a sintaxe similar a C/C++, linguagens
+de grande reconhecimento tanto no mundo acadêmico quanto comercialmente.
+Além disso, JavaScript é multiparadigma e entre eles destacam-se a programa-
+ção estrutural e orientada a objeto; possui funções de ordem superior; entre
+outros.
+Mesmo com o alto potencial de recursos para desenvolvimento de progra-
+mas oferecido pela linguagem, grande parte das pessoas que usam JavaScript
+4
+Netscape foi uma companhia de serviços de computação bastante conhecida em função de
+seu web browser, e atualmente é subsidiária da AOL.
+5
+Latência de rede é a diferença de tempo do momento de envio de um pacote pela rede até o
+momento em que ele é recebido no destino sendo normalmente este tempo o responsável pela
+demora ao se receber dados durante uma navegação na web por exemplo.
+6
+Também conhecida de forma bem humorada como Duck Typing em referência ao Duck test -
+"Se se move como um pato e faz barulho de pato, então deve ser um pato!".
+
+não são programadores e isso lhe deu a reputação de ser uma linguagem para
+amadores, o que não é verdade, como pode ser observado com o surgimento de
+técnicas Ajax, que será explicado neste documento, e poderosas aplicações web.
+Além disso, JavaScript se tornou o carro chefe da chamada Web 2.0 que também
+será explicada mais adiante.

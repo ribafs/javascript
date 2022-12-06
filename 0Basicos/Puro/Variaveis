@@ -1,0 +1,32 @@
+Variáveis
+
+Esses são alguns dos fundamentos básicos para se escrever um programa. Precisamos, de alguma forma, guardar nossos dados durante o processamento do código. Isso é importante para que possamos usá-los posteriormente, seja em cálculos ou manipulação de textos, por exemplo. Além disso, com as variáveis, também somos capazes de dar significado ao nosso código, deixando-o mais claro e fácil de ser entendido. 
+
+Variáveis são como gavetas, assim como a gaveta de suas meias. Dentro dessas gavetas você pode armazenar qualquer informação, por exemplo, número de vidas, recursos ou experiência, um nome de um NPC (non-player character) e etc.
+
+Variáveis também podem conter estrutura de dados mais complexa, como uma lista de inventários ou um baralho de cartas.
+
+Você pode declarar novas variáveis com as palavras reservadas var, let e const e atribuir valores para elas com um sinal de igualdade:
+
+var maxHealth;
+maxHealth = 100;
+var health;
+health = maxHealth; // You can copy a value from one variable (maxHealth) to another (health)
+
+var mana, maxMana; // You can combine a number of declarations in one 'var' keyword
+maxMana = mana = 100; // You can assign a value (100) to different values at once
+
+var name;
+name = 'ct.js'; // Text values, or Strings, are enclosed in quotation marks
+
+var title = 'The Almighty Cat'; // You can combine both declaration process and assignment
+
+var invincible = true, // These are Boolean values
+    stunned = false,
+    bleed = false; // You can combine multiple declarations and assignments with comma!
+O processo de Declaração diz ao ct.js que nós queremos criar uma nova variável. Sem isso, o ct.js lançaria um erro, porque nós não podemos armazenar informações em um local que não existe.
+Assinatura escreve um novo valor para a variável. Quando declarada, as variáveis são undefined. Elas armazenarão informações úteis apenas depois da assinatura. Você pode assinar as novas variáveis quantas vezes você quiser.
+
+https://docs.ctjs.rocks/pt_BR/jsintro_pt1.html
+
+

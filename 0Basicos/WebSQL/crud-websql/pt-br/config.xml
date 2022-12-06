@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+	xmlns:gap   = "http://phonegap.com/ns/1.0"
+	id          = "com.Degrees314.CRUDWebSQL314"
+	versionCode = "10"
+	version     = "0.1.4" >
+
+	<!-- versionCode is optional and Android only -->
+
+	<name>CRUD WebSQL</name>
+
+	<preference name="windows-target-version" value="10.0"/>
+	<preference name="windows-appx-target" value="uap" />
+	<preference name="windows-arch" value="anycpu" />
+
+	<preference name="orientation" value="portrait"/>
+	<preference name="fullscreen" value="true"/>
+	<preference name="KeepRunning" value="false"/>
+	<preference name="SplashScreen" value="screen"/>
+	<preference name="android-build-tool" value="gradle"/>
+
+	<plugin name="cordova-plugin-splashscreen" source="npm"/>
+
+	<description>
+		Este é um aplicativo que implementa CRUD usando um banco de dados WebSQL
+	</description>
+
+	<author href="https://stmik-wp.ac.id" email="pulungimamuddin@gmail.com">
+		Pulung Imamuddin
+	</author>
+</widget>

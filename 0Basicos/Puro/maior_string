@@ -1,0 +1,6 @@
+var arr = ["bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt", "znnnnfqknaz123", "qqquuhii", "dvvvwz"];
+var longest = arr.reduce(function(a, b) { 
+  return a.length > b.length ? a : b
+}, '');
+console.log(longest);
+

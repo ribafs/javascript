@@ -1,0 +1,28 @@
+// Criar função que receba um número e retorne todos os primos de 2 até o número recebido, fora o número
+function primos(n){
+// Aqui se inicia o array numerosPrimos com [2,3] para complementar a função    
+var numerosPrimos = [2,3];
+
+// Iniciar numeroAtual com 4, pois 2 e 3 já tem e variar até o n
+for (var numeroAtual = 4; numeroAtual < n; numeroAtual++) {
+  // Iniciar quantidadeDeDivisores com zero
+  var quantidadeDeDivisores = 0;
+
+  // Iniciar numeroMenos com 2, que é o menor primo e testar se ele é menor que numeroAtual
+  for(var numeroMenor = 2; numeroMenor < numeroAtual; numeroMenor++) {
+    // Pegar o módulo da divisão de numeroAtual por numeroMenor. Se for zero incremente quantidadeDeDivisores
+    if (numeroAtual % numeroMenor == 0) {
+      quantidadeDeDivisores ++;
+    }
+  }
+
+  // Se a quantidadeDeDivisores for zero adiciona numeroAtual ao array numerosPrimos
+  if (quantidadeDeDivisores == 0) {
+    numerosPrimos.push(numeroAtual);
+  }
+}
+
+return numerosPrimos;
+}
+console.log(primos(7))
+

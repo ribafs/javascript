@@ -1,0 +1,20 @@
+body {
+  background: #eee;
+}
+
+.product-card input[type='checkbox'] {
+  margin-right: 2rem;
+}
+
+.product-card button {
+  float: right;
+}
+
+.product-card a {
+  font-size: 2rem;
+}
+
+.product-card b {
+  display: block;
+  margin-left: 2.9rem;
+}

@@ -1,0 +1,37 @@
+Objeto Number
+
+Um objeto built-in Number tem propriedades para constantes numéricas, tais como valor máximo, não número e infinito. Você não pode alterar os valores dessas propriedades e elas são usadas assim:
+
+var maiorNum = Number.MAX_VALUE; //Valor máximo
+var menorNum = Number.MIN_VALUE; //Valor mínimo
+var infiniteNum = Number.POSITIVE_INFINITY; //Infinito positivo
+var negInfiniteNum = Number.NEGATIVE_INFINITY; //Infinito negativo
+var notANum = Number.NaN; //Não é numeral
+
+Você sempre se refere a uma propriedade do objeto predefinido Number como mostrado acima, e não como uma propriedade de um objeto Number que você mesmo criou.
+
+A tabela à seguir sumariza as propriedades do objeto Number.
+Propriedades de Number Propriedade 	Descrição
+Number.MAX_VALUE 	O maior número representável.
+Number.MIN_VALUE 	O menor número representável.
+Number.NaN 	Valor "not a number" especial
+Number.NEGATIVE_INFINITY 	Valor especial infinito negativo; retornado em overflow
+Number.POSITIVE_INFINITY 	Valor especial infinito positivo; retornado em overflow
+Number.EPSILON 	Diferença entre um e o menor valor maior do que um que pode ser representado como um Number.
+Number.MIN_SAFE_INTEGER 	Mínimo safe integer em JavaScript.
+Number.MAX_SAFE_INTEGER 	Máximo safe integer em JavaScript.
+Métodos de Number Método 	Descrição
+Number.parseFloat() 	Analisa um argumento string e retorna um número float.
+O mesmo que a função global parseFloat().
+Number.parseInt() 	Analisa um argumento string e retorna um inteiro da raiz ou base especificada.
+O mesmo que a função globalparseInt().
+Number.isFinite() 	Determina se o valor passado é um número finito.
+Number.isInteger() 	Determina se o valor passado é um inteiro.
+Number.isNaN() 	Determina se o valor passado é NaN. A versão mais robusta da original isNaN().
+Number.isSafeInteger() 	Determina se o valor passado é um safe integer.
+
+O protótipo Number provê métodos para resgatar informações de objetos Number em vários formatos. A tabela a seguir sumariza os métodos de Number.prototype.
+Métodos de Number.prototype Método 	Descrição
+toExponential() 	Retorna uma string representando o número em uma notação exponencial.
+toFixed() 	Retorna uma string representando o número em notação com ponto-fíxo.
+toPrecision() 	Retorna uma string representando o número em uma precisão especificada na notação de ponto-fíxo.

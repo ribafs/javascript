@@ -1,0 +1,22 @@
+Funções IIFE (Immetiately Invoked Function Expression)
+
+(
+    function(){
+        // código
+    }
+)();
+
+Uma função já sendo chamada pelos parâentesis ao final ()
+
+Criamos e já programamos para ser executada, mesmo sem ser chamada.
+
+
+const resultado = (function(){
+        const meuNome = 'Ribamar'
+        return meuNome
+    }
+)();
+
+console.log(resultado)
+
+

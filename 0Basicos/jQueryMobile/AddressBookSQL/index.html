@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html manifest="index.appcache">
+<head>
+<title>Address Book</title>
+<meta charset='utf-8'/>
+<meta name='format-detection' content='telephone=no' />
+<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1'/>
+<meta name='playstore' content='https://play.google.com/store/apps/details?id=com.b4a.JQMShow'/>
+<meta name='apple-mobile-web-app-cabable' content='YES'/>
+<meta name='keywords' content='JQM.Show,JQuery Mobile,JQuery,JavaScript,Google Play Store,Anele Mbanga,Mobile,Hybrid,HTML,CSS,Responsive,HTML5,JSON,Stringify,Parse'/>
+<meta name='mobile-web-app-capable' content='yes'/>
+<meta name='apple-mobile-web-app-title' content='Address Book'/>
+<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent.'/>
+<meta name='version' content='1.00' />
+<meta name='generator' content='JQM.Show 3.00' />
+<meta name='date' content='2015-03-28 20:37' />
+<meta name='copyright' content='Anele Mbanga ' />
+<meta name='author' content=' Anele Mbanga' />
+<meta name='email' content='anele@mbangas.com' />
+<meta name='website' content='http://www.mbangas.com/jqmshow/addressbook' />
+<meta name='description' content='Address book mobile app. Available from Android Play Store at https://play.google.com/store/apps/details?id=com.b4a.JQMShow' />
+<link rel="apple-touch-icon" href="apps.png">
+<link rel="icon" type="image/png" href="apps.png">
+<link rel="shortcut icon" type="image/png" href="apps.png">
+<link rel="apple-touch-icon" sizes="57x57" href="apps57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apps72.png">
+<link rel="apple-touch-icon" sizes="80x80" href="apps80.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apps114.png">
+<link rel="apple-touch-icon-precomposed" href="appsIconPreComposed.png">
+<link rel="apple-touch-startup-image" href="appsIconStartUp320by460.png">
+<link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" href="toastr.min.css">
+<link rel="stylesheet" href="jqm-datebox.css">
+<link rel="stylesheet" href="animate.css">
+<link rel="stylesheet" href="addtohomescreen.css">
+<script src="jquery.min.js" type="text/javascript"></script>
+<script src="navbar.js" type="text/javascript"></script>
+<script src="jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+<script src="jqm-datebox.core.js" type="text/javascript"></script>
+<script src="jqm-datebox.mode.slidebox.js" type="text/javascript"></script>
+<script src="jqm-datebox.mode.flipbox.js" type="text/javascript"></script>
+<script src="jqm-datebox.mode.datebox.js" type="text/javascript"></script>
+<script src="jqm-datebox.mode.customflip.js" type="text/javascript"></script>
+<script src="jqm-datebox.mode.custombox.js" type="text/javascript"></script>
+<script src="jqm-datebox.mode.calbox.js" type="text/javascript"></script>
+<script src="toastr.min.js" type="text/javascript"></script>
+<script src="fastclick.js" type="text/javascript"></script>
+<!--[if IE]>
+<script src="html5.js" type="text/javascript"></script>
+<![endif]-->
+<script src="stanfordcryptolibrary.js" type="text/javascript"></script>
+<script src="excellentexport.min.js" type="text/javascript"></script>
+<script src="iscroll.js" type="text/javascript"></script>
+<script src="password.js" type="text/javascript"></script>
+<script src="d3.min.js" type="text/javascript"></script>
+<script src="d3tree.js" type="text/javascript"></script>
+<script src="addtohomescreen.min.js" type="text/javascript"></script>
+<script src="websql.js" type="text/javascript"></script>
+<script src="app.js" type="text/javascript"></script>
+<style>body * {font-family: 'Segoe UI', Segoe, Tahoma, Geneva, sans-serif; }
+.ui-header .ui-title, .ui-footer .ui-title {margin-right: 0 !important; margin-left: 0 !important; }
+.marker {max-width: 100%; max-height: 100%; }
+.tab-content {display:none; }
+.tab-content:first-child { display: block; }
+.ui-body-c { border: 1px solid #aaa!important;}
+caption {font-weight: bold; font-size: 1.1em; }
+.ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li { display: block !important; padding: 0.9em 75px 0.9em 15px !important; }
+body .ui-li .ui-li-desc {white-space: normal; }
+body .ui-footer .ui-title {white-space: normal; }
+a, button, .myelements {-ms-touch-action: manipulation; touch-action: manipulation; }
+</style>
+</head>
+<body><div id="pgMenu" data-role="page" data-theme="b">
+
+<header id="pgMenuHdr" data-role="header" data-position="fixed">
+<h1>Address Book</h1>
+</header>
+<div id="pgMenuCnt" data-role="content">
+<div style="width:130px;height:96px;margin:15px 4px 10px 4px;float:left;padding-bottom:35px;text-align:center;">
+<a style="text-decoration: none; color: #FFFFFF;" id="sbContact" data-transition="slide" href="#pgContact"><img height="96" width="96" title="Contacts" src="apps80.png" alt="Maintain Contacts"></img>
+<strong>Contacts</strong></a>
+</div>
+<div style="width:130px;height:96px;margin:15px 4px 10px 4px;float:left;padding-bottom:35px;text-align:center;">
+<a style="text-decoration: none; color: #FFFFFF;" id="sbReports" data-transition="slide" href="#pgReports"><img height="96" width="96" title="Reports" src="apps80.png" alt="Access Reports"></img>
+<strong>Reports</strong></a>
+</div>
+</div>
+
+<footer id="pgMenuFtr" data-role="footer" data-position="fixed">
+<h1>Powered by JQM.Show © Anele Mbanga 2015</h1>
+</footer></div>
+<div id="pgReports" data-role="page" data-theme="b">
+
+<header id="pgReportsHdr" data-role="header" data-position="fixed">
+<h1>Address Book</h1>
+</header>
+<div id="pgReportsCnt" data-role="content">
+<div style="width:130px;height:96px;margin:15px 4px 10px 4px;float:left;padding-bottom:35px;text-align:center;">
+<a style="text-decoration: none; color: #FFFFFF;" id="sbRptBack" data-transition="slide" href="#pgMenu"><img height="96" width="96" title="Main Menu" src="apps80.png" alt="Main Menu"></img>
+<strong>Main Menu</strong></a>
+</div>
+<div style="width:130px;height:96px;margin:15px 4px 10px 4px;float:left;padding-bottom:35px;text-align:center;">
+<a style="text-decoration: none; color: #FFFFFF;" id="sbRptContact" data-transition="slide" href="#pgRptContact"><img height="96" width="96" title="Contacts Report" src="apps80.png" alt="Contacts"></img>
+<strong>Contacts Report</strong></a>
+</div>
+</div>
+
+<footer id="pgReportsFtr" data-role="footer" data-position="fixed">
+<h1>Powered by JQM.Show © Anele Mbanga 2015</h1>
+</footer></div>
+<div id="pgContactMindCity" data-role="page">
+
+<header id="pgContactMindCityHdr" data-role="header" data-position="fixed">
+<h1>Address Book</h1>
+<a data-role="button" id="pgContactMindCityBackCity" href="#pgContact" data-icon="arrow-l" data-transition="slide" class="ui-btn-left">Back</a>
+<a data-role="button" id="ContactMindExportCity" data-icon="camera" class="ui-btn-right">Export</a>
+</header>
+<div id="ContactMindCity">
+</div>
+
+</div>
+
+
+<div id="pgContact" data-role="page">
+<div data-position="left" data-display="reveal" data-position-fixed="true" id="pgContactPnl" data-role="panel">
+<ul data-role="listview" id="pgContactPnlLV">
+<li ><a data-transition="slide" href="#pgAddContact">New</a></li>
+<li ><a data-transition="slide" href="#pgContactMindCity">Relationships > City</a></li>
+<li ><a data-transition="slide" href="#pgRptContact">Report</a></li>
+<li ><a data-transition="slide" href="#pgMenu">Back</a></li>
+</ul>
+</div>
+
+<header id="pgContactHdr" data-role="header" data-position="fixed">
+<h1>Address Book</h1>
+<a data-role="button" id="pgContactMenu" href="#pgContactPnl" data-icon="bars" data-transition="slide" class="ui-btn-left">Menu</a>
+<a data-role="button" id="pgContactNew" data-icon="plus" data-theme="b" class="ui-btn-right">New</a>
+</header>
+<div id="pgContactCnt" data-role="content">
+<h3>Contacts</h3><ul data-role="listview" data-inset="true" id="pgContactList" data-autodividers="true" data-filter="true" data-filter-placeholder="Search Contacts">
+<li data-role="list-divider">Your Contacts</li>
+<li id="noContact">You have no contacts</li>
+
+</ul>
+</div>
+
+</div>
+
+<div id="pgRptContact" data-role="page">
+
+<header id="pgRptContactHdr" data-role="header" data-position="fixed">
+<h1>Address Book</h1>
+<a data-role="button" id="pgRptContactBack" data-icon="arrow-l" class="ui-btn-left">Back</a>
+<a data-role="button" id="pgRptContactNew" data-icon="plus" data-theme="b" class="ui-btn-right">New</a>
+</header>
+<div id="pgRptContactCnt" data-role="content">
+<table id="RptContact" data-column-btn-text="Columns To Display" data-column-btn-theme="b" data-role="table" data-mode="columntoggle" data-column-popup-theme="a" class="ui-responsive table-stroke table-stripe ui-shadow ui-body-d">
+<caption>Contacts Report</caption>
+<thead>
+<tr class="ui-bar-b">
+<th class="ui-bar-b">Full Name</th>
+<th data-priority="2" class="ui-bar-b">Company</th>
+<th data-priority="3" class="ui-bar-b">Job Title</th>
+<th data-priority="4" class="ui-bar-b">Email Address</th>
+<th data-priority="5" class="ui-bar-b">Business Phone</th>
+<th data-priority="6" class="ui-bar-b">Business Fax</th>
+<th data-priority="7" class="ui-bar-b">Mobile Phone</th>
+<th data-priority="8" class="ui-bar-b">Street Address 1</th>
+<th data-priority="9" class="ui-bar-b">Street Address 2</th>
+<th data-priority="10" class="ui-bar-b">City</th>
+<th data-priority="11" class="ui-bar-b">Postal Code</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+<tfoot>
+<tr><td></td></tr>
+<tr><td colspan="11">Powered by JQM.Show - https://play.google.com/store/apps/details?id=com.b4a.JQMShow</td></tr></tfoot>
+</table>
+<div data-role="fieldcontain">
+<a download="Contact.xls" onclick="return ExcellentExport.excel(this, 'RptContact', 'Contact');" id="pgRptContactExport" data-corners="true" href="#" class="ui-btn ui-corner-all ui-shadow">Export to Excel</a></div>
+</div>
+
+</div>
+
+<div id="pgAddContact" data-role="page">
+<div data-position="left" data-display="reveal" data-position-fixed="true" id="pgAddContactPnl" data-role="panel">
+<ul data-role="listview" id="pgAddContactPnlLV">
+<li ><a data-transition="slide" href="#pgAddContact">New</a></li>
+<li ><a data-transition="slide" href="#pgContactMindCity">Relationships > City</a></li>
+<li ><a data-transition="slide" href="#pgRptContact">Report</a></li>
+<li ><a data-transition="slide" href="#pgContact">Back</a></li>
+</ul>
+</div>
+
+<header id="pgAddContactHdr" data-role="header" data-position="fixed">
+<h1>Address Book</h1>
+<a data-role="button" id="pgAddContactMenu" href="#pgAddContactPnl" data-icon="bars" class="ui-btn-left">Menu</a>
+<div id="pgAddContactHdrNavBar" data-role="navbar">
+<ul>
+<li><a href="#" data-href="pgAddContactDetails" id="pgAddContactDetailsBtn" class="ui-btn-active">Details</a>
+</li>
+<li><a href="#" data-href="pgAddContactAddress" id="pgAddContactAddressBtn">Address</a>
+</li>
+</ul>
+</div>
+</header>
+<div id="pgAddContactCnt" data-role="content">
+<h3>Add Contact</h3><div id="pgAddContactDetails" class="tab-content">
+<div data-role="fieldcontain">
+<label for="pgAddContactFullName">Full Name<span style='color:red;'>*</span></label>
+<input title="Enter full name here." type="text" name="pgAddContactFullName" id="pgAddContactFullName" placeholder="Enter full name here." autocomplete="off" data-clear-btn="true" class="required"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddContactCompany">Company<span style='color:red;'>*</span></label>
+<input title="Enter company here." type="text" name="pgAddContactCompany" id="pgAddContactCompany" placeholder="Enter company here." autocomplete="off" data-clear-btn="true" class="required"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddContactJobTitle">Job Title<span style='color:red;'>*</span></label>
+<input title="Enter job title here." type="text" name="pgAddContactJobTitle" id="pgAddContactJobTitle" placeholder="Enter job title here." autocomplete="off" data-clear-btn="true" class="required"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddContactEmailAddress">Email Address<span style='color:red;'>*</span></label>
+<input title="Enter email address here." type="email" name="pgAddContactEmailAddress" id="pgAddContactEmailAddress" placeholder="Enter email address here." autocomplete="off" data-clear-btn="true" class="required"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddContactBusinessPhone">Business Phone</label>
+<input type="tel" pattern="\d\d\d \d\d\d \d\d\d\d" name="pgAddContactBusinessPhone" id="pgAddContactBusinessPhone" placeholder="Enter business phone here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddContactBusinessFax">Business Fax</label>
+<input type="tel" pattern="\d\d\d \d\d\d \d\d\d\d" name="pgAddContactBusinessFax" id="pgAddContactBusinessFax" placeholder="Enter business fax here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddContactMobilePhone">Mobile Phone</label>
+<input type="tel" pattern="\d\d\d \d\d\d \d\d\d\d" name="pgAddContactMobilePhone" id="pgAddContactMobilePhone" placeholder="Enter mobile phone here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddContactHomePhone">Home Phone</label>
+<input type="tel" pattern="\d\d\d \d\d\d \d\d\d\d" name="pgAddContactHomePhone" id="pgAddContactHomePhone" placeholder="Enter home phone here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+</div>
+<div id="pgAddContactAddress" class="tab-content">
+<div data-role="fieldcontain">
+<label for="pgAddContactStreetAddress1">Street Address 1</label>
+<input type="text" name="pgAddContactStreetAddress1" id="pgAddContactStreetAddress1" placeholder="Enter street address 1 here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddContactStreetAddress2">Street Address 2</label>
+<input type="text" name="pgAddContactStreetAddress2" id="pgAddContactStreetAddress2" placeholder="Enter street address 2 here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddContactCity">City</label>
+<input type="text" name="pgAddContactCity" id="pgAddContactCity" placeholder="Enter city here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddContactState">State</label>
+<input type="text" name="pgAddContactState" id="pgAddContactState" placeholder="Enter state here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddContactProvince">Province</label>
+<input type="text" name="pgAddContactProvince" id="pgAddContactProvince" placeholder="Enter province here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgAddContactPostalCode">Postal Code</label>
+<input type="number" name="pgAddContactPostalCode" id="pgAddContactPostalCode" placeholder="Enter postal code here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+</div>
+</div>
+
+<footer id="pgAddContactFtr" data-role="footer" data-position="fixed">
+<div id="pgAddContactFtrNavBar" data-role="navbar">
+<ul>
+<li><a id="pgAddContactBack" data-icon="carat-l">Cancel</a>
+</li>
+<li><a type="submit" id="pgAddContactSave" data-icon="action">Save</a>
+</li>
+</ul>
+</div>
+</footer></div>
+
+<div data-url="FullName" id="pgEditContact" data-role="page">
+<div data-position="left" data-display="reveal" data-position-fixed="true" id="pgEditContactPnl" data-role="panel">
+<ul data-role="listview" id="pgEditContactPnlLV">
+<li ><a data-transition="slide" href="#pgAddContact">New</a></li>
+<li ><a data-transition="slide" href="#pgContactMindCity">Relationships > City</a></li>
+<li ><a data-transition="slide" href="#pgRptContact">Report</a></li>
+<li ><a data-transition="slide" href="#pgContact">Back</a></li>
+</ul>
+</div>
+
+<header id="pgEditContactHdr" data-role="header" data-position="fixed">
+<h1>Address Book</h1>
+<a data-role="button" id="pgEditContactMenu" href="#pgEditContactPnl" data-icon="bars" class="ui-btn-left">Menu</a>
+<div id="pgEditContactHdrNavBar" data-role="navbar">
+<ul>
+<li><a href="#" data-href="pgEditContactDetails" id="pgEditContactDetailsBtn" class="ui-btn-active">Details</a>
+</li>
+<li><a href="#" data-href="pgEditContactAddress" id="pgEditContactAddressBtn">Address</a>
+</li>
+</ul>
+</div>
+</header>
+<div id="pgEditContactCnt" data-role="content">
+<h3>Edit Contact</h3><div id="pgEditContactDetails" class="tab-content">
+<div data-role="fieldcontain">
+<label for="pgEditContactFullName">Full Name<span style='color:red;'>*</span></label>
+<input readonly="readonly" data-clear-btn="true" autofocus="true" title="Enter full name here." type="text" name="pgEditContactFullName" id="pgEditContactFullName" placeholder="Enter full name here." autocomplete="off" class="required"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditContactCompany">Company<span style='color:red;'>*</span></label>
+<input title="Enter company here." type="text" name="pgEditContactCompany" id="pgEditContactCompany" placeholder="Enter company here." autocomplete="off" data-clear-btn="true" class="required"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditContactJobTitle">Job Title<span style='color:red;'>*</span></label>
+<input title="Enter job title here." type="text" name="pgEditContactJobTitle" id="pgEditContactJobTitle" placeholder="Enter job title here." autocomplete="off" data-clear-btn="true" class="required"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditContactEmailAddress">Email Address<span style='color:red;'>*</span></label>
+<input title="Enter email address here." type="email" name="pgEditContactEmailAddress" id="pgEditContactEmailAddress" placeholder="Enter email address here." autocomplete="off" data-clear-btn="true" class="required"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditContactBusinessPhone">Business Phone</label>
+<input type="tel" pattern="\d\d\d \d\d\d \d\d\d\d" name="pgEditContactBusinessPhone" id="pgEditContactBusinessPhone" placeholder="Enter business phone here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditContactBusinessFax">Business Fax</label>
+<input type="tel" pattern="\d\d\d \d\d\d \d\d\d\d" name="pgEditContactBusinessFax" id="pgEditContactBusinessFax" placeholder="Enter business fax here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditContactMobilePhone">Mobile Phone</label>
+<input type="tel" pattern="\d\d\d \d\d\d \d\d\d\d" name="pgEditContactMobilePhone" id="pgEditContactMobilePhone" placeholder="Enter mobile phone here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditContactHomePhone">Home Phone</label>
+<input type="tel" pattern="\d\d\d \d\d\d \d\d\d\d" name="pgEditContactHomePhone" id="pgEditContactHomePhone" placeholder="Enter home phone here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+</div>
+<div id="pgEditContactAddress" class="tab-content">
+<div data-role="fieldcontain">
+<label for="pgEditContactStreetAddress1">Street Address 1</label>
+<input type="text" name="pgEditContactStreetAddress1" id="pgEditContactStreetAddress1" placeholder="Enter street address 1 here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditContactStreetAddress2">Street Address 2</label>
+<input type="text" name="pgEditContactStreetAddress2" id="pgEditContactStreetAddress2" placeholder="Enter street address 2 here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditContactCity">City</label>
+<input type="text" name="pgEditContactCity" id="pgEditContactCity" placeholder="Enter city here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditContactState">State</label>
+<input type="text" name="pgEditContactState" id="pgEditContactState" placeholder="Enter state here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditContactProvince">Province</label>
+<input type="text" name="pgEditContactProvince" id="pgEditContactProvince" placeholder="Enter province here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+<div data-role="fieldcontain">
+<label for="pgEditContactPostalCode">Postal Code</label>
+<input type="number" name="pgEditContactPostalCode" id="pgEditContactPostalCode" placeholder="Enter postal code here." autocomplete="off" data-clear-btn="true"></input>
+</div>
+</div>
+</div>
+
+<footer id="pgEditContactFtr" data-role="footer" data-position="fixed">
+<div id="pgEditContactFtrNavBar" data-role="navbar">
+<ul>
+<li><a id="pgEditContactBack" data-icon="carat-l">Cancel</a>
+</li>
+<li><a type="submit" id="pgEditContactUpdate" data-icon="action">Update</a>
+</li>
+<li><a id="pgEditContactDelete" data-icon="delete">Delete</a>
+</li>
+</ul>
+</div>
+</footer></div>
+<section data-dismissible="false" data-transition="pop" id="msgbox" data-role="dialog">
+
+<header id="msgboxHdr" data-role="header" data-position="fixed">
+<h1>Confirm</h1>
+</header>
+<div id="msgboxCnt" data-role="content">
+<div id="msgboxtitle">
+</div>
+<br><div id="msgboxprompt">
+<p>Are you sure you want to delete this record?</p>
+</div>
+<br><div style="text-align: center;" id="msgboxbuttons" class="ui-grid-a">
+<div class="ui-block-a">
+<a data-method="" data-id="" data-topage="" id="msgboxyes" data-role="button" data-icon="check">Yes</a>
+</div>
+<div class="ui-block-b">
+<a data-method="" data-id="" data-topage="" id="msgboxno" data-role="button" data-icon="delete" data-theme="b">No</a>
+</div>
+</div>
+</div>
+
+</section>
+<section data-dismissible="false" data-transition="pop" id="alertbox" data-role="dialog">
+
+<header id="alertboxHdr" data-role="header" data-position="fixed">
+<h1>Error</h1>
+</header>
+<div id="alertboxCnt" data-role="content">
+<div id="alertboxtitle">
+</div>
+<br><div id="alertboxprompt">
+<p>An error has been encountered!</p>
+</div>
+<br><div style="text-align: center;" id="alertboxbuttons" class="ui-grid-solo">
+<div class="ui-block-a">
+<a data-method="" data-id="" data-topage="" id="alertboxok" data-role="button" data-icon="check" data-theme="b">Ok</a>
+</div>
+</div>
+</div>
+
+</section>
+</body>
+</html>

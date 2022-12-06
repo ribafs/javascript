@@ -1,0 +1,457 @@
+
+String (texto) "Riba" ou 'Riba'
+Number - números positivos ou negativos e decimais (com .)
+Boolean - true/false
+
+Função que retorna o tipo
+
+typeof variavel;
+
+typeof "Riba";
+
+var meuTamanho = 170;
+var corDaMinhaCamisa = "Branca";
+var queroEstudarNaTrybe = true;
+var computadorLigado = true;
+const PI = 3.14;
+
+Operadoroes aritméticos - permitem escrever expressões aritméticas:
+
+Adição: 1 + 1
+Subtração: 10 -5
+Multiplicação: 2 * 2
+Divisão: 4/2
+Exponenciação (2^3): 2 ** 3
+Módulo (resto): 4 % 2
+
+5 + 5;
+var salario = 3500;
+var aumento = 1000.50;
+salario + aumento;
+salario = salario + aumento;
+
+10 -  5;
+5 * 2;
+8 / 2;
+
+3 ^ 2; = 3 ** 2;
+
+10 % 2 = retorna o resto
+
+5 % 2;
+ 
+Exercício
+
+function soma(elementoA, elementoB) {
+//não altere a linha acima
+    
+/*
+ * Atribua a soma da variável `elementoA` com a variável `elementoB`
+ * na váriavel `resultadoSoma` (já criada abaixo)
+ */
+  var resultadoSoma = elementoA + elementoB;
+
+//não altere as linhas abaixo
+  return resultadoSoma;
+}
+
+// fim do seu código
+
+
+function exponencial(base, expoente) {
+//não altere a linha acima
+    
+/*
+ * Na linha 36, declare uma variável chamada `potencia`
+ * e atribua a ela o valor da variável `base` elevada a variável
+ * `expoente`
+ */
+  
+ var potencia = base ** expoente;  
+
+
+function moduloPorDois(elementoA) {
+// não altere a linha acima
+
+/*
+ * Complete o código deste exercício, atribuindo na 
+ * variável `resultado`, o resto da divisão da variável 
+ * `elementoA` por 2.
+ */
+  
+    
+  var resultado = elementoA % 2;
+
+    
+// não altere as linhas abaixo
+  return resultado;
+
+Operadores de comparação
+
+>   
+>=  
+<
+<=  
+=== (igualdade)
+!== (desigualdade)
+
+2 > 1 (true)
+2 >= 3 (false)
+
+10 === 10
+
+var notaDaJoana = 125;
+var joanaPassouNodesafio = notaDaJoana >= 100; // true
+
+var notaDaMaria = 95;
+var mariaPassouNodesafio = notaDaMaria >= 100; // false
+
+function comparacaoEntreElementos(elementoA, elementoB) {
+// não altere a linha acima
+    
+/*
+ * Atribua como valor da variável `resultado` a verificação:
+ * `elementoA` maior que `elementoB`?
+ */
+  
+  var resultado = elementoA > elementoB;
+
+// não altere as linhas abaixo
+  return resultado;
+}
+
+
+Operadores lógicos
+
+&& e ||
+
+&& - requer que as duas expressões sejam true para que resultado seja true
+
+var = diaEstaEnsolarado = true;
+var ehFinalDeSemana = true;
+diaEstaEnsolarado && ehFinalDeSemana // true
+
+var vouPraPraia = diaEstaEnsolarado && ehFinalDeSemana; // true
+
+
+var = diaEstaEnsolarado = true;
+var ehFinalDeSemana = false;
+diaEstaEnsolarado && ehFinalDeSemana // false
+
+var vouPraPraia = diaEstaEnsolarado && ehFinalDeSemana; // false
+
+outras variações
+
+|| - requer que apenas uma das expressões seja true para que resultado seja true
+
+https://www.youtube.com/watch?v=ivGxVPnWSCA
+
+var carroTemGasolina = false;
+var tenhoDinheiroParaAbastecer = true;
+
+carroTemGasolina || tenhoDinheiroParaAbastecer; //true;
+
+false || true = true
+
+var vouPraPraia = carroTemGasolina || tenhoDinheiroParaAbastecer;
+
+false || false = false
+
+
+Estruturas condicionais
+
+var notaDesafio = 150;
+
+if(notaDesafio >= 100){
+    console.log("Aprovado");
+}else{
+    console.log("Não Aprovado");
+}
+
+
+var notaDesafio = 90;
+
+if(notaDesafio >= 100){
+    console.log("Aprovado");
+}else{
+    console.log("Não Aprovado");
+}
+
+Estrutura condicional encadeada
+
+if(condicao1){
+
+}else if(condicao2){
+
+}else{
+
+}
+
+
+var luzSemaforo = "verde";
+
+if(luzSemaforo === "verde"){
+    console.log("Siga em frente");
+}else if(luzSemaforo === "amarela"){
+    console.log("Atenção sinal ficará vermelho");
+}else{
+    console.log("Pare: sinal vermelho");
+}
+
+
+var luzSemaforo = "amarelo";
+
+if(luzSemaforo === "verde"){
+    console.log("Siga em frente");
+}else if(luzSemaforo === "amarela"){
+    console.log("Atenção sinal ficará vermelho");
+}else{
+    console.log("Pare: sinal vermelho");
+}
+
+
+var luzSemaforo = "vermelho";
+
+if(luzSemaforo === "verde"){
+    console.log("Siga em frente");
+}else if(luzSemaforo === "amarela"){
+    console.log("Atenção sinal ficará vermelho");
+}else{
+    console.log("Pare: sinal vermelho");
+}
+
+
+function verificaParOuImpar(elementoA) {
+// não altere a linha acima
+    
+/* 
+ * Atribua um dos seguintes valores na variável `resultado`
+ *
+ * par: se o valor da variável `elementoA` for par;
+ * impar: se o valor da variável `elementoA` for ímpar;
+ */
+
+    var resultado;
+    // Não altere a linha acima e responda na linha abaixo
+    if(elementoA % 2 === 0){
+        resultado = "par";
+    }else{
+        resultado = "impar";
+    }
+    
+    // Não altere a linha abaixo
+    return resultado;
+}
+
+
+function determinarGeracao(anoDeNascimento) {
+// não altere a linha acima
+    
+/* 
+ * Atribua um dos seguintes valores na variável `resultado`
+ *
+ * Geração silenciosa: para os nascidos até o ano de 1945;
+ * Boomers: para os que nasceram depois de 1945 até 1964;
+ * Geração X: para os que nasceram depois de 1964 até 1980;
+ * Millennials: para os que nasceram depois de 1980 até 1996;
+ * Geração Z: para os que nasceram depois de 1996;
+ */
+  
+  var resultado;
+if(anoDeNascimento <= 1945){
+    resultado = "Geração silenciosa";
+}else if(anoDeNascimento > 1945 && anoDeNascimento <= 1964){
+    resultado = "Boomers";
+}else if(anoDeNascimento > 1964 && anoDeNascimento <= 1980){
+    resultado = "Geração X";
+}else if(anoDeNascimento > 1980 && anoDeNascimento <= 1996){
+    resultado = "Millennials";
+}else if(anoDeNascimento > 1996){
+    resultado = "Geração Z";
+}
+// não altere as linhas abaixo
+  return resultado;
+}
+
+// fim do seu código
+
+Um array é uma estrutura capaz de armazenar vários valores e de vários tipos
+
+var listaDeNomes = ['João', 'Pedro', 'Chico'];
+
+Recuperar primeiro elemento
+
+listaDeNomes[0]; // O primeiro é o zero: 0, 1, 2
+
+Adicionar elemento ao final do array:
+
+listaDeNomes.push('José');
+
+Retornar o tamanho do array:
+
+listaDeNomes.length;
+
+Último indice:
+
+listaDeNomes.length -1
+
+listaDeNomes(listaDeNomes.length -1)
+
+
+Strings
+
+Concatenação -> +
+
+"Riba " + "mar" // Ribamar
+
+Tamanho em caracteres
+
+var mensagem = "Teste";
+
+mensagem.length; // 5
+
+mensagem[0];
+
+
+function comparaStrings(primeiraString, segundaString) {
+// não altere a linha acima
+
+/*
+ * Complete o código abaixo atribuindo na variável resultado
+ * a concatenação das strings `primeiraString` e 
+ * `segundaString` de acordo com as regras do exercício
+ */
+ if(primeiraString.length === segundaString.length){
+    var resultado = segundaString + primeiraString; 
+ }
+      
+// não altere as linhas abaixo
+  return resultado;
+}
+
+
+Estruturas de repetição
+
+for 
+var numero = 7;
+for(var contador = 1;contador <= 9; contador = contador +1) {// contador++
+    console.log(numero * contador);
+}
+Sequência: 
+contador = 1
+contador <= 9
+console.log(numero * contador);
+contador++
+
+
+var listaDeNomes = ['Joana', 'Maria', 'Lucas'];
+
+for(var indice = 0; indice < listaDeNomes.length; indice++){
+    var mensagem = "Boas vindas, " + listaDeNomes[indice] + "!";
+    console.log(mensagem);
+}
+
+
+
+function converteStringParaArray(frase) {
+// não altere a linha acima
+
+ /*
+ * Complete o código abaixo atribuindo na variável resultado
+ * o valor de acordo com as regras do exercício
+ */
+
+    var resultado = []
+// escreva aqui seu código:
+
+    for(var indice = 0; indice < frase.length; indice++){
+        console.log(frase[indice]);
+    }
+
+
+Funções
+
+Funções são a forma mais essencial de organização de código e de lógica na programação. Através de funções você consegue empacotar partes do seu código e separá-las em blocos lógicos auto-contidos. Assim, ao invés de ter um programa de cem linhas com uma lógica linear que segue do começo ao fim e bem mais difícil de identificar o que cada parte desse código faz, você tem menos repetição e um programa onde a lógica está muito bem dividida - e, portanto, muito mais fácil de ser entendida. 
+
+function nomeFuncao(){
+    // Corpo da função
+}
+
+function nomeFuncao2(param1, param2){
+    // Corpo da função
+}
+
+function nomeFuncao3(param1, param2){
+    var resultado = param1 + param2;
+    return resultado;
+}
+
+Executar/Chamar
+
+nomeFuncao3(10,20);
+
+============
+
+var statusCarro = "Desligado";
+var aceleracao = 0;
+var rotacaoDoVolante = 0;
+
+function ligarDesligar(){
+    if(statusCArro === "Desligado"){
+        statusCarro = "Ligado";
+    }else{
+        statusCarro = "Desligado";
+    }
+
+    return statusCArro;
+}
+
+function acelerar(incremento){
+    aceleracao = aceleracao + incremento
+
+    return "Acelerando a " + aceleracao + "m/s";
+}
+
+function frear(decremento){
+    aceleracao = aceleracao - decremento
+
+    return "Desacelerando para " + aceleracao + "m/s";
+}
+
+function firarVolante(anguloRotacao){
+    rotacaoDoVolante = anguloRotacao;
+
+    return rotacaoDoVolante + "o";
+}
+
+https://www.youtube.com/watch?v=pGYAQHEZuEc
+
+Dúvidas podem ser tiradas no Slak
+
+
+ function imprimirSaudacao(nome){
+     console.log("Olá, " + nome + "!");
+ }
+ 
+function somaDoisElementos(elementoA, elementoB){
+    console.log(elementoA + elementoB);
+}
+
+
+function calculaIMC(altura, peso){
+    console.log(peso/(altura * altura));
+}
+
+function multiplicaPorDois(numeros) {
+/*
+ * Complete a função multiplicando todos os elementos
+ * do array `numeros` por dois e retornando um array
+ * com esses resultados
+ */
+ for(indice = 0; indice < numeros.lenth; indice++){
+     numeros = numeros[indice] * 2;
+ }
+ return numeros;
+}
+
+

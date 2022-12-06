@@ -1,0 +1,26 @@
+Operação READ
+
+Para ler os registros já existentes, usamos um retorno de chamada para capturar os resultados da seguinte forma -
+
+var db = openDatabase ('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+
+db.transaction (function (tx) {
+    tx.executeSql ('CRIAR TABELA SE NÃO EXISTIR LOGS (id único, log)');
+    tx.executeSql ('INSERT INTO LOGS (id, log) VALUES (1, "foobar")');
+    tx.executeSql ('INSERT INTO LOGS (id, log) VALUES (2, "logmsg")');
+});
+
+db.transaction (function (tx) {
+    tx.executeSql ('SELECT * FROM LOGS', [], function (tx, results) {
+       var len = resultados.linhas.comprimento, i;
+       msg = "<p> Linhas encontradas:" + len + "</p>";
+       document.querySelector ('# status'). innerHTML + = msg;
+  
+       para (i = 0; i <len; i ++) {
+          alert (results.rows.item (i) .log);
+       }
+  
+    }, nulo);
+});
+
+https://www.tutorialspoint.com/html5/html5_web_sql.htm

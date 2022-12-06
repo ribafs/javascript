@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<script type="text/javascript">
+function postlimit(){
+	var maxlength = 500
+
+    if (document.form1.txtarea.value.length > maxlength){
+		alert("You have typed the maximun amount of characters for your post.\n\n" + maxlength + " Character max per post, this includes the use of BBCode and Smilies");
+		document.form1.txtarea.value = document.form1.txtarea.value.substring(0, maxlength);
+    }else{
+		document.form1.counter.value = maxlength - document.form1.txtarea.value.length;
+    }
+}
+</script>
+</head>
+<body>
+
+<form name="form1" action="" method="post">
+   <textarea name="txtarea" onkeydown="postlimit()" cols="45" rows="8"></textarea><br />
+   <small>Characters left: <input type="text" name="counter" size="4" disabled="disabled" value="500" />&nbsp;&nbsp;Máximo de 500 caracteres</small>
+</form>
+
+</body>
+</html>

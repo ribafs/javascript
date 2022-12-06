@@ -1,0 +1,61 @@
+Tratemento de Erros em JavaScript
+
+Yes, that is the correct way.
+
+See the reference here:
+
+http://www.javascriptkit.com/javatutors/error2.shtml
+
+And explanation of how to see more details of the error here:
+
+http://www.javascriptkit.com/javatutors/error3.shtml
+
+Their example:
+
+window.onerror = function(msg, url, linenumber) {
+    alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
+    return true;
+}
+
+If you wish to display a LIST of errors in a single pop-up, it's trickier.
+
+Since the errors occue 1 by 1, you need to do the following:
+
+    have window.onerror handler store error details in some array
+
+    Check that array periodically - either via a timer, or on every N'th call of window.onerror handler, or both.
+
+    When the check happens, process entire array, display contents as desired, and empty out an array
+
+
+Com jQuery
+
+$(window).on("error", function(evt) {
+
+    console.log("jQuery error event:", evt);
+    var e = evt.originalEvent; // get the javascript event
+    console.log("original event:", e);
+    if (e.message) { 
+        alert("Error:\n\t" + e.message + "\nLine:\n\t" + e.lineno + "\nFile:\n\t" + e.filename);
+    } else {
+        alert("Error:\n\t" + e.type + "\nElement:\n\t" + (e.srcElement || e.target));
+    }
+});
+
+
+
+<script>
+$(window).on("error", function(evt) {
+
+console.log("jQuery error event:", evt);
+var e = evt.originalEvent; // get the javascript event
+console.log("original event:", e);
+if (e.message) { 
+    alert("Error:\n\t" + e.message + "\nLine:\n\t" + e.lineno + "\nFile:\n\t" + e.filename);
+} else {
+    alert("Error:\n\t" + e.type + "\nElement:\n\t" + (e.srcElement || e.target));
+}
+});
+</script>
+
+

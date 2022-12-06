@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>IndexedDB CRUD</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <h1 class="text-2xl font-bold px-2">IndexedDB - CRUD</h1>
+        <p class="px-2 text-xs">(open console for details)</p>
+        <div id="content" class="px-2">
+            <div id="buttons" class="flex flex-col w-full py-4">
+                <div class="flex flex-col">
+                    <h3>Create</h3>
+                    <button
+                        id="addItem"
+                        onclick="addData()"
+                        class="rounded-none bg-green-500 p-2 w-44"
+                    >
+                        Add Random Item
+                    </button>
+                </div>
+                <div class="flex flex-col">
+                    <h3>Read</h3>
+                    <div>
+                        <input
+                            placeholder="NAME"
+                            id="name-to-find"
+                            type="text"
+                            class="border-2 px-1"
+                        />
+                        <button
+                            id="findItem"
+                            onclick="findItem()"
+                            class="rounded-none bg-blue-500 p-2 w-32"
+                        >
+                            Find
+                        </button>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <h3>Update</h3>
+                    <div>
+                        <input
+                            placeholder="NAME"
+                            id="name-to-change"
+                            type="text"
+                            class="border-2 px-1"
+                        />
+                        <input
+                            placeholder="NEW NAME"
+                            id="change-name-to"
+                            type="text"
+                            class="border-2 px-1"
+                        />
+                        <button
+                            id="updateItem"
+                            onclick="updateItem()"
+                            class="rounded-none bg-blue-500 p-2 w-32"
+                        >
+                            Update
+                        </button>
+                    </div>
+                </div>
+                <!--<div class="flex">
+                    <button
+                        id="deleteDB"
+                        onclick="deleteDB()"
+                        class="rounded-none bg-red-500 p-2"
+                    >
+                        Delete DB
+                    </button>
+                </div>-->
+            </div>
+            <div class="flex flex-col">
+                <h3>DB content</h3>
+                <ol id="items-list" class="list-decimal list-inside"></ol>
+            </div>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>

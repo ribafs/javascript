@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autocompletar CEP com ViaCEP</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  
+</head>
+<body>
+<div class="container">
+  <h1>Autocompletar CEP com ViaCEP</h1>
+	<!--Importando Script Jquery-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<!--Formulário-->
+    <div class="form-group">
+	<form name="form">
+		<label for="uf">Estado</label>
+		<select id="uf" class="form-control">
+			<option value="AC">Acre</option>
+			<option value="AL">Alagoas</option>
+			<option value="AP">Amapá</option>
+			<option value="AM">Amazonas</option>
+			<option value="BA">Bahia</option>
+			<option value="CE" selected>Ceará</option>
+			<option value="DF">Distrito Federal</option>
+			<option value="ES">Espírito Santo</option>
+			<option value="GO">Goiás</option>
+			<option value="MA">Maranhão</option>
+			<option value="MT">Mato Grosso</option>
+			<option value="MS">Mato Grosso do Sul</option>
+			<option value="MG">Minas Gerais</option>
+			<option value="PA">Pará</option>
+			<option value="PB">Paraíba</option>
+			<option value="PR">Paraná</option>
+			<option value="PE">Pernambuco</option>
+			<option value="PI">Piauí</option>
+			<option value="RJ">Rio de Janeiro</option>
+			<option value="RN">Rio Grande do Norte</option>
+			<option value="RS">Rio Grande do Sul</option>
+			<option value="RO">Rondônia</option>
+			<option value="RR">Roraima</option>
+			<option value="SC">Santa Catarina</option>
+			<option value="SP">São Paulo</option>
+			<option value="SE">Sergipe</option>
+			<option value="TO">Tocantins</option>
+		</select>
+		<label for="cep">CEP</label>
+		<input id="cep" name="cep" type="text" class="form-control" onkeyup="return pular();" size="8" maxlength="8" required/>
+		<label for="logradouro">Logradouro</label>
+		<input id="logradouro" type="text" class="form-control" required/>
+		<label for="bairro">Bairro</label>
+		<input id="bairro" type="text" class="form-control" required/>
+		<label for="numero">Número</label>
+		<input id="numero" name="numero" type="text" class="form-control" />
+		<label for="complemento">Complemento</label>
+		<input id="complemento" type="text" class="form-control"/>
+	</form>
+	</div>
+	<script type="text/javascript">
+function pular(){
+  if(form.cep.value.length == 8){
+    form.numero.focus();
+  }
+}
+/*
+function JumpField(fields) {
+ if (fields.value.length == fields.maxLength) {
+  for (var i = 0; i < fields.form.length; i++) {
+   if (fields.form[i] == fields && fields.form[(i + 1)] && fields.form[(i + 1)].type != "hidden") {
+        fields.form[(i + 1)].focus();
+        break;
+   }
+  }
+ }
+}
+// https://www.dfinformatica.net/?pg=desc-tutorial&id=91&nome=pular-campo-altomaticamente-(mudar-foco)
+*/
+		$("#cep").focusout(function(){
+			//Início do Comando AJAX
+			$.ajax({
+				//O campo URL diz o caminho de onde virá os dados
+				//É importante concatenar o valor digitado no CEP
+				url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+				//Aqui você deve preencher o tipo de dados que será lido,
+				//no caso, estamos lendo JSON.
+				dataType: 'json',
+				//SUCESS é referente a função que será executada caso
+				//ele consiga ler a fonte de dados com sucesso.
+				//O parâmetro dentro da função se refere ao nome da variável
+				//que você vai dar para ler esse objeto.
+				success: function(resposta){
+					//Agora basta definir os valores que você deseja preencher
+					//automaticamente nos campos acima.
+					$("#logradouro").val(resposta.logradouro);
+					$("#complemento").val(resposta.complemento);
+					$("#bairro").val(resposta.bairro);
+					$("#cidade").val(resposta.localidade);
+					$("#uf").val(resposta.uf);
+					//Vamos incluir para que o Número seja focado automaticamente
+					//melhorando a experiência do usuário
+					$("#numero").focus();
+				}
+			});
+		});
+	</script>
+<!-- https://velhobit.com.br/programacao/carregando-cep-cidades-dinamicamente.html -->
+</body>
+</html>

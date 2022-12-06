@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>RibaFS Github Index</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="assets/images/favicon-96x96.png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="assets/main.css">
+	</head>
+	
+	<body>	
+		<nav class="navbar navbar-expand-md">
+			<a class="navbar-brand" href="index.html">RibaFS Index</a>
+			<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="main-navigation">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">Início</a>
+					</li>
+                      <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Front-end
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#" onclick="return frontend()">O que é?</a></li>
+                          <li><a class="dropdown-item" href="html.html">HTML</a></li>
+                          <li><a class="dropdown-item" href="css.html">CSS</a></li>
+                          <li><a class="dropdown-item" href="js.html">JavaScript</a></li>
+                          <li><a class="dropdown-item" href="jquery.html">jQuery</a></li>
+                          <li><a class="dropdown-item" href="bs.html">Bootstrap</a></li>
+                          <li><a class="dropdown-item" href="react.html">React</a></li>
+                          <li><a class="dropdown-item" href="vue.html">Vue</a></li>
+                          <li><a class="dropdown-item" href="angular.html">Angular</a></li>
+                          <li><a class="dropdown-item" href="alpine.html">Alpine</a></li>
+                        </ul>
+                      </div>
+
+                      <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Back-end
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#" onclick="return backend()">O que é?</a></li>
+                          <li><a class="dropdown-item" href="node.html">Node</a></li>
+                          <li><a class="dropdown-item" href="deno.html">Deno</a></li>
+                          <li><a class="dropdown-item" href="adonis.html">Adonis</a></li>
+                          <li><a class="dropdown-item" href="next.html">Next</a></li>
+                          <li><a class="dropdown-item" href="nest.html">Nest</a></li>
+                          <li><a class="dropdown-item" href="api.html">API</a></li>
+                          <li><a class="dropdown-item" href="php.html">PHP</a></li>
+                          <li><a class="dropdown-item" href="sgbd.html">SGBD</a></li>
+                          <li><a class="dropdown-item" href="framework.html">Framework</a></li>
+                          <li><a class="dropdown-item" href="cms.html">CMS</a></li>
+                          <li><a class="dropdown-item" href="outras.html">Outras Linguagens</a></li>
+                        </ul>
+                      </div>
+
+					<li class="nav-item">
+						<a class="nav-link" href="mobile.html">Mobile</a>
+					</li>
+
+                      <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">DevOps
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#" onclick="return devops()">O que é?</a></li>
+                          <li><a class="dropdown-item" href="devops.html">DevOps</a></li>
+                        </ul>
+                      </div>
+
+					<li class="nav-item">
+						<a class="nav-link" href="servidores.html">Servidores</a>
+					</li>
+
+                      <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">No-code
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#" onclick="return nocode()">O que é?</a></li>
+                          <li><a class="dropdown-item" href="nocode.html">No-code</a></li>
+                        </ul>
+                      </div>
+
+					<li class="nav-item">
+						<a class="nav-link" href="cursos.html">Cursos</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="ferramentas.html">Ferramentas</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="extra.html">Extra</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="sobre.html">Sobre</a>
+					</li>
+				</ul>
+			</div>
+		</nav>

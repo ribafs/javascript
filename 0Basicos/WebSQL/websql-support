@@ -1,0 +1,4 @@
+        if (!window.openDatabase) {
+            alert('Seu navegador não suporta webSQL');
+        }
+

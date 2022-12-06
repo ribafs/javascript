@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+<TITLE>Date String Maker</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+function MakeArray(n) {
+this.length = n
+return this
+}
+
+monthNames = new MakeArray(12)
+monthNames[1] = "Janeiro"
+monthNames[2] = "Fevereiro"
+monthNames[3] = "Março"
+monthNames[4] = "Abril"
+monthNames[5] = "Maio"
+monthNames[6] = "Junho"
+monthNames[7] = "Julho"
+monthNames[8] = "Agosto"
+monthNames[9] = "Setembro"
+monthNames[10] = "Outubro"
+monthNames[11] = "Novembro"
+monthNames[12] = "Dezembro"
+
+dayNames = new MakeArray(7)
+dayNames[1] = "Domingo"
+dayNames[2] = "Segunda-feira"
+dayNames[3] = "Terça=feira"
+dayNames[4] = "Quarta-feira"
+dayNames[5] = "Quinta-feira"
+dayNames[6] = "Sexta-feira"
+dayNames[7] = "Sábado"
+
+var Data=new Date()
+var dia=Data.getDay()
+var horas = Data.getHours()
+var minutos = Data.getMinutes()
+var segundos = Data.getSeconds()
+
+function customDateString(oneDate) {
+var theDay = dayNames[oneDate.getDay() + 1]
+var theMonth = monthNames[oneDate.getMonth() + 1]
+var theYear = oneDate.getYear()
+theYear += (theYear < 100) ? 1900 : 0
+return theDay + ", " + oneDate.getDate() + " de " + theMonth + " de " + theYear
+}
+function dayPart(oneDate) {
+var theHour = oneDate.getHours()
+if (theHour <6 )
+return "madrugada"
+if (theHour < 12)
+return "manhã"
+if (theHour < 18)
+return "tarde"
+return "noite"
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<H1> Bem-vindo</H1>
+<SCRIPT LANGUAGE="JavaScript">
+today = new Date()
+var header = (customDateString(today)).italics()
+header += "<BR>Agora estamos de: "
+header += dayPart(today) + "."
+document.write(header+" às ")
+document.write(horas + ":" + minutos + ":" + segundos)
+</SCRIPT>
+<HR>
+</BODY>
+</HTML>
