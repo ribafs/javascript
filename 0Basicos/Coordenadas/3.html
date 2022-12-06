@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of the Document</title>
+    <style>
+      #elem {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="elem">Welcome to W3Docs</div>
+    <script>
+      let elem = document.getElementById('elem');
+      alert("top: " + elem.getBoundingClientRect().top +
+        " bottom: " + elem.getBoundingClientRect().bottom + 
+        " right: " + elem.getBoundingClientRect().right + 
+        " left: " + elem.getBoundingClientRect().left + 
+        " width: " + elem.getBoundingClientRect().width + 
+        " height: " + elem.getBoundingClientRect().height);
+    </script>
+  </body>
+</html>

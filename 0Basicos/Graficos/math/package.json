@@ -1,0 +1,28 @@
+{
+  "name": "math-buddy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./node_modules/.bin/webpack-dev-server --config webpack.config.js --mode development",
+    "build": "node ./node_modules/.bin/webpack --config webpack.config.js --mode production",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "6.26.3",
+    "babel-loader": "7.1.4",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-2": "6.24.1",
+    "webpack": "4.11.1",
+    "webpack-cli": "3.0.3",
+    "webpack-dev-server": "3.1.4"
+  },
+  "dependencies": {
+    "babel-preset-env": "1.7.0",
+    "react": "16.4.1",
+    "react-dom": "16.4.1"
+  }
+}

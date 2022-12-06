@@ -1,0 +1,13 @@
+<script>
+
+var numeros = [1,2,3,4,5]
+var numeros2 = []
+function multiplicaPorDois(numeros) {
+
+    for (var indice = 0; indice < numeros.length; indice ++) {
+        numeros2.push(indice) = numeros[indice]
+    }
+    return numeros2
+}
+console.log(multiplicaPorDois(numeros))
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<!-- meta tags dibutuhkan untuk membuat tampilan mobile -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Aplicativo tipo CRUD usando WebSQL</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<br>
+				<h3 class="text-center">Aplicativo tipo CRUD usando WebSQL</h3>
+				<hr>
+
+				<div id="form_data">
+					<h4>Entrada de dados</h4>
+					<form>
+						<div class="form-group">
+							<label>Nome</label>
+							<input type="text" class="form-control" id="nama" placeholder="Input nama">
+						</div>
+						<div class="form-group">
+							<label>Endereço</label>
+							<input type="text" class="form-control" id="alamat" placeholder="Input alamat">
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-info" onclick="tambah_data();">Adicionar</button>
+							<button type="reset" class="btn btn-default">Reset</button>
+						</div>
+					</form>
+				</div>
+
+				<hr>
+
+				<h4>Dados que foram inseridos</h4>
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Nome</th>
+								<th>Endereço</th>
+								<th>Ação</th>
+							</tr>
+						</thead>
+						<tbody id="list_data">
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery-slim.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

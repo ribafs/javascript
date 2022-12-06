@@ -1,0 +1,39 @@
+<script>
+/*
+function identificaIdade (idade) {
+
+var maior = []
+var menor = []
+
+    for (contador = 0; contador < idade.length; contador ++) {
+          if (idade[contador] >= 18) {
+             maior.push(idade[contador])
+          }
+          menor.push(idade[contador])
+    } 
+    console.log("Maior "+maior)
+    console.log("Menor "+menor)      
+}
+identificaIdade([1,4,12,20])
+// Não consegui que funciona sem o if. Apenas funciona em alguns casos. Quando temos dois estados (maior e menor, pe) precisa de else
+*/
+
+function identificaIdade (idade) {
+
+var maior = []
+var menor = []
+
+    for (contador = 0; contador < idade.length; contador ++) {
+          if (idade[contador] >= 18) {
+             maior.push(idade[contador])
+          }else{
+            menor.push(idade[contador])
+          }
+    } 
+    console.log("Maior "+maior)
+    console.log("Menor "+menor)      
+}
+identificaIdade([1,4,12,20])
+
+
+</script>

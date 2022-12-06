@@ -1,0 +1,10 @@
+function imprimeQuadradoAsterisco (n) {
+      for (linha = 0; linha < n; linha ++) {
+          var linhaDeAsteriscos = "";
+         for (coluna = 0; coluna < n; coluna ++) {
+              linhaDeAsteriscos = linhaDeAsteriscos + "*";
+         }
+         console.log(linhaDeAsteriscos);
+      }
+}
+imprimeQuadradoAsterisco(5)

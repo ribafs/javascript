@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>jscrud</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form onsubmit="return validateMyForm()" autocomplete="off">
+                    <div class="form-group">
+                        <label>name</label>
+                        <input type="text" id="name" name="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>age</label>
+                        <input type="text" id="age" name="age" class="form-control">
+                    </div>
+                    <button class="btn btn-primary btn-sm">submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="text-primary text-center">Here is your data</h2>
+                    <table class="table" id="mytable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</body>
+    <script src="main.js"></script>
+</html>

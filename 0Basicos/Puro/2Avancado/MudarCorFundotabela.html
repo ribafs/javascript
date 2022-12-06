@@ -1,0 +1,27 @@
+<html><head><title>Cor de fundo de tabela com Select</title>
+<script> 
+function set_cor(cor){ 
+    alert('Cor = '+cor); 
+    var objeto=document.getElementById("tprevtd")
+//    set nometag=document.getElementsByTagName("tprevtd")
+    objeto.setAttribute('bgcolor', cor, 0); 
+    objeto.style.backgroundColor = cor; 
+} 
+</script> 
+</head>
+
+<table cellspacing=0 cellpadding=0 name="tprev" id="tprev"> 
+<tr> 
+<td id="tprevtd" width=100 height=100 bgcolor="#000000">javascript:"set_cor(cor)"</td> 
+</tr> 
+</table> 
+
+<select onchange="JavaScript:set_cor(this.value);">
+    <option value="#000000">preto</option> 
+    <option value="#0000FF">azul</option> 
+    <option value="#00FF00">verde</option> 
+    <option value="#FF0000">vermelho</option> 
+    <option value="#DDDDDD">cinza</option> 
+    <option value="#FFFFFF">branco</option> 
+</select> 
+</html>

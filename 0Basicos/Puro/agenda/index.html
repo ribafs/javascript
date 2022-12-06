@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Agenda de Amigos</title>
+    
+</head>
+
+<body>
+  <div class="bg-dark text-light mb-4">
+      <h1 class="py-4 text-center display-5">Agenda de Amigos</h1>
+  </div>
+   <div class="container">
+      <div class="card card-body card-form ">
+         <form name="frm" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+            <div>
+                <label>Nome Completo</label><label class="validation-error hide" id="fullNameValidationError"></label>
+                <input class="form-control" type="text" name="fullName" id="fullName" placeholder="João Brito Cunha" required>
+            </div>
+            <div class="mt-3">
+                <label>E-mail</label>
+                <input class="form-control" type="text" name="email" id="email" placeholder="ribafs@gmail.com" required>
+            </div>
+            <div class="mt-3">
+                <label>Whatsapp</label>
+                <input class="form-control" type="text" name="whats" id="whats" placeholder="85 9.9 8989.3898">
+            </div>
+            <div  class="form-action-buttons">
+                <input type="submit" id="submit" name="submit" value="Adicionar" class="btn btn-primary mt-2">
+                <input type="reset" value="Limpar" class="btn btn-primary mt-2 ml-2">
+            </div>
+        </form> 
+      </div>
+       
+        <div class="card card-body card-form mt-4">
+            <table class="list table" id="agendaAmigos">
+                <thead class="thead-dark bg-primary ">
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Whatsapp</th>
+                        <th scope="col" class="text-center">Ação</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    
+   </div>
+    
+    <footer class="mt-5 p-3 text-center bg-light">
+     &copy; Agenda de Amigos | Powerd by Javascript
+  </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

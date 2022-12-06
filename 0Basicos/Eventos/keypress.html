@@ -1,0 +1,80 @@
+<body class="my-auto mx-auto bg-gray-100">
+  <div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
+    <div class="flex justify-center -mt-16 hidden">
+      <div class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500 flex items-center justify-center bg-white text-3xl" id="keyCodeLarge"></div>
+    </div>
+    <div>
+      <p class="text-gray-600" id="info">
+        Press any key to see the magic 🪄
+      </p>
+      <p class="mt-4 text-gray-600 hidden">key: <span id="key"></span></p>
+      <p class="mt-2 text-gray-600 hidden">code: <span id="code"></span></p>
+      <p class="mt-2 text-gray-600 hidden">keyCode: <span id="keyCode"></span></p>
+    </div>
+  </div>
+</body>
+
+<style>
+html {
+  height: 100vh;
+  display: flex;
+}
+</style>
+
+<script>
+const key = document.getElementById("key"),
+  code = document.getElementById("code"),
+  keyCode = document.getElementById("keyCode"),
+  keyCodeLarge = document.getElementById("keyCodeLarge"),
+  info = document.getElementById("info"),
+  hiddenElements = document.querySelectorAll(".hidden");
+
+document.onkeydown = function (e) {
+  [].forEach.call(hiddenElements, function (el) {
+    el.classList.remove("hidden");
+  });
+  info.classList.add("hidden");
+  key.innerHTML = e.key;
+  code.innerHTML = e.code;
+  keyCode.innerHTML = e.keyCode;
+  keyCodeLarge.innerHTML = e.keyCode;
+};
+
+window.addEventListener("keydown", (event) => {
+  if (event.defaultPrevented) {
+    return; // Do nothing if the event was already processed
+  }
+
+  switch (event.key) {
+    case "Down": // IE/Edge specific value
+    case "ArrowDown":
+      // Do something for "down arrow" key press.
+      break;
+    case "Up": // IE/Edge specific value
+    case "ArrowUp":
+      // Do something for "up arrow" key press.
+      break;
+    case "Left": // IE/Edge specific value
+    case "ArrowLeft":
+      // Do something for "left arrow" key press.
+      break;
+    case "Right": // IE/Edge specific value
+    case "ArrowRight":
+      // Do something for "right arrow" key press.
+      break;
+    case "Enter":
+      // Do something for "enter" or "return" key press.
+      break;
+    case "Esc": // IE/Edge specific value
+    case "Escape":
+      // Do something for "esc" key press.
+      break;
+    default:
+      return; // Quit when this doesn't handle the key event.
+  }
+
+  // Cancel the default action to avoid it being handled twice
+  event.preventDefault();
+}, true);
+//https://daily-dev-tips.com/posts/javascript-detecting-which-key-is-pressed/
+</script>

@@ -1,0 +1,247 @@
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = "<h3>Hello World!</h3><hr>";
+</script>
+
+<h2>What Can JavaScript Do?</h2>
+
+<p>JavaScript can change HTML attribute values.</p>
+
+<p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+
+<button onclick="document.getElementById('myImage').src='pic_bulbon.gif'">Turn on the light</button>
+
+<img id="myImage" src="pic_bulboff.gif" style="width:100px">
+
+<button onclick="document.getElementById('myImage').src='pic_bulboff.gif'">Turn off the light</button>
+<hr>
+In this example, the content of the <h1> element is changed when a user clicks on it:
+<h1 onclick="this.innerHTML = 'Ooops!'">Click on this text!</h1>
+
+<h1 onclick="changeText(this)">Click on this text!</h1>
+
+<script>
+function changeText(id) {
+  id.innerHTML = "Ooops!";
+}
+</script>
+<hr>
+<p>Click the button to display the date.</p>
+
+<button onclick="displayDate()">The time is?</button>
+
+<script>
+function displayDate() {
+  document.getElementById("data").innerHTML = Date();
+}
+</script>
+
+<p id="data"></p>
+<hr>
+
+<p>Convert string to upper case:</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="case">Hello World!</p>
+
+<script>
+function myFunction() {
+  var text = document.getElementById("case").innerHTML;
+  document.getElementById("case").innerHTML = text.toUpperCase();
+}
+</script>
+
+<hr>
+<div onmousedown="mDown(this)" onmouseup="mUp(this)"
+style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+Click Me</div>
+
+<script>
+function mDown(obj) {
+  obj.style.backgroundColor = "#1ec5e5";
+  obj.innerHTML = "Release Me";
+}
+
+function mUp(obj) {
+  obj.style.backgroundColor="#D94A38";
+  obj.innerHTML="Thank You";
+}
+</script>
+<hr>
+
+<input type="button" value="Back" onclick="goBack()">
+
+<h2>What Can JavaScript Do?</h2>
+
+<p id="back">JavaScript can change HTML content.</p>
+
+<button type="button" onclick='document.getElementById("back").innerHTML = "Hello JavaScript!"'>Click Me!</button>
+<hr>
+
+<h2>What Can JavaScript Do?</h2>
+
+<p id="estilo">JavaScript can change the style of an HTML element.</p>
+
+<button type="button" onclick="document.getElementById('estilo').style.fontSize='35px'">Click Me!</button>
+<hr>
+
+<h2>What Can JavaScript Do?</h2>
+
+<p id="ocultar">JavaScript can hide HTML elements.</p>
+
+<button type="button" onclick="document.getElementById('ocultar').style.display='none'">Click Me!</button>
+<hr>
+
+<h2>What Can JavaScript Do?</h2>
+
+<p>JavaScript can show hidden HTML elements.</p>
+
+<p id="mostrar" style="display:none">Hello JavaScript!</p>
+
+<button type="button" onclick="document.getElementById('mostrar').style.display='block'">Click Me!</button>
+<hr>
+
+<p>Este document was last modified <span id="modi"></span>.</p>
+
+<script>
+document.getElementById("modi").innerHTML = document.lastModified;
+</script>
+
+<hr>
+<p>The full URL of this document is: <br><span id="url"></span>.</p>
+
+<script>
+document.getElementById("url").innerHTML = document.URL
+</script>
+<hr>
+<p id="demo">Click the button to replace this document with new content.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+  document.open("text/html","replace");
+  document.write("<h2>Learning about the HTML DOM is fun!</h2>");
+  document.close(); 
+}
+</script>
+<hr>
+
+<form>
+<input type="button" id="btn01" value="OK">
+</form>
+
+<p>Click the "Disable" button to disable the "OK" button:</p>
+
+<button onclick="disableElement()">Disable</button>
+
+<script>
+function disableElement() {
+  document.getElementById("btn01").disabled = true;
+}
+</script>
+<hr>
+
+<form id="frm1" action="/action_page.php">
+<button id="btn1" name="subject" type="submit" value="HTML">HTML</button>
+</form>
+
+<p>Click the "Try it" button to display the name of the "HTML" button:</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="btn"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("btn1").name;
+  document.getElementById("btn").innerHTML = x;
+}
+</script>
+<hr>
+
+<p>Enter names in the fields, then click "Submit" to submit the form:</p>
+
+<form id="frm1" action="/action_page.php">
+  First name: <input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br><br>
+  <input type="button" onclick="myFunction()" value="Submit">
+</form>
+
+<script>
+function myFunction() {
+  document.getElementById("frm1").submit();
+}
+</script>
+<hr>
+
+<form id="frm1" action="/action_page.php">
+  First name: <input type="text" name="fname" value="Donald"><br>
+  Last name: <input type="text" name="lname" value="Duck"><br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+<p>Click "Try it" to display the value of each element in the form.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="frm"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("frm1");
+  var text = "";
+  var i;
+  for (i = 0; i < x.length ;i++) {
+    text += x.elements[i].value + "<br>";
+  }
+  document.getElementById("frm").innerHTML = text;
+}
+</script>
+<hr>
+
+<form id="frm2" action="/action_page.php">
+  First name: <input type="text" name="fname" value="Donald"><br>
+  Last name: <input type="text" name="lname" value="Duck"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<p>Click "Try it" to display the value of the form's action attribute:</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="fr"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("frm1").action;
+  document.getElementById("fr").innerHTML = x;
+}
+</script>
+<hr>
+
+<script>
+function disable() {
+  document.getElementById("mySelect").disabled=true;
+}
+function enable() {
+  document.getElementById("mySelect").disabled=false;
+}
+</script>
+</head>
+<body>
+
+<form>
+<select id="mySelect">
+  <option>Apple</option>
+  <option>Pear</option>
+  <option>Banana</option>
+  <option>Orange</option>
+</select>
+<br><br>
+<input type="button" onclick="disable()" value="Disable list">
+<input type="button" onclick="enable()" value="Enable list">
+</form>
+

@@ -1,0 +1,41 @@
+<html>
+   <head>
+      <title>Google Charts Tutorial</title>
+      <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
+      </script>
+      <script type = "text/javascript">
+         google.charts.load('current', {packages: ['orgchart']});     
+      </script>
+   </head>
+   
+   <body>
+      <div id = "container" style = "width: 550px; height: 400px; margin: 0 auto">
+      </div>
+      <script language = "JavaScript">
+         function drawChart() {
+            // Define the chart to be drawn.
+            var data = new google.visualization.DataTable();   
+            data.addColumn('string', 'Name');
+            data.addColumn('string', 'Manager');
+            data.addColumn('string', 'ToolTip');
+
+            // For each orgchart box, provide the name, manager, and tooltip to show.
+            data.addRows([
+               [{v:'Robert', f:'Robert<div style="color:red; font-style:italic">President</div>'},'', 'President'],
+               [{v:'Jim', f:'Jim<div style="color:red; font-style:italic">Vice President</div>'},'Robert', 'Vice President'],
+               ['Alice', 'Robert', ''],
+               ['Bob', 'Jim', 'Bob Sponge'],
+               ['Carol', 'Bob', '']
+            ]);			
+
+            // Set chart options
+            var options = {allowHtml:true};
+                  
+            // Instantiate and draw the chart.
+            var chart = new google.visualization.OrgChart(document.getElementById('container'));
+            chart.draw(data, options);
+         }
+         google.charts.setOnLoadCallback(drawChart);
+      </script>
+   </body>
+</html>

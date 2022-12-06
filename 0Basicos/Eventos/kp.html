@@ -1,0 +1,19 @@
+<p>[Press any key]</p>
+
+<style>
+body {
+  padding: 20px;
+  font-weight: bold;
+  font-size: 5em;
+  text-align: center;
+}
+</style>
+
+<script>
+// Press any key and the result will display on the page.
+// Make sure your cursor is focused in the preview window first.
+window.addEventListener('keydown', function (e) {
+  document.querySelector('p').innerHTML = `You pressed => ${e.key}`;
+}, false);
+// https://www.codeinwp.com/snippets/detect-what-key-was-pressed-by-the-user/
+</script>

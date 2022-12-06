@@ -1,0 +1,33 @@
+Objeto Math
+
+O objeto Math tem propriedades e métodos para constantes matemáticas e funções. Por exemplo, o PI do objeto Math tem o valor de pi (3,141...), que você usaria em uma aplicação como
+
+Math.PI
+
+Similarmente, funções matemáticas padrão são métodos do Math. Isto inclui funções trigonométricas, logarítmicas, exponenciais, e outras funções. Por exemplo, se você quiser usar a função trigonométrica seno, basta escrever
+
+Math.sin(1.56)
+
+Note que todos os métodos trigonométricos pegam argumentos em radianos.
+
+A tabela a seguir sumariza os métodos do objeto Math.
+Métodos de Math Método 	Descrição
+abs() 	Valor absoluto
+sin(), cos(), tan() 	Funções trigonométricas padrão; Argumentos em radianos
+asin(), acos(), atan(), atan2() 	Funções trigonométricas inversas; retorna valores em radianos
+sinh(), cosh(), tanh() 	Funções trigonométricas hiperbólicas; retorna valores em radianos.
+asinh(), acosh(), atanh() 	Funções trigonométricas hiperbólicas inversas; retorna valores em radianos.
+
+pow(), exp(), expm1(), log10(), log1p(), log2()
+	Funções exponenciais e logarítmicas.
+floor(), ceil() 	Retorna o maior/menor inteiro que é menor/maior inteiro que ou igual ao argumento.
+min(), max() 	Retorna menor ou maior (respectivamente) de uma lista separada por vírgula de argumentos numéricos
+random() 	Retorna um número aleatório entre 0 e 1.
+round(), fround() (en-US), trunc(), 	Funções de arredondamento e truncamento.
+sqrt(), cbrt(), hypot() 	Raiz quadrada, raiz cúbica, raiz quadrada da soma de argumentos ao quadrado.
+sign() 	O sinal de um número, indicando se o número é positivo, negativo ou zero.
+clz32(),
+imul() (en-US) 	Número de zeros à esquerda na representação binária de 32-bits.
+The result of the C-like 32-bit multiplication of the two arguments.
+
+Diferentemente de muitos outros objetos, você nunca cria um objeto Math por conta própria. Você sempre deve utilizar o objeto Math nativo.

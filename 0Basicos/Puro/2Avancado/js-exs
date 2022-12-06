@@ -1,0 +1,47 @@
+[19:15, 19/02/2022] Elias: olha q lgl
+[19:15, 19/02/2022] Elias: essas duas questões
+[19:15, 19/02/2022] Elias: /* Você foi jantar em um restaurante chique, em uma cidade turística. O conta que você pediu custou R$100,00. Porém o restaurante possui uma taxa de 10% sobre o valor da conta por ser um lugar turístico. Crie uma solução
+para calcular o valor final da conta, adicionando a possibilidade de pagar 5% da gorjeta ou não.*/
+
+function jantar (conta, queroGorjeta) { 
+
+    let taxa = conta * 0.1; 
+    let gorjeta = conta * 0.05; 
+    let totalSemGorj = conta + taxa;
+    let totalComGorj = conta + taxa + gorjeta;
+
+    if (queroGorjeta === "não") {
+        console.log(`Sua conta: ${conta} \nTaxa: ${taxa}\nTotal: ${totalSemGorj}`)
+    } 
+    else if (queroGorjeta !== "sim") {
+         console.log('Ação inválida, digite novamente')        
+    }
+    else {
+        console.log(`Sua conta: ${conta} \nTaxa: ${taxa}\nGorjeta: ${gorjeta} \nTotal: ${totalComGorj}`)
+    }
+} 
+jantar(100,"sim")
+[19:15, 19/02/2022] Elias: /* Crie um programa para uma loja de ração, onde ao informar o preço do produto sejam exibidas as formas de pagamento disponíveis. Pagamento à vista possui 10% de desconto e parcelado em 4x possui juros de 15%. Exemplo:
+- Preço do produto: R$80
+- À Vista: R$72
+- 4x de: R$23 */
+
+function pagamento (produto) {
+
+    let emDinheiro = produto - (produto * 0.10)
+    let cartao = produto + (produto * 0.15)
+
+    console.log(`Preço do produto: ${produto} \nÀ Vista: ${emDinheiro} \n4x de: ${cartao / 4}` )
+    
+}
+pagamento(80)
+
+
+/* Crie um programa para gerenciar as contas de um financiamento de veículo. A pessoa que quer fazer o financiamento precisa informar o valor total do carro, o valor da entrada a ser dada e a quantidade de parcelas que ela deseja pagar. A loja em questão usa uma taxa de juros fixa de 5% sobre o valor do financiamento. Desenvolva a solução e exiba conforme o exemplo (o valor da parcela precisa ter 2 casas decimais após a vírgula):
+- Valor Financiado: R$35000
+- Valor do Juros: R$1750
+- Quantidade de Parcelas: 36
+- Valor da Parcela: R$1020.83
+- Valor Total do Carro: R$46750 */
+
+

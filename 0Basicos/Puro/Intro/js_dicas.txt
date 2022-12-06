@@ -1,0 +1,22 @@
+Confirmação de exclusão
+
+<script type='text/javascript'>
+// confirm record deletion
+function delete_user( id ){
+     
+    var answer = confirm('Are you sure?');
+    if (answer){
+        // if user clicked ok, 
+        // pass the id to delete.php and execute the delete query
+        window.location = 'delete.php?id=' + id;
+    } 
+}
+</script>
+
+
+Usando
+
+// we will use this links on next part of this post
+                        echo "<a href='#' onclick='delete_user({$id});'  class='btn btn-danger'>Delete</a>";
+
+

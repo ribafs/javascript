@@ -1,0 +1,75 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<title>IndexedDB - CRUD</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link rel="icon" type="image/png" sizes="16x16" href="../Favicons/favicon-16x16.png">
+	<style></style>
+  </head>
+  <body>
+	
+	<div class="container text-center">
+		<h1 class="bg-light py-4 text-info">
+			<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plug" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" d="M6 0a.5.5 0 0 1 .5.5V3h3V.5a.5.5 0 0 1 1 0V3h1a.5.5 0 0 1 .5.5v3A3.5 3.5 0 0 1 8.5 10c-.002.434-.01.845-.04 1.22-.041.514-.126 1.003-.317 1.424a2.083 2.083 0 0 1-.97 1.028C6.725 13.9 6.169 14 5.5 14c-.998 0-1.61.33-1.974.718A1.922 1.922 0 0 0 3 16H2c0-.616.232-1.367.797-1.968C3.374 13.42 4.261 13 5.5 13c.581 0 .962-.088 1.218-.219.241-.123.4-.3.514-.55.121-.266.193-.621.23-1.09.027-.34.035-.718.037-1.141A3.5 3.5 0 0 1 4 6.5v-3a.5.5 0 0 1 .5-.5h1V.5A.5.5 0 0 1 6 0zM5 4v2.5A2.5 2.5 0 0 0 7.5 9h1A2.5 2.5 0 0 0 11 6.5V4H5z"/>
+			</svg>
+			Electronic Store
+		</h1>
+	</div>
+	
+	<div class="d-flex justify-content-center">
+		<form class="w-50">
+			<input type="text" id="userid" class="form-control" placeholder="ID" autocomplete="off" readonly></input>
+			<input type="text" id="proname" class="form-control" placeholder="Product Name" autocomplete="off"></input>
+			<div class="row">
+				<div class="col">
+					<input type="text" id="seller" class="form-control m-0" placeholder="Seller" autocomplete="off"></input>
+				</div>
+				<div class="col">
+					<input type="number" id="price" class="form-control m-0" placeholder="Price" autocomplete="off"></input>
+				</div>
+			</div>
+		</form>
+	</div>
+	
+	<!-- Create, update, read and delete buttons -->
+	<div class="d-flex justify-content-center">
+		<button class="btn btn-success" id="btn-create">Create</button>
+		<button class="btn btn-primary" id="btn-read">Read</button>
+		<button class="btn btn-warning" id="btn-update">Update</button>
+		<button class="btn btn-danger" id="btn-delete">Delete All</button>
+	</div>
+	
+	<div class="container d-flex">
+		<table class="table table-striped">
+		  <thead>
+			<tr>
+			  <th scope="col">ID</th>
+			  <th scope="col">Product Name</th>
+			  <th scope="col">Seller</th>
+			  <th scope="col">Price</th>
+			  <th scope="col">Edit</th>
+			  <th scope="col">Delete</th>
+			</tr>
+		  </thead>
+		  <tbody id="tbody"><!-- Elements will be inserted dynamically by JS --></tbody>
+		</table>
+	</div>
+	<div class="container text-center"><div id="notfound"></div></div>
+	<div class="w-100 btn btn-success insertmsg">Data inserted successfully...!</div>
+	<div class="w-100 btn btn-warning updatemsg">Data updated....!</div>
+	<div class="w-100 btn btn-danger deletemsg">Data Deleted...!</div>	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>	
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<!-- Dexie API -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/dexie/3.0.2/dexie.min.js" integrity="sha512-Vir5zWsvcM/cvv/YIpguFo1Ppx4mtFrY9llk6iJmx3jgBh5zcjP4Hz80xuEAoqwBTBUx9wSViEM2i8lCfv/i6g==" crossorigin="anonymous"></script>
+	<!-- Custom Javascript main.js -->
+	<script src="../js/main.js" type="module"></script>
+	<script>
+		console.log('Complete CRUD Operation with IndexDB Database - JavaScript Project');
+	</script>
+   </body>
+</html>

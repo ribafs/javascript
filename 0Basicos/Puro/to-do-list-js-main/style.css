@@ -1,0 +1,139 @@
+body {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+li {
+    list-style-position: inside;
+}
+
+#criar-tarefa {
+    width: 90px;
+    border-radius: 8px;
+    background-color: #1287CF;
+    color: white;
+    border: 1px solid white;
+    padding: 4px;
+    margin-left: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#criar-tarefa:hover {
+    background-color: #309bdd;
+}
+
+#remover-finalizados {
+    width: 145px;
+    border-radius: 8px;
+    background-color: #1287CF;
+    color: white;
+    border: 1px solid white;
+    padding: 4px;
+    margin-left: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#remover-finalizados:hover {
+    background-color: #309bdd;
+}
+
+#apaga-tudo {
+    width: 100px;
+    border-radius: 8px;
+    background-color: #90191B;
+    color: white;
+    border: 1px solid white;
+    padding: 4px;
+    margin-left: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#apaga-tudo:hover {
+    background-color: #b33f41;
+}
+
+.gray {
+    background-color: gray;
+}
+
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#salvar-tarefas {
+    width: 100px;
+    border-radius: 8px;
+    background-color: #40AD40;
+    color: white;
+    border: 1px solid white;
+    padding: 4px;
+    margin-left: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#salvar-tarefas:hover {
+    background-color: #76d376;
+}
+
+#mover-cima {
+    font-weight: bold;
+    width: 65px;
+    border-radius: 15px;
+    background-color: #FC7F00;
+    color: white;
+    border: 1px solid white;
+    margin-left: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#mover-cima:hover {
+    background-color: #ff9225;
+}
+
+#mover-baixo {
+    font-weight: bold;
+    width: 65px;
+    border-radius: 15px;
+    background-color: #FC7F00;
+    color: white;
+    border: 1px solid white;
+    margin-left: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#mover-baixo:hover {
+    background-color: #ff9225;
+}
+
+.list {
+   margin-bottom: 4px;
+}
+
+#bottons {
+    margin-top: 10px;
+}
+
+#remover-selecionado {
+    font-weight: bold;
+    width: 45px;
+    border-radius: 25px;
+    background-color: #90191B;
+    color: white;
+    border: 1px solid white;
+    margin: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#remover-selecionado:hover {
+    background-color: #b33f41;
+}

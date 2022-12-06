@@ -1,0 +1,9 @@
+div {
+  float: left;
+}
+
+#myFunction {
+  padding: 25px;
+  width: 250px;
+  height: 250px;
+}

@@ -1,0 +1,32 @@
+
+openDatabase /Abrindo banco de dados
+
+O método openDatabase se encarrega de abrir um banco de dados se ele já existe, este método irá criá-lo se já não existir.
+
+Para criar e abrir um banco de dados, use o seguinte código -
+
+var db = openDatabase ('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+
+The above method took the following five parameters −
+
+    Database name
+    Version number
+    Text description
+    Size of database
+    Creation callback
+
+The last and 5th argument, creation callback will be called if the database is being created. Without this feature, however, the databases are still being created on the fly and correctly versioned.
+
+Executing queries
+
+To execute a query you use the database.transaction() function. This function needs a single argument, which is a function that takes care of actually executing the query as follows −
+
+var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
+
+db.transaction(function (tx) {   
+   tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)'); 
+});
+
+The above query will create a table called LOGS in 'mydb' database.
+
+

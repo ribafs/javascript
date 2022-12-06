@@ -1,0 +1,50 @@
+IntroduçãoSection
+
+Por que uma reintrodução? Porque JavaScript é conhecida como a mais incompreendida linguagem de programação do mundo. Embora muitas vezes ridicularizada como um brinquedo, por baixo de sua simplicidade enganosa estão alguns recursos poderosos da linguagem, que agora é usado por um número incrível de aplicações de alto nível, mostrando que o conhecimento mais profundo desta tecnologia é uma habilidade importante para qualquer desenvolvedor web, mobile ou desktop.
+
+É sempre bom começar com a história da linguagem. A JavaScript foi criada em 1995 por Brendan Eich, um engenheiro da Netscape, e lançada pela primeira vez com o Netscape 2 no início de 1996. Foi inicialmente chamada de LiveScript, mas logo foi rebatizada, em uma decisão de marketing malfeita, para tentar crescer sobre a popularidade da linguagem Java da Sun Microsystem - apesar das duas terem muito pouco em comum. Esta tem sido uma fonte de confusão desde então.
+
+A Microsoft lançou uma versão compatível com a maior parte da linguagem, chamada de JScript, junto com o IE, três meses mais tarde. A Netscape apresentou a linguagem a Ecma International, uma organização européia de normalização, o que resultou na primeira edição do padrão ECMAScript em 1997. O padrão recebeu uma atualização significativa com o ECMAScript Edição 3 em 1999, e manteve-se praticamente estável desde então. A quarta edição foi abandonada, devido a diferenças políticas relativas à complexidade da linguagem. Muitas partes da quarta edição formam a base da nova edição ECMAScript 5, publicado em dezembro de 2009.
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/A_re-introduction_to_JavaScript
+
+Tipos de JavaScript são :
+
+números
+strings
+booleanos
+funções
+objetos:
+    funções (functions)
+    vetores (arrays)
+    datas (dates)
+    expressoes regulares (regexp)
+nulo (null)
+indefinido (undefined)
+
+Funções
+- Math()
+- parseInt()
+- parseFloat()
+- isNaN()
+
+Strings
+charAt()
+lenght
+
+Boolean()
+
+var variavel;
+
+https://www.w3schools.com/js/
+https://www.tutorialspoint.com/javascript/index.htm
+https://www.tutorialspoint.com/javascript/javascript_quick_guide.htm
+https://www.devmedia.com.br/javascript-tutorial/37257
+https://javascript.info/
+http://www.javascript-tutorial.com.br/content-cat-1.html
+https://www.learn-js.org/
+http://www.htmldog.com/guides/javascript/
+
+
+Teste Online
+https://www.javascript.com/try
+

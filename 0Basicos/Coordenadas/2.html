@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of the Document</title>
+    <style>
+      h1 {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="elem">
+      <h1>Welcome to W3Docs</h1>
+      <p>Move the mouse over the text</p>
+      <div>
+        Position:
+        <p id='text'></p>
+      </div>
+    </div>
+    <script>
+      let elem = document.getElementById('elem');
+      document.addEventListener('mousemove', function(event) {
+        let rect = elem.getBoundingClientRect();
+        document.getElementById('text').innerHTML = 'left: ' + rect.x + ', ' + 'top: ' + rect.y;
+      });
+    </script>
+  </body>
+</html>

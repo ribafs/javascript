@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<canvas id="idcanvas" width="400" height="450" style="border:1px solid #000000;"></canvas>
+<script>
+//plotar eixos
+var canvas = document.getElementById("idcanvas");
+var ctx = canvas.getContext("2d");
+
+ctx.translate(0, 450);
+ctx.scale(1, -1);
+
+
+//tabelar
+
+function faz() {
+   var y = new Array();
+   var ys = new Array();
+   var yi = new Array();
+   var a=-100;
+   var b=100;
+   var d, e, f;
+
+   for(var c=0; c<=350; c++){
+      x=a+(b-a)*c/350;
+      y[c]= 2*x*x + 4*x - 1000;
+      //document.write(y[c] + "<br>");
+   }
+
+//MaiorMenor
+   var ys = y[0];
+   var yi = y[0];
+
+   for(var c=0;c<=350;c++){
+      if (y[c]>ys){
+         (ys=y[c]);
+      }
+      else if (y[c]<yi) {
+         (yi=y[c]);
+      }
+   }
+   //document.write(yi + "<br>" + ys);
+
+//plotar eixos
+   ctx.beginPath();
+   //ctx.translate(0, 450);
+   //ctx.scale(1, -1); 
+   if (ys*yi<0){
+      d=Math.round((-400*yi)/(ys-yi)); //abscissas do gráfico da tela
+                  ctx.strokeStyle = '#000';
+                  ctx.beginPath();
+                  ctx.lineWidth = 2;
+                  ctx.moveTo(0,d);//
+                  ctx.lineTo(350,d);
+                  ctx.lineTo(340,d-10);//seta do eixoX
+                  ctx.moveTo(350,d);//seta do eixoX
+                  ctx.lineTo(340,d+10);//seta do eixoX
+
+                  ctx.stroke();
+                  ctx.closePath(); 
+   }
+   ctx.beginPath(); 
+   if (a*b<0){
+       c=Math.round(-a*350/(b-a));//ordenada do grafico da tela
+                  ctx.strokeStyle = '#000';
+                  ctx.beginPath();
+                  ctx.lineWidth = 2;
+                  ctx.moveTo(c,0);
+                  ctx.lineTo(c,400);
+                  ctx.lineTo(c-10,390);//seta do eixoY
+                  ctx.moveTo(c,400);//seta do eixoY
+                  ctx.lineTo(c+10,390);//seta do eixoY
+
+                  ctx.stroke();
+                  ctx.closePath();  
+   }
+//document.write(d + "<br>" + c);
+//PlotarGrafico
+   ctx.strokeStyle = '#000';
+   ctx.beginPath();
+   ctx.lineWidth = 2;
+
+   f = Math.round(((y[0]-yi)/(ys-yi))*400); // ordenada do primeiro ponto do gráfico
+//document.write(f);//para teste
+ 
+   ctx.beginPath();
+   //ctx.translate(0, 450);//para teste
+   //ctx.scale(1, -1);//para teste
+   ctx.moveTo(0,f);    //primeiro ponto a ser plotado 384
+//document.write(f);// teste 384
+
+// demais pontos
+        for(var c=0;c<=350;c++){ 
+           e = Math.round(((y[c]-yi)/(ys-yi))*400);
+//document.write(e + "<br>");
+
+            ctx.lineWidth = 1;
+
+            ctx.lineTo(c,e);
+         }
+             ctx.stroke();
+             ctx.closePath();
+//textos
+ctx.scale(1,-1); //para corrigir o texto
+ctx.font="20px Georgia";
+ctx.fillText("(0,0)",180,-30);
+ctx.fillText("eixo-y",180,-400);
+ctx.fillText("eixo-x",330,-40);
+ctx.fillText("f(x)=2*x*x+4*x-1000",180,-200);
+}
+//window.onload=tabela;
+//window.onload=maiorMenor;
+//window.onload=plotarEixos;
+//window.onload=faz;
+</script> 
+<button onclick="faz()">Try it</button>
+</body>
+</html>

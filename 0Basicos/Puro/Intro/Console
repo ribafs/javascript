@@ -1,0 +1,11 @@
+CONSOLE DO NAVEGADOR
+Existem várias formas de executar códigos JavaScript em um página. Uma delas é executar códigos
+no que chamamos de Console. A maioria dos navegadores desktop já vem com essa ferramenta
+instalada. No Chrome, por exemplo, é possível chegar ao Console apertando F12 e em seguida acessar a
+aba "Console" ou por meio do atalho de teclado Control + Shift + i.
+
+O console faz parte de uma série de ferramentas embutidas nos navegadores especificamente
+para nós que estamos desenvolvendo um site. Essa série de ferramentas é o que chamamos de
+Developer Tools.
+
+https://www.caelum.com.br/apostila-html-css-javascript/

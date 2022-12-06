@@ -1,0 +1,42 @@
+<html>
+   <head>
+      <title>Google Charts Tutorial</title>
+      <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
+      </script>
+      <script type = "text/javascript">
+         google.charts.load('current', {packages: ['corechart']});     
+      </script>
+   </head>
+   
+   <body>
+      <div id = "container" style = "width: 550px; height: 400px; margin: 0 auto">
+      </div>
+      <script language = "JavaScript">
+         function drawChart() {
+            // Define the chart to be drawn.
+            var data = google.visualization.arrayToDataTable([
+               ['Fruta', 'Jane', 'John', 'Média'],
+               ['Maçãs', 3, 2, 2.5],
+               ['Laranjas', 2, 3, 2.5],
+               ['Peras', 1, 5, 3],
+               ['Bananas', 3, 9, 6],
+               ['Ameixa', 4, 2, 3]      
+            ]);
+              
+            // Set chart options
+            var options = {
+               title : 'Distribuição de Frutas',
+               vAxis: {title: 'Frutas'},
+               hAxis: {title: 'Pessoa'},
+               seriesType: 'bars',
+               series: {2: {type: 'line'}}
+            };
+
+            // Instantiate and draw the chart.
+            var chart = new google.visualization.ComboChart(document.getElementById('container'));
+            chart.draw(data, options);
+         }
+         google.charts.setOnLoadCallback(drawChart);
+      </script>
+   </body>
+</html>
