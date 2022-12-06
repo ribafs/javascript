@@ -1,0 +1,153 @@
+
+<!-- TWO STEPS TO INSTALL HANOI SOLVER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  -->
+
+<!-- STEP ONE: Paste this code into the HEAD of your HTML document  -->
+
+<HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Amin Wong (aminwong@hotmail.com) -->
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+var MAXHEIGHT = 8;
+var ndisk;
+var timer = null;
+var mvfrom = new Array(255);
+var mvto = new Array(255);
+var mv, imv;
+var tower = new Array(3);
+var h = new Array(3);
+var spc = "        ";
+var dname = new Array(
+"|",
+"111",
+"22222",
+"3333333",
+"444444444",
+"55555555555",
+"6666666666666",
+"777777777777777",
+"88888888888888888");
+
+function init() {
+if (!timer) {
+s = document.formHanoi.disk.options[document.formHanoi.disk.selectedIndex].value;
+if (s == "random") {
+now = new Date();
+ndisk = parseInt(now.getTime() / 1000) % 8 + 1;
+delete now;
+}
+else ndisk = s;
+mv = 0;
+hanoi(0, 2, 1, ndisk);
+for (i = 0; i < 3; i++)
+tower[i] = new Array(MAXHEIGHT);
+for (i = 0; i < ndisk; i++)
+tower[0][i] = ndisk - i;
+h[0] = ndisk;
+h[1] = h[2] = 0;
+imv = 0;
+document.formHanoi.display.value = gentower();
+timer = window.setTimeout("gennexttower()", document.formHanoi.delay.options[document.formHanoi.delay.selectedIndex].value);
+   }
+}
+function stop() {
+if (timer) {
+window.clearTimeout(timer);
+timer = null;
+   }
+}
+function hanoi(from,to,buf,nmv) {
+if (nmv > 1) {
+hanoi(from, buf, to, nmv - 1);
+mvfrom[mv] = from;
+mvto[mv++] = to;
+hanoi(buf, to, from, nmv - 1);
+}
+else {
+mvfrom[mv] = from;
+mvto[mv++] = to;
+   }
+}
+function gennexttower() {
+tower[mvto[imv]][h[mvto[imv]]++] = tower[mvfrom[imv]][--h[mvfrom[imv]]];
+document.formHanoi.display.value = gentower();
+if (++imv < mv)
+timer = window.setTimeout("gennexttower()", document.formHanoi.delay.options[document.formHanoi.delay.selectedIndex].value);
+else {
+for (i = 0; i < 3; i++)
+delete tower[i];
+timer = null;
+    }
+}
+function gentower() {
+s = " \n";
+for (i = MAXHEIGHT - 1; i >= 0; i--) {
+for (j = 0; j < tower.length; j++) {
+len = i < h[j] ? tower[j][i] : 0;
+width = MAXHEIGHT - len;
+s += " " + spc.substring(0, width) + dname[len] + spc.substring(0, width);
+}
+s += "\n";
+}
+return s+"=======================================================";
+}
+//  End -->
+</script>
+</HEAD>
+
+<!-- STEP TWO: Copy this code into the BODY of your HTML document  -->
+
+<BODY>
+
+<center>
+<form name=formHanoi>
+<textarea name=display rows=10 cols=56></textarea><br>
+<table border=0 cellspacing=10 cellpadding=0>
+<tr>
+<td>Number of disks</td>
+<td><select name=disk>
+<option selected value=random>Random
+<option value=1>1
+<option value=2>2
+<option value=3>3
+<option value=4>4
+<option value=5>5
+<option value=6>6
+<option value=7>7
+<option value=8>8
+</select></td>
+</tr>
+<tr>
+<td>Movement delay</td>
+<td><select name=delay>
+<option value=100>100 milliseconds
+<option value=200>200 milliseconds
+<option value=300>300 milliseconds
+<option value=400>400 milliseconds
+<option selected value=500>500 milliseconds
+<option value=600>600 milliseconds
+<option value=700>700 milliseconds
+<option value=800>800 milliseconds
+<option value=900>900 milliseconds
+<option value=1000>1000 milliseconds
+</select></td>
+</tr>
+</table>
+<input type=button value="Start" onClick="init();">
+<input type=button value="Stop" onClick="stop();">
+</form>
+</center>
+
+<p><center>
+<font face="arial, helvetica" size="-2">Free JavaScripts provided<br>
+by <a href="http://javascriptsource.com">The JavaScript Source</a></font>
+</center><p>
+
+<!-- Script Size:  3.51 KB -->

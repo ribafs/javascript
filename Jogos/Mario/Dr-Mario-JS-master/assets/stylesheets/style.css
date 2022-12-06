@@ -1,0 +1,508 @@
+
+html {
+  height: 100vh;
+  width: 100vw;
+  color: white;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-family : inherit;
+  font-size: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: lightblue;
+}
+
+footer {
+  border-top: 8px ridge slategray;
+}
+
+.hidden {
+  display: none;
+}
+
+.muted {
+  opacity: 0;
+}
+
+#spritesheet {
+  display: none;
+}
+
+#miscellaneous {
+  display: none;
+}
+
+/* Header and logo styling */
+
+header {
+  width: 100%;
+  height: 140px;
+  background-image: linear-gradient(black, darkslateblue);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-bottom: 8px ridge slategray;
+}
+
+.header-left-nav {
+  margin-left: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex: 1;
+  color: white;
+  font-family: 'Press Start 2P';
+}
+
+.header-logo-name {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 2;
+}
+
+.header-right-nav {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-right: 40px;
+}
+
+.header-left-nav h5 {
+  font-size: 12px;
+}
+
+.header-left-nav a {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.header-right-nav a {
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+#created-by {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#kevin-moch {
+  height: 18px;
+}
+
+#logo {
+  margin-top: 25px;
+  width: 276px;
+  height: 99px;
+  background: url('../images/dr-mario-misc-5.png');
+  background-position: -2px -6px;
+  background-size: 134%;
+  border-radius: 50px;
+  position: relative;
+}
+
+#logo-js {
+  font-family: 'Josefin Sans', sans-serif;
+  color: yellow;
+  font-size: 24;
+  text-align: right;
+  background-color: yellow;
+  position: absolute;
+  width: 31px;
+  height: 31px;
+  border-radius: 5px;
+  padding: 8px;
+  left: 246px;
+  top: -23px;
+  transition: color 500ms;
+  -webkit-transition: color 500ms;
+  transition-timing-function: ease-in;
+  transition-delay: 500ms;
+}
+
+#github {
+  width: 25px;
+  height: 25px;
+  background: gray url('../images/links-spritesheet.png');
+  background-position: -7.5px -7.5px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#github:hover {
+  border: 1px solid lightskyblue;
+  color: white;
+  border-radius: 3px;
+  background-position: -8.5px -8.5px;
+}
+
+#linked-in {
+  width: 25px;
+  height: 25px;
+  background: url('../images/links-spritesheet.png');
+  background-position: -7.5px -47.5px;
+  box-sizing: border-box;
+}
+
+#linked-in:hover {
+  border: 1px solid lightskyblue;
+  border-radius: 3px;
+  color: white;
+  background-position: -8.5px -48.5px;
+}
+
+#email {
+  width: 25px;
+  height: 25px;
+  background: url('../images/links-spritesheet.png');
+  background-position: -47.5px -9px;
+  box-sizing: border-box;
+}
+
+#email:hover {
+  border: 1px solid lightskyblue;
+  border-radius: 3px;
+  color: white;
+  background-position: -48.5px -10px;
+}
+
+
+/* Main Content CSS and styling */
+
+main {
+  width: 100%;
+  height: calc(100vh-140px);
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+/* Game Options and Instructions */
+
+#menu-sidebar {
+  height: 100%;
+  min-width: 300px;
+  margin-top: 5px;
+  flex: 1;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  opacity: 0;
+  transition: opacity 500ms;
+  -webkit-transition: opacity 500ms;
+}
+
+#game-options h1 {
+  font-family: 'Press Start 2P';
+  letter-spacing: .6;
+  font-size: 14px;
+  color: lightblue;
+  margin-top: 20px;
+}
+
+#game-options span {
+  font-family: 'Press Start 2P';
+  letter-spacing: .6;
+  font-size: 10px;
+  margin-top: 7.5px;
+}
+
+#level-container {
+  width: 100%;
+}
+
+#speed-container {
+  width: 100%;
+  padding-bottom: 9px;
+}
+
+#buttons-container {
+  width: 100%;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+.button {
+  font-family: 'Press Start 2P';
+  border-radius: 4px;
+  color: yellow;
+  background-color: slateblue;
+  font-size: 14px;
+  padding: 9px;
+  margin: 14px;
+}
+
+#pause-button {
+  opacity: 1;
+}
+
+.button:hover {
+  color: red;
+  background-color: darkslateblue;
+  border: 1px solid white;
+}
+
+#level-slide {
+  width: 70%;
+  margin-bottom: 9px;
+  opacity: .75;
+}
+
+#speed-slide {
+  width: 70%;
+  margin-bottom: 9px;
+  opacity: .75;
+}
+
+#level-slide:hover {
+  opacity: 1;
+}
+
+#speed-slide:hover {
+  opacity: 1;
+}
+
+#pause-comment {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 10px;
+  position: absolute;
+  right: 35px;
+  bottom: 1px;
+}
+
+#game-instructions {
+  font-size: 14px;
+  color: darkgray;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+}
+
+#instructions-text {
+  height: 225px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#game-instructions h5 {
+  font-family: 'Press Start 2P';
+  font-size: 14.5px;
+  margin: 0px auto;
+  padding-top: 15px;
+  border-top: 1px solid lightgray;
+  width: 250px;
+  color: lightblue;
+}
+
+#game-instruction > div {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  color: darkgray;
+  word-wrap: break-word;
+  padding-top: 5px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.bold {
+  font-weight: 700;
+  color: white;
+}
+
+.keystroke {
+  height: 20px;
+  width: 20px;
+  color: white;
+  padding: 1.5px 5.5px;
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+  border: 1px solid white;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+#nintendo {
+  font-size: 10px;
+}
+
+/* Game Area and Canvas */
+
+#game-area {
+  min-width: 300px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  border-left: 8px ridge slategray;
+  border-right: 8px ridge slategray;
+  padding-top: 32px;
+  padding-bottom: 15px;
+}
+
+#gameScreen {
+  background-color: black;
+  width: 250px;
+  height: 492px;
+  margin: 0 px auto;
+}
+
+/* Right Mario Sidebar and Stage Info */
+
+#mario-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+#dr-mario-div {
+  width: 190px;
+  height: 190px;
+  background: url('../images/dr-mario-misc-5.png');
+  background-position: -227.5px -844px;
+  background-size: 478%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12.5px;
+  padding-right: 8px;
+}
+
+#stage-info {
+  width: 222.5px;
+  height: 340px;
+  box-sizing: border-box;
+  padding-top: 65px;
+  padding-bottom: 40px;
+  padding-left: 35px;
+  padding-right: 45px;
+  background: url('../images/dr-mario-misc-5.png');
+  background-position: -269.5px -1055px;
+  background-size: 435%;
+  font-family: 'Press Start 2P';
+  color: black;
+  font-size: 21.5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#stage-score-div, #stage-level-div, #stage-viruses-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#stage-score-display, #stage-level-display, #stage-viruses-display {
+  width: 100%;
+  align-self: flex-end;
+  text-align: right;
+  padding-top: 10px;
+}
+
+/* Game Over and Game Won modal styling */
+
+#modal-ancestor {
+  position: relative;
+}
+
+#lost-game {
+  position: absolute;
+  left: -200px;
+  top: 80px;
+  height: 200px;
+  width: 385px;
+  opacity: .96;
+  border: 6px ridge goldenrod;
+  background-color: slategray;
+  font-family: 'Press Start 2P';
+  font-size: 20px;
+  color: darkred;
+}
+
+#won-game {
+  position: absolute;
+  left: -200px;
+  top: 80px;
+  height: 200px;
+  width: 385px;
+  opacity: .96;
+  border: 6px ridge goldenrod;
+  background-color: slategray;
+  font-family: 'Press Start 2P';
+  font-size: 20px;
+  color: blue;
+}
+
+.new-game {
+  padding: 10px;
+  border: 1px solid lightblue;
+  border-radius: 5px;
+  margin-top: 25px;
+  background-color: lightblue;
+}
+
+.new-game:hover {
+  background-color: skyblue;
+  border-color: blue;
+  color: darkgoldenrod;
+}
+
+/* Mute Music div styling */
+
+#mute-music {
+  position: absolute;
+  height: 30px;
+  width: 85px;
+  left: -172px;
+  top: -65px;
+  opacity: .96;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+  font-family: 'Press Start 2P';
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sound-off {
+  text-decoration: line-through;
+  color: red;
+}

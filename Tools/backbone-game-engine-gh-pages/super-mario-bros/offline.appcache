@@ -1,0 +1,31 @@
+CACHE MANIFEST
+# Version 0.40 (c) 2014 Martin Drapeau
+
+../3rd/qtree.js
+../3rd/underscore.js
+../3rd/backbone.native.js
+../3rd/backbone.js
+
+../src/adjust-viewport.js
+../src/input.js
+../src/shapes.js
+../src/core.js
+../src/character.js
+../src/hero.js
+../src/world.js
+../src/local-storage.js
+../src/camera.js
+../src/editor.js
+
+mario.js
+tiles.js
+artifacts.js
+enemies.js
+display.js
+level_1-1.js
+main.js
+
+super-mario-2x.png
+super-mario-tiles-2x.png
+super-mario-enemies-2x.png
+icons.png

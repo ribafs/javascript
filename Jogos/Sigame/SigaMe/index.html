@@ -1,0 +1,145 @@
+<!-- TWO STEPS TO INSTALL SIMON SAYS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  -->
+
+<!-- STEP ONE: Paste this code into the HEAD of your HTML document  -->
+
+<HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Brian Gosselin (bgaudiodr@aol.com) -->
+<!-- Web Site:  http://www.bgaudiodr.iwarp.com -->
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+var image_directory = "./";
+var ok = false; 
+var pcbusy = false; 
+var userturn = true;
+var butdown = false;
+var stage = 1;
+var cnt = 1;
+var pcclicks = new Array();
+var userclicks = new Array();
+var pos;
+var tst = true;
+var msg = "Clique em INÍCIO!";
+btn1 = new Image();
+btn1.src = image_directory + "purple.gif";
+btn2 = new Image();
+btn2.src = image_directory + "yellow.gif";
+function updown(isdn) {
+if (isdn) {
+document.f[('pl'+pos)].src = image_directory + 'yellow.gif';
+}
+else {
+document.f[('pl'+pos)].src= image_directory + 'purple.gif';
+   }
+}
+function dopc() {
+document.f.st.value = stage;
+if (cnt <= stage) {
+pcbusy = true;
+userturn = false;
+document.f.s.value = "Vez do Simon";
+setTimeout("pos=Math.floor((Math.random()*8)+1); updown(true)",500);
+setTimeout("updown(false) ; pcclicks[cnt]=pos; cnt++; dopc()",1200);
+}
+else {
+userclicks = new Array();
+cnt = 1;
+document.f.s.value = "Sua Vez";
+pcbusy = false;
+userturn = true;
+document.f.b.focus();
+   }
+}
+function testclicks() {
+tst = true;
+for(i = 1;cnt > i; i++) {
+if (pcclicks[i] == userclicks[i]) {
+tst = true && tst;
+}
+else {
+tst = false && tst;
+   }
+}
+if(tst) {
+setTimeout("stage++ ; document.f.st.value=stage ; alert('Correto!  Avançando para o próximo nível....'); document.f.s.value=msg ; document.f.b.focus()",300);
+}
+else {
+setTimeout("stage=1 ; cnt=1 ; pcclicks=new Array() ; document.f.st.value=stage ; alert('Desculpe, mas não está correto.  Inicie um novo jogo caso queira jogar novamente.') ; document.f.s.value=msg",300);
+}
+cnt = 1;
+}
+function testclk(downflag, pos) {
+if (userturn&&(!pcbusy)) {
+if (downflag) {
+document.f[('pl'+pos)].src = image_directory + 'yellow.gif';
+}else{
+document.f[('pl'+pos)].src = image_directory + 'purple.gif';
+}
+if (ok && !downflag) {
+userclicks[cnt] = pos;
+cnt++;
+if (pcclicks.length == userclicks.length) {
+testclicks();
+         }
+      }
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<!-- STEP TWO: Copy this code into the BODY of your HTML document  -->
+
+<BODY>
+
+<center>
+<form name="f">
+<table cellspacing="20" cols="5" width="600">
+<tr height="60">
+<td colspan="5" align="center"><img src="purple.gif" name="pl1" onMousedown="testclk(true,1)" onMouseup="testclk(false,1)" width="80" height="30"></td>
+</tr>
+<tr height="60">
+<td width="20%"> </td>
+<td align="center" width="20%"><img src="purple.gif" name="pl2" onMousedown="testclk(true,2)" onMouseup="testclk(false,2)" width="80" height="30"></td>
+<td width="20%" align="center"><font size="3">Nível<br></font><input type="text" size="2" value="1" name="st" readonly></td>
+<td align="center" width="20%"><img src="purple.gif" name="pl3" onMousedown="testclk(true,3)" onMouseup="testclk(false,3)" width="80" height="30"></td>
+<td width="20%"> </td>
+</tr>
+<tr height="60">
+<td align="center"><img src="purple.gif" name="pl4" onMousedown="testclk(true,4)" onMouseup="testclk(false,4)" width="80" height="30"></td>
+<td align="center" colspan="3"><input type="text"  name="s" value="Clique em 'INÍCIO!'" readonly></td>
+<td align="center"><img src="purple.gif" name="pl5" onMousedown="testclk(true,5)" onMouseup="testclk(false,5)" width="80" height="30"></td>
+</tr>
+<tr height="60">
+<td> </td>
+<td align="center"><img src="purple.gif" name="pl6" onMousedown="testclk(true,6)" onMouseup="testclk(false,6)" width="80" height="30"></td>
+<td align="center"><input type="button" value="  INÍCIO!    " name="b" onClick="ok=true ; if(!pcbusy) dopc()"></td>
+<td align="center"><img src="purple.gif" name="pl7" onMousedown="testclk(true,7)" onMouseup="testclk(false,7)" width="80" height="30"></td>
+<td> </td>
+</tr>
+<tr height="60">
+<td colspan="2" align="left"></td>
+<td align="center"><img src="purple.gif" name="pl8" onMousedown="testclk(true,8)" onMouseup="testclk(false,8)" width="80" height="30"></td>
+<td colspan="2" align="right"></td>
+</tr>
+</table>
+</form>
+</center>
+
+<h1><CENTER><B>RibaFS Portal</h1>
+<h2>Jogos Online</h2>
+<PRE>SIGA-ME</PRE></B></CENTER>
+
+<p><center>
+<font face="arial, helvetica" size="-2">Free JavaScripts provided<br>
+by <a href="http://javascriptsource.com">The JavaScript Source</a></font>
+</center><p>
+
+<!-- Script Size:  4.21 KB -->

@@ -1,0 +1,63 @@
+<style>
+
+/* Código de página UTF-8 / PT-BR */
+	@charset 'UTF-8'; @language 'pt-br';	
+	
+	
+/* For mobile phone = /* Extra small devices (phones, 600px and down) (max-width: 600px) */
+/* If the browser window is 600px or smaller, the background color will be lightblue */
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */   
+/* When the screen (browser window) gets smaller than 768px, each column should have a width of 100%: */
+
+
+@media screen and (max-width: 768px) and (min-width: 400px) {
+	
+    .body { font-size: small; 
+			font-family: Arial,Verdana,Helvetica; 
+	        background: lightblue;
+			color: black; 
+			text-align: left; 
+			text-decoration: none;
+			letter-spacing: 3px;
+			text-indent: 30px;
+			}
+		
+	.column { width: 25%; }
+	
+    .div { padding: 30px;
+           border: 8px solid black;
+           background: lavander; 
+		  }
+
+    .topnav a { float: none; width: 25%; }
+	
+    .column { width: 25%; }
+    [class*="col-"] { width: 25%; } 
+		
+	    
+	/* Image Responsive for Mobile */
+    .img { margin:0; 
+	       padding:0; 
+		   position:relative; 
+		   }
+	
+	
+    /* Image class="responsive"	*/
+	.responsive { width: 25%;
+	              max-width: 200px;
+                  height: auto;
+				  }
+				  
+    } /* fim media query */
+
+
+/* Media queries can also be used to change layout of a page depending on the orientation of the browser. 
+You can have a set of CSS properties that will only apply when the browser window is wider than its height, 
+a so called "Landscape" orientation. Use a lightblue background color if the orientation is in landscape mode: */
+
+@media only screen and (orientation: landscape) {
+  body { background-color: lightblue; }
+    }
+
+</style>
+

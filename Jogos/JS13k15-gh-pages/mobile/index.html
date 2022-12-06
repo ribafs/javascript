@@ -1,0 +1,50 @@
+<!doctype html>
+<meta charset=utf-8>
+<meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-tap-highlight" content="no">
+<body bgcolor=0 style=margin:0>
+<title>GeoQuiz</title>
+<canvas id=$ width=800 height=433 style="cursor:pointer;background:#75D1FF;background:radial-gradient(#75D1FF 50%,#3591bF)"></canvas>
+<button onclick='window.open("http://twitter.com/home?status=I played GeoQuiz by @MaximeEuziere and @sqaxomonophonen. My score: " + (A + 1) + "levels, " + r + "km. Play here: http://xem.github.io/JS13k15/mobile")' id=Z>Tweet your score!</button><script src=script.js></script>
+<style>
+@font-face {
+	font-family: 'impactreg';
+	src: url('./impactreg.eot');
+	src: local('impactreg'), url('./impactreg.woff') format('woff'), url('./impactreg.ttf') format('truetype');
+}
+
+canvas {
+  width: 100vw;
+}
+
+button {
+  display: none;
+  position: absolute;
+  top: 40vw;
+  left: 50vw;
+  padding: 15px;
+  font-size: 20px;
+  transform: translateX(-55%);
+}
+
+html, body {
+  overflow: hidden;
+}
+
+canvas {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent
+}
+</style>
+</body>

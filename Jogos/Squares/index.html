@@ -1,0 +1,248 @@
+
+<!-- TWO STEPS TO INSTALL SQUARES:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  -->
+
+<!-- STEP ONE: Paste this code into the HEAD of your HTML document  -->
+
+<HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ken Douglas (ken@ntlworld.com) -->
+<!-- Web Site:  http://www.groveroad.herts.sch.uk -->
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+// static globals 
+var maxheight = 9;
+var maxwidth = maxheight;
+var winscore = Math.round((maxheight * maxwidth / 2) + 0.5);
+// dynamic globals
+var player = 1; 
+var won = 0;
+function newGame() {
+// sets all graphics back to default and clears scores
+won = 0;
+eval('document.squares.score1.value = 0');
+eval('document.squares.score2.value = 0');
+for (var y = 1; y <= maxheight; y ++ ) {
+for (var x = 1; x <= maxwidth; x ++ ) {
+document.images["x" + x + "y" + y].src = sqr[0].src;
+document.images["vx" + x + "vy" + y].src = ver[0].src;
+document.images["hx" + x + "hy" + y].src = hor[0].src;
+   }
+}
+for (var a = 1; a <= maxheight; a ++ ) {
+onemore = maxheight + 1;
+document.images["vx" + onemore + "vy" + a].src = ver[0].src;
+document.images["hx" + a + "hy" + onemore].src = hor[0].src;
+   }
+}
+function preload() {
+if (document.images) {
+sqr = new makeArray(3);
+sqr[0].src = "p0.gif";
+sqr[1].src = "p1.gif";
+sqr[2].src = "p2.gif";
+ver = new makeArray(3);
+ver[0].src = "v0.gif";
+ver[1].src = "v1.gif";
+ver[2].src = "v2.gif";
+hor = new makeArray(3);
+hor[0].src = "h0.gif";
+hor[1].src = "h1.gif";
+hor[2].src = "h2.gif";
+sel = new makeArray(2);
+sel[0].src = "notsel.gif";
+sel[1].src = "sel.gif";
+}
+else {
+alert("Sorry, this game needs a browser\nwhich supports the image object.");
+   }
+}
+function makeArray(n) {
+this.length = n;
+for (i = 0; i < n; i ++) {
+this[i] = new Image();
+}
+return this;
+}
+function go (type, a, b) {
+// processes clicks on square verticals and horizontals...
+hit = 0;
+if (type == 1) {
+if (document.images["hx" + a + "hy" + b].src == hor[1].src) {
+alert("Already taken - try again");
+return;
+}
+document.images["hx" + a + "hy" + b].src = hor[1].src;
+// figure out if the square above is captured 
+if (b != 1) {
+var an = a + 1;
+var bn = b - 1;
+ if ((document.images["vx" + a + "vy" + bn].src == ver[1].src) && (document.images["vx" + an + "vy" + bn].src == ver[1].src) && (document.images["hx" + a + "hy" + bn].src == hor[1].src)) {
+document.images["x" + a + "y" + bn].src = sqr[player].src;
+scoresOnDoors();
+hit = 1;
+   }
+}
+//figure out if the square below is captured
+if (b != maxheight + 1) {
+var an = a + 1;
+var bn = b + 1;
+if ((document.images["vx" + a + "vy" + b].src == ver[1].src) && (document.images["vx" + an + "vy" + b].src == ver[1].src) && (document.images["hx" + a + "hy" + bn].src == hor[1].src)) {
+document.images["x" + a + "y" + b].src = sqr[player].src;
+scoresOnDoors();
+hit = 1;
+      }
+   }
+}
+if (type == 2) {
+if (document.images["vx" + a + "vy" + b].src == ver[1].src) {
+alert("Already taken - try again");
+return;
+}
+document.images["vx" + a + "vy" + b].src = ver[1].src;
+// figure out if the square right is captured 
+if (a != maxwidth + 1) {
+var an = a + 1;
+var bn = b + 1;
+if ((document.images["hx" + a + "hy" + b].src == hor[1].src) && (document.images["hx" + a + "hy" + bn].src == hor[1].src) && (document.images["vx" + an + "vy" + b].src == ver[1].src)) {
+document.images["x" + a + "y" + b].src = sqr[player].src;
+scoresOnDoors();
+hit = 1;
+   }
+}
+//figure out if the left is captured
+if (a != 1) {
+var an = a - 1;
+var bn = b + 1;
+if ((document.images["hx" + an + "hy" + b].src == hor[1].src) && (document.images["hx" + an + "hy" + bn].src == hor[1].src) && (document.images["vx" + an + "vy" + b].src == ver[1].src)) {
+document.images["x" + an + "y" + b].src = sqr[player].src;
+scoresOnDoors();
+hit = 1;
+      }
+   }
+}
+// change players if no hit
+if (hit == 0) {
+if (player != 1) {player = 1
+}
+else {
+player = 2;
+}
+showPlayer();
+}
+return;
+}
+function showPlayer() {
+// let the users jnow which player is "up" by switching on the appropriate graphic
+if (player == 1) {
+document.images["play2"].src = sqr[0].src;
+document.images["play1"].src = sqr[1].src;
+}
+if (player == 2) {
+document.images["play1"].src = sqr[0].src;
+document.images["play2"].src = sqr[2].src;
+}
+return;
+}
+function scoresOnDoors() {
+// simple score increment and check - note play can comtinue after a winner is declared
+eval('tmp = document.squares.score' + player + '.value');
+tmp = tmp * 1;
+tmp += 1;
+eval('document.squares.score' + player + '.value = tmp');
+if (won == 0 && tmp >= winscore) {
+alert("Jogador " + player + " venceu");
+won = 1;
+}
+return;
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<!-- STEP TWO: Copy this code into the BODY of your HTML document  -->
+
+<BODY>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ken Douglas (ken@ntlworld.com) -->
+<!-- Web Site:  http://www.groveroad.herts.sch.uk -->
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+var output = '';
+output += '<TABLE CELLPADDING = 0 CELLSPACING = 8 BORDER = 0><TR>';
+// create the board
+output += '<TD><TABLE CELLPADDING = 0 CELLSPACING = 0 BORDER = 0>';
+for (var y = 1; y <= maxheight; y ++ ) {
+output += '<TR>';
+for (var x = 1; x <= maxwidth; x ++ ) {
+output += '<TD><IMG SRC = "d.gif" WIDTH = 4 HEIGHT = 4 BORDER = 0></TD><TD><A HREF = "javascript:go(1,' + x + ',' + y + ');" onFocus = "blur();">';
+output += '<IMG SRC = "h0.gif" NAME = "hx' + x + 'hy' + y + '" WIDTH = 38 HEIGHT = 4 ALT = "" BORDER = 0></A></TD>';
+}
+output += '<TD><IMG SRC = "d.gif" WIDTH = 4 HEIGHT = 4 BORDER = 0></TD></TR><TR>'
+for (var x = 1; x <= maxwidth; x ++ ) {
+output += '<TD><A HREF = "javascript:go(2,' + x + ',' + y + ');" onFocus = "blur();">';
+output += '<IMG SRC = "v0.gif" NAME = "vx' + x + 'vy' + y + '" WIDTH = 4 HEIGHT = 38 ALT = "" BORDER = 0></A></TD>';
+output += '<TD><IMG SRC = "p0.gif" NAME = "x' + x + 'y' + y + '" WIDTH = 38 HEIGHT = 38 ALT = "" BORDER = 0></TD>';
+}
+var x = maxwidth + 1
+output += '<TD><A HREF = "javascript:go(2,' + x + ',' + y + ');" onFocus = "blur();">';
+output += '<IMG SRC = "v0.gif" NAME = "vx' + x + 'vy' + y + '" WIDTH = 4 HEIGHT = 38 ALT = "" BORDER = 0></A></TD>';
+output += '</TR>';
+}
+output += '<TR>'
+for (var x = 1; x <= maxwidth; x ++ ) {
+output += '<TD><IMG SRC = "d.gif" WIDTH = 4 HEIGHT = 4 BORDER = 0></TD><TD><A HREF = "javascript:go(1,' + x + ',' + y + ');" onFocus = "blur();">';
+output += '<IMG SRC = "h0.gif" NAME = "hx' + x + 'hy' + y + '" WIDTH = 38 HEIGHT = 4 ALT = "" BORDER = 0></A></TD>';
+}
+output += '<TD><IMG SRC = "d.gif" WIDTH = 4 HEIGHT = 4 BORDER = 0></TD></TR><TR><TD COLSPAN = ';
+spanthis = (maxheight*2) + 1;
+output += spanthis;
+output += '> </TD></TR></TABLE></TD>';
+// create the form for feedback to user and also a "new game" button
+output += '<TD VALIGN = top><FORM NAME = "squares"><TABLE CELLPADDING = 2 CELLSPACING = 0 BORDER = 0 BGCOLOR = "#0193ff">';
+output += '<TR><TD ALIGN = center><FONT FACE = "Arial, Helvetica, sans-serif" SIZE = 2>Jogador 1</FONT></TD>';
+output += '<TD ALIGN = center><FONT FACE = "Arial, Helvetica, sans-serif" SIZE = 2>Jogador 2</FONT></TD></TR>';
+output += '<TR><TD ALIGN = center><IMG SRC = "p1.gif" WIDTH = 38 HEIGHT = 38 NAME = "play1" ALT = " Jogador 1 " VSPACE = 2" BORDER = 0><BR></TD>';
+output += '<TD ALIGN = center><IMG SRC = "p0.gif" WIDTH = 38 HEIGHT = 38 NAME = "play2" ALT = " Jogador 2 " VSPACE = 2" BORDER = 0><BR></TD></TR>';
+output += '<TR><TD ALIGN = center><INPUT TYPE = "text" NAME = "score1" SIZE = "3" VALUE = 0 onFocus = "blur();"></TD>';
+output += '<TD ALIGN = center><INPUT TYPE = "text" NAME = "score2" SIZE = "3" VALUE = 0 onFocus = "blur();"></TD></TR>';
+output += '<TR><TD COLSPAN = 2 ALIGN = center><BR><INPUT TYPE = "button" VALUE = " Novo Jogo " onClick = "newGame();">';
+output += '<BR> </TD></TR><TR><TD COLSPAN = 2 BGCOLOR = "#0193ff" ALIGN = center>';
+output += '<BR><BR><FONT FACE = "Arial, Helvetica, sans-serif" SIZE = 1>';
+output += '<A HREF = "http://www.groveroad.herts.sch.uk/kids/squares/howtoplay.html" TARGET="_new">Instructions</A><BR>';
+output += '<BR></FONT></TD></TR>';
+output += '</TABLE></FORM></TD>';
+output += '</TR></TABLE>';
+document.write(output);
+preload();
+//  End -->
+</script>
+
+<center><b>__________________________________________________________<br>
+Jogo para dois jogadores.</b><br>
+O objetivo é formar o máximo de quadrados possível.<br>
+Clicando nos segmentos de reta, cada Jogador vai formando seus quadrados.<br>
+Sempre que um jogador formar um quadrado ele continuará com a vez até que<br>
+deixe de formar quadrado.
+
+<h1><B>RibaFS Portal</h1>
+<h2>Jogos Online</h2>
+<PRE>S Q U A R E S</PRE></B></CENTER>
+
+<p><center>
+<font face="arial, helvetica" size"-2">Free JavaScripts provided<br>
+by <a href="http://javascriptsource.com">The JavaScript Source</a></font>
+</center><p>
+
+<!-- Script Size:  9.29 KB -->

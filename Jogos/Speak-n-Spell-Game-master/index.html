@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+  <link href="https://fonts.googleapis.com/css?family=VT323|Coustard:900" rel="stylesheet">
+<!--   <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/ledfont-sharp" type="text/css" /> -->
+  <link href="https://db.onlinewebfonts.com/c/4a7d9dc16cce827cbe527efa5724fbab?family=LED" rel="stylesheet" type="text/css"/>
+
+
+  <!-- Custom CSS -->
+  <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <title>Word Guess Game</title>
+</head>
+
+<body>
+  <!-- MAIN CONTAINER -->
+  <div class="main-container">
+    <header>
+        <span class="speak-text">Speak </span><span class="spell-text">& Spell</span></>
+    </header>
+
+    <!-- Screen container -->
+    <main class="screen-container">
+      <!-- PHOTO -->
+      <img class="img-fluid rounded-circle p-3 photo" src="assets/images/speaknspell.jpg">
+
+      <!-- WINS & LOSSES -->
+      <div class="wins-losses">
+        Wins: <span id="wins">0</span>&nbsp;&nbsp;&nbsp;Losses: <span id="losses">0</span>
+      </div>
+
+      <!-- Guesses Remaining -->
+      <div id="fillInTheBlank">_</div>
+      <div id="guess-text">Guesses remaining: <span id="guessCount">0</span></div>
+
+
+      <div id="letters-text">Letters guessed:</div>
+      <div id="alreadyGuessed">none</div>
+
+
+    </main>
+    <h4 id="feedback">Press <strong>PLAY</strong> to start the game</h4>
+
+    <!-- KEYPAD CONTAINER -->
+    <div class="keypad-container">
+      <div class="play-buttons">
+        <div class="main-btn" id="playButton">Play</div>
+        <div class="main-btn" id="resetButton">Reset Score</div>
+      </div>
+      <div class="keys">
+        <div class="letter vowel" value="a">A</div>
+        <div class="letter consonant" value="b">B</div>
+        <div class="letter consonant" value="c">C</div>
+        <div class="letter consonant" value="d">D</div>
+        <div class="letter vowel" value="e">E</div>
+        <div class="letter consonant" value="f">F</div>
+        <div class="letter consonant" value="g">G</div>
+        <div class="letter consonant" value="h">H</div>
+        <div class="letter vowel" value="i">I</div>
+        <div class="letter consonant" value="j">J</div>
+
+        <div class="letter consonant" value="j">K</div>
+        <div class="letter consonant" value="l">L</div>
+        <div class="letter consonant" value="m">M</div>
+        <div class="letter consonant" value="n">N</div>
+        <div class="letter vowel" value="o">O</div>
+        <div class="letter consonant" value="p">P</div>
+        <div class="letter consonant" value="q">Q</div>
+        <div class="letter consonant" value="r">R</div>
+        <div class="letter consonant" value="s">S</div>
+        <div class="letter consonant" value="t">T</div>
+
+        <div class="letter vowel" value="u">U</div>
+        <div class="letter consonant" value="v">V</div>
+        <div class="letter consonant" value="w">W</div>
+        <div class="letter consonant" value="x">X</div>
+        <div class="letter consonant" value="y">Y</div>
+        <div class="letter consonant" value="z">Z</div>
+
+        
+        
+      </div>
+    </div>
+
+
+    <footer>
+      Sound Samples from <a href="http://www.maximporges.com/" target="_blank">maximporges.com</a>
+       | LED Font Family from <a href="https://fontlibrary.org" target="_blank">fontlibrary.org</a>
+    </footer>
+
+  </div>
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script> -->
+
+  <!-- Load Game Script -->
+  <script src="assets/javascript/game.js"></script>
+
+
+</body>
+
+</html>

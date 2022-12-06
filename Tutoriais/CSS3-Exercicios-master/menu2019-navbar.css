@@ -1,0 +1,77 @@
+
+<style>	
+
+    /*  Inicio do CSS / Menu Boostrap / Navbar  */
+
+    /*  Navbars vem com suporte integrado para um punhado de sub-componentes. 
+	    Escolha entre os seguintes, sempre que precisar:
+        .navbar-brand para o nome de seu projeto, produto ou companhia;
+        .navbar-nav para obter uma leve navegação com suporte a dropdowns;
+        .navbar-toggler para usar com nosso plugin collapse e outros comportamentos;
+        .form-inline para qualquer campo de formulário e ações;
+        .navbar-text para adicionar texto centralizado verticalmente;
+        .collapse .navbar-collapse para agrupar e esconder conteúdos navbar, de acordo com o breakpoint do pai.
+		  
+		Navbars precisam de um .navbar com .navbar-expand{-sm|-md|-lg|-xl} (para responsividade) 
+		e classes do esquema de cores;
+		Navbars são responsivas por default. Garanta acessibilidade com o elemento <nav> ou, se estiver 
+		usando um elemento mais genérico (como <div>), coloque role="navigation" em cada navbar para 
+		identificá-lo como tal, em tecnologias assistivas. */
+		
+        /* CSS / Cores padrão */
+		/* color: #f4511e = laranja escuro */
+        /* color: #9F00FF = violeta médio royal */
+        /* color: #c71585 = rosa médio royal */		 
+		/* color: #fffddd = amarelo claro */
+		/* color: #ffffff = branco escuro */
+		/* color: #005aff = azul royal */
+        /* color: #4CAF50 = verde */		
+		
+		/* Media query */
+        @media only screen and (max-width: 500px;) 
+		{
+		    ul { margin: 0; padding: 0; }
+			
+		    li { list-style-type: none; margin: 0 2vw; font-size: 3vh; }
+			
+		    a { text-decoration: none; color: black; padding: 2vw; font-family: monospace; display: block;}
+			
+		    a:hover { background-color: #C6E9FF;}
+		
+		    .nav { width: 100vw; background-color: #D6EFFF !important; color: 005aff !important;
+			       padding:0px; margin:0px; cursor:pointer; font-size: 10px; display: inline; 
+				   line-height: 1.42857143 !important; float: none !important; position:relative;
+			       letter-spacing:normal; word-spacing:normal; border-radius: 1px; cursor: pointer;
+			       text-decoration: none; overflow:hidden; }	
+				
+		    .navbar-default  { border-color: transparent; color: #fffddd !important; }
+			
+		    .navbar-brand { float: none !important; font-size: 8px; color: #005aff; }
+			
+            .navbar-header { float: none !important;} 
+			
+            .navbar-left, .navbar-right { float: normal !important;}
+
+            .navbar-nav { float: none!important; margin-top: 7.5px;}
+						
+	        .navbar li a { color:darkblue; background-color: #ffffff !important; } 	
+			
+		    .navbar-nav li a:hover {color: #f4511e; background-color: #bbbbbb !important;}	
+			
+		    .navbar-nav li a:active {color: #9F00FF; background-color: #fffddd !important;}	
+			
+		    .navbar-nav li { float: none!important; margin-top: 0px; }	
+			
+            .navbar-nav>li>a { padding-top: 0px; padding-bottom: 0px; }	
+			
+			.navbar-toggle { display: block !important; }
+		
+            .collapse, .navbar-collapse { border-top: 1px solid transparent; display: none!important; 
+			                              box-shadow: inset 0 1px 0 rgba(255,255,255,0.1); }       		
+				         																			   	
+            .collapse.in { display:block !important;}
+		}	
+		
+        /*  Fim do CSS */
+		
+</style>  

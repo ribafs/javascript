@@ -1,0 +1,75 @@
+<style>
+
+/* Código de página UTF-8 / PT-BR */
+	@charset 'UTF-8'; @language 'pt-br';	
+	
+	
+/* Tablets = Medium devices (landscape tablets, 768px and up) (min-width: 600px) */
+/* On screens that are 992px wide or less, go from four columns to two columns */
+
+ 
+@media only screen and (max-width: 900px) and (min-width: 600px) {
+	
+    .body { font-size: medium; 
+	        font-family: Arial,Verdana,Helvetica; 
+	        background: lightblue;
+			color: black; 
+			text-align: left; 
+			text-decoration: none;
+			letter-spacing: 3px;
+			text-indent: 40px;
+			}
+		
+	.column { width: 50%; }
+	
+    .div { padding: 40px;
+           border: 8px solid black;
+           background: lavander; 
+		  }
+	   
+    .topnav a { float: none; width: 50%; }
+	
+    .column { width: 50%; }
+    [class*="col-"] { width: 50%; } 
+	
+
+/* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+	   
+	   
+    /* Image Responsive for Tablets / class="responsive" */
+    .img { margin:0; 
+	       padding:0; 
+		   position:relative; 
+		   } 
+		   
+		   
+    /* Image class="responsive"	*/
+	.responsive { width: 50%;
+	              max-width: 300px;
+                  height: auto;
+                }
+
+    } /* fim media query */
+
+
+/* Media queries can also be used to change layout of a page depending on the orientation of the browser. 
+You can have a set of CSS properties that will only apply when the browser window is wider than its height, 
+a so called "Landscape" orientation. Use a lightblue background color if the orientation is in landscape mode: */
+
+@media only screen and (orientation: landscape) {
+  body { background-color: lightblue; }
+    }
+	
+</style>

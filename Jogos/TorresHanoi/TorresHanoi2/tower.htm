@@ -1,0 +1,281 @@
+<!--
+   Copyright (C) 1999, Keith Drakard - kif@irt.org
+
+   This program is distributed under the terms of the
+   WebGames License at http://www.irt.org/games/license.txt
+-->
+
+<HTML>
+<HEAD><TITLE>Towers Of Hanoi :WebGames</TITLE>
+
+<!-- Keith Drakard (kif@irt.org) v0.10 on 15th October 98
+-->
+<SCRIPT LANGUAGE="JavaScript"><!-- //
+  // ############### init stuff ###################################
+  // get player options or set to default
+  var passed= window.location.search.substring(1);
+  var maxdiscs= getParm(passed,'d')- 0; if (maxdiscs==0) maxdiscs=4;
+
+  // globals
+  var running= 1; var solving= 0; var selected= 0;
+  var moves= 0; var minimum= Math.pow(2, maxdiscs)- 1;
+
+  function preload() {
+    if (document.images) {
+      disc= new makeArray(maxdiscs+3);
+         disc[0].src= "segment.gif";
+         for (i= 1; i<= maxdiscs; i++) {
+           disc[i].src= "towers"+i+".gif";
+         }
+         disc[maxdiscs+1].src= "top.gif";
+         disc[maxdiscs+2].src= "bottom.gif";
+
+    } else {
+      alert("Sorry, this game needs to run on a browser\nwhich supports the image object.");
+    }
+  }
+
+  // ############### playing stuff ################################
+  function select(x) {
+    // just a dummy function
+    if (running && !solving) play(x);
+  }
+
+  function play(x) {
+
+    // what have we clicked on?
+    y= disc_below(x)+1; sel= is_disc(x,y);
+
+    // do we already have a disc selected?
+    if (selected) {
+
+      // yes we do... is this disc the same one or
+      //              have we clicked on the same pole?
+      if (sel== selected || (document.images["x"+x+"y0"].src==disc[selected].src)) {
+
+        // why yes it is... so drop the selected disc and ignore the move:
+        document.images["x"+x+"y"+disc_below(x)].src= disc[selected].src;
+        document.images["x"+x+"y0"].src= disc[0].src;
+        selected= 0;
+
+      } else {
+
+        // okay, it's a different pole, so try to drop the selected disc:
+
+        // is the disc below smaller than this one?
+        if (y== maxdiscs+1 || (is_disc(x,y)> selected)) {
+
+          // yep... so put it there and deselect it:
+          document.images["x"+x+"y"+(y-1)].src= disc[selected].src;
+          for (i=0; i<3; i++) { document.images["x"+i+"y0"].src= disc[0].src; }
+          selected= 0; moves++; document.user.moves.value= moves;
+
+          // is the game over now?
+          if (y== 2 && x!=0) {
+            // yes, so work out the moves and say well done:
+            diff= moves- minimum; running= 0;
+            if (!solving) alert("Parabéns!\n\nVocê executou "+moves+" movimentos,\n"+diff+" a mais que o mínimo.");
+                     else solving= 0;
+          }
+
+        } else {
+
+          // nope... can't drop it here
+          alert("Você não pode mover um disco maior\n para cima de um menor.");
+        }
+      }
+
+    } else {
+
+      // no disc selected... so whichever pole we clicked on, lift the top disc:
+
+      // does it exist?
+      if (sel) {
+
+        // yes... so select the disc and lift it:
+        selected= sel;
+        document.images["x"+x+"y"+y].src= disc[0].src;
+        document.images["x"+x+"y0"].src= disc[selected].src;
+      }
+    }
+  }
+
+  function is_disc(x,y) {
+    if (y<0 || y>maxdiscs) return(0);
+
+    var clicked_on= document.images["x"+x+"y"+y].src;
+    if (clicked_on== disc[0].src)
+      { return(0); }
+    else
+      { for (i=1; i<=maxdiscs; i++) {
+          if (clicked_on== disc[i].src) return(i);
+        }
+      }
+    alert("Whoops... alguma coisa está errada no: is_disc()");
+    return(0);
+  }
+
+  function disc_below(x) {
+    j= 1; while (!is_disc(x,j) && j<=maxdiscs) {
+      j++;
+    } j--;
+    return(j);
+  }
+
+
+  // ############### solving stuff ################################
+  function solve() {
+
+    // quick'n'dirty way of stopping NS3 from screwing up -
+    // it's those setTimeouts which are doing it; the demo would
+    // work with NS3 (and any other browser this fails on), but
+    // you just need to implement the timeouts better...
+
+    // any volunteers? mail me at kif@irt.org
+
+    if (parseInt(navigator.appVersion)< 4) {
+      alert("Sorry, the demo will not work properly on your browser.");
+
+    } else if (!solving) {
+      newgame();                // reset the board
+      move(maxdiscs, 0, 1, 2);  // and start solving
+    }
+  }
+
+  function move(n, A, B, C) {
+    // number to move, source pole, spare pole and destination pole
+
+    // solve the puzzle recursively - see practically any
+    // mathematical treatment of "ToH" for more details & methods.
+
+    if (n!=0) {
+      move(n-1, A, C, B);
+      setTimeout("play("+A+")", solving* 300);
+      setTimeout("play("+C+")", solving* 300);
+      move(n-1, B, A, C);
+    }
+    solving++;
+
+    // if you don't like recursion, you might like to try this method:
+    // on odd-numbered moves, move the smallest disc clockwise
+    // on even-numbered moves, make the only _other_ move possible
+  }
+
+
+  // ############### miscellaneous stuff ##########################
+  function newgame() {
+    if (solving) alert("Please wait for the demo to finish\nor refresh your browser.");
+    else {
+
+    var index= document.user.noofdiscs.selectedIndex;
+    var tmp_d= document.user.noofdiscs.options[index].value;
+
+    if (tmp_d!= maxdiscs) {
+      // options have changed so we need to redraw the page
+      window.location.href= "tower.htm?d="+tmp_d;
+
+    } else {
+      // same options so just reset the board
+      for (y=0; y<=maxdiscs; y++) {
+        for (x=0; x<3; x++) {
+          d= (x==0) ? y : 0
+          document.images["x"+x+"y"+y].src= disc[d].src;
+        }
+      }
+      running= 1; solving= 0; selected= 0;
+      moves= 0; document.user.moves.value= moves;
+    }
+
+    }
+  }
+
+  // The following functions were written by Martin Webb at http://www.irt.org/
+  function makeArray(n) {
+    this.length= n; for (i=0; i<n; i++) { this[i]= new Image(); }
+    return this;
+  }
+  function getParm(string,parm) {
+    var startPos= string.indexOf(parm+"=");
+    if (startPos> -1) {
+      startPos= startPos+ 2;
+      var endPos= string.indexOf("&",startPos);
+      if (endPos== -1) endPos= string.length;
+      return unescape(string.substring(startPos,endPos));
+    }
+    return '';
+  }
+
+//--></SCRIPT>
+</HEAD>
+
+<BODY bgcolor="#0c0c0c" text="#ffffff" link="#aaaaff" vlink="#888888" alink="#ffaaaa">
+<CENTER>
+ <FONT FACE="Arial, Helvetica, sans-serif">
+
+ <SCRIPT LANGUAGE="JavaScript"><!-- //
+
+  var output= '';
+  output+= '<TABLE ALIGN=center CELLSPACING=6 CELLPADDING=6 BORDER=0><TR>\n';
+  output+= '<TR><TD ALIGN=center><H1>Towers Of Hanoi (Torres de Hanoi)</H1></TD></TR>\n';
+
+  // create the board
+  output+= '<TR><TD ALIGN=center BGCOLOR="#000000"><TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>\n';
+  output+= '<TR>';
+  for (i=0; i<3; i++) {
+     output+= '<TD><A HREF="javascript:select('+i+')" onFocus="blur();">';
+     output+= '<IMG SRC="top.gif" WIDTH=150 HEIGHT=30 ALT="" BORDER=0></TD>';
+  }
+  output+= '</TR>';
+  output+= '<TR>';
+  for (i=0; i<3; i++) {
+    output+= '<TD><A HREF="javascript:select('+i+')" onFocus="blur();">';
+    output+= '<IMG SRC="segment.gif" NAME="x'+i+'y0" WIDTH=150 HEIGHT=30 ALT="" BORDER=0></TD>';
+  }
+  output+= '</TR>';
+
+  for (y=1; y<=maxdiscs; y++) {
+    for (x=0; x<3; x++) {
+      if (x==0) output+= '<TR>';
+      output+= '<TD><A HREF="javascript:select('+x+')" onDblClick="select('+x+')" onFocus="blur();"><IMG SRC=';
+      output+= (x==0) ? '"towers'+y+'.gif"' : '"segment.gif"'
+      output+= ' NAME="x'+x+'y'+y+'" WIDTH=150 HEIGHT=30 ALT="" BORDER=0></TD>';
+      if (x==2) output+= '</TR>';
+    }
+  }
+
+  output+= '<TR>';
+  for (i=0; i<3; i++) {
+    output+= '<TD><A HREF="javascript:select('+i+')" onFocus="blur();">';
+    output+= '<IMG SRC="bottom.gif" WIDTH=150 HEIGHT=30 ALT="" BORDER=0></TD>';
+  }
+  output+= '</TR><TR><TD COLSPAN=3>&nbsp;</TD></TR>';
+
+  output+= '<FORM NAME="user"><TR><TD ALIGN=center>';
+  output+= '<br><br><SELECT NAME="noofdiscs" SIZE=1>';
+  for (i= 3; i<=8; i++) {
+    output+= '<OPTION VALUE="'+i+'"';
+    if (i==maxdiscs) output+= ' SELECTED';
+    output+= '>'+i;
+  }
+  output+= '</SELECT> discos<br>&nbsp;</TD><TD ALIGN=center><br><br><INPUT TYPE="text" NAME="moves" SIZE="3"';
+  output+= ' VALUE=0 onFocus="blur();"> movimentos<br>&nbsp;</TD><TD ALIGN=center><br><br><INPUT TYPE="button"';
+  output+= ' VALUE=" Novo Jogo " onClick="newgame()"><br>&nbsp;</TD></TR>';
+  output+= '<TR><TD COLSPAN=3 ALIGN=center><INPUT TYPE="button" VALUE=" Solução "';
+  output+= ' onClick="solve()"></TD></TR></FORM>';
+
+  output+= '</TABLE></TD></TR>';
+
+  output+= '<TR><TD ALIGN=center><h2><CENTER>DNOCS - Departamento Nacional de Obras Contra as Secas</h2>';
+  output+= '<TR><TD ALIGN=center><h4>Desafio de raciocínio</h4>';
+  output+= '<TR><TD ALIGN=center><br><br><SMALL><A HREF="mailto:kif\@irt.org">Keith Drakard</A>';
+  output+= '</TR></TABLE>\n';
+
+  document.write(output);
+  preload();
+
+ //--></SCRIPT>
+
+ </FONT>
+</CENTER>
+</BODY>
+</HTML>

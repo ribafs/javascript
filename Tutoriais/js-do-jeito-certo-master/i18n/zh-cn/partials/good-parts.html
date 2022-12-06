@@ -1,0 +1,95 @@
+<h3>面向对象</h3>
+
+<p>
+    JavaScriot 虽然和其他语言在面向对象上面有些不同的地方，但仍然具有面向对象的编程能力。
+</p>
+
+<p class="source">
+    资源: <a target="_blank" href="https://developer.mozilla.org/zh-TW/docs/JavaScript_%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E4%BB%8B%E7%B4%B9">JavaScript 面向对象编程介绍</a>
+</p>
+
+<h3>匿名函数</h3>
+
+<p>
+    匿名函数是在代码运行时动态声明的函数。之所以叫做匿名函数是因为他跟其他函数不同，它并没有函数名称。
+</p>
+
+<p class="source">
+    资源: <a target="_blank" href="http://helephant.com/2008/08/23/javascript-anonymous-functions/">JavaScript anonymous functions</a>
+</p>
+
+<h3>函数作为第一类对象</h3>
+
+<p>
+    函数是 JavaScript 的一等对象。这意味着 JavaScript 中的函数只是一种特殊类型的对象，并拥有一般对象所具备的能力。
+</p>
+
+<p class="source">
+    资源: <a target="_blank" href="http://helephant.com/2008/08/19/functions-are-first-class-objects-in-javascript/">Functions are first class objects in JavaScript</a>
+</p>
+
+<h3>弱类型</h3>
+
+<p>
+    对于许多前端开发者而言，JavaScript 是他们所使用的第一个脚本语言和/或解释语言, 对这些开发者来说，弱类型的概念和含义或许像第二天性一样自然; 然而现在网页应用的需求爆炸式增长，致使越来越多的后端开发者必须顾及客户端技术, 大部分此类开发者有强类型语言的背景, 例如 C# 或 Java,因此并不熟悉弱类型语言所带来的高度自由及潜在的缺陷。
+</p>
+
+<p class="source">
+    资源: <a target="_blank" href="http://blog.jeremymartin.name/2008/03/understanding-loose-typing-in.html">Understanding Loose Typing in JavaScript</a>
+</p>
+
+<h3>作用域和提升</h3>
+
+<p>
+    <b>作用域：</b> 在 JavaScript 中，函数是我们在声明变量时, <i>实际</i>的作用域分隔符, 也就是说常见的循环及表达式（如 if, for, while, switch 及 try）并“不能“指定作用域, 这一点有别于大部分的程序语言。因此函数中的这些区块会共享作用域, 这样使得在这些区块内部声明只属于这些函数块的变量行为可能是危险的。
+</p>
+
+<p>
+    <b>变量提升：</b> 在运行时，所有的变量及函数声明将会被移到函数的起始位置（它的作用域）- 这就是所谓的变量提升。这么说，在作用域的一开始就声明所有变量，以避免因未声明就操作变量造成的未预期错误是一个好的实践。 -这是一个习惯使用支持块级作用域语言的开发者经常遇到的问题。
+</p>
+
+<p class="source">
+    资源: <a target="_blank" href="http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html">JavaScript Scoping and Hoisting</a>
+</p>
+
+<h3>函数绑定</h3>
+
+<p>
+    函数绑定最有可能是 JavaScript 初学者最少关心的问题, 但当你意识到你需要一个解决方案以在另一个函数中保持 this 的上下文环境时, 你可能会了解到你真需要的其实是<b>函数原型绑定（Function.prototype.bind()）</b>。
+</p>
+
+<p class="source">
+    资源: <a target="_blank" href="http://coding.smashingmagazine.com/2014/01/23/understanding-javascript-function-prototype-bind/">Understanding JavaScript’s Function.prototype.bind</a>
+</p>
+
+<h3>闭包函数</h3>
+
+<p>
+    闭包是引用独立(自由)变量的函数。换句话说, 闭包中定义的函数会“记住”它被创建时的环境。理解这个概念很重要, 因为它在开发过程中是有用的, 类似模拟的私有方法。它也可以帮助你学习如何避免一些常见的错误，例如在循环中使用闭包。
+
+ </p>
+
+<p class="source">
+    资源: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures/">MDN - Closures</a>
+</p>
+
+<h3>严格模式</h3>
+
+<p>
+     ECMAScript 5 的严格模式是一种可选的使用严格变量的 JavaScript 方式。严格模式并非只是一个子集：它特意地在语法上有别于一般的代码。各家浏览器对严格模式的支持也不同, 所以开启严格模式时建议进行功能测试。严格模式的代码与非严格模式的代码是可以并存的, 所以可以自由決定严格模式部分的多少。
+ </p>
+
+<p class="source">
+    来源: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode/">MDN - Strict mode</a>
+</p>
+
+<h3>立即调用函数 (IIFE)</h3>
+
+<p>
+    一个立即调用函数表达式是采用 JavaScript 的函数作用域产生一个词法作用域的模式。立即调用函数可避免变量从其所在的块内提升到上面的块, 以避免污染全局环境, 并可使用公共方法访问它,同事保留隐私。<br/><br/>
+    <i>这种模式被称为自执行匿名函数，但 <a target="_blank" href="http://twitter.com/cowboy">@cowboy</a> (Ben Alman) 为它定义了语义上更合适的名字 IIFE</i> 。
+</p>
+
+<p class="source">
+    资源: <a target="_blank" href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/">Immediately-Invoked Function Expression (IIFE)</a>
+</p>

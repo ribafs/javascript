@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>gamejs/logging - GameJs API</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="revisit-after" content="1 days"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta http-equiv="cleartype" content="on"/>
+    <link rel="stylesheet" href="../..//css/syntax.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../..//css/main.css" rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../../static/jsdoc.css" />
+    <link rel="stylesheet" href="../../static/style.css" />
+    <script type="text/javascript" src="../../static/jquery.min.js"></script>
+    <script type="text/javascript" src="../../static/jsdoc.js"></script>
+
+    <link href="../../static/rainbow/themes/pastie.css" rel="stylesheet" type="text/css">
+    <script src="../../static/rainbow/rainbow.min.js"></script>
+    <script src="../../static/rainbow/language/generic.js"></script>
+    <script src="../../static/rainbow/language/javascript.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="module color1">
+            <h1><a href="http://gamejs.org">GameJs.org</a></h1>
+        </div>
+
+        <nav class="module color4">
+            <h2><a href="http://docs.gamejs.org">API Reference</a></h2>
+            <nav class="jsdoc">
+                <div class="jsdocSidenav">
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../gamejs/index.html">gamejs</a></li>
+            <li><a href="../../gamejs/animate/index.html">gamejs/animate</a></li>
+            <li><a href="../../gamejs/audio/index.html">gamejs/audio</a></li>
+            <li><a href="../../gamejs/display/index.html">gamejs/display</a></li>
+            <li><a href="../../gamejs/event/index.html">gamejs/event</a></li>
+            <li><a href="../../gamejs/font/index.html">gamejs/font</a></li>
+            <li><a href="../../gamejs/graphics/index.html">gamejs/graphics</a></li>
+            <li><a href="../../gamejs/http/index.html">gamejs/http</a></li>
+            <li><a href="../../gamejs/image/index.html">gamejs/image</a></li>
+            <li><a href="../../gamejs/logging/index.html">gamejs/logging</a></li>
+            <li><a href="../../gamejs/pathfinding/index.html">gamejs/pathfinding</a></li>
+            <li><a href="../../gamejs/pixelcollision/index.html">gamejs/pixelcollision</a></li>
+            <li><a href="../../gamejs/thread/index.html">gamejs/thread</a></li>
+            <li><a href="../../gamejs/tiledmap/index.html">gamejs/tiledmap</a></li>
+            <li><a href="../../gamejs/time/index.html">gamejs/time</a></li>
+            <li><a href="../../gamejs/math/angles/index.html">gamejs/math/angles</a></li>
+            <li><a href="../../gamejs/math/binaryheap/index.html">gamejs/math/binaryheap</a></li>
+            <li><a href="../../gamejs/math/matrix/index.html">gamejs/math/matrix</a></li>
+            <li><a href="../../gamejs/math/noise/index.html">gamejs/math/noise</a></li>
+            <li><a href="../../gamejs/math/random/index.html">gamejs/math/random</a></li>
+            <li><a href="../../gamejs/math/vectors/index.html">gamejs/math/vectors</a></li>
+            <li><a href="../../gamejs/utils/arrays/index.html">gamejs/utils/arrays</a></li>
+            <li><a href="../../gamejs/utils/base64/index.html">gamejs/utils/base64</a></li>
+            <li><a href="../../gamejs/utils/callback/index.html">gamejs/utils/callback</a></li>
+            <li><a href="../../gamejs/utils/objects/index.html">gamejs/utils/objects</a></li>
+            <li><a href="../../gamejs/utils/strings/index.html">gamejs/utils/strings</a></li>
+            <li><a href="../../gamejs/utils/uri/index.html">gamejs/utils/uri</a></li>
+            <li><a href="../../gamejs/utils/xml/index.html">gamejs/utils/xml</a></li>
+      </ul>
+</div>
+
+            </nav>
+        </nav>
+
+    </header>
+
+
+    <div class="main-content">
+        <article class="color3 module">
+
+            <div class="content jsdoc">
+            
+            <h1 class="modulename">gamejs/logging</h1>
+        <div class="fileoverview">
+            <p>Static methods for logging and setting the log level. All logging functions (<code data-language="javascript" >info()</code>, <code data-language="javascript" >debug()</code>, etc.) take
+any number of arguments and will print them in one line.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#debug" class="jsdoc-title"> debug</a>(message,...)
+                </li>
+                                <li>
+                    <a href="#error" class="jsdoc-title"> error</a>(message,...)
+                </li>
+                                <li>
+                    <a href="#fatal" class="jsdoc-title"> fatal</a>(message)
+                </li>
+                                <li>
+                    <a href="#info" class="jsdoc-title"> info</a>(message,...)
+                </li>
+                                <li>
+                    <a href="#log" class="jsdoc-title"> log</a>(message,...)
+                </li>
+                                <li>
+                    <a href="#setLogLevel" class="jsdoc-title"> setLogLevel</a>(logLevel)
+                </li>
+                                <li>
+                    <a href="#warn" class="jsdoc-title"> warn</a>(message,...)
+                </li>
+                </ul>
+            <div class="classes">
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="debug">
+                <h3 >
+                    <span class="itemtitle"><a id="debug" href="#debug" class="itemtitle itemname">debug</a></span>
+                    <span class="itemtitle light">(message,...)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">message,...</td>
+                            <td>to log</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="error">
+                <h3 >
+                    <span class="itemtitle"><a id="error" href="#error" class="itemtitle itemname">error</a></span>
+                    <span class="itemtitle light">(message,...)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">message,...</td>
+                            <td>to log</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="fatal">
+                <h3 >
+                    <span class="itemtitle"><a id="fatal" href="#fatal" class="itemtitle itemname">fatal</a></span>
+                    <span class="itemtitle light">(message)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">message</td>
+                            <td>to log</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="info">
+                <h3 >
+                    <span class="itemtitle"><a id="info" href="#info" class="itemtitle itemname">info</a></span>
+                    <span class="itemtitle light">(message,...)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">message,...</td>
+                            <td>to log</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="log">
+                <h3 >
+                    <span class="itemtitle"><a id="log" href="#log" class="itemtitle itemname">log</a></span>
+                    <span class="itemtitle light">(message,...)</span></h3>
+                <div>
+                    <p>Log a msg to the console if console is enable</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">message,...</td>
+                            <td>the msg to log</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="setLogLevel">
+                <h3 >
+                    <span class="itemtitle"><a id="setLogLevel" href="#setLogLevel" class="itemtitle itemname">setLogLevel</a></span>
+                    <span class="itemtitle light">(logLevel)</span></h3>
+                <div>
+                    set logLevel as string or number
+<ul><li>0 = info</li>
+<li>1 = warn</li>
+<li>2 = error</li>
+<li>3 = fatal</li></ul>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre><code data-language="javascript">gamejs.setLogLevel(0); // debug
+gamejs.setLogLevel('error'); // equal to setLogLevel(2) </code></pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">logLevel</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="warn">
+                <h3 >
+                    <span class="itemtitle"><a id="warn" href="#warn" class="itemtitle itemname">warn</a></span>
+                    <span class="itemtitle light">(message,...)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">message,...</td>
+                            <td>to log</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+            </div>
+    
+            </div>
+
+        </article>
+    </div>
+
+</body>
+</html>
+

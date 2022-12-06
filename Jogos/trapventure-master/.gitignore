@@ -1,0 +1,5 @@
+#sublime project files
+*.sublime-*
+
+#grunt
+node_modules

@@ -1,0 +1,24 @@
+<style>
+
+    /* Video Background 2020 / Inicio do CSS de Background Video */
+    /* CSS - Style the video: 100% width and height to cover the entire window */  
+	
+    .background-video { background: url('../videos/Clouds_5.mp4'); 
+	                    width: 100%; 
+						height: auto; 
+						top: 0; 
+						left: 0; 
+						right: 0; 
+						bottom: 0; 
+						border: 0px; 
+					    margin: 0; 
+						padding: 0; 
+						background-repeat: no-repeat; 
+						position: relative;
+					    background-origin: content-box; 
+						background-size: cover;}	
+						
+    /*  Fim do CSS do Background Video */
+
+
+</style>

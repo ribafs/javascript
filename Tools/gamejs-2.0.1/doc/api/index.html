@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Module overview - GameJs API</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="revisit-after" content="1 days"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta http-equiv="cleartype" content="on"/>
+    <link rel="stylesheet" href=".//css/syntax.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href=".//css/main.css" rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="./static/jsdoc.css" />
+    <link rel="stylesheet" href="./static/style.css" />
+    <script type="text/javascript" src="./static/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/jsdoc.js"></script>
+
+    <link href="./static/rainbow/themes/pastie.css" rel="stylesheet" type="text/css">
+    <script src="./static/rainbow/rainbow.min.js"></script>
+    <script src="./static/rainbow/language/generic.js"></script>
+    <script src="./static/rainbow/language/javascript.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="module color1">
+            <h1><a href="http://gamejs.org">GameJs.org</a></h1>
+        </div>
+
+        <nav class="module color4">
+            <h2><a href="http://docs.gamejs.org">API Reference</a></h2>
+            <nav class="jsdoc">
+                <div class="jsdocSidenav">
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="./gamejs/index.html">gamejs</a></li>
+            <li><a href="./gamejs/animate/index.html">gamejs/animate</a></li>
+            <li><a href="./gamejs/audio/index.html">gamejs/audio</a></li>
+            <li><a href="./gamejs/display/index.html">gamejs/display</a></li>
+            <li><a href="./gamejs/event/index.html">gamejs/event</a></li>
+            <li><a href="./gamejs/font/index.html">gamejs/font</a></li>
+            <li><a href="./gamejs/graphics/index.html">gamejs/graphics</a></li>
+            <li><a href="./gamejs/http/index.html">gamejs/http</a></li>
+            <li><a href="./gamejs/image/index.html">gamejs/image</a></li>
+            <li><a href="./gamejs/logging/index.html">gamejs/logging</a></li>
+            <li><a href="./gamejs/pathfinding/index.html">gamejs/pathfinding</a></li>
+            <li><a href="./gamejs/pixelcollision/index.html">gamejs/pixelcollision</a></li>
+            <li><a href="./gamejs/thread/index.html">gamejs/thread</a></li>
+            <li><a href="./gamejs/tiledmap/index.html">gamejs/tiledmap</a></li>
+            <li><a href="./gamejs/time/index.html">gamejs/time</a></li>
+            <li><a href="./gamejs/math/angles/index.html">gamejs/math/angles</a></li>
+            <li><a href="./gamejs/math/binaryheap/index.html">gamejs/math/binaryheap</a></li>
+            <li><a href="./gamejs/math/matrix/index.html">gamejs/math/matrix</a></li>
+            <li><a href="./gamejs/math/noise/index.html">gamejs/math/noise</a></li>
+            <li><a href="./gamejs/math/random/index.html">gamejs/math/random</a></li>
+            <li><a href="./gamejs/math/vectors/index.html">gamejs/math/vectors</a></li>
+            <li><a href="./gamejs/utils/arrays/index.html">gamejs/utils/arrays</a></li>
+            <li><a href="./gamejs/utils/base64/index.html">gamejs/utils/base64</a></li>
+            <li><a href="./gamejs/utils/callback/index.html">gamejs/utils/callback</a></li>
+            <li><a href="./gamejs/utils/objects/index.html">gamejs/utils/objects</a></li>
+            <li><a href="./gamejs/utils/strings/index.html">gamejs/utils/strings</a></li>
+            <li><a href="./gamejs/utils/uri/index.html">gamejs/utils/uri</a></li>
+            <li><a href="./gamejs/utils/xml/index.html">gamejs/utils/xml</a></li>
+      </ul>
+</div>
+
+            </nav>
+        </nav>
+
+    </header>
+
+
+    <div class="main-content">
+        <article class="color3 module">
+
+            <div class="content jsdoc">
+                <h2>List of modules</h2>
+    <ul class="modulelist">
+                <h2><a href="./gamejs/index.html"> gamejs </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p><code data-language="javascript" >gamejs.ready()</code> is maybe the most important function as it kickstarts your app:</p>
+
+<pre><code data-language="javascript" >var gamejs = require('gamejs');
+ready(function() {
+    gamejs.logging.info('I am ready!')
+});</code></pre>
+
+<p>If you use images or sounds preload all assets with <code data-language="javascript" >gamejs.preload(['./files/foo.png'])</code> before calling <code data-language="javascript" >ready()</code>.</p>
+
+<p>Also in this module is the <code data-language="javascript" >Rect</code> class which is generally useful when dealing with Surfaces and simple rectangles (e.g. for collisions).</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/animate/index.html"> gamejs/animate </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p><code data-language="javascript" >Animations</code> on top of <code data-language="javascript" >SpriteSheets</code>.</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/audio/index.html"> gamejs/audio </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Playing sounds with the html5 audio tag. Audio files must be preloaded
+with the usual <code data-language="javascript" >gamejs.preload()</code> function. Ogg, wav and webm supported.</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/display/index.html"> gamejs/display </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Methods to create, access and manipulate the display Surface.</p>
+
+<p>You can just grab the canvas element whether it exists in the DOM or not (GameJs
+will create it if necessary):</p>
+
+<pre><code data-language="javascript" >var display = gamejs.display.getSurface();</code></pre>
+
+<p>If you need to resize the canvas - although it is recommended to style it with CSS - you can
+call the <code data-language="javascript" >setMode()</code> function, which conviniently returns the new display surface:</p>
+
+<pre><code data-language="javascript" >newDisplay = gamejs.display.setMode([800, 600]);</code></pre>
+
+<h3>Browser window gets resized</h3>
+
+<p>When the canvas size is configured with CSS, the display surface might change when
+the browser window is resized. GameJs will internally deal with this and recreate
+the the display surface with the new size.</p>
+
+<p>You will typically not have to worry about this but if you want to get informed
+about a display resize, you can register a callback with <code data-language="javascript" >gamejs.event.onDisplayResize</code>.</p>
+
+
+<h3>Flags</h3>
+
+<p>For advanced uses you can set a few modes which additionally change how the display
+behaves with regards to pixel smoothing and whether you want a fullscreen canvas with
+or withouth the mouse pointer locked inside the window (for endless mouse movement in
+all directions).</p>
+
+
+<p><code data-language="javascript" >gamejs.display.setMode()</code> understands three flags:</p>
+
+<ul><li>gamejs.display.FULLSCREEN</li>
+<li>gamejs.display.DISABLE_SMOOTHING</li>
+<li>gamejs.display.POINTERLOCK (implies FULLSCREEN)</li></ul>
+
+For example:
+<pre><code data-language="javascript" > // disable smoothing
+ gamejs.display.setMode([800, 600], gamejs.display.DISABLE_SMOOTHING);
+ // disable smoothing and fullscreen
+ gamejs.display.setMode(
+           [800, 600],
+           gamejs.display.DISABLE_SMOOTHING | gamejs.display.FULLSCREEN
+     );</code></pre>
+
+<h3>Fullscreen mode</h3>
+
+<p>When <code data-language="javascript" >setMode()</code> is called with the fullscreen flag then the fullscreen mode can be enabled by the
+player by clicking on the DOM element with id "gjs-fullscreen-toggle". Browser security requires
+that a user enables fullscreen with a "gesture" (e.g., clicking a button) and we can not enable fullscreen
+in code.</p>
+
+<p>Fullscreen mode can be exited by many keys, e.g., anything window manager related (ALT-TAB) or ESC. A lot
+of keys will trigger a browser information popup explaining how fullscreen mode can be exited.</p>
+
+<p>The following keys are "whitelisted" in fullscreen mode and will not trigger such a browser popup:</p>
+
+<ul><li>left arrow, right arrow, up arrow, down arrow</li>
+<li>space</li>
+<li>shift, control, alt</li>
+<li>page up, page down</li>
+<li>home, end, tab, meta</li></ul>
+
+
+<h3>Relevant DOM node ids accessed by this module</h3>
+
+<p>You can provide your own tags with those ids</p>
+
+<ul><li>gjs-canvas - the display surface</li>
+<li>gjs-loader - loading bar</li>
+<li>gjs-fullscreen-toggle a clickable element to enable fullscreen</li>
+<li>gjs-canvas-wrapper this wrapper is added when in fullscreen mode</li></ul>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/event/index.html"> gamejs/event </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Deal with mouse and keyboard events.</p>
+
+<p>You can either handle all events in one callback with <code data-language="javascript" >gamejs.event.onEvent()</code>:</p>
+
+<pre><code data-language="javascript" >gamejs.onEvent(function(event) {
+   if (event.type === gamejs.event.MOUSE_UP) {
+     gamejs.logging.info(event.pos, event.button);
+   } else if (event.type === gamejs.event.KEY_UP) {
+     gamejs.logging.info(event.key);
+   }
+});</code></pre>
+
+<p>Or recieve more specific callbacks, e.g. only for <code data-language="javascript" >KEY\_UP</code> with  <code data-language="javascript" >gamejs.event.onKeyUp()</code>:</p>
+
+<pre><code data-language="javascript" >gamejs.onKeyUp(function(event) {
+     gamejs.logging.info(event.key);
+});</code></pre>
+
+<p>All events passed to your callback are instances of <code data-language="javascript" >gamejs.event.Event</code> and have a <code data-language="javascript" >type</code> property to help
+you distinguish between the different events. This <code data-language="javascript" >type</code> property is set to one of those constants:</p>
+
+<ul><li>gamejs.event.MOUSE_UP</li>
+<li>gamejs.event.MOUSE_MOTION</li>
+<li>gamejs.event.MOUSE_DOWN</li>
+<li>gamejs.event.KEY_UP</li>
+<li>gamejs.event.KEY_DOWN</li>
+<li>gamejs.event.DISPLAY_FULLSCREEN_ENABLED</li>
+<li>gamejs.event.DISPLAY_FULLSCREEN_DISABLED</li>
+<li>gamejs.event.QUIT</li>
+<li>gamejs.event.MOUSE_WHEEL</li>
+<li>gamejs.event.TOUCH_DOWN</li>
+<li>gamejs.event.TOUCH_UP</li>
+<li>gamejs.event.TOUCH_MOTION</li></ul>
+
+<h3>Keyboard constants</h3>
+
+<p>There are also a lot of keyboard constants for ASCII. Those are all prefixed with <code data-language="javascript" >K\_</code>, e.g. <code data-language="javascript" >gamejs.event.K\_a</code> would be the "a"
+key and <code data-language="javascript" >gamejs.event.K_SPACE</code> is the spacebar.</p>
+
+<h2>Touch events</h2>
+
+<p>Touch events do not have a single position but for all <code data-language="javascript" >TOUCH\_*</code> events you get an array of
+<code data-language="javascript" >touches</code>, which each have their own <code data-language="javascript" >pos</code> attribute and a unique <code data-language="javascript" >identifier</code> for tracking
+this touch across multiple <code data-language="javascript" >TOUCH\_MOTION</code> events.</p>
+
+<h2>User defined events</h2>
+
+<p>All user defined events can have the value of <code data-language="javascript" >gamejs.event.USEREVENT</code> or higher.
+Make sure your custom event ids follow this system.</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/font/index.html"> gamejs/font </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Methods for creating Font objects which can render text
+to a Surface.</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/graphics/index.html"> gamejs/graphics </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>This module holds the important <code data-language="javascript" >Surface</code> class which is the general container for image data.</p>
+
+<pre><code data-language="javascript" >var surface = new gamejs.graphics.Surface([width, height]);</code></pre>
+
+<p>The functions
+to draw geometric lines like circles, lines, rectangles, etc. are also all in this module:</p>
+
+<pre><code data-language="javascript" >gamejs.graphics.line(surface, '#ff0000', centerPoint, radius);</code></pre>
+
+<p>Each Surface instance has methods to create <em>a new</em> rotated, flipped, scaled, etc. instance of itself:</p>
+
+<pre><code data-language="javascript" >// the original `surface` remains untouched by the
+// filp operation. A new Surface instance
+// is returned by `flip()`.
+var horizontalFlippedSurface = surface.flip(true);</code></pre>
+
+<p>If you want to put images (png, jpg) on the screen, also see the <code data-language="javascript" >gamejs.image</code> module and <code data-language="javascript" >gamejs.preload()</code>.</p>
+
+<p>There are several ways to specify colors. Whenever the docs says "valid #RGB string"
+you can pass in any of the following formats: <code data-language="javascript" >"#ff00ff"</code>, <code data-language="javascript" >"rgb(255, 0, 255)"</code> or <code data-language="javascript" >"rgba(255, 0, 255, 1)"</code>.</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/http/index.html"> gamejs/http </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Make synchronous http requests to your game's serverside component.</p>
+
+<p>If you configure a ajax base URL you can make http requests to your
+server using those functions.
+The most high-level functions are <code data-language="javascript" >load()</code> and <code data-language="javascript" >save()</code> which take
+and return a JavaScript object, which they will send to / recieve from
+the server-side in JSON format.</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/image/index.html"> gamejs/image </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Load images as Surfaces.</p>
+
+<p>Sounds & Images are loaded relative to your game's html page
+(the html which includes the GameJs code) or relative to the
+property <code data-language="javascript" >window.$g.resourceBaseHref</code>
+if it is set.</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/logging/index.html"> gamejs/logging </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Static methods for logging and setting the log level. All logging functions (<code data-language="javascript" >info()</code>, <code data-language="javascript" >debug()</code>, etc.) take
+any number of arguments and will print them in one line.</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/pathfinding/index.html"> gamejs/pathfinding </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>A* path finding algorithm</p>
+
+<p>Use the <code data-language="javascript" >findRoute(map, from, to, [timeout])</code> function to get the linked list
+leading <code data-language="javascript" >from</code> a point <code data-language="javascript" >to</code> another on the given <code data-language="javascript" >map</code>.</p>
+
+<p>The map must implement the interface <code data-language="javascript" >gamejs.pathfinding.Map</code>. This
+class already holds an example implementation for debugging use.</p>
+
+<p>Optionally, the search is cancelled after <code data-language="javascript" >timeout</code> in millseconds.</p>
+
+<p>If there is no route <code data-language="javascript" >null</code> is returned.</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/pixelcollision/index.html"> gamejs/pixelcollision </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Image mask. Usefull for pixel perfect collision detection:</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/thread/index.html"> gamejs/thread </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>gamejs.worker makes it more convinient to work with W3C WebWorkers by providing a way to run
+CommonJs modules inside of them. GameJs also provides the typically <code data-language="javascript" >gamejs.ready()</code> and
+event loop to facilitate communication between workers and the main application.</p>
+
+<p>See the <code data-language="javascript" >examples/workers</code> directory for a running example.</p>
+
+<p>Create a worker with the main module "foo-worker" (see below for how the worker's module looks like):</p>
+
+<pre><code data-language="javascript" >var fooWorker = new Worker('./foo-worker');
+// Send a message to your worker.
+// The Message doesn't have to be a string but it
+// must be `JSON.stringify()`-able
+fooWorker.post("foobar");</code></pre>
+
+<p>You can also recieve messages from the worker:</p>
+
+<pre><code data-language="javascript" >// recieve events from the worker
+fooWorker.onEvent(function(event) {
+    if(event.timestamp &gt; ...)
+ });</code></pre>
+
+<p>And this is how the above referenced "foo-worker" module would looke like. As usual, we need a
+<code data-language="javascript" >gamejs.ready()</code> to get started and within that we bind an event handler:</p>
+
+<pre><code data-language="javascript" >var gamejs = require('gamejs');
+gamejs.ready(function() {
+    gamejs.event.onEvent(function(event) {
+         var plaintext = fastCrack(event.password)
+         ....
+     });
+});</code></pre>
+
+<p>Our event worker could do expensive calculations (seperate and not blocking the main game) when
+recieving an event. Once the result is caculated, it can be sent back to the main application
+with <code data-language="javascript" >gamejs.thread.post()</code>:</p>
+
+<pre><code data-language="javascript" >gamejs.thread.post({
+   info: "important message from worker",
+   timestamp: 12232435234
+ });</code></pre>
+
+<p>The main application would in turn recieve an event posted like this from <code data-language="javascript" >fooWorker.onEvent</code>, as seen above.</p>
+
+<p>This module is useful for expensive algorithms where the result does not have to available instantiously
+(e.g., path-finding) or for continous logic which can be
+calculated seperately from the rendering loop, and which only needs to feed back into the model of the rendering every
+now and then (e.g. physics) The main draw back of the <code data-language="javascript" >Worker</code> model is that
+you can only communicate with them via text messages (typically JSON.stringify()ed messages).</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/tiledmap/index.html"> gamejs/tiledmap </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>This is a loader for the general purpose tile map editor "Tiled".</p>
+
+<p>This module can load all ".tmx" files even if additionally base64 encoded
+(can be configured in Tiled).</p>
+
+<p>This module loads the whole map definition, including the TileSets with
+all necessary images. For an example on how to render a map loaded with
+this module, see <code data-language="javascript" >examples/tiledmap</code>.</p>
+
+<p>You will typically create a Map instance with <code data-language="javascript" >Map(url)</code> and deal
+with the layers, tilesets, etc. through the Map instance
+instead of loading & creating them yourself.</p>
+
+<p>Only orthogonol maps are supported (no isometric maps).</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/time/index.html"> gamejs/time </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Only used by GameJs internally to provide a game loop.</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/math/angles/index.html"> gamejs/math/angles </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Degrees and radians.</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/math/binaryheap/index.html"> gamejs/math/binaryheap </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Binary Heap implementation from Eloquent JavaScript</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/math/matrix/index.html"> gamejs/math/matrix </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Matrix manipulation, used by GameJs itself. You
+probably do not need this unless you manipulate a Context's transformation
+matrix yourself.</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/math/noise/index.html"> gamejs/math/noise </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>A noise generator comparable to Perlin noise, which is useful
+for generating procedural content.</p>
+
+<p>This implementation provides 2D and 3D noise:</p>
+
+<p>var simplex = new Simplex();
+simplex.get(2, 4);
+simple.get3d(1, 2, 4);</p>
+
+<p>You can optionally
+pass a seedable pseudo-random number generator to its constructor. This
+generator object is assumed to have a <code data-language="javascript" >random()</code> method; <code data-language="javascript" >Math</code> is used
+per default:</p>
+
+<pre><code data-language="javascript" >var Alea = require('gamejs/math/random').Alea;
+var simplex = new Simplex(new Alea());</code></pre>
+
+<p>Also see <code data-language="javascript" >gamejs/math/random</code> for a seedable pseudo random number generator</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/math/random/index.html"> gamejs/math/random </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>A seedable random-number generator.</p>
+
+<p>A generator is initialized by GameJs and can be used with the
+static functions of this module:</p>
+
+<p>gamejs.random.choose([1,2,4]);
+// integet between and including 2 and 5
+gamejs.random.integer(2, 5);</p>
+
+<p>You can re-initialize this generator with a different seed by
+calling <code data-language="javascript" >gamejs.utils.prng.init(seed)</code> after which the static
+functions in this module will use the new seed.</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/math/vectors/index.html"> gamejs/math/vectors </a></h2>
+        <div class="jsdoc-fileoverview">
+            
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/utils/arrays/index.html"> gamejs/utils/arrays </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Utility functions for working with Obiects</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/utils/base64/index.html"> gamejs/utils/base64 </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Base64 encode / decode</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/utils/callback/index.html"> gamejs/utils/callback </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Manage a callback with invocation scope. This is used internally by GameJs but might be useful for others.</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/utils/objects/index.html"> gamejs/utils/objects </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Utility functions for working with Objects</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/utils/strings/index.html"> gamejs/utils/strings </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Working with strings</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/utils/uri/index.html"> gamejs/utils/uri </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Utilies for URI handling.</p>
+
+
+        </div>
+
+        </li>
+                <h2><a href="./gamejs/utils/xml/index.html"> gamejs/utils/xml </a></h2>
+        <div class="jsdoc-fileoverview">
+            <p>Provides facilities for parsing a xml String.</p>
+
+<p>You will typically get a <code data-language="javascript" >gamejs.xml.Document</code> instance
+by loading the data with one of the two static
+<code data-language="javascript" >Document.fromString(string)</code> or <code data-language="javascript" >Document.fromUrl(url)</code>.
+Querying for <code data-language="javascript" >elements(name)</code> or <code data-language="javascript" >children()</code> will return a
+new <code data-language="javascript" >gamejs.xml.Document</code> matching your result (or null).</p>
+
+<p>Use <code data-language="javascript" >attributes(name)</code> and <code data-language="javascript" >value()</code> to get the data stored
+in the XML Document.</p>
+
+
+        </div>
+
+        </li>
+        </ul>
+
+            </div>
+
+        </article>
+    </div>
+
+</body>
+</html>
+

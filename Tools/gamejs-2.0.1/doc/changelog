@@ -1,0 +1,22 @@
+## version twö
+
+  * added gamejs.tiledmap.MapView and tiledmap.LayerView to draw the map
+  * added gamejs.animation.* with SpriteSheet and Animation constructor
+  * improved gamejs.pixelcollision API
+  * special gamejs.event callbacks for different types of events: onMouseMotion, onKeyDown, onFullscreen(),...
+  * feature: all callback functions can be called multiple times to add multiple callbacks
+  * added threaded noise example; uses webworkers to produce new map
+  * jshinted all files
+  * removed: gamejs.sprite and SpriteGroup module
+  * add "debug" loglevel (even lower than "info")
+  * docs: overhaul all jsdoc with better text and more relevant examples
+  * rename:
+     * gamejs.log/debug/info/error/fatal -> gamejs.logging.*
+     * gamejs.tmx -> gamejs.tiledmap
+     * gamejs.worker.Worker -> gamejs.thread.Worker
+     * gamejs.Surface -> gamejs.graphics.Surface
+     * gamejs.transform.* -> instance methods on gamejs.graphics.Surface
+     * gamejs.draw.* -> static functions in gamejs.graphics
+     * gamejs.utils.vectors -> gamejs.math.vectors
+     * gamejs.utils.prng -> gamejs.math.random
+     * gamejs.utils.matrix -> gamejs.math.matrix

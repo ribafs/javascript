@@ -1,0 +1,26 @@
+{
+  "name": "JawsJS",
+  "description": "",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ippa/jawsjs.git"
+  },
+  "dependencies": {
+    "gulp": "",
+    "gulp-concat": "",
+    "gulp-qunit": "^0.3.3",
+    "gulp-requirejs": "0.1.x",
+    "gulp-uglify": "",
+    "requirejs": "2.1.x"
+  },
+  "devDependencies": {
+    "gulp-insert": "",
+    "gulp-qunit": "",
+    "gulp-shell": "^0.2.9",
+    "qunitjs": "^1.15.0"
+  },
+  "scripts": {
+    "test": "gulp test"
+  }
+}

@@ -1,0 +1,291 @@
+/******* Stylesheet fuer Super Mario Editor ******************/
+#editor {
+	width: 862px;
+	margin: 10px auto;
+	position: relative;
+}
+#editor_left {
+	float: left;
+	width: 140px;
+	padding: 5px;	
+}
+#editor_left input {
+	width: 126px;
+	padding: 5px;
+	border: 2px #333 solid;
+	margin: 9px 0;
+	font-size: 12px;
+	font-weight: bold;
+	background: #f90;
+	background: -webkit-linear-gradient(top, #f90, #fb0, #f90);
+	background: -moz-linear-gradient(top, #f90, #fb0, #f90);
+	background: -o-linear-gradient(top, #f90, #fb0, #f90);
+	background: linear-gradient(top, #f90, #fb0, #f90);
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-o-border-radius: 6px;
+	border-radius: 6px;	
+}
+#editor_left input:hover {
+	box-shadow: 2px 2px 3px #111;
+	cursor: pointer;
+}
+#editor_right {
+	float: left;
+	width: 642px;	
+}
+#edit_world {
+	width: 640px;
+	height: 497px; /* 480px + ~17px Scrollbalken */
+	border: 1px #333 solid;
+	overflow: auto;
+	background-position: 0px -380px;
+	background-image: url('mario-background_1.png');
+	position: relative;
+}
+#workbench {
+	width: 620px;
+	height: 180px;
+	padding: 5px 10px;
+	border: 1px #333 solid;
+	background: rgba(255,255,255,0.8);	
+}
+.workbench_title {
+	display: block;
+	margin-bottom: 5px;
+	width: 100%;
+	padding: 2px 0;
+	text-align: center;
+	color: #fff;
+	background: #222;
+	background: -webkit-linear-gradient(top, #000, #333, #000);
+	background: -moz-linear-gradient(top, #000, #333, #000);
+	background: -o-linear-gradient(top, #000, #333, #000);
+	background: linear-gradient(top, #000, #333, #000);	
+}
+#labels span {
+	display: inline-block;
+	vertical-align: bottom;
+	width: 80px;
+	height: 25px;
+	padding: 5px 8px;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: center;
+	border-top: 2px #333 solid;
+	border-left: 2px #333 solid;
+	border-right: 2px #333 solid;
+	background: #f90;
+	background: -webkit-linear-gradient(top, #f90, #fb0, #f90);
+	background: -moz-linear-gradient(top, #f90, #fb0, #f90);
+	background: -o-linear-gradient(top, #f90, #fb0, #f90);
+	background: linear-gradient(top, #f90, #fb0, #f90);
+	margin: 1px 1px 0 1px;
+	-webkit-border-top-right-radius: 6px;
+    -webkit-border-top-left-radius: 6px;
+    -moz-border-radius-topright: 6px;
+    -moz-border-radius-topleft: 6px;
+    -o-border-radius-topright: 6px;
+    -o-border-radius-topleft: 6px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+}
+#labels span:hover {
+	cursor: pointer;
+	color: #000;
+	background: #e70;
+	background: -webkit-linear-gradient(top, #e70, #f90, #e70);
+	background: -moz-linear-gradient(top, #e70, #f90, #e70);
+	background: -o-linear-gradient(top, #e70, #f90, #e70);
+	background: linear-gradient(top, #e70, #f90, #e70);
+}
+#edit_backgrounds {
+	width: 600px;
+	padding: 3px 10px;
+	overflow-x: auto; 
+}
+#edit_backgrounds div {
+	width: 650px;
+	height: 65px; 
+}
+#edit_backgrounds img {
+	float: left;
+	width: 70px;
+	margin: 2px 5px;
+}
+#edit_backgrounds img:hover {
+	cursor: pointer;
+}
+#bricks div, #figures div, #tool1 div, #tool2 div {
+	float: left;
+	margin: 3px;
+}
+.input_left {
+	display: inline-block;
+	margin: 2px 5px;
+	width: 80px;
+	text-align: right;
+	font-size: 11px;
+}
+#canvas_width {
+	width: 520px;
+}
+#level_size {
+	overflow: hidden;
+	position: relative;
+}
+#edit_canvas, #edit_canvas_help {
+	width: 9600px;
+	height: 480px;
+	position: absolute;
+	z-index: 2;
+}
+#edit_canvas_help {
+	z_index: 1;
+}
+
+.msgBox {
+	width: 600px;
+	padding: 20px 10px;
+	text-align: center;
+	color: #fff;
+	background: rgba(0,0,0,0.9);
+	position: absolute;
+	z-index: 1000000;
+	top: 50px;
+	left: 50%;
+	margin-left: -310px;
+	font-size: 24px;	
+}
+.msgBox #msgBox_close {
+	position: absolute;
+	text-align: center;
+	border: 2px #000 solid;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-o-border-radius: 6px;
+	border-radius: 6px;
+	font-weight: bold;
+	box-shadow: 1px 1px 5px #333;
+	padding: 5px 10px;
+	width: 15px;
+	height: 24px;
+	background-color: red;
+	font-size: 16px;
+	top: 15px;
+	right: 16px;	
+}
+.msgBox #msgBox_close:hover {
+	box-shadow: 3px 3px 5px #000;
+	cursor: pointer;	
+}
+.del_click {
+	margin: 5px 20px;
+}
+.del_click:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+/******* Baukasten mit Bausteinen aus Spritesheet fuellen *****/
+.grass_top_left_1x1, .grass_top_1x1, .grass_top_right_1x1, .grass_right_1x1, .grass_bottom_right_1x1, .grass_bottom_1x1, .grass_bottom_left_1x1, .grass_left_1x1, .soil_1x1, .grass_top_left_rounded_1x1, .grass_top_left_rounded_soil_1x1, .grass_top_right_rounded_1x1, .grass_top_right_rounded_soil_1x1, .grass_top_right_corner_1x1, .grass_top_left_corner_1x1, .soil_left_1x1, .soil_right_1x1, .bush_left_1x1, .bush_middle_left_1x1, .bush_middle_1x1, .bush_middle_right_1x1, .bush_right_1x1, .planted_soil_left_1x1, .planted_soil_middle_1x1, .planted_soil_right_1x1, .brown_block_1x1, .stone_1x1, .pipe_top_left_1x1, .pipe_top_right_1x1, .pipe_left_1x1, .pipe_right_1x1, .pipe_left_grass_1x1, .pipe_right_grass_1x1, .pipe_left_soil_1x1, .pipe_right_soil_1x1, .coin_1x1, .multiple_coinbox_1x1, .coinbox_1x1, .mushroombox_1x1, .starbox_1x1 {
+	background: transparent url('mario-objects.png') no-repeat;
+	width: 32px;
+	height: 32px;	
+}
+.grass_top_left_1x1					{ background-position: -854px -404px; }
+.grass_top_1x1						{ background-position: -888px -404px; }
+.grass_top_right_1x1				{ background-position: -922px -404px; }
+.grass_right_1x1					{ background-position: -922px -438px; }
+.grass_left_1x1						{ background-position: -854px -438px; }
+.soil_1x1							{ background-position: -888px -438px; }
+.grass_top_left_rounded_1x1			{ background-position: -854px -506px; }
+.grass_top_left_rounded_soil_1x1	{ background-position: -956px -506px; }
+.grass_top_right_rounded_1x1		{ background-position: -922px -506px; }
+.grass_top_right_rounded_soil_1x1	{ background-position: -990px -506px; }
+.grass_top_right_corner_1x1			{ background-position: -612px -868px; }
+.grass_top_left_corner_1x1			{ background-position: -648px -868px; }
+.soil_left_1x1						{ background-position: -854px -540px; }
+.soil_right_1x1						{ background-position: -922px -540px; }
+.bush_left_1x1						{ background-position: -178px -928px; }
+.bush_middle_left_1x1				{ background-position: -212px -928px; }
+.bush_middle_1x1					{ background-position: -348px -928px; }
+.bush_middle_right_1x1				{ background-position: -314px -928px; }
+.bush_right_1x1						{ background-position: -382px -928px; }
+.planted_soil_left_1x1				{ background-position: -714px -832px; }
+.planted_soil_middle_1x1			{ background-position: -748px -832px; }
+.planted_soil_right_1x1				{ background-position: -782px -832px; }
+.brown_block_1x1					{ background-position: -514px -194px; }
+.stone_1x1							{ background-position: -550px -160px; }
+.pipe_top_left_1x1					{ background-position: -2px -358px; }
+.pipe_top_right_1x1					{ background-position: -36px -358px; }
+.pipe_left_1x1						{ background-position: -2px -390px; }
+.pipe_right_1x1						{ background-position: -36px -390px; }
+.pipe_left_grass_1x1				{ background-position: -2px -424px; }
+.pipe_right_grass_1x1				{ background-position: -36px -424px; }
+.pipe_left_soil_1x1					{ background-position: -2px -458px; }
+.pipe_right_soil_1x1				{ background-position: -36px -458px; }
+.coin_1x1							{ background-position: 0 0; }
+.multiple_coinbox_1x1				{ background-position: -956px -574px; }
+.coinbox_1x1						{ background-position: -990px -574px; }
+.mushroombox_1x1					{ background-position: -956px -540px; }
+.starbox_1x1						{ background-position: -990px -540px; }
+
+/******* Baukasten mit Figuren aus Spritesheet fuellen *****/
+.fig_greenturtle_1x1, .fig_ballmonster_1x1, .fig_spikedturtle_1x1, .fig_pipeplant_1x1, .fig_staticplant_1x1 {
+	background: transparent url('mario-enemies.png') no-repeat;
+	width: 32px;
+	height: 32px;	
+}
+/* Pipeplant belegt 2 Felder mittig */
+.fig_pipeplant_1x1 {
+	width: 64px;	
+}
+
+
+.fig_greenturtle_1x1				{ background-position: -111px -271px; }
+.fig_ballmonster_1x1				{ background-position: -110px -185px; }
+.fig_spikedturtle_1x1				{ background-position: -111px -102px; }
+.fig_pipeplant_1x1					{ background-position: -106px -59px; }
+.fig_staticplant_1x1				{ background-position: -106px -3px; }
+
+.fig_mario_1x1 {
+	background: transparent url('mario-sprites.png') no-repeat;
+	width: 32px;
+	height: 32px;
+	background-position: -269px -359px;
+}
+
+/******* Spezialbausteine mit Bausteinen aus Spritesheet fuellen *****/
+.tool1_soil_2x2, .tool1_soil_3x3, .tool1_soil_4x4, .tool2_grass_top_1x2, .tool2_grass_top_1x4, .tool2_grass_left_2x1, .tool1_grass_left_4x1, .tool2_grass_right_2x1, .tool1_grass_right_4x1, .tool2_soil_left_2x1, .tool1_soil_left_4x1, .tool2_soil_right_2x1, .tool1_soil_right_4x1, .tool2_pipe_left_soil_2x1, .tool1_pipe_left_soil_4x1, .tool2_pipe_right_soil_2x1, .tool1_pipe_right_soil_4x1, .tool2_pipe_left_2x1, .tool1_pipe_left_4x1, .tool2_pipe_right_2x1, .tool1_pipe_right_4x1 {
+	background: transparent url('mario-objects.png') no-repeat;	
+}
+
+.tool1_soil_2x2						{ width: 64px; height: 64px; background-position: -1071px -3px; }
+.tool1_soil_3x3						{ width: 96px; height: 96px; background-position: -1071px -3px; }
+.tool1_soil_4x4						{ width: 128px; height: 128px; background-position: -1071px -3px; }
+.tool2_grass_top_1x2				{ width: 64px; height: 32px; background-position: -1071px -136px; }
+.tool2_grass_top_1x4				{ width: 128px; height: 32px; background-position: -1071px -136px; }
+.tool2_grass_left_2x1				{ width: 32px; height: 64px; background-position: -1090px -172px; }
+.tool1_grass_left_4x1				{ width: 32px; height: 128px; background-position: -1090px -172px; }
+.tool2_grass_right_2x1				{ width: 32px; height: 64px; background-position: -1125px -172px; }
+.tool1_grass_right_4x1				{ width: 32px; height: 128px; background-position: -1125px -172px; }
+.tool2_soil_left_2x1				{ width: 32px; height: 64px; background-position: -1160px -172px; }
+.tool1_soil_left_4x1				{ width: 32px; height: 128px; background-position: -1160px -172px; }
+.tool2_soil_right_2x1				{ width: 32px; height: 64px; background-position: -1090px -303px; }
+.tool1_soil_right_4x1				{ width: 32px; height: 128px; background-position: -1090px -303px; }
+.tool2_pipe_left_soil_2x1			{ width: 32px; height: 64px; background-position: -1125px -303px; }
+.tool1_pipe_left_soil_4x1			{ width: 32px; height: 128px; background-position: -1125px -303px; }
+.tool2_pipe_right_soil_2x1			{ width: 32px; height: 64px; background-position: -1160px -303px; }
+.tool1_pipe_right_soil_4x1			{ width: 32px; height: 128px; background-position: -1160px -303px; }
+.tool2_pipe_left_2x1				{ width: 32px; height: 64px; background-position: -1090px -434px; }
+.tool1_pipe_left_4x1				{ width: 32px; height: 128px; background-position: -1090px -434px; }
+.tool2_pipe_right_2x1				{ width: 32px; height: 64px; background-position: -1125px -434px; }
+.tool1_pipe_right_4x1				{ width: 32px; height: 128px; background-position: -1125px -434px; }
+
+.tools_eraser_1x1 {	
+	width: 32px;
+	height: 32px;
+	border: 1px #333 solid;
+	background: #fff;
+}

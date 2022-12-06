@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>gamejs - GameJs API</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="revisit-after" content="1 days"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta http-equiv="cleartype" content="on"/>
+    <link rel="stylesheet" href="..//css/syntax.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="..//css/main.css" rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../static/jsdoc.css" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <script type="text/javascript" src="../static/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/jsdoc.js"></script>
+
+    <link href="../static/rainbow/themes/pastie.css" rel="stylesheet" type="text/css">
+    <script src="../static/rainbow/rainbow.min.js"></script>
+    <script src="../static/rainbow/language/generic.js"></script>
+    <script src="../static/rainbow/language/javascript.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="module color1">
+            <h1><a href="http://gamejs.org">GameJs.org</a></h1>
+        </div>
+
+        <nav class="module color4">
+            <h2><a href="http://docs.gamejs.org">API Reference</a></h2>
+            <nav class="jsdoc">
+                <div class="jsdocSidenav">
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../gamejs/index.html">gamejs</a></li>
+            <li><a href="../gamejs/animate/index.html">gamejs/animate</a></li>
+            <li><a href="../gamejs/audio/index.html">gamejs/audio</a></li>
+            <li><a href="../gamejs/display/index.html">gamejs/display</a></li>
+            <li><a href="../gamejs/event/index.html">gamejs/event</a></li>
+            <li><a href="../gamejs/font/index.html">gamejs/font</a></li>
+            <li><a href="../gamejs/graphics/index.html">gamejs/graphics</a></li>
+            <li><a href="../gamejs/http/index.html">gamejs/http</a></li>
+            <li><a href="../gamejs/image/index.html">gamejs/image</a></li>
+            <li><a href="../gamejs/logging/index.html">gamejs/logging</a></li>
+            <li><a href="../gamejs/pathfinding/index.html">gamejs/pathfinding</a></li>
+            <li><a href="../gamejs/pixelcollision/index.html">gamejs/pixelcollision</a></li>
+            <li><a href="../gamejs/thread/index.html">gamejs/thread</a></li>
+            <li><a href="../gamejs/tiledmap/index.html">gamejs/tiledmap</a></li>
+            <li><a href="../gamejs/time/index.html">gamejs/time</a></li>
+            <li><a href="../gamejs/math/angles/index.html">gamejs/math/angles</a></li>
+            <li><a href="../gamejs/math/binaryheap/index.html">gamejs/math/binaryheap</a></li>
+            <li><a href="../gamejs/math/matrix/index.html">gamejs/math/matrix</a></li>
+            <li><a href="../gamejs/math/noise/index.html">gamejs/math/noise</a></li>
+            <li><a href="../gamejs/math/random/index.html">gamejs/math/random</a></li>
+            <li><a href="../gamejs/math/vectors/index.html">gamejs/math/vectors</a></li>
+            <li><a href="../gamejs/utils/arrays/index.html">gamejs/utils/arrays</a></li>
+            <li><a href="../gamejs/utils/base64/index.html">gamejs/utils/base64</a></li>
+            <li><a href="../gamejs/utils/callback/index.html">gamejs/utils/callback</a></li>
+            <li><a href="../gamejs/utils/objects/index.html">gamejs/utils/objects</a></li>
+            <li><a href="../gamejs/utils/strings/index.html">gamejs/utils/strings</a></li>
+            <li><a href="../gamejs/utils/uri/index.html">gamejs/utils/uri</a></li>
+            <li><a href="../gamejs/utils/xml/index.html">gamejs/utils/xml</a></li>
+      </ul>
+</div>
+
+            </nav>
+        </nav>
+
+    </header>
+
+
+    <div class="main-content">
+        <article class="color3 module">
+
+            <div class="content jsdoc">
+            
+            <h1 class="modulename">gamejs</h1>
+        <div class="fileoverview">
+            <p><code data-language="javascript" >gamejs.ready()</code> is maybe the most important function as it kickstarts your app:</p>
+
+<pre><code data-language="javascript" >var gamejs = require('gamejs');
+ready(function() {
+    gamejs.logging.info('I am ready!')
+});</code></pre>
+
+<p>If you use images or sounds preload all assets with <code data-language="javascript" >gamejs.preload(['./files/foo.png'])</code> before calling <code data-language="javascript" >ready()</code>.</p>
+
+<p>Also in this module is the <code data-language="javascript" >Rect</code> class which is generally useful when dealing with Surfaces and simple rectangles (e.g. for collisions).</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#onTick" class="jsdoc-title"> onTick</a>(callbackFunction, callbackScope)
+                </li>
+                                <li>
+                    <a href="#preload" class="jsdoc-title"> preload</a>(resources)
+                </li>
+                                <li>
+                    <a href="#ready" class="jsdoc-title"> ready</a>(callbackFunction)
+                </li>
+                </ul>
+            <div class="classes">
+                                <h2>Class <a href="#Rect" class="jsdoc-title">Rect</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Rect.prototype.clip" class="jsdoc-title"> clip</a>(Rect)
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.clone" class="jsdoc-title"> clone</a>()
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.collideLine" class="jsdoc-title"> collideLine</a>(pointA, pointB)
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.collidePoint" class="jsdoc-title"> collidePoint</a>(point)
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.collideRect" class="jsdoc-title"> collideRect</a>(rect)
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.inflate" class="jsdoc-title"> inflate</a>(amount, amount)
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.inflateIp" class="jsdoc-title"> inflateIp</a>(amount, amount)
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.move" class="jsdoc-title"> move</a>(x, y)
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.moveIp" class="jsdoc-title"> moveIp</a>(x, y)
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.toString" class="jsdoc-title"> toString</a>()
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.union" class="jsdoc-title"> union</a>(union)
+                    </li>
+                    </ul>
+                                <h3>Instance Properties</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Rect.prototype.bottom" class="jsdoc-title"> bottom</a>
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.bottomleft" class="jsdoc-title"> bottomleft</a>
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.bottomright" class="jsdoc-title"> bottomright</a>
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.center" class="jsdoc-title"> center</a>
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.height" class="jsdoc-title"> height</a>
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.left" class="jsdoc-title"> left</a>
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.right" class="jsdoc-title"> right</a>
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.top" class="jsdoc-title"> top</a>
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.topleft" class="jsdoc-title"> topleft</a>
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.topright" class="jsdoc-title"> topright</a>
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.width" class="jsdoc-title"> width</a>
+                    </li>
+                                        <li>
+                        <a href="#Rect.prototype.y" class="jsdoc-title"> y</a>
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Rect" href="#Rect" class="itemtitle itemname">Rect</a></span>
+                    <span class="itemtitle light">(position, dimensions)</span></h3>
+                <div>
+                    <p>Creates a Rect. Rects are used to hold rectangular areas. There are a couple
+of convinient ways to create Rects with different arguments and defaults.</p>
+
+<p>Any function that requires a <code data-language="javascript" >gamejs.Rect</code> argument also accepts any of the
+constructor value combinations <code data-language="javascript" >Rect</code> accepts.</p>
+
+<p>Rects are used a lot. They are good for collision detection, specifying
+an area on the screen (for blitting) or just to hold an objects position.</p>
+
+<p>The Rect object has several virtual attributes which can be used to move and align the Rect:</p>
+
+<p>top, left, bottom, right
+topleft, bottomleft, topright, bottomright
+center
+width, height
+w,h</p>
+
+<p>All of these attributes can be assigned to.
+Assigning to width or height changes the dimensions of the rectangle; all other
+assignments move the rectangle without resizing it. Notice that some attributes
+are Numbers and others are pairs of Numbers.</p>
+
+
+                </div>
+                                <div>
+                    <h4> Example </h4>
+                    <pre><code data-language="javascript">new Rect([left, top]) // width & height default to 0
+new Rect(left, top) // width & height default to 0
+new Rect(left, top, width, height)
+new Rect([left, top], [width, height])
+new Rect(oldRect) // clone of oldRect is created </code></pre>
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Array|gamejs.Rect</td>
+                            <td class="paramname">position</td>
+                            <td>Array holding left and top coordinates</td>
+                        </tr>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">dimensions</td>
+                            <td>Array holding width and height</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.bottom">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.bottom" href="#Rect.prototype.bottom" class="itemtitle itemname">bottom</a></span>
+                    </h3>
+                <div>
+                    <p>Bottom, Y coordinate</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.bottomleft">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.bottomleft" href="#Rect.prototype.bottomleft" class="itemtitle itemname">bottomleft</a></span>
+                    </h3>
+                <div>
+                    <p>Bottom-left Position. You can assign a rectangle form.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.bottomright">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.bottomright" href="#Rect.prototype.bottomright" class="itemtitle itemname">bottomright</a></span>
+                    </h3>
+                <div>
+                    <p>Bottom-right Position. You can assign a rectangle form.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.center">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.center" href="#Rect.prototype.center" class="itemtitle itemname">center</a></span>
+                    </h3>
+                <div>
+                    <p>Center Position. You can assign a rectangle form.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.clip">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.clip" href="#Rect.prototype.clip" class="itemtitle itemname">clip</a></span>
+                    <span class="itemtitle light">(Rect)</span></h3>
+                <div>
+                    <p>Return the area in which this Rect and argument Rect overlap.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>gamejs.Rect</td>
+                            <td class="paramname">Rect</td>
+                            <td>to clip this one into</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>gamejs.Rect</td>
+                            <td> new Rect which is completely inside the argument Rect,
+zero sized Rect if the two rectangles do not overlap</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.clone">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.clone" href="#Rect.prototype.clone" class="itemtitle itemname">clone</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>gamejs.Rect</td>
+                            <td> A new copy of this rect</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.collideLine">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.collideLine" href="#Rect.prototype.collideLine" class="itemtitle itemname">collideLine</a></span>
+                    <span class="itemtitle light">(pointA, pointB)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">pointA</td>
+                            <td>start point of the line</td>
+                        </tr>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">pointB</td>
+                            <td>end point of the line</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>true if the line intersects with the rectangle</td>
+                        </tr>
+                    </table>
+                </div>
+                                <div>
+                    <h4>See</h4>
+                    <div class="extrainfo">
+                        <a href="http://stackoverflow.com/questions/99353/how-to-test-if-a-line-segment-intersects-an-axis-aligned-rectange-in-2d/293052#293052">http://stackoverflow.com/questions/99353/how-to-test-if-a-line-segment-intersects-an-axis-aligned-rectange-in-2d/293052#293052</a>
+                    </div>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.collidePoint">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.collidePoint" href="#Rect.prototype.collidePoint" class="itemtitle itemname">collidePoint</a></span>
+                    <span class="itemtitle light">(point)</span></h3>
+                <div>
+                    <p>Check for collision with a point.</p>
+
+<p><code data-language="javascript" >collidePoint(x,y)</code> or <code data-language="javascript" >collidePoint([x,y])</code> or <code data-language="javascript" >collidePoint(new Rect(x,y))</code></p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Array|gamejs.Rect</td>
+                            <td class="paramname">point</td>
+                            <td>the x and y coordinates of the point to test for collision</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Boolean</td>
+                            <td> true if the point collides with this Rect</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.collideRect">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.collideRect" href="#Rect.prototype.collideRect" class="itemtitle itemname">collideRect</a></span>
+                    <span class="itemtitle light">(rect)</span></h3>
+                <div>
+                    <p>Check for collision with a Rect.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>gamejs.Rect</td>
+                            <td class="paramname">rect</td>
+                            <td>the Rect to test check for collision</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Boolean</td>
+                            <td> true if the given Rect collides with this Rect</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.height">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.height" href="#Rect.prototype.height" class="itemtitle itemname">height</a></span>
+                    </h3>
+                <div>
+                    <p>Height of rectangle</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.inflate">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.inflate" href="#Rect.prototype.inflate" class="itemtitle itemname">inflate</a></span>
+                    <span class="itemtitle light">(amount, amount)</span></h3>
+                <div>
+                    <p>Grow or shrink the rectangle size</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">amount</td>
+                            <td>to change in the width</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">amount</td>
+                            <td>to change in the height</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>gamejs.Rect</td>
+                            <td> inflated rectangle centered on the original rectangle's center</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.inflateIp">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.inflateIp" href="#Rect.prototype.inflateIp" class="itemtitle itemname">inflateIp</a></span>
+                    <span class="itemtitle light">(amount, amount)</span></h3>
+                <div>
+                    <p>Grow or shrink this Rect in place - not returning a new Rect like <code data-language="javascript" >inflate(x, y)</code> would.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">amount</td>
+                            <td>to change in the width</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">amount</td>
+                            <td>to change in the height</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.left">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.left" href="#Rect.prototype.left" class="itemtitle itemname">left</a></span>
+                    </h3>
+                <div>
+                    <p>Left, X coordinate</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.move">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.move" href="#Rect.prototype.move" class="itemtitle itemname">move</a></span>
+                    <span class="itemtitle light">(x, y)</span></h3>
+                <div>
+                    <p>Move returns a new Rect, which is a version of this Rect
+moved by the given amounts. Accepts any rectangle form.
+as argument.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number|gamejs.Rect</td>
+                            <td class="paramname">x</td>
+                            <td>amount to move on x axis</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">y</td>
+                            <td>amount to move on y axis</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.moveIp">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.moveIp" href="#Rect.prototype.moveIp" class="itemtitle itemname">moveIp</a></span>
+                    <span class="itemtitle light">(x, y)</span></h3>
+                <div>
+                    <p>Move this Rect in place - not returning a new Rect like <code data-language="javascript" >move(x, y)</code> would.</p>
+
+<p><code data-language="javascript" >moveIp(x,y)</code> or <code data-language="javascript" >moveIp([x,y])</code></p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number|gamejs.Rect</td>
+                            <td class="paramname">x</td>
+                            <td>amount to move on x axis</td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">y</td>
+                            <td>amount to move on y axis</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.right">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.right" href="#Rect.prototype.right" class="itemtitle itemname">right</a></span>
+                    </h3>
+                <div>
+                    <p>Right, X coordinate</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.toString">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.toString" href="#Rect.prototype.toString" class="itemtitle itemname">toString</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>String</td>
+                            <td> Like "[x, y][w, h]"</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.top">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.top" href="#Rect.prototype.top" class="itemtitle itemname">top</a></span>
+                    </h3>
+                <div>
+                    <p>Top, Y coordinate</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.topleft">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.topleft" href="#Rect.prototype.topleft" class="itemtitle itemname">topleft</a></span>
+                    </h3>
+                <div>
+                    <p>Top-left Position. You can assign a rectangle form.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.topright">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.topright" href="#Rect.prototype.topright" class="itemtitle itemname">topright</a></span>
+                    </h3>
+                <div>
+                    <p>Top-right Position. You can assign a rectangle form.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.union">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.union" href="#Rect.prototype.union" class="itemtitle itemname">union</a></span>
+                    <span class="itemtitle light">(union)</span></h3>
+                <div>
+                    <p>Join two rectangles</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>gamejs.Rect</td>
+                            <td class="paramname">union</td>
+                            <td>with this rectangle</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>gamejs.Rect</td>
+                            <td> rectangle containing area of both rectangles</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.width">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.width" href="#Rect.prototype.width" class="itemtitle itemname">width</a></span>
+                    </h3>
+                <div>
+                    <p>Width of rectangle</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Rect.prototype.y">
+                <h3 >
+                    <span class="itemtitle">Rect.prototype.<a id="Rect.prototype.y" href="#Rect.prototype.y" class="itemtitle itemname">y</a></span>
+                    </h3>
+                <div>
+                    <p>Position x value, alias for <code data-language="javascript" >left</code>.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="onTick">
+                <h3 >
+                    <span class="itemtitle"><a id="onTick" href="#onTick" class="itemtitle itemname">onTick</a></span>
+                    <span class="itemtitle light">(callbackFunction, callbackScope)</span></h3>
+                <div>
+                    <p>The function passed to <code data-language="javascript" >onTick</code> will continously be called at a
+frequency determined by the browser (typically between 1 and 60 times per second).</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">callbackFunction</td>
+                            <td>the function you want to be called</td>
+                        </tr>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">callbackScope</td>
+                            <td>optional scope for the function call</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="preload">
+                <h3 >
+                    <span class="itemtitle"><a id="preload" href="#preload" class="itemtitle itemname">preload</a></span>
+                    <span class="itemtitle light">(resources)</span></h3>
+                <div>
+                    <p>Preload resources.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">resources</td>
+                            <td>list of resources paths</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ready">
+                <h3 >
+                    <span class="itemtitle"><a id="ready" href="#ready" class="itemtitle itemname">ready</a></span>
+                    <span class="itemtitle light">(callbackFunction)</span></h3>
+                <div>
+                    <p>ReadyFn is called once all modules and assets are loaded.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Function</td>
+                            <td class="paramname">callbackFunction</td>
+                            <td>the function to be called once gamejs finished loading</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+            </div>
+    
+            </div>
+
+        </article>
+    </div>
+
+</body>
+</html>
+

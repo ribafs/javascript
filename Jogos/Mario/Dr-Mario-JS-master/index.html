@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Dr. Mario JS</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/stylesheets/style.css">
+  <script src="bundle.js"></script>
+</head>
+
+<body>
+  <header class="main-header">
+    <nav class="header-left-nav">
+      <h5 id="created-by"> CREATED BY </h5>
+      <a id="kevin-moch" href="mailto:kevin.edholm.moch@gmail.com"> </a>
+    </nav>
+    <div class="header-logo-name">
+      <div id="logo">
+        <h1 id="logo-js">JS</h1>   
+      </div>
+    </div>
+    <nav class="header-right-nav">
+      <a href="https://github.com/kedholmmoch">
+        <div id='github'></div>
+      </a>
+      <a href="https://www.linkedin.com/in/kevin-edholm-moch/">
+        <div id='linked-in'></div>
+      </a>
+      <a href="mailto:kevin.edholm.moch@gmail.com">
+        <div id="email"></div>
+      </a>
+    </nav>
+  </header>
+  
+  <main>
+    <section id="menu-sidebar">
+      <div id="game-options">
+        <div id="to-mute">
+          <div id="level-container">
+            <h1>LEVEL</h1>
+            <input type="range" min="0" max="20" value="0" id="level-slide">
+            <div><span id="curr-level"> 0 </span></div>
+          </div>
+          <div id="speed-container">
+            <h1>SPEED</h1>
+            <input type="range" min="1" max="5" value="1" id="speed-slide">
+            <div><span id="curr-speed"> Slow </span></div>
+          </div>
+        </div>
+        <div id="buttons-container">
+          <button class="button" id="start-button" value="START">START</button>
+          <!-- <button class="button" id ="pause-button" value="PAUSE">PAUSE</button> -->
+          <!-- <div id="pause-comment"><span class="keystroke">SPACE</span> to pause</div> -->
+        </div>
+      </div>
+      <div id="game-instructions">
+        <h5>INSTRUCTIONS</h5>
+        <div id="instructions-text">
+          <div>
+            <span class="bold">ELIMINATE</span> viruses by making rows or columns 
+            of <span class="bold">FOUR</span> or more of the same color.</div>
+          <div>
+            <span class="bold">MOVE LEFT</span> by pressing
+            <span class="keystroke">J</span> or <span class="keystroke">&#8592;</span></div>
+          <div>
+            <span class="bold">MOVE RIGHT</span> by pressing
+            <span class="keystroke">L</span> or <span class="keystroke">&#8594;</span></div>
+          <div>
+            <span class="bold">SPEED DROP</span> by pressing
+            <span class="keystroke">K</span> or <span class="keystroke">&#8595;</span></div>
+          <div>
+            <span class="bold">FLIP RIGHT</span> by pressing
+            <span class="keystroke">F</span>
+              <!-- or <span class="keystroke">&#8593;</span> -->
+              </div>
+          <div>
+            <span class="bold">FLIP LEFT</span> by pressing
+            <span class="keystroke">S</span></div>
+        </div>
+        <div id="nintendo">Dr. Mario and the related characters, artwork, and game
+          design are the exclusive trademark and copyright of
+          <a href="http://https://www.nintendo.com/" style="font-weight: 700">
+            Nintendo</a>.
+        </div>
+      </div>
+    </section>
+
+    <section id="game-area">
+      <h1></h1>
+      <div id="modal-ancestor">
+        <div class="hidden" id="lost-game">
+          <h1> YOU LOSE :(</h1>
+          <button class="new-game" id="new-game">New Game</button>
+        </div>
+        <div class="hidden" id="won-game">
+          <h1> YOU WIN!</h1>
+          <button class="new-game" id="new-stage">Play Again</button>
+        </div>
+        <div >
+          <div id="mute-music">MUSIC</div>
+        </div>
+      </div>
+      <!-- Each game square is 23 wide x 20 tall, with 3px margin on sides/bottom.
+        The canvas also allows for the bottle to be displayed; total 250x492 px-->
+      <canvas id="gameScreen" width="250" height="492"></canvas>
+    </section>
+
+    <section id="mario-sidebar">
+      <div id="dr-mario-div">
+        <canvas id="dr-mario-canvas" width="150" height="150"></canvas>
+      </div>
+      <div id="stage-info" class="hidden">
+        <div id="stage-level-div">
+          <div>LEVEL</div>
+          <div id="stage-level-display">0</div>
+        </div>
+        <div id="stage-viruses-div">
+          <div>VIRUS</div>
+          <div id="stage-viruses-display">0</div>
+        </div>
+        <div id="stage-score-div">
+          <div>SCORE</div>
+          <div id="stage-score-display">0</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer></footer>
+
+  <img id="miscellaneous" src="./assets/images/dr-mario-misc-5.png">
+  <img id="spritesheet" src="./assets/images/dr-mario-sprites.png">
+</body>
+</html>

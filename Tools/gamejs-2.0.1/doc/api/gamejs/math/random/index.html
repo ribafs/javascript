@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>gamejs/math/random - GameJs API</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="revisit-after" content="1 days"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta http-equiv="cleartype" content="on"/>
+    <link rel="stylesheet" href="../../..//css/syntax.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../..//css/main.css" rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../../../static/jsdoc.css" />
+    <link rel="stylesheet" href="../../../static/style.css" />
+    <script type="text/javascript" src="../../../static/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../static/jsdoc.js"></script>
+
+    <link href="../../../static/rainbow/themes/pastie.css" rel="stylesheet" type="text/css">
+    <script src="../../../static/rainbow/rainbow.min.js"></script>
+    <script src="../../../static/rainbow/language/generic.js"></script>
+    <script src="../../../static/rainbow/language/javascript.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="module color1">
+            <h1><a href="http://gamejs.org">GameJs.org</a></h1>
+        </div>
+
+        <nav class="module color4">
+            <h2><a href="http://docs.gamejs.org">API Reference</a></h2>
+            <nav class="jsdoc">
+                <div class="jsdocSidenav">
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../../gamejs/index.html">gamejs</a></li>
+            <li><a href="../../../gamejs/animate/index.html">gamejs/animate</a></li>
+            <li><a href="../../../gamejs/audio/index.html">gamejs/audio</a></li>
+            <li><a href="../../../gamejs/display/index.html">gamejs/display</a></li>
+            <li><a href="../../../gamejs/event/index.html">gamejs/event</a></li>
+            <li><a href="../../../gamejs/font/index.html">gamejs/font</a></li>
+            <li><a href="../../../gamejs/graphics/index.html">gamejs/graphics</a></li>
+            <li><a href="../../../gamejs/http/index.html">gamejs/http</a></li>
+            <li><a href="../../../gamejs/image/index.html">gamejs/image</a></li>
+            <li><a href="../../../gamejs/logging/index.html">gamejs/logging</a></li>
+            <li><a href="../../../gamejs/pathfinding/index.html">gamejs/pathfinding</a></li>
+            <li><a href="../../../gamejs/pixelcollision/index.html">gamejs/pixelcollision</a></li>
+            <li><a href="../../../gamejs/thread/index.html">gamejs/thread</a></li>
+            <li><a href="../../../gamejs/tiledmap/index.html">gamejs/tiledmap</a></li>
+            <li><a href="../../../gamejs/time/index.html">gamejs/time</a></li>
+            <li><a href="../../../gamejs/math/angles/index.html">gamejs/math/angles</a></li>
+            <li><a href="../../../gamejs/math/binaryheap/index.html">gamejs/math/binaryheap</a></li>
+            <li><a href="../../../gamejs/math/matrix/index.html">gamejs/math/matrix</a></li>
+            <li><a href="../../../gamejs/math/noise/index.html">gamejs/math/noise</a></li>
+            <li><a href="../../../gamejs/math/random/index.html">gamejs/math/random</a></li>
+            <li><a href="../../../gamejs/math/vectors/index.html">gamejs/math/vectors</a></li>
+            <li><a href="../../../gamejs/utils/arrays/index.html">gamejs/utils/arrays</a></li>
+            <li><a href="../../../gamejs/utils/base64/index.html">gamejs/utils/base64</a></li>
+            <li><a href="../../../gamejs/utils/callback/index.html">gamejs/utils/callback</a></li>
+            <li><a href="../../../gamejs/utils/objects/index.html">gamejs/utils/objects</a></li>
+            <li><a href="../../../gamejs/utils/strings/index.html">gamejs/utils/strings</a></li>
+            <li><a href="../../../gamejs/utils/uri/index.html">gamejs/utils/uri</a></li>
+            <li><a href="../../../gamejs/utils/xml/index.html">gamejs/utils/xml</a></li>
+      </ul>
+</div>
+
+            </nav>
+        </nav>
+
+    </header>
+
+
+    <div class="main-content">
+        <article class="color3 module">
+
+            <div class="content jsdoc">
+            
+            <h1 class="modulename">gamejs/math/random</h1>
+        <div class="fileoverview">
+            <p>A seedable random-number generator.</p>
+
+<p>A generator is initialized by GameJs and can be used with the
+static functions of this module:</p>
+
+<p>gamejs.random.choose([1,2,4]);
+// integet between and including 2 and 5
+gamejs.random.integer(2, 5);</p>
+
+<p>You can re-initialize this generator with a different seed by
+calling <code data-language="javascript" >gamejs.utils.prng.init(seed)</code> after which the static
+functions in this module will use the new seed.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#choose" class="jsdoc-title"> choose</a>(items)
+                </li>
+                                <li>
+                    <a href="#init" class="jsdoc-title"> init</a>(seed)
+                </li>
+                                <li>
+                    <a href="#integer" class="jsdoc-title"> integer</a>(min, max)
+                </li>
+                                <li>
+                    <a href="#random" class="jsdoc-title"> random</a>()
+                </li>
+                                <li>
+                    <a href="#vector" class="jsdoc-title"> vector</a>(minVector, maxVector)
+                </li>
+                </ul>
+            <div class="classes">
+                                <h2>Class <a href="#Alea" class="jsdoc-title">Alea</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Alea.prototype.choose" class="jsdoc-title"> choose</a>(items)
+                    </li>
+                                        <li>
+                        <a href="#Alea.prototype.integer" class="jsdoc-title"> integer</a>(min, max)
+                    </li>
+                                        <li>
+                        <a href="#Alea.prototype.random" class="jsdoc-title"> random</a>()
+                    </li>
+                                        <li>
+                        <a href="#Alea.prototype.vector" class="jsdoc-title"> vector</a>(min, max)
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Alea">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Alea" href="#Alea" class="itemtitle itemname">Alea</a></span>
+                    <span class="itemtitle light">(seed)</span></h3>
+                <div>
+                    <p>A seedable pseudo-random number generator.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number|String</td>
+                            <td class="paramname">seed</td>
+                            <td>the seed for generating the numbers</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Alea.prototype.choose">
+                <h3 >
+                    <span class="itemtitle">Alea.prototype.<a id="Alea.prototype.choose" href="#Alea.prototype.choose" class="itemtitle itemname">choose</a></span>
+                    <span class="itemtitle light">(items)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">items</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Alea.prototype.integer">
+                <h3 >
+                    <span class="itemtitle">Alea.prototype.<a id="Alea.prototype.integer" href="#Alea.prototype.integer" class="itemtitle itemname">integer</a></span>
+                    <span class="itemtitle light">(min, max)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">min</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">max</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Alea.prototype.random">
+                <h3 >
+                    <span class="itemtitle">Alea.prototype.<a id="Alea.prototype.random" href="#Alea.prototype.random" class="itemtitle itemname">random</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Number</td>
+                            <td> the next random number as determined by the seed</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Alea.prototype.vector">
+                <h3 >
+                    <span class="itemtitle">Alea.prototype.<a id="Alea.prototype.vector" href="#Alea.prototype.vector" class="itemtitle itemname">vector</a></span>
+                    <span class="itemtitle light">(min, max)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">min</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">max</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="choose">
+                <h3 >
+                    <span class="itemtitle"><a id="choose" href="#choose" class="itemtitle itemname">choose</a></span>
+                    <span class="itemtitle light">(items)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">items</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> random item from items list</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="init">
+                <h3 >
+                    <span class="itemtitle"><a id="init" href="#init" class="itemtitle itemname">init</a></span>
+                    <span class="itemtitle light">(seed)</span></h3>
+                <div>
+                    <p>Re-initialize the per instance random number generator used
+in the static functions on this module (e.g. vector())</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number|String</td>
+                            <td class="paramname">seed</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="integer">
+                <h3 >
+                    <span class="itemtitle"><a id="integer" href="#integer" class="itemtitle itemname">integer</a></span>
+                    <span class="itemtitle light">(min, max)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">min</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">max</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Number</td>
+                            <td> random integer between min and max</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="random">
+                <h3 >
+                    <span class="itemtitle"><a id="random" href="#random" class="itemtitle itemname">random</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Number</td>
+                            <td> next random float between 0 and 1</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="vector">
+                <h3 >
+                    <span class="itemtitle"><a id="vector" href="#vector" class="itemtitle itemname">vector</a></span>
+                    <span class="itemtitle light">(minVector, maxVector)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">minVector</td>
+                            <td>2 integers, the minimum vector</td>
+                        </tr>
+                                                <tr>
+                            <td>Array</td>
+                            <td class="paramname">maxVector</td>
+                            <td>2 integers, the maximum vector</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Array</td>
+                            <td> a random vector [min[0]<=x<=max[0], min[1]<=y<=max[1]]</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+    
+            </div>
+
+        </article>
+    </div>
+
+</body>
+</html>
+

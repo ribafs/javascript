@@ -1,0 +1,16 @@
+
+body { background-color: silver; 
+       text-align:left; 
+       border: 0px solid#8B0000; 
+       padding: 5px;
+      }
+	  
+blockquote { align-content:justify; width:100% }
+	  
+	h1 { color: blue; }	   
+	h2 { color: red; }
+	h3 { color: violet; }
+	h4 { color: green; }
+	h5 { color: maroon; }
+	p  { text-align: justify"; }
+				   

@@ -1,0 +1,110 @@
+          
+<style>  
+
+    /*  Inicio do CSS / Style / Folha de Estilo */	
+		
+    /* CSS / Cores padrão */
+    /* color: #ffab62 = laranja medio 
+    /* color: #f4511e = laranja escuro 
+    /* color: #9F00FF = violeta médio royal = #6351ce = violeta
+    /* color: #c71585 = rosa médio royal 		 
+    /* color: #fffddd = amarelo claro 
+    /* color: #ffffff = branco escuro 
+    /* color: #005aff = azul royal 
+    /* color: #4CAF50 = verde = #90EE90 (verde claro)
+    /* color: #D6EFFF = azul muito claro = #e3f2fd
+    /* color: #C6E9FF = azul claro 	
+    /* color: #6D6D6D = cinza escuro / #474A51 (cinza muito escuro) */
+		
+     /* Código de página UTF-8 / PT-BR */
+	@charset 'UTF-8'; @language 'pt-br';		                               
+
+     html { -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+           }
+           
+     *, *:before, *:after { -webkit-box-sizing: inherit;
+                            -moz-box-sizing: inherit;
+                            box-sizing: inherit;
+                           }
+	
+     .body { font-family: Arial,Verdana,Helvetica; 
+	     background: darkblue;
+	     color: #ffffff; 
+	     text-align: justify; 
+	     text-decoration: none;
+	     letter-spacing: 3px;
+	     text-indent: 50px;
+	    }
+ 
+    .div {background: transparent;}   
+      		
+    /* Smaller than standard 960 (devices and browsers) */
+    @media only screen and (max-width: 959px) {
+    p { font-size: 10px; }
+    }
+
+    /* Tablet Portrait size to standard 960 (devices and browsers) */
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+    p { font-size: 12px; }
+    }
+
+    /* All Mobile Sizes (devices and browser) */
+    @media only screen and (max-width: 767px) {
+    p { font-size: 14px; }
+    }
+
+    /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+    p { font-size: 9px; }
+    }
+ 
+    /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+    @media only screen and (max-width: 479px) {
+    p { font-size: 7px; }
+		
+    /* Social Media / Rede Social */		
+    .fa { color: white; padding: 9px; font-size: normal; width: 15px; text-align: center; text-decoration: none; }
+    .fa img { border-radius: 50%; } /* image circle */	
+    	
+    /* Image Responsive */	
+    .img { position: absolute; 
+           align: center;
+           width: 100px;
+           height: 100px;
+	   margin: 10px auto;
+	   padding:10px auto;
+           border: 1px solid #aaa;						
+           }
+   
+     /* CSS / Background Responsive */
+     .background { width: 100%; 
+	           height: auto; 
+		   margin: 0; 
+		   padding: 0; 
+		   background-repeat: no-repeat; 
+		   background-origin: content-box; 
+		   background-size: cover; 
+		   position: relative; 
+                   top: 0; 
+		   bottom: 0; 
+		   left: 0; 
+		   right: 0; 
+		   border: 0px solid #aaa; 
+	           }				 				  
+
+    /* LINKS CSS */	
+    a:link {color: blue;}     /* unvisited link */
+    a:visited {color: green;} /* visited link */
+    a:hover {color: red;}     /* mouse over link */
+    a:active {color: brown;}  /* selected link */
+    /* Fim Links CSS */
+			
+    /*  Fim do CSS */	
+
+</style> 
+
+
+
+

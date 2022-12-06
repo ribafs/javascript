@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>gamejs/animate - GameJs API</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="revisit-after" content="1 days"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta http-equiv="cleartype" content="on"/>
+    <link rel="stylesheet" href="../..//css/syntax.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../..//css/main.css" rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../../static/jsdoc.css" />
+    <link rel="stylesheet" href="../../static/style.css" />
+    <script type="text/javascript" src="../../static/jquery.min.js"></script>
+    <script type="text/javascript" src="../../static/jsdoc.js"></script>
+
+    <link href="../../static/rainbow/themes/pastie.css" rel="stylesheet" type="text/css">
+    <script src="../../static/rainbow/rainbow.min.js"></script>
+    <script src="../../static/rainbow/language/generic.js"></script>
+    <script src="../../static/rainbow/language/javascript.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="module color1">
+            <h1><a href="http://gamejs.org">GameJs.org</a></h1>
+        </div>
+
+        <nav class="module color4">
+            <h2><a href="http://docs.gamejs.org">API Reference</a></h2>
+            <nav class="jsdoc">
+                <div class="jsdocSidenav">
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../gamejs/index.html">gamejs</a></li>
+            <li><a href="../../gamejs/animate/index.html">gamejs/animate</a></li>
+            <li><a href="../../gamejs/audio/index.html">gamejs/audio</a></li>
+            <li><a href="../../gamejs/display/index.html">gamejs/display</a></li>
+            <li><a href="../../gamejs/event/index.html">gamejs/event</a></li>
+            <li><a href="../../gamejs/font/index.html">gamejs/font</a></li>
+            <li><a href="../../gamejs/graphics/index.html">gamejs/graphics</a></li>
+            <li><a href="../../gamejs/http/index.html">gamejs/http</a></li>
+            <li><a href="../../gamejs/image/index.html">gamejs/image</a></li>
+            <li><a href="../../gamejs/logging/index.html">gamejs/logging</a></li>
+            <li><a href="../../gamejs/pathfinding/index.html">gamejs/pathfinding</a></li>
+            <li><a href="../../gamejs/pixelcollision/index.html">gamejs/pixelcollision</a></li>
+            <li><a href="../../gamejs/thread/index.html">gamejs/thread</a></li>
+            <li><a href="../../gamejs/tiledmap/index.html">gamejs/tiledmap</a></li>
+            <li><a href="../../gamejs/time/index.html">gamejs/time</a></li>
+            <li><a href="../../gamejs/math/angles/index.html">gamejs/math/angles</a></li>
+            <li><a href="../../gamejs/math/binaryheap/index.html">gamejs/math/binaryheap</a></li>
+            <li><a href="../../gamejs/math/matrix/index.html">gamejs/math/matrix</a></li>
+            <li><a href="../../gamejs/math/noise/index.html">gamejs/math/noise</a></li>
+            <li><a href="../../gamejs/math/random/index.html">gamejs/math/random</a></li>
+            <li><a href="../../gamejs/math/vectors/index.html">gamejs/math/vectors</a></li>
+            <li><a href="../../gamejs/utils/arrays/index.html">gamejs/utils/arrays</a></li>
+            <li><a href="../../gamejs/utils/base64/index.html">gamejs/utils/base64</a></li>
+            <li><a href="../../gamejs/utils/callback/index.html">gamejs/utils/callback</a></li>
+            <li><a href="../../gamejs/utils/objects/index.html">gamejs/utils/objects</a></li>
+            <li><a href="../../gamejs/utils/strings/index.html">gamejs/utils/strings</a></li>
+            <li><a href="../../gamejs/utils/uri/index.html">gamejs/utils/uri</a></li>
+            <li><a href="../../gamejs/utils/xml/index.html">gamejs/utils/xml</a></li>
+      </ul>
+</div>
+
+            </nav>
+        </nav>
+
+    </header>
+
+
+    <div class="main-content">
+        <article class="color3 module">
+
+            <div class="content jsdoc">
+            
+            <h1 class="modulename">gamejs/animate</h1>
+        <div class="fileoverview">
+            <p><code data-language="javascript" >Animations</code> on top of <code data-language="javascript" >SpriteSheets</code>.</p>
+
+
+        </div>
+
+                <div>
+            <h4> Example </h4>
+            <pre><code data-language="javascript">var spriteSheet = new SpriteSheet(sheetSurface, {width: 16, height: 16});
+var animation = new Animation(spriteSheet, {walk: [0,1,2,3], loop: true});
+animation.setState('walk');
+....
+animation.update(msDuration)
+....
+display.blit(animation.currentFrame);</code></pre>
+        </div>
+        <div class="classoverview">
+
+            <div class="classes">
+                                <h2>Class <a href="#Animation" class="jsdoc-title">Animation</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Animation.prototype.isFinished" class="jsdoc-title"> isFinished</a>()
+                    </li>
+                                        <li>
+                        <a href="#Animation.prototype.setState" class="jsdoc-title"> setState</a>(stateName)
+                    </li>
+                                        <li>
+                        <a href="#Animation.prototype.update" class="jsdoc-title"> update</a>(msDuration)
+                    </li>
+                    </ul>
+                                <h3>Instance Properties</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Animation.prototype.currentFrame" class="jsdoc-title"> currentFrame</a>
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#SpriteSheet" class="jsdoc-title">SpriteSheet</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#SpriteSheet.prototype.get" class="jsdoc-title"> get</a>(index)
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Animation">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Animation" href="#Animation" class="itemtitle itemname">Animation</a></span>
+                    <span class="itemtitle light">(spriteSheet, initialState, animationSpecification)</span></h3>
+                <div>
+                    <p>An Animation is a gamejs.animate.SpriteSheet with an animation specification which
+explains what states the animation has and which tiles in the SpriteSheet compose
+those states.</p>
+
+An animation specification might look like this:
+<pre><code data-language="javascript" >  var npcAnimationSpec = {
+      idle: {frames: [0], rate: 5, loop: true},
+      moveup: {frames: [0,1,2,3,4,5,6,7,8], rate: rate, loop: true},
+      die: {frames: [18,19,20,21,22,23,24,25,26], rate: rate, loop: true},
+      ....
+  };</code></pre>
+
+<p>The keys in the npcAnimationSpec are the animation state names and each object
+is describing on such state: <code data-language="javascript" >frames</code> are the index positions of the tiles in the
+SpriteSheet making up that state. <code data-language="javascript" >rate</code> is the frequence per second at which the
+state should switch from tile to tile of the state and <code data-language="javascript" >loop</code> designates whether
+the state shold end or loop endlessly.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>gamejs.animate.SpriteSheet</td>
+                            <td class="paramname">spriteSheet</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">initialState</td>
+                            <td>name of the initital state</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">animationSpecification</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Animation.prototype.currentFrame">
+                <h3 >
+                    <span class="itemtitle">Animation.prototype.<a id="Animation.prototype.currentFrame" href="#Animation.prototype.currentFrame" class="itemtitle itemname">currentFrame</a></span>
+                    </h3>
+                <div>
+                    <p>The current tile surface of the animation. Draw this to the screen. *</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Animation.prototype.isFinished">
+                <h3 >
+                    <span class="itemtitle">Animation.prototype.<a id="Animation.prototype.isFinished" href="#Animation.prototype.isFinished" class="itemtitle itemname">isFinished</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Whether the animation has ended. Looping animations never end.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Animation.prototype.setState">
+                <h3 >
+                    <span class="itemtitle">Animation.prototype.<a id="Animation.prototype.setState" href="#Animation.prototype.setState" class="itemtitle itemname">setState</a></span>
+                    <span class="itemtitle light">(stateName)</span></h3>
+                <div>
+                    <p>Set the animation to the given state.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">stateName</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Animation.prototype.update">
+                <h3 >
+                    <span class="itemtitle">Animation.prototype.<a id="Animation.prototype.update" href="#Animation.prototype.update" class="itemtitle itemname">update</a></span>
+                    <span class="itemtitle light">(msDuration)</span></h3>
+                <div>
+                    <p>Call this function every tick to update the animation.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">msDuration</td>
+                            <td>since last tick</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Boolean</td>
+                            <td> whether animation image has changed during this update</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="SpriteSheet">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="SpriteSheet" href="#SpriteSheet" class="itemtitle itemname">SpriteSheet</a></span>
+                    <span class="itemtitle light">(image, options)</span></h3>
+                <div>
+                    <p>Turn a Surface into a SpriteSheet. This makes individual images ("tiles") within the
+larger Surface retrievable with the SpriteSheet's <code data-language="javascript" >get(indexPositon)</code> method.</p>
+
+<p>Available option properties are (width and height are required):</p>
+
+<ul><li><code data-language="javascript" >width</code> individual tile, number</li>
+<li><code data-language="javascript" >height</code> of individual tile, number</li>
+<li><code data-language="javascript" >spacing</code> between two tiles, number</li>
+<li><code data-language="javascript" >margin</code> at the image border without tiles, number</li>
+<li><code data-language="javascript" >scaleTo</code> [width,height] scale tiles to this size after loading
+*</li></ul>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Surface</td>
+                            <td class="paramname">image</td>
+                            <td>containing the individual tiles</td>
+                        </tr>
+                                                <tr>
+                            <td>Object</td>
+                            <td class="paramname">options</td>
+                            <td>describing the tile dimensions, size, spacing, etc. (see above)</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="SpriteSheet.prototype.get">
+                <h3 >
+                    <span class="itemtitle">SpriteSheet.prototype.<a id="SpriteSheet.prototype.get" href="#SpriteSheet.prototype.get" class="itemtitle itemname">get</a></span>
+                    <span class="itemtitle light">(index)</span></h3>
+                <div>
+                    <p>Retrieve the tile at given index position. The index position can be calculated as:
+index = column + row * rowLength</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">index</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Surface</td>
+                            <td> the tile surface</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+    
+            </div>
+
+        </article>
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<title>Como fazer um jogo em javascript com a tag canvas</title>
+<style>
+body{font-size:20px; padding:0px 10px; background-color:#eeeecc;}
+h2{font-family:Courier; background:#003434; border-radius:0px 14px 14px 0px; max-width:70vw; padding:10px 20px; color:#dddddd; margin-left:-20px;}
+pre{border:4px solid #003434; padding:10px 20px; margin-left:-20px; background-color:#ffffff; border-radius:12px;}
+a{color:#3333dd; text-decoration:none;}
+</style>
+</head>
+<body>
+<h1 style='font-family:Courier; text-align:right; margin-right:20px;'>Como fazer um jogo em javascript com o canvas</h1>
+<div style='margin-left:20px;'>
+<h2>O jogo pong</h2>
+Se vc quer jogar o jogo, ou ver como ficará depois que vc seguir o tutorial <a href="index.htm">acesse o jogo</a>
+<h2>Começando a programar</h2>
+Vamos começar criando um arquivo em branco chamado jogo.htm<br>
+Nesse arquivo vamos digitar o código:
+<pre>&lt;html&gt;
+&lt;body&gt;
+Daqui vai surgir o jogo
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<h2>Criando o elemento canvas</h2>
+Vamos apagar a frase e colocar o elemento canvas
+<pre>&lt;canvas&gt;&lt;/canvas&gt;
+</pre>
+<h2>Testando no navegador</h2>
+Se voce salvar o arquivo e clicar duas vezes sobre ele, o navegador irá exibir uma página em branco.<br>
+Mas o canvas está lá...<br>
+Para deixar ele visível vamos colocar uma borda:
+<pre>style='border:1px solid #4a4a4a;'
+</pre>
+<h2>Tamanho do canvas</h2>
+Pro jogo ficar do jeito que eu fiz vamos colocar o canvas no meio da tela e dar o tamanho 400x450px<br>
+(No canvas é preciso usar os atributos width e height direito no html ao invés de usar atributos css)<br>
+Já está começando a se parecer com o jogo que linkei
+<h2>Começando a desenhar</h2>
+O motivo que me levou a usar o elemento canvas é que ele possibilita desenhar na tela codificando... escrever 'desenhe uma linha azul;' ou 'desenhe um quadrado no canto'<br>
+Os primeiros jogos eletronicos eram em modo texto. Em seguida eram em blocos quadrados. Depois eram desenhados atraves de codificação... Depois vieram os bmp os gif os jpg... os 3d...<br>
+Mas esse jogo é da época do quadrado<br>
+E usa o canvas que é um elemento que emula um recurso inventado na época do 'desenhar com código'
+<h2>Desenhar no canvas</h2>
+Quando fiz esse jogo no canvas pela primeira vez em 2010 (aproximadamente) eu estava acompanhando o surgimento do html5 e li sobre o canvas e sobre como era possível desenhar nele. O jogo foi resultado de testes que começaram com a pergunta: 'Como eu desenho uma bola nesse canvas ?'<br>
+Eu pesquisei... em vários sites e tutoriais... inclusive no site do w3c e w3schools<br>
+Pra desenhar no canvas eu preciso de um 'context'<br>
+Pra isso eu dou um id pro canvas que criei... e uso javascript
+<pre>&lt;html&gt;
+&lt;body&gt;
+&lt;center&gt;
+&lt;canvas
+	width=400
+	height=450
+	style='border:1px solid #4a4a4a;'
+id=canvas&gt;&lt;/canvas&gt;
+&lt;/center&gt;
+&lt;script&gt;
+ctx=document.getElementById('canvas').getContext('2d');
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<h2>Um círculo</h2>
+Pra desenhar o círculo em vermelho dentro do canvas em preciso de algumas propriedades do 'context'... alguns métodos e atributos:<br>
+fillStyle<br>
+beginPath();<br>
+arc();<br>
+fill();
+<pre>ctx.fillStyle='#ff0000';
+ctx.beginPath();
+ctx.arc(50,125,16,0,Math.PI*2,false);
+ctx.fill();
+</pre>Recomendo que vc entenda esses parametros
+<h2>Fazendo a bolinha se mover</h2>
+Vamos usar a função setTimeout<br>
+Pegar esse código que desenha a bolinha e fazer ele ser executado a cada 10 milissegundos.<br>
+E mudar os dois primeiros parametros da função arc para variáveis x e y, e incrementar essas variáveis cada vez para a bolinha se mover<br>
+(por isso que eu sugeri que vc entendesse os parametros da função arc)
+<pre>x=30;
+y=15;
+function anda()
+{	x+=2;
+	y+=2;
+	ctx.fillStyle='#ff0000';
+	ctx.beginPath();
+	ctx.arc(x,y,16,0,Math.PI*2,false);
+	ctx.fill();
+	setTimeout('anda();',10);
+}
+anda();
+</pre>
+<h2>Apagando o rastro da bolinha</h2>
+<pre>	ctx.fillStyle='#ffffff';
+	ctx.fillRect(0,0,400,450);
+</pre>
+<h2>Fazendo a bolinha pingar nas paredes</h2>
+Pra isso vamos precisar de novas variáveis dx e dy que vão armazenar quanto a bolinha avança (ou retrocede) no eixos x e y<br>
+Vamos mudar o valor de dx e de dy quando a bolinha pingar na parede... quando ela chegar no chão o dx vai mudar de +2 para -2
+<pre>&lt;script&gt;
+ctx=document.getElementById('canvas').getContext('2d');
+x=20;
+y=200;
+tamanho=10;
+dx=2;
+dy=2;
+function anda()
+{	x+=dx;
+	y+=dy;
+	if(x&lt;tamanho)dx*=-1;
+	if(y&lt;tamanho)dy*=-1;
+	if(x&gt;400-tamanho)dx*=-1;
+	if(y&gt;450-tamanho)dy*=-1;
+	ctx.fillStyle='#ffffff';
+	ctx.fillRect(0,0,400,450);
+	ctx.fillStyle='#ff0000';
+	ctx.beginPath();
+	ctx.arc(x,y,tamanho,0,Math.PI*2,false);
+	ctx.fill();
+	setTimeout('anda();',10);
+}
+anda();
+&lt;/script&gt;
+</pre>
+<h2>Desenhando a barra</h2>
+<pre>barrax=150;
+</pre>
+<pre>	ctx.fillStyle='#000000';
+	ctx.fillRect(barrax,430,100,20);
+</pre>
+<h2>Fazendo a barra se mover</h2>
+Pra fazer a barra se mover vamos usar o atributo onKeyDown da tag body
+<pre>&lt;body onkeyDown='movebarra(event.which);'&gt;
+</pre>E vamos escrever a função movebarra<br>
+Inicialmente vamos por um alert pra identificar o código de cada tecla
+<pre>function movebarra(tecla)
+{	alert(tecla);
+}
+</pre>E agora vamos fazer a barra se mover
+<pre>function movebarra(tecla)
+{	//alert(tecla);
+	if(tecla==37)barrax-=40;
+	if(tecla==39)barrax+=40;
+}
+</pre>
+<h2>Fazendo a bola pingar na barra</h2>
+Quando a bola acertar a barra a bola deve voltar a subir... E dependendo de que parte da barra a bola acertar a bola deve voltar em um certo ângulo<br>
+Vamos modificar a função anda
+<pre>	if(y&lt;450-tamanho)setTimeout('anda();',10);
+	else alert('Fim de jogo');
+</pre>
+<pre>	if(y&gt;430-tamanho)
+	{	var dif=x-barrax;
+		if(dif&gt;-10&amp;&amp;dif&lt;110)
+		{	dy*=-1;
+			if(dif&gt;-10&amp;&amp;dif&lt;15)dx=-3;
+			if(dif&gt;=15&amp;&amp;dif&lt;50)dx=-2;
+			if(dif&gt;=50&amp;&amp;dif&lt;85)dx=2;
+			if(dif&gt;=85&amp;&amp;dif&lt;110)dx=3;
+			y=430-tamanho;
+		}
+	}
+</pre>
+<h2>Desenhando um bloquinho</h2>
+Pra começar vamos apenas desenhar um bloquinho.<br>
+Vamos criar uma variável bloco que será um array com três índices:<br>
+<li>A posição x do bloco</li>
+<li>A posição y</li>
+<li>Se o bloco deve ser exibido (começa com true e fica false assim que a bola atingir)</li>
+<pre>bloco=[10,20,true];
+</pre>
+<pre>	if(bloco[2])
+	{	ctx.fillStyle='#0000ff';
+		ctx.fillRect(bloco[0],bloco[1],50,20);
+	}
+</pre>
+<h2>Fazendo a bolinha pingar e o bloco desaparecer</h2>
+<pre>	if(bloco[2])
+	{	var dif=y-bloco[1]-tamanho;
+		if((dy&lt;0&amp;&amp;(dif&gt;0&amp;&amp;dif&lt;20))||(dy&gt;0&amp;&amp;(dif&lt;0&amp;&amp;dif&gt;-20)))
+		{	if(x&gt;bloco[0]&amp;&amp;x&lt;bloco[0]+50)
+			{	dy*=-1;
+				bloco[2]=false;
+			}
+		}
+	}
+</pre>
+<h2>Fazer funcionar com vários blocos</h2>
+Por enquanto fizemos o jogo funcionar com um bloco<br>
+Vamos transformar em um array de blocos<br>
+Vários blocos<br>
+Vamos colocar antes da declaração do x=20 e y=200 esse trecho de código que inicializa o array de blocos:
+<pre>blocos=[];
+for(i=0;i&lt;8;i++)for(j=0;j&lt;5;j++)blocos.push([i*50,j*20,true]);
+</pre>E vamos 'refatorar' o código... transformar todas a ocorrencias de bloco em blocos[indice]:
+<pre>	for(c=0;c&lt;blocos.length;c++)if(blocos[c][2])
+	{	var dif=y-blocos[c][1]-tamanho;
+		if((dy&lt;0&amp;&amp;(dif&gt;0&amp;&amp;dif&lt;20))||(dy&gt;0&amp;&amp;(dif&lt;0&amp;&amp;dif&gt;-20)))
+		{	if(x&gt;blocos[c][0]&amp;&amp;x&lt;blocos[c][0]+50)
+			{	blocos[c][2]=false;
+				dy*=-1;
+			}
+		}
+	}
+</pre>
+<pre>	for(c=0;c&lt;blocos.length;c++)if(blocos[c][2])
+	{	ctx.fillStyle='#0000ff';
+		ctx.fillRect(blocos[c][0],blocos[c][1],50,20);
+	}
+</pre>
+</div>
+rodrigo.source55@gmail.com<br>
+https://otofonte.github.io/vitrine
+</body>
+</html>

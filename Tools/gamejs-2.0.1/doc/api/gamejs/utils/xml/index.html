@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>gamejs/utils/xml - GameJs API</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="revisit-after" content="1 days"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta http-equiv="cleartype" content="on"/>
+    <link rel="stylesheet" href="../../..//css/syntax.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../..//css/main.css" rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../../../static/jsdoc.css" />
+    <link rel="stylesheet" href="../../../static/style.css" />
+    <script type="text/javascript" src="../../../static/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../static/jsdoc.js"></script>
+
+    <link href="../../../static/rainbow/themes/pastie.css" rel="stylesheet" type="text/css">
+    <script src="../../../static/rainbow/rainbow.min.js"></script>
+    <script src="../../../static/rainbow/language/generic.js"></script>
+    <script src="../../../static/rainbow/language/javascript.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="module color1">
+            <h1><a href="http://gamejs.org">GameJs.org</a></h1>
+        </div>
+
+        <nav class="module color4">
+            <h2><a href="http://docs.gamejs.org">API Reference</a></h2>
+            <nav class="jsdoc">
+                <div class="jsdocSidenav">
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../../gamejs/index.html">gamejs</a></li>
+            <li><a href="../../../gamejs/animate/index.html">gamejs/animate</a></li>
+            <li><a href="../../../gamejs/audio/index.html">gamejs/audio</a></li>
+            <li><a href="../../../gamejs/display/index.html">gamejs/display</a></li>
+            <li><a href="../../../gamejs/event/index.html">gamejs/event</a></li>
+            <li><a href="../../../gamejs/font/index.html">gamejs/font</a></li>
+            <li><a href="../../../gamejs/graphics/index.html">gamejs/graphics</a></li>
+            <li><a href="../../../gamejs/http/index.html">gamejs/http</a></li>
+            <li><a href="../../../gamejs/image/index.html">gamejs/image</a></li>
+            <li><a href="../../../gamejs/logging/index.html">gamejs/logging</a></li>
+            <li><a href="../../../gamejs/pathfinding/index.html">gamejs/pathfinding</a></li>
+            <li><a href="../../../gamejs/pixelcollision/index.html">gamejs/pixelcollision</a></li>
+            <li><a href="../../../gamejs/thread/index.html">gamejs/thread</a></li>
+            <li><a href="../../../gamejs/tiledmap/index.html">gamejs/tiledmap</a></li>
+            <li><a href="../../../gamejs/time/index.html">gamejs/time</a></li>
+            <li><a href="../../../gamejs/math/angles/index.html">gamejs/math/angles</a></li>
+            <li><a href="../../../gamejs/math/binaryheap/index.html">gamejs/math/binaryheap</a></li>
+            <li><a href="../../../gamejs/math/matrix/index.html">gamejs/math/matrix</a></li>
+            <li><a href="../../../gamejs/math/noise/index.html">gamejs/math/noise</a></li>
+            <li><a href="../../../gamejs/math/random/index.html">gamejs/math/random</a></li>
+            <li><a href="../../../gamejs/math/vectors/index.html">gamejs/math/vectors</a></li>
+            <li><a href="../../../gamejs/utils/arrays/index.html">gamejs/utils/arrays</a></li>
+            <li><a href="../../../gamejs/utils/base64/index.html">gamejs/utils/base64</a></li>
+            <li><a href="../../../gamejs/utils/callback/index.html">gamejs/utils/callback</a></li>
+            <li><a href="../../../gamejs/utils/objects/index.html">gamejs/utils/objects</a></li>
+            <li><a href="../../../gamejs/utils/strings/index.html">gamejs/utils/strings</a></li>
+            <li><a href="../../../gamejs/utils/uri/index.html">gamejs/utils/uri</a></li>
+            <li><a href="../../../gamejs/utils/xml/index.html">gamejs/utils/xml</a></li>
+      </ul>
+</div>
+
+            </nav>
+        </nav>
+
+    </header>
+
+
+    <div class="main-content">
+        <article class="color3 module">
+
+            <div class="content jsdoc">
+            
+            <h1 class="modulename">gamejs/utils/xml</h1>
+        <div class="fileoverview">
+            <p>Provides facilities for parsing a xml String.</p>
+
+<p>You will typically get a <code data-language="javascript" >gamejs.xml.Document</code> instance
+by loading the data with one of the two static
+<code data-language="javascript" >Document.fromString(string)</code> or <code data-language="javascript" >Document.fromUrl(url)</code>.
+Querying for <code data-language="javascript" >elements(name)</code> or <code data-language="javascript" >children()</code> will return a
+new <code data-language="javascript" >gamejs.xml.Document</code> matching your result (or null).</p>
+
+<p>Use <code data-language="javascript" >attributes(name)</code> and <code data-language="javascript" >value()</code> to get the data stored
+in the XML Document.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+            <div class="classes">
+                                <h2>Class <a href="#Document" class="jsdoc-title">Document</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Document.prototype.attribute" class="jsdoc-title"> attribute</a>(name)
+                    </li>
+                                        <li>
+                        <a href="#Document.prototype.children" class="jsdoc-title"> children</a>()
+                    </li>
+                                        <li>
+                        <a href="#Document.prototype.element" class="jsdoc-title"> element</a>(name)
+                    </li>
+                                        <li>
+                        <a href="#Document.prototype.elements" class="jsdoc-title"> elements</a>(name)
+                    </li>
+                                        <li>
+                        <a href="#Document.prototype.value" class="jsdoc-title"> value</a>()
+                    </li>
+                    </ul>
+                                <h3>Static Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Document.fromString" class="jsdoc-title"> fromString</a>(xmlString)
+                    </li>
+                                        <li>
+                        <a href="#Document.fromURL" class="jsdoc-title"> fromURL</a>(url)
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#Parser" class="jsdoc-title">Parser</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Parser.prototype.parseFromString" class="jsdoc-title"> parseFromString</a>(xmlString)
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Document">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Document" href="#Document" class="itemtitle itemname">Document</a></span>
+                    <span class="itemtitle light">(xmlDocument)</span></h3>
+                <div>
+                    <p>Instantiate with the static functions <code data-language="javascript" >Document.fromString()</code> and <code data-language="javascript" >fromURL()</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">xmlDocument</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Document.fromString">
+                <h3 >
+                    <span class="itemtitle">Document.<a id="Document.fromString" href="#Document.fromString" class="itemtitle itemname">fromString</a></span>
+                    <span class="itemtitle light">(xmlString)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">xmlString</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>gamejs.xml.Document</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Document.fromURL">
+                <h3 >
+                    <span class="itemtitle">Document.<a id="Document.fromURL" href="#Document.fromURL" class="itemtitle itemname">fromURL</a></span>
+                    <span class="itemtitle light">(url)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">url</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>gamejs.xml.Document</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Document.prototype.attribute">
+                <h3 >
+                    <span class="itemtitle">Document.prototype.<a id="Document.prototype.attribute" href="#Document.prototype.attribute" class="itemtitle itemname">attribute</a></span>
+                    <span class="itemtitle light">(name)</span></h3>
+                <div>
+                    <p>Returns the attribute value of this document.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">name</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>String</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Document.prototype.children">
+                <h3 >
+                    <span class="itemtitle">Document.prototype.<a id="Document.prototype.children" href="#Document.prototype.children" class="itemtitle itemname">children</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Returns all children of this xml document</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Array of gamejs.xml.Document</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Document.prototype.element">
+                <h3 >
+                    <span class="itemtitle">Document.prototype.<a id="Document.prototype.element" href="#Document.prototype.element" class="itemtitle itemname">element</a></span>
+                    <span class="itemtitle light">(name)</span></h3>
+                <div>
+                    <p>Returns the first element in the current document whose tag-name matches
+the given 'name'.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">name</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>gamejs.xml.Document</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Document.prototype.elements">
+                <h3 >
+                    <span class="itemtitle">Document.prototype.<a id="Document.prototype.elements" href="#Document.prototype.elements" class="itemtitle itemname">elements</a></span>
+                    <span class="itemtitle light">(name)</span></h3>
+                <div>
+                    <p>Returns all elements in the current document whose tag-name matches
+the given 'name'.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">name</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>an Array of gamejs.xml.Document</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Document.prototype.value">
+                <h3 >
+                    <span class="itemtitle">Document.prototype.<a id="Document.prototype.value" href="#Document.prototype.value" class="itemtitle itemname">value</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>Returns the nodevalue of the current xml document</p>
+
+
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>String</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Parser">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Parser" href="#Parser" class="itemtitle itemname">Parser</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>XMLParser</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Parser.prototype.parseFromString">
+                <h3 >
+                    <span class="itemtitle">Parser.prototype.<a id="Parser.prototype.parseFromString" href="#Parser.prototype.parseFromString" class="itemtitle itemname">parseFromString</a></span>
+                    <span class="itemtitle light">(xmlString)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">xmlString</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+            </div>
+    
+            </div>
+
+        </article>
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+# Created by .ignore support plugin (hsz.mobi)
+.DS_Store
+
+# project files
+.vscode/
+.idea/
+.github/
+out
+gen
+
+# modules
+node_modules/
+bower_components/
+*.log
+
+#build
+.travis.yml
+
+#dev
+.git/
+sample/
+test/
+.jshintrc
+.jshintignore
+karma.conf.js
+bower.json
+webpack.*.js
+tsconfig.json
+package-lock.json

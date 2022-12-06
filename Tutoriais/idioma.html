@@ -1,0 +1,22 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+var lang = window.navigator.languages ? window.navigator.languages[0] : null;
+    lang = lang || window.navigator.language || window.navigator.browserLanguage || window.navigator.userLanguage;
+if (lang.indexOf('-') !== -1)
+    lang = lang.split('-')[0];
+
+if (lang.indexOf('_') !== -1)
+    lang = lang.split('_')[0];      
+</script>
+
+<script>
+var language = window.navigator.userLanguage || window.navigator.language;
+
+if(language == "pt-BR"){
+document.write("<h1>Texto em português.</h1><br><p><a href=\"http://ribafs.org/cakephp/cake-control-pt\">Acesse o demo do plugin</a></p>");
+//document.getElementById("pt").innerHTML = navigator.language;
+}else{
+document.write("<h1>Text in English.</h1><br><p><a href=\"http://ribafs.org/cakephp/cake-control-en\">Access the demo plugin</a></p>");
+}
+
+</script>

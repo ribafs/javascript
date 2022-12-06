@@ -1,0 +1,98 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <script src="../jaws.js"></script>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <title>Jaws Example #1 - Sprite(), pressed(), basic game loop</title>
+  </head>
+<body>
+
+  <canvas width=500 height=300></canvas>
+  FPS: <span id="fps"></span>. Move with arrow keys.
+
+  <span id="info"></span>
+
+  <div id="info">
+    <h1>Basic example</h1>
+    An basic example jaws. Loading jaws.js via normal script-tag we can call jaws.start() without windows.onload / jaws.onload.
+    We make our own canvas, instead of having jaws generate one (or several) for us.
+    We get the canvas-tag from the DOM, fetch its context and send it to Sprite.
+    If you for some reason want to have your own canvas tag this is the way to do it.
+    Add "?debug=1" to the URL and jaws will create a small window with debuginfo: 
+    <a href="example1.html?debug=1">Switch to debug mode</a> | <a href="example1.html">Remove debug window</a>
+  </div>
+ 
+  <script>
+    var player
+    var canvas
+    var context
+    var info_tag
+    var bullets
+    var fps
+
+    /* step0. set everything up, load sprites etc. */
+    function setup() {
+      bullets = new jaws.SpriteList()
+      fps = document.getElementById("fps")
+      info_tag = document.getElementsByTagName('info')
+
+      canvas = document.getElementsByTagName('canvas')[0]
+      context = canvas.getContext('2d');
+
+      player = new jaws.Sprite({image: "plane.png", x: 10, y:100, context: context})
+      jaws.on_keydown("esc", setup)
+      jaws.preventDefaultKeys(["up", "down", "left", "right", "space"])
+    }
+    
+    /* step1. execute the game logic */
+    function update() {
+      if(jaws.pressed("left"))  { player.x -= 2 }
+      if(jaws.pressed("right")) { player.x += 2 }
+      if(jaws.pressed("up"))    { player.y -= 2 }
+      if(jaws.pressed("down"))  { player.y += 2 }
+      if(jaws.pressed("space")) {
+        bullets.push( new Bullet(player.rect().right, player.y+13) )
+      }
+      forceInsideCanvas(player)
+      bullets.removeIf(isOutsideCanvas)
+    }
+    
+    /* step2. draw the update state on screen */
+    function draw() {
+      jaws.clear()        // Same as: context.clearRect(0,0,jaws.width,jaws.height)
+       
+      player.draw()
+      bullets.draw()  // will call draw() on all items in the list
+
+      info_tag.innerHTML = "FPS: " + jaws.game_loop.fps + " Player position: " + player.x + "/" + player.y + ". W/H: " + canvas.width + "/" + canvas.height
+      fps.innerHTML = jaws.game_loop.fps
+    }
+    
+    /* 2 functions that will help us remove bullets outside the canvas + keep the plane within the canvas. */
+    function isOutsideCanvas(item) { return (item.x < 0 || item.y < 0 || item.x > canvas.width || item.y > canvas.height) }
+    function forceInsideCanvas(item) {
+      if(item.x < 0)                    { item.x = 0  }
+      if(item.x + item.width > canvas.width)     { item.x = canvas.width - item.width }
+      if(item.y < 0)                    { item.y = 0 }
+      if(item.y + item.height  > canvas.height)  { item.y = canvas.height - item.height }
+    }
+
+    /* Our simple bullet class, basically a circle with a position (x/y) */
+    function Bullet(x, y) {
+      this.x = x
+      this.y = y
+      this.draw = function() {
+        this.x += 4
+        context.beginPath();
+        context.arc(this.x, this.y, 4, 0, Math.PI*2, true); 
+        context.stroke();
+      }
+    }
+
+    jaws.assets.add("plane.png")
+    jaws.start()  // Per default this will load assets, call setup(), then loop update() and draw() in 60 FPS.
+  </script>
+
+</body>
+</html>
+

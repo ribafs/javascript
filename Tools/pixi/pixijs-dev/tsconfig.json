@@ -1,0 +1,49 @@
+{
+    "compilerOptions": {
+        "target": "es2020",
+        "allowJs": false,
+        "sourceMap": true,
+        "removeComments": false,
+        "strict": true,
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "strictNullChecks": false,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "downlevelIteration": true,
+        "baseUrl": "./",
+        "paths": {
+            "@pixi/*": [
+                "packages/*/src"
+            ],
+            "pixi.js": [
+                "bundles/pixi.js/src"
+            ],
+            "pixi.js-legacy": [
+                "bundles/pixi.js-legacy/src"
+            ],
+            "@pixi/node": [
+                "bundles/pixi.js-node/src"
+            ],
+            "@pixi/webworker": [
+                "bundles/pixi.js-webworker/src"
+            ]
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "**/dist/**",
+        "**/lib/**",
+        "bundles/**/*.d.ts",
+        "**/out/**"
+    ],
+    "ts-node": {
+        "files": true,
+        "compilerOptions": {
+            "esModuleInterop": true
+        }
+    }
+}

@@ -1,0 +1,215 @@
+<html>
+<style>A {color: #3366cc; font-size: 12pt}
+       H4 {color: #3366cc; font-size: 14pt}
+       P {color: #3366cc; font-size: 12pt}
+       DIV {color: #3366cc; font-size: 12pt}</style>
+<body>
+    <H4 align="center">Simple Chess Game Program: Tiger and Bull</H4>
+<hr size="2" width="625" align="center" color="#3366cc">
+<div align="center"><p style="width: 600"><b>
+  &nbsp;&nbsp;&nbsp; <a href="chessgame.html" target="_self">
+  (1). Start a New Game</a> &nbsp;&nbsp;&nbsp;
+  <a href="javascript:movehelp();" class="main0">(2). Help on the Moving</a> &nbsp;&nbsp;&nbsp;
+  <a href="javascript:attackhelp();" class="main0">(3). Help on the Attack</a> &nbsp;&nbsp;&nbsp;
+  </b></p></div><form name="cform">
+<table align="center" border="0" width="540" cellspacing="20" bgcolor="#CC6666" cellpadding="2">
+  <tr>
+    <td width="100%" bgcolor="#FFFFFF">
+<table border="0" width="480" height="475" bgcolor="#CC6666">
+<tr>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="A0" src="bull.jpg" onMouseDown='selected(100, value4)'></td>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="A1" src="bull.jpg" onMouseDown='selected(101, value4)'></td>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="A2" src="bull.jpg" onMouseDown='selected(102, value4)'></td>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="A3" src="bull.jpg" onMouseDown='selected(103, value4)'></td>
+</tr>
+<tr>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="B0" src="bull.jpg" onMouseDown='selected(110, value4)'></td>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="B1" src="bull.jpg" onMouseDown='selected(111, value4)'></td>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="B2" src="bull.jpg" onMouseDown='selected(112, value4)'></td>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="B3" src="bull.jpg" onMouseDown='selected(113, value4)'></td>
+</tr>
+<tr>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="C0" src="blank.jpg" onMouseDown='selected(120, value4)'></td>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="C1" src="blank.jpg" onMouseDown='selected(121, value4)'></td>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="C2" src="blank.jpg" onMouseDown='selected(122, value4)'></td>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="C3" src="blank.jpg" onMouseDown='selected(123, value4)'></td>
+</tr>
+<tr>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="D0" src="blank.jpg" onMouseDown='selected(130, value4)'></td>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="D1" src="blank.jpg" onMouseDown='selected(131, value4)'></td>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="D2" src="blank.jpg" onMouseDown='selected(132, value4)'></td>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="D3" src="blank.jpg" onMouseDown='selected(133, value4)'></td>
+</tr>
+<tr>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="E0" src="blank.jpg" onMouseDown='selected(140, value4)'></td>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="E1" src="tiger.jpg" onMouseDown='selected(141, value4)'></td>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="E2" src="tiger.jpg" onMouseDown='selected(142, value4)'></td>
+<td width="120" height="95" bgcolor="#FFFFFF">
+<img border="0" name="E3" src="blank.jpg" onMouseDown='selected(143, value4)'></td>
+</tr></table></td>
+</tr></table></form>
+<div align="center"><p align="left" style="width: 600">
+<BR><b>(4). Rules on Winning: </b>If the Tiger chessmen have killed all the Bull chessmen, then the 
+  Tiger chessmen win; or the Bull chessmen have made all the Tiger chessmen not able to move 
+  anywhere, then the Bull chessmen win. &nbsp;&nbsp;&nbsp;
+  </p></div><hr size="2" width="625" align="center" color="#3366cc">
+<center><BR>
+  <div align="center"><a href="../program/chessgame1.zip" target="_blank" class="main0">
+  <b>Download Game v1.0</b></a>
+<span style="width: 25"></span><a href="../program/chessgame2.zip" target="_blank" 
+  class="main0"><b>Download Game v2.0</b></a>
+<span style="width: 25"></span><a href="../scgame/~chess.php?demo=1" target="_blank" 
+  class="main0"><b>Demo Slideshow A</b></a>
+<span style="width: 25"></span><a href="../scgame/~chess.php?demo=2" target="_blank" 
+  class="main0"><b>Demo Slideshow B</b></a>
+</div><BR></center>
+<div align="center" style="font-size: 10pt">Free Script Program Provided by 
+<a href="http://www.ozwebsite.com">Ozwebsite.com</a></div>
+<!-- These free codes are distributed on: http://www.ozwebsite.com/ -->
+<script language="JavaScript"><!-- Start
+boxs = new Array; var value1 = "tiger.jpg", value2 = 0, value4 = "ready"; 
+boxs[100] =document.A0;
+boxs[101] =document.A1;
+boxs[102] =document.A2;
+boxs[103] =document.A3;
+boxs[110] =document.B0;
+boxs[111] =document.B1;
+boxs[112] =document.B2;
+boxs[113] =document.B3;
+boxs[120] =document.C0;
+boxs[121] =document.C1;
+boxs[122] =document.C2;
+boxs[123] =document.C3;
+boxs[130] =document.D0;
+boxs[131] =document.D1;
+boxs[132] =document.D2;
+boxs[133] =document.D3;
+boxs[140] =document.E0;
+boxs[141] =document.E1;
+boxs[142] =document.E2;
+boxs[143] =document.E3;
+load_img1 = new Image();
+load_img2 = new Image();
+load_img1.src = "tiger_x.jpg";
+load_img2.src = "bull_x.jpg";
+function selected(var_k, var_num) { 
+  if (var_num == "ready") {
+    if (checksrc(boxs[var_k].src, value1)) { 
+      boxs[var_k].src = altersrc(boxs[var_k].src); 
+      value2 = var_k; value4 = "move"; 
+    } else { movehelp(); } 
+  } else if (var_num == "move") {
+    if (movable(var_k)) {
+      boxs[var_k].src = value1; 
+      value1 = alterplay(value1); 
+      boxs[value2].src = "blank.jpg"; 
+      value4 = "ready"; 
+    } else if (checksrc(boxs[var_k].src, value1)) {
+      boxs[value2].src = value1; 
+      selected(var_k, "ready"); 
+    } else { movehelp(); }
+  }
+}
+function movable(var_k) { 
+  var step = var_k - value2; step *= step; 
+  if (step == 100 || step == 1) {
+    if (value1 == "bull.jpg" && value2 == var_k + 10) 
+    { return 0; } 
+    if (altersrc(boxs[var_k].src) == "blank.jpg") 
+    { return 1; } 
+  } else if (step == 400 || step == 4) {
+    if (value1 == "tiger.jpg" && 
+        altersrc(boxs[var_k].src) == "bull_x.jpg") {
+      var halfsrc = boxs[(var_k + value2) / 2].src; 
+      if (altersrc(halfsrc) == "blank.jpg") { return 2; } 
+    } 
+  } else { return 0; } 
+}
+function alterplay(var_src) { 
+  if (checksrc(var_src, "tiger.jpg")) {
+    return "bull.jpg"; 
+  } else if (checksrc(var_src, "bull.jpg")) {
+    return "tiger.jpg"; 
+  } else { return "blank.jpg"; } 
+}
+function altersrc(var_src) { 
+  if (checksrc(var_src, "tiger.jpg")) { return "tiger_x.jpg"; } else 
+  if (checksrc(var_src, "bull.jpg")) { return "bull_x.jpg"; }
+  else { return "blank.jpg"; } 
+}
+function checksrc(var_src, var_text) { 
+  var snum = var_src.length; 
+  var src_text = var_src.substring(snum - var_text.length, snum); 
+  if (src_text == var_text) { return 1 } else { return 0 } 
+}
+function attackhelp() { 
+  var rulestext1 = ""; 
+  rulestext1 += "1. A Tiger chessman can kill " + 
+  "a Bull chessman by jumping over a blank grid."; 
+  rulestext1 += "\n2. But a Tiger chessman " + 
+  "cannot kill any chessman when it is at the next grid."; 
+  alert(rulestext1); 
+}
+function movehelp() { 
+  var rulestext2 = "",  rulestext3 = ""; 
+  if (value4 == "ready") { 
+    if (value1 == "tiger.jpg"){ 
+      rulestext2 += "Tiger chessman can move now; "; 
+    } else if (value1 == "bull.jpg"){ 
+      rulestext2 += "Bull chessman can move now; "; 
+    } 
+    rulestext2 += "Please select a chessman you want to move. "; 
+    alert(rulestext2); 
+  } else if (value4 == "move") {
+    rulestext2 += "You can move this chessman: ";  
+    for (var i=0; i<5; i++) {
+      for (var j=0; j<4; j++) {
+        rulestext2 += teststep(i * 10 + j + 100, 1); 
+      } 
+    } 
+    if (rulestext2 == "You can move this chessman: ") {
+      rulestext2 = "Sorry, you can not move this chessman ";
+    } else { rulestext2 += "to next grid " } 
+    rulestext3 += "or jump over: ";  
+    for (var i=0; i<5; i++) {
+      for (var j=0; j<4; j++) {
+        rulestext3 += teststep(i * 10 + j + 100, 2); 
+      } 
+    } 
+    if (rulestext3 != "or jump over: ") {
+      rulestext2 += rulestext3 + "by two grids ";
+    } 
+    alert(rulestext2 + "from its place at present."); 
+  }
+}
+function teststep(var_k, mv_num) { 
+  var steptext = ""; 
+  if (movable(var_k)) {
+    if (var_k - value2 == 1 * mv_num) { steptext += "right; "; }
+    if (var_k - value2 == -1 * mv_num) { steptext += "left; "; }
+    if (var_k - value2 == 10 * mv_num) { steptext += "down; "; }
+    if (var_k - value2 == -10 * mv_num) { steptext += "up; "; }
+  } 
+  return steptext; 
+}
+// END / Many more are available free online --></SCRIPT>
+</body></html>

@@ -1,0 +1,45 @@
+<style>
+    
+    html,body { margin:0; padding:0; height:100%; }
+    
+    #container { min-height:100%; position:relative;}
+
+    #header { background:#ff0; padding:10px; }
+   
+    #body { padding:10px; padding-bottom:60px; }
+   
+    #footer { position:absolute; bottom:0; left:0; right:0; z-index:999; width:100%; height:auto;
+              background:#6cf; padding-bottom:5vw;}
+    
+	/* CSS / Footer / Rodapé da Página */
+	.footer-relative { background: #ffab62; width:100%; height:auto; top:0; bottom:0; left:0; position:relative;}
+
+    /* A sticky footer always stays on the bottom of the page regardless of how little 
+	   content is on the page. However, this footer will be pushed down if there is a
+	   lot of content, so it is different from a fixed footer. */
+		   
+	.footer-fixed { position: fixed; width:100%; height:40px; min-height: 10%; 
+		            left: 0; bottom: 0; background-color: red; color: white; 
+					text-align: center; border-top: 1px solid #333; }
+		
+    /* Sticky Element: Scroll Down to See the Effect */		
+    .footer-sticky { width:100%; height:100%; display: flex; position: sticky; 
+		             left: 0; top:0; bottom: 0; width: 100%; background-color: red; 
+				     color: white; text-align: center; position: -webkit-sticky; }
+				
+    .footer-aside { width:200px; }
+		
+    .footer-left { float:left; }
+		
+    .footer-right { float:right; }
+		
+    .footer-main { flex: 1 0 auto;}
+		
+    /** Altura do rodapé tem que ser igual a isso aqui e vice-versa **/
+    .footer-body { display: flex; min-height: 100vh; flex-direction: column; 
+		           padding-bottom: 100px; overflow:hidden;}
+         
+    /* CSS / Footer Wrapper = Footer Centering the page */
+    .footer-wrapper { margin:0; padding:0; width:100%; height:auto; position:relative; }
+
+</style>

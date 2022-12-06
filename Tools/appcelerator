@@ -1,0 +1,28 @@
+sudo npm install appcelerator -g
+
+appc setup
+
+Escolher a versão
+
+appc use
+
+
+Allow - The Alloy Command-Line Interface (CLI) is a command-line tool for managing and building Alloy projects.
+
+sudo npm install -g alloy
+
+alloy new [<project_path>] [<project_template>] [--force] [--no-colors]
+
+Criar allow projeto
+
+appc alloy new [dir] [options]
+
+alloy compile [<project_path>] [--config <compiler_options>] [--no-colors]
+
+npm install titanium -g
+
+titanium sdk install --branch master --default
+
+titanium setup
+
+

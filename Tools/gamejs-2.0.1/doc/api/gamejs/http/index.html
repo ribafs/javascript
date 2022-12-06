@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>gamejs/http - GameJs API</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="revisit-after" content="1 days"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta http-equiv="cleartype" content="on"/>
+    <link rel="stylesheet" href="../..//css/syntax.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../..//css/main.css" rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../../static/jsdoc.css" />
+    <link rel="stylesheet" href="../../static/style.css" />
+    <script type="text/javascript" src="../../static/jquery.min.js"></script>
+    <script type="text/javascript" src="../../static/jsdoc.js"></script>
+
+    <link href="../../static/rainbow/themes/pastie.css" rel="stylesheet" type="text/css">
+    <script src="../../static/rainbow/rainbow.min.js"></script>
+    <script src="../../static/rainbow/language/generic.js"></script>
+    <script src="../../static/rainbow/language/javascript.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="module color1">
+            <h1><a href="http://gamejs.org">GameJs.org</a></h1>
+        </div>
+
+        <nav class="module color4">
+            <h2><a href="http://docs.gamejs.org">API Reference</a></h2>
+            <nav class="jsdoc">
+                <div class="jsdocSidenav">
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../gamejs/index.html">gamejs</a></li>
+            <li><a href="../../gamejs/animate/index.html">gamejs/animate</a></li>
+            <li><a href="../../gamejs/audio/index.html">gamejs/audio</a></li>
+            <li><a href="../../gamejs/display/index.html">gamejs/display</a></li>
+            <li><a href="../../gamejs/event/index.html">gamejs/event</a></li>
+            <li><a href="../../gamejs/font/index.html">gamejs/font</a></li>
+            <li><a href="../../gamejs/graphics/index.html">gamejs/graphics</a></li>
+            <li><a href="../../gamejs/http/index.html">gamejs/http</a></li>
+            <li><a href="../../gamejs/image/index.html">gamejs/image</a></li>
+            <li><a href="../../gamejs/logging/index.html">gamejs/logging</a></li>
+            <li><a href="../../gamejs/pathfinding/index.html">gamejs/pathfinding</a></li>
+            <li><a href="../../gamejs/pixelcollision/index.html">gamejs/pixelcollision</a></li>
+            <li><a href="../../gamejs/thread/index.html">gamejs/thread</a></li>
+            <li><a href="../../gamejs/tiledmap/index.html">gamejs/tiledmap</a></li>
+            <li><a href="../../gamejs/time/index.html">gamejs/time</a></li>
+            <li><a href="../../gamejs/math/angles/index.html">gamejs/math/angles</a></li>
+            <li><a href="../../gamejs/math/binaryheap/index.html">gamejs/math/binaryheap</a></li>
+            <li><a href="../../gamejs/math/matrix/index.html">gamejs/math/matrix</a></li>
+            <li><a href="../../gamejs/math/noise/index.html">gamejs/math/noise</a></li>
+            <li><a href="../../gamejs/math/random/index.html">gamejs/math/random</a></li>
+            <li><a href="../../gamejs/math/vectors/index.html">gamejs/math/vectors</a></li>
+            <li><a href="../../gamejs/utils/arrays/index.html">gamejs/utils/arrays</a></li>
+            <li><a href="../../gamejs/utils/base64/index.html">gamejs/utils/base64</a></li>
+            <li><a href="../../gamejs/utils/callback/index.html">gamejs/utils/callback</a></li>
+            <li><a href="../../gamejs/utils/objects/index.html">gamejs/utils/objects</a></li>
+            <li><a href="../../gamejs/utils/strings/index.html">gamejs/utils/strings</a></li>
+            <li><a href="../../gamejs/utils/uri/index.html">gamejs/utils/uri</a></li>
+            <li><a href="../../gamejs/utils/xml/index.html">gamejs/utils/xml</a></li>
+      </ul>
+</div>
+
+            </nav>
+        </nav>
+
+    </header>
+
+
+    <div class="main-content">
+        <article class="color3 module">
+
+            <div class="content jsdoc">
+            
+            <h1 class="modulename">gamejs/http</h1>
+        <div class="fileoverview">
+            <p>Make synchronous http requests to your game's serverside component.</p>
+
+<p>If you configure a ajax base URL you can make http requests to your
+server using those functions.
+The most high-level functions are <code data-language="javascript" >load()</code> and <code data-language="javascript" >save()</code> which take
+and return a JavaScript object, which they will send to / recieve from
+the server-side in JSON format.</p>
+
+
+        </div>
+
+        <div class="classoverview">
+
+                        <h2 class="functions">Functions</h2>
+            <ul class="functions propertyoverview">
+                                <li>
+                    <a href="#ajax" class="jsdoc-title"> ajax</a>(method, url, data, type)
+                </li>
+                                <li>
+                    <a href="#get" class="jsdoc-title"> get</a>(url)
+                </li>
+                                <li>
+                    <a href="#load" class="jsdoc-title"> load</a>(url)
+                </li>
+                                <li>
+                    <a href="#post" class="jsdoc-title"> post</a>(url, data, type)
+                </li>
+                                <li>
+                    <a href="#save" class="jsdoc-title"> save</a>(url, data, type)
+                </li>
+                </ul>
+            <div class="classes">
+                                <h2>Class <a href="#Response" class="jsdoc-title">Response</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Response.prototype.getResponseHeader" class="jsdoc-title"> getResponseHeader</a>(header)
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Response">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Response" href="#Response" class="itemtitle itemname">Response</a></span>
+                    <span class="itemtitle light">(responseXML, status, statusText)</span></h3>
+                <div>
+                    <p>Response object returned by http functions <code data-language="javascript" >get</code> and <code data-language="javascript" >post</code>. This
+class is not instantiable.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">responseXML</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">status</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">statusText</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Response.prototype.getResponseHeader">
+                <h3 >
+                    <span class="itemtitle">Response.prototype.<a id="Response.prototype.getResponseHeader" href="#Response.prototype.getResponseHeader" class="itemtitle itemname">getResponseHeader</a></span>
+                    <span class="itemtitle light">(header)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">header</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="ajax">
+                <h3 >
+                    <span class="itemtitle"><a id="ajax" href="#ajax" class="itemtitle itemname">ajax</a></span>
+                    <span class="itemtitle light">(method, url, data, type)</span></h3>
+                <div>
+                    <p>Make http request to server-side</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">method</td>
+                            <td>http method</td>
+                        </tr>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">url</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>String|Object</td>
+                            <td class="paramname">data</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>String|Object</td>
+                            <td class="paramname">type</td>
+                            <td>"Accept" header value</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Response</td>
+                            <td> response</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="get">
+                <h3 >
+                    <span class="itemtitle"><a id="get" href="#get" class="itemtitle itemname">get</a></span>
+                    <span class="itemtitle light">(url)</span></h3>
+                <div>
+                    <p>Make http GET request to server-side</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">url</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="load">
+                <h3 >
+                    <span class="itemtitle"><a id="load" href="#load" class="itemtitle itemname">load</a></span>
+                    <span class="itemtitle light">(url)</span></h3>
+                <div>
+                    <p>Load an object from the server-side.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">url</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> the object loaded from the server</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="post">
+                <h3 >
+                    <span class="itemtitle"><a id="post" href="#post" class="itemtitle itemname">post</a></span>
+                    <span class="itemtitle light">(url, data, type)</span></h3>
+                <div>
+                    <p>Make http POST request to server-side</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">url</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>String|Object</td>
+                            <td class="paramname">data</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>String|Object</td>
+                            <td class="paramname">type</td>
+                            <td>"Accept" header value</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Response</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="save">
+                <h3 >
+                    <span class="itemtitle"><a id="save" href="#save" class="itemtitle itemname">save</a></span>
+                    <span class="itemtitle light">(url, data, type)</span></h3>
+                <div>
+                    <p>Send an object to a server-side function.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">url</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>String|Object</td>
+                            <td class="paramname">data</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td>String|Object</td>
+                            <td class="paramname">type</td>
+                            <td>"Accept" header value</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> the response object</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+    
+            </div>
+
+        </article>
+    </div>
+
+</body>
+</html>
+

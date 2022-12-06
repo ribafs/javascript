@@ -1,0 +1,144 @@
+#controllpage
+{
+	height: 480px;			/* entspricht in etwa 15 Blˆcken -> sollte so bleiben!!! */
+	width: 640px;			/* entspricht in etwa 20 Blˆcken -> bei ƒnderung auch die folgenden Zeilen anpassen!!! */
+	
+	position: absolute;		/* damit man relativ zum body ausrichten kann */
+	top: 50%;
+	left: 50%;				/* linke, obere Ecke exakt in Fenstermitte */
+	margin-top: -240px;		/* jetzt um halbe background-Ausmaﬂe nach links oben verschoben */
+	margin-left: -320px;	/* => background-Div ist immer exakt mittig im Browserfenster :-) */
+	
+	z-index: 99999;			/* controllpage ist vor allem auﬂer dem Ladebildschirm!!! */
+	
+	background-color: rgba(0,0,0,0.7); /* ein leicht durchsichtiges Grau */
+	font-family: 'Comic Sans MS' , 'Georgia' , 'Arial';
+	font-size: 28px;
+	font-weight: bold;
+	color: white;
+}
+
+#exit_controllpage, #back_to_menu
+{
+	
+	padding: 5px 10px;
+	
+	position: absolute;
+	
+	text-align: center;
+	border: 2px #000 solid;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-o-border-radius: 6px;
+	border-radius: 6px;
+	font-weight: bold;
+	box-shadow: 1px 1px 5px #333;
+}
+
+#back_to_menu
+{
+	background: #f90;
+	background: -webkit-linear-gradient(top, #f90, #fb0, #f90);
+	background: -moz-linear-gradient(top, #f90, #fb0, #f90);
+	background: -o-linear-gradient(top, #f90, #fb0, #f90);
+	background: linear-gradient(top, #f90, #fb0, #f90);	
+
+	width: 100px;
+	bottom: 34px;
+	left: 258px;
+	font-size: 12px;
+	color: black;
+}
+
+#exit_controllpage
+{
+	padding: 0px, 0px, 8px, 0px;
+	width: 15px;
+	height: 24px;
+	background-color: red;
+	font-size: 16px;
+	top: 15px;
+	right: 16px;
+}
+
+#exit_controllpage:hover, #back_to_menu:hover
+{
+	box-shadow: 3px 3px 5px #000;
+	cursor: pointer;
+}
+
+#rightarrow, #leftarrow, #uparrow, #downarrow, #Strg
+{
+	margin: 0;
+	padding: 0;
+	width: 80px;
+	height: 80px;
+	text-align: right;
+	position: absolute;
+}
+
+#rightarrow
+{
+	top: 37px;
+	left: 103px;
+}
+
+#leftarrow
+{	
+	top: 69px;
+	left: 130px;
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+}
+
+#uparrow
+{
+	top: 185px;
+	left: 145px;
+	-webkit-transform: rotate(270deg);
+	-moz-transform: rotate(270deg);
+	-o-transform: rotate(270deg);
+	-ms-transform: rotate(270deg);
+}
+
+#downarrow
+{
+	top: 240px;
+	left: 97px;
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+}
+
+#Strg
+{
+	width: 150px;
+	
+	left: 40px;
+	top: 350px;
+}
+
+.text
+{
+	margin: 0;
+	padding: 0;
+	width: 350px;
+	height: 80px;
+	text-align: left;
+}
+
+#texts
+{
+	position: absolute;
+	left: 200px;
+	top: 30px;
+}
+
+
+
+
+
+

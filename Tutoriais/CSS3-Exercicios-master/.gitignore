@@ -1,0 +1,99 @@
+# github arquivo .gitignore
+
+# ignore all logs
+*.log
+
+# Para desconsiderar os caracteres do padrão 
+# .gitignore, você pode usar \ se tiver arquivos 
+# ou diretórios que os contenham:
+# ignore the file literally named *.txt
+*.txt
+
+# Regras globais do Git ignore
+# Você também pode definir padrões globais do Git ignore 
+# para todos os repositórios em seu sistema local definindo
+# a propriedade Git core.excludesFile . Você mesmo vai ter 
+# que criar este arquivo. Se não tiver certeza de onde 
+# colocar o arquivo .gitignore global, seu diretório inicial 
+# pode ser uma boa escolha (e fica mais fácil encontrar mais 
+# tarde). Depois de criar o arquivo, você vai precisar 
+# configurar sua localização com o git config:
+
+$ touch ~/.gitignore
+$ git config --global core.excludesFile ~/.gitignore
+
+# Você deve ter cuidado com quais padrões escolhe ignorar por 
+# completo, pois diferentes tipos de arquivo são relevantes 
+# para diferentes projetos. Arquivos especiais do sistema 
+# operacional (por exemplo, .DS_Store e thumbs.db) ou arquivos 
+# temporários criados por algumas ferramentas do desenvolvedor 
+# são opções comuns a serem ignoradas por completo.
+
+# Como ignorar um arquivo após o commit
+# Caso queira ignorar um arquivo após o commit, vai precisar 
+# excluir o arquivo do repositório e, em seguida, adicionar 
+# uma regra .gitignore para ele. 
+# Usar a opção --cached com git rm faz o arquivo ser excluído 
+# do seu repositório, mas ele vai permanecer em seu diretório
+# atual na forma de um arquivo ignorado.
+
+$ echo debug.log >> .gitignore
+  
+$ git rm --cached debug.log
+rm 'debug.log'
+  
+$ git commit -m "Start ignoring debug.log"
+
+# Você pode omitir a opção --cached se quiser excluir o arquivo
+# do repositório e do sistema de arquivos local.
+
+# Como fazer o commit de um arquivo ignorado
+# É possível forçar o commit de um arquivo ignorado no repositório 
+# usando a opção -f (ou --force) com git add:
+
+$ cat .gitignore
+*.log
+  
+$ git add -f debug.log
+  
+$ git commit -m "Force adding debug.log"
+
+# Pode ser uma boa ideia se você tiver um padrão geral (como *.log) 
+# definido e também quiser fazer commit de um arquivo específico. 
+# No entanto, uma solução melhor é definir uma exceção à regra geral:
+
+$ echo !debug.log >> .gitignore
+  
+$ cat .gitignore
+*.log
+!debug.log
+  
+$ git add debug.log
+  
+$ git commit -m "Adding debug.log"
+# Essa solução é mais óbvia e menos confusa para seus colegas.
+
+# Como fazer o stash de um arquivo ignorado
+# git stash é bastante potente para armazenar e reverter alterações 
+# locais por um tempo, o que possibilita fazer a reaplicação mais tarde. 
+# Como seria de se esperar, por padrão, o git stash ignora arquivos 
+# ignorados e apenas faz o stash das alterações em arquivos que são 
+# rastreados pelo Git. No entanto, você também pode usar o git stash 
+# com a opção --all para fazer o stash de alterações em arquivos 
+# ignorados e não rastreados.
+
+# Como depurar arquivos .gitignore
+# Se você tiver padrões .gitignore complicados, ou padrões espalhados 
+# por vários arquivos .gitignore, pode ser difícil descobrir por que 
+# um determinado arquivo está sendo ignorado. Você pode usar o comando 
+# git check-ignore com a opção -v (ou --verbose) para determinar qual
+# padrão está fazendo com que um arquivo específico seja ignorado:
+
+$ git check-ignore -v debug.log
+.gitignore:3:*.log  debug.log
+
+# O resultado mostra:
+# <file containing the pattern> : <line number of the pattern> : <pattern> <file name>
+# Você pode passar vários nomes de arquivos para o git check-ignore se quiser, 
+# e os nomes nem precisam corresponder aos arquivos que existem em seu repositório.
+

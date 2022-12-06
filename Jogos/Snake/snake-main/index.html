@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snake game</title>
+   <style>
+       body{
+           margin: 0px;
+           padding: 0px;
+           display: flex;
+            flex-direction: column; /* arrage items on top of the other */
+            justify-content: center;
+            align-items: center;
+       }
+       canvas{
+           box-shadow: black 20px 10px 50px; /*elevate our canvas*/
+
+       }
+   </style>
+</head>
+<body>
+    <canvas id="game" width="400" height="400"/>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+= Jaws - HTML5 Javascript web game development library
+{<img src="https://travis-ci.org/ippa/jaws.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/ippa/jaws]
+
+Depends on JavaScript Edition 5. Works with Chrome 9+, Firefox 3.6+, Safari 5+ & IE9.
+
+Licensed under LGPL so you're free to use it for commercial projects.
+
+== Highlights
+* Animation(), Sprite(), SpriteSheet(), TileMap(), Assets() and other useful constructors
+* Easy and robust game state system to switch between menus, play, high score lists and settings
+* JSDOC Documentation & commented examples
+
+Jaws also:
+- Uses 2D canvas to draw stuff on the screen
+- Does not depend on any other JavaScript library
+- Suple-simple-to-use collision detection, bounding box and circles.
+- Doesn't try to force a certain "JS class pattern" on you, just pure JavaScript as mother nature intended it
+- Tries to make assets (images, music, json data) in webgames as easy as possible
+- Often does object literals as arguments for readabillity (ie. new Sprite({image: "player.png", x: 100, y: 100})
+- Builds on lessons learned from years of developing http://github.com/ippa/chingu (Ruby game lib)
+
+== Install
+  $ bower install jaws
+
+== Local build / test
+  npm install
+  npm test
+
+== Learn more
+- {https://jawsjs.ippa.se/docs/index.html}[https://jawsjs.ippa.se/docs/index.html]                  - Jaws documentation
+- {https://jawsjs.ippa.se/}[https://jawsjs.ippa.se/]                            - Official Jaws homepage. Overview and design choices.
+- {https://jawsjs.ippa.se/jawsjs/test/index.html}[https://jawsjs.ippa.se/jawsjs/test/index.html]    - Jaws testsuite (QUnit)
+
+== Tutorials
+- {http://videlais.com/2013/05/17/learning-jawsjs-part-1/}[http://videlais.com/2013/05/17/learning-jawsjs-part-1/] - Intro to sprites, collisions and game states by Dan Cox.
+- {http://videlais.com/2013/05/23/learning-jawsjs-part-2/}[http://videlais.com/2013/05/23/learning-jawsjs-part-2/] - SpriteList, collideOneWithMany and more.
+- {http://videlais.com/2013/06/01/learning-jawsjs-part-3/}[http://videlais.com/2013/06/01/learning-jawsjs-part-3/] - Viewport & assets.
+- {http://videlais.com/2013/06/05/learning-jawsjs-part-4/}[http://videlais.com/2013/06/05/learning-jawsjs-part-4/] - SpriteSheet, Animation and game states.
+
+== What kind of games can you make with Jaws?
+Jaws is well suited for "classic" side/top scrolling games (tile based or not) where you have a number of sprite-sheet-animated sprites.
+Jaws comes with basic rect-vs-rect/circle-vs-circle collision detection that works well in most cases. If you have _tons_ of sprites (for example, a bullet hell schmup) you probably want to use a physicslib like Box2D or spatial
+hashing like quad trees to speed things up. Jaws use of canvas makes pixel perfect collisions and worms-style terrain relatively easy to develop. If your game is very GUI-heavy you might want to base your game on pure HTML-elements instead of canvas-sprites.
+
+== Simple examples demonstrating certain features
+Check out the sourcecode for comments and explanations:
+
+* https://jawsjs.ippa.se/jawsjs/examples/example0.html - get a Jaws-app working with as little code as possible
+* https://jawsjs.ippa.se/jawsjs/examples/example1.html - basic example with manual setup of canvas
+* https://jawsjs.ippa.se/jawsjs/examples/example2.html - jaws game states
+* https://jawsjs.ippa.se/jawsjs/examples/example3.html - jaws.Animation
+* https://jawsjs.ippa.se/jawsjs/examples/example4.html - jaws.Rect based collision detection
+* https://jawsjs.ippa.se/jawsjs/examples/example5.html - the jaws.Sprite({anchor: "..."}) parameter
+* https://jawsjs.ippa.se/jawsjs/examples/example6.html - jaws.Parallax
+* https://jawsjs.ippa.se/jawsjs/examples/example7.html - simple DOM-based sprite (DEPRECATED)
+* https://jawsjs.ippa.se/jawsjs/examples/example8.html - jaws.TileMap
+* https://jawsjs.ippa.se/jawsjs/examples/example9.html - jaws.Viewport (The basics for a sidescrolling platformer right here)
+* https://jawsjs.ippa.se/jawsjs/examples/example10.html - jaws.game_states.Edit, a simple map editor
+* https://jawsjs.ippa.se/jawsjs/examples/example11.html - jaws.gfx.retroScaleImage and Literal Notion game state
+* https://jawsjs.ippa.se/jawsjs/examples/example12.html - jaws.viewport.drawTileMap() - optimized tile map drawing
+
+== Games using Jaws
+* {http://www.ludumdare.com/compo/ludum-dare-29/?action=preview&uid=21212}[http://www.ludumdare.com/compo/ludum-dare-29/?action=preview&uid=21212] - DrillFish: drill through the levels as a very odd fish - by mezka
+* {http://recardona.github.io/BitBot/}[http://recardona.github.io/BitBot/] - BitBot: puzzle, enter commands to the robot to reach the goal
+* {http://ld27.pauljoannon.com//}[http://ld27.pauljoannon.com/] - Castle Clocksworth: Steampunk-style puzzle adventure
+* {http://ippa.se/webgames/the_adventures_of_10_seconds/}[http://ippa.se/webgames/the_adventures_of_10_seconds/] - Small worms-style terrain puzzle-adventure!
+* {http://mcfunkypants.com/LD26/}[http://mcfunkypants.com/LD26/] - Colorful abstract platformer by McFunkypants
+* {http://games.subdimension.co.uk/LD26/}[http://games.subdimension.co.uk/LD26/] - Unique painting mini-game by Malphas Wats
+* {http://mcfunkypants.com/RubbaRabbit/}[http://mcfunkypants.com/RubbaRabbit/] - Fullscreen platformer by McFunkypants
+* {http://mcfunkypants.com/Gwendolynn/}[http://mcfunkypants.com/Gwendolynn/] - Gwendolynn, platformer by McFunkypants
+* {http://gamejolt.com/games/arcade/b-w-tennis/13883/}[http://gamejolt.com/games/arcade/b-w-tennis/13883/] - Pong-clone by devpoga
+* {http://ricardonakamura.org/game/ld25/}[http://ricardonakamura.org/game/ld25/] - Sword of Truth by http://ricardonakamura.org/
+* {http://gamejolt.com/games/arcade/for-victory/14267/}[http://gamejolt.com/games/arcade/for-victory/14267/] - Minimalistic game by devpoga
+* {http://www.castleriot.com/}[http://www.castleriot.com/] - Multiplayer game with guards and thieves. By team @ http://nodeknockout.com/teams/third-times-the-char
+* {http://ippa.se/webgames/the_escape/index.html}[http://ippa.se/webgames/the_escape/index.html] - "The Escape" - My Ludum Dare #21 entry. Adventure/Puzzle.
+* {http://ippa.se/webgames/unexpected_outcome/index.html}[http://ippa.se/webgames/unexpected_outcome/index.html] - A 10-minute adventure game with pixel-perfect collisions
+* {http://ippa.se/webgames/unwaivering/index.html}[http://ippa.se/webgames/unwaivering/index.html] - A Jaws-game for http://www.ludumdare.com/compo/2011/01/25/minild-24/
+* {http://dl.dropbox.com/u/73425602/ld23/index.html}[http://dl.dropbox.com/u/73425602/ld23/index.html] - LD #23 game by Nibelung (http://www.ludumdare.com/compo/author/nibelung/)
+* {http://www.twitchtetris.com/}[http://www.twitchtetris.com/] - A tetris game by http://twitchcode.blogspot.com/
+* {http://www.mcfunkypants.com/kart/magma/}[http://www.mcfunkypants.com/kart/magma/] - Another pixel perfect game from MC Funky Pants. Don't touch the rising lava!
+* {http://dl.dropbox.com/u/15658925/LD22%20release/game.html}[http://dl.dropbox.com/u/15658925/LD22%20release/game.html] - LD#22 entry by "Char" (http://www.ludumdare.com/compo/ludum-dare-22/?action=preview&uid=3407)
+* {http://h31p.com/save-atherton/}[http://h31p.com/save-atherton/] - A political satire mini-game from https://github.com/dalethatcher
+* {http://www.mcfunkypants.com/LD22/}[http://www.mcfunkypants.com/LD22/] - a Ludum Dare #22 entry by Christer Kaitila
+* {http://nibster.net/LD/}[http://nibster.net/LD/] - a Ludum Dare #22 entry by https://github.com/Nibster
+* {http://memetika.com/iron_santa/}[http://memetika.com/iron_santa/] - a Ludum Dare #22 entry by https://github.com/dmitrizagidulin
+* {http://markbennett.ca/JAWS-on-a-plane/}[http://markbennett.ca/JAWS-on-a-plane/] - A minigame by https://github.com/MarkBennett
+* {http://davidgomes.github.com/paxlure/}[http://davidgomes.github.com/paxlure/] - Zombie blasting minigame by https://github.com/davidgomes
+* {http://crystalpart.com/hp/}[http://crystalpart.com/hp/] - A mini game by by Ashan Fernando (http://crystalpart.com/wp/) 
+* {http://magigames.org/runestone_defense.html}[http://magigames.org/runestone_defense.html] - Runestone, a tower defense game by David Blood
+* {http://www.tinycrate.com/ld48/vivere/}[http://www.tinycrate.com/ld48/vivere/] - TinyCrate - An experimental game about mixing DNA by http://www.thank-etc-ok.com/
+* {http://www.tinycrate.com/ld48/volo/}[http://www.tinycrate.com/ld48/volo/] - VOLO - A game by http://www.thank-etc-ok.com
+* {http://www.philbgarner.com/vampire/}[http://www.philbgarner.com/vampire/] - Scion of Dracula - Play dracula in search for Van Helsing. By Phil Garner.
+* {http://charitygamejam.com/?Parachute%20Champ}[http://charitygamejam.com/?Parachute%20Champ] - Parachute Champ - land your parachute safely. By Nicholas Wrenn.
+* {https://www.facebook.com/appcenter/hopeofabug}[https://www.facebook.com/appcenter/hopeofabug] - Facebook minigame by Fahad Mahmood.
+... missing your game here? Mail me about it (my email is on my github profilepage). Or create a new issue.
+
+== Libs using Jaws
+* {http://mcfunkypants.com/tower/} - Tower Game Starter Kit
+* {http://mcfunkypants.com/ludus/}[http://mcfunkypants.com/ludus/] - Platformer Game Starter Kit
+* {https://github.com/deisdestiny/Jaws-TS}[https://github.com/deisdestiny/Jaws-TS] - Jaws TypeScript Definitions
+
+== Loading Jaws
+* jaws.js - includes the whole framework in one easy-to-include file.
+* jaws-min.js - same as jaws.js but minified with Googles closure compiler. This is probably what you want to include in your project.
+* jaws-dynamic.js - dynamically loads all separate jaws files. Useful for debugging errors when patching jaws since you get exact file/line# of possible errors. Warning, jaws-dynamic.js loads all Jaws-files asynchronously, resulting in Jaws might not be fully loaded when the browser reaches your game.js. You can solve this by hooking into the jaws.onload callback and put your jaws.start() there.
+
+You can also link to invidual files in your HTML:
+  <script src="/jawsjs/src/core.js"></script>
+  <script src="/jawsjs/src/sprite.js"></script>
+
+NOTE: core.js is always needed but after that you can pick and choose depending on what you need.
+A rule of thumb is that a file named "foo.js" will include a constructor named Foo().
+
+NOTE #2: jaws.js and jaws-min.js does Not include files from src/extras-dir.
+Examples of files that aren't included in the mainbundle are: tile_map_pathfinding.js, pixel_map.js and audio.js (jaws <audio>-wrapper).
+If you want to use them, load them as usual:
+  <script src="/jawsjs/src/extras/tile_map_pathfinding.js"></script>
+
+== Contribute
+Jaws accepts contributions, some simple guidelines:
+- Formatting: oneFunction(), OneConstrutor() and one_variable
+- 2 spaces for indentation
+- Don't patch jaws.js or jaws-min.js, but rather the invidual files in the src/-directory
+- Please bundle tests with non-trivial patches, see test/-dir for inspiration
+- For bigger patches/feature additions, please contact me beforehand to discuss if/how it fits into Jaws and how to form the API
+- Naming shouldn't consist of abbreviations, let's use "context", not "ctx"
+
+Jaws has gotten bigger contributions from:
+
+https://github.com/videlais - QuadTree() and other things
+https://github.com/dmitrizagidulin - SpriteList() rewrite
+https://github.com/gregmax17 - Viewport related stuff
+https://github.com/MalphasWats - Viewport pathfinding
+
+== Issues and bugs
+If you find an issue with Jaws githubs issue-tracker is the place to go. Easiest for the developers is if you put your game online. If you don't have any hosting check out http://pages.github.com/.
+Pasting your problematic code in the issue-ticket itself will usually mean a lot of hassle with supportcode and assets to actually be able to test the code in question.
+
+== API-deprecations leading up to ver 1.0
+  2013-09: Remove experimental, buggy DOM-sprite-support from Sprite and Text
+  2013-08: SpriteList is no longer included in jaws(-min).js bundle, better off using arrays and jaws.draw/jaws.update
+  2013-08: jaws.assets.loadAll() -  onfinish -> onload, onload -> onprogress
+  2013-08: jaws.assets.load(asset, options)  - options can have properties onload and onerror
+  2013-03: sprite.anchor() is now sprite.setAnchor()
+  2013-03: sprite.scale() is now sprite.scaleAll()
+
+== Example
+  <html>
+  <script src="jaws.js"></script>
+  <body>
+
+  <canvas width=500 height=300></canvas> 
+
+  <script>
+    function MyGameState() {
+      var player;
+      var robot;
+    
+      this.setup = function() {
+        player = new jaws.Sprite({image: "player.png", x: 10, y: 200});
+        robot = new jaws.Sprite({x: 200, y: 200});
+        robot.animation = new jaws.Animation({sprite_sheet: "images/droid_11x15.png", frame_size: [11,15], frame_duration: 120});
+      }
+      this.update = function() {
+        if(jaws.pressed("left"))  { player.x--; }
+        if(jaws.pressed("right")) { player.x++; }
+        robot.setImage( robot.animation.next() );
+      }
+      this.draw = function() {
+        player.draw();
+        robot.draw();
+      }
+    }
+    
+    window.onload = function() {
+      jaws.assets.add("images/droid_11x15.png");
+      jaws.assets.add("images/player.png");
+      jaws.start(MyGameState);
+    }
+  </script>
+  </body>
+  </html>
+
+== The same example with comments
+  /*
+  * Jaws provides powerful functions like jaws.start() to quickly get a robust gameloop running.
+  * It's also possible to do it more manually, fetch your own canvas context and send it to new Sprite().
+  * Nothing stops you from using jaws.assets or other jaws.helpers with your own game loop either.
+  *
+  * Below code shows the preferred way, letting jaws worry about most of the setup, 
+  * so we can get straight to get game logic.
+  */
+  <html>
+  <script src="jaws.js"></script>
+  <body>
+
+  <canvas width=500 height=300></canvas> <!-- don't set width/height of canvas with CSS -->
+
+  <script>
+    /*
+    * Jaws encourages the use of game states to separate various parts of your game.
+    * We send MyGameState to jaws.start() to start with.
+    * You can later switch to another game state with jaws.switchGameState(OtherGameState)
+    */
+    function MyGameState() {
+      var player;
+      var robot;
+    
+      /* Put your one-time initializing here. Will get called once each time this game state is activated. */
+      this.setup = function() {
+        /*
+        * Make a sprite, place it at position 10/200.
+        * The string "player.png" will resolve to a previously fetched resource.
+        * If we wanted the sprite to be drawn to a special canvas, we could add the option {context: my_canvas_context}.
+        * Otherwise jaws will just pick the most likely canvas, which works 99% of the times.
+        */
+        player = new jaws.Sprite({image: "player.png", x: 10, y: 200});
+    
+        /* Let's create an animated robot sprite */
+        robot = new jaws.Sprite({x: 200, y: 200});
+
+        /* Creates an animation from a classic sprite sheet */
+        robot.animation = new jaws.Animation({sprite_sheet: "images/droid_11x15.png", frame_size: [11,15], frame_duration: 120});
+      }
+    
+      /* update() is called each gametick with given FPS. Put your game logic here. */
+      this.update = function() {
+        if(jaws.pressed("left"))  { player.x--; }
+        if(jaws.pressed("right")) { player.x++; }
+        robot.setImage( robot.animation.next() );
+      }
+    
+      /* draw() is called each gametick just after update() is done. Put your drawing/canvas stuff here. */
+      this.draw = function() {
+        player.draw();
+        robot.draw();
+      }
+    }
+    
+    /* Let's start jaws after the document is fully loaded... */
+    window.onload = function() {
+      /*
+      * Add two images to jaws internal list of assets to be loaded.
+      * You can load them manually with jaws.assets.loadAll({loaded: myAssetsAreReadyCall}).
+      * jaws.start() will automatically load all unloaded assets while displaying a progress meter.
+      *
+      * Alternative way (nice when you have a lot of assets in the same dir): 
+      *   jaws.assets.path = "images/"; 
+      *   jaws.assets.add(["droid_11x15.png", "player.png"]) 
+      */
+      jaws.assets.add("images/droid_11x15.png");
+      jaws.assets.add("images/player.png");
+
+      /*
+      * jaws.start(MyGameState) is the easiest way to get something up and running. It will in this order:
+      *
+      * 1) 
+      * Call jaws.init() that will detect <canvas> (or create one for you) and set up the 2D context.
+      * It's then available in jaws.canvas and jaws.context and will be used by all new sprites.
+      * Also setup keyboard input event listeners with jaws.setupInput().
+      *
+      * 2) 
+      * Pre-load all assets while showing progress meter through with jaws.assets.loadAll().
+      * Assets are then available with jaws.assets.get("player.png").
+      *
+      * 3) 
+      * Create an instance of given game state constructor (in this case MyGameState) and call setup() on that instance.
+      * In setup() you usually initialize the game state, create the gameobjects, sprites and so forth.
+      *
+      * 4) 
+      * Loop calls to update() and draw() with given FPS (default 60) until the game ends,
+      * is paused or another game state is activated.
+      *
+      */
+      jaws.start(MyGameState);
+    }
+  </script>
+  </body>
+  </html>

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>gamejs/tiledmap - GameJs API</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="revisit-after" content="1 days"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta http-equiv="cleartype" content="on"/>
+    <link rel="stylesheet" href="../..//css/syntax.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../..//css/main.css" rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../../static/jsdoc.css" />
+    <link rel="stylesheet" href="../../static/style.css" />
+    <script type="text/javascript" src="../../static/jquery.min.js"></script>
+    <script type="text/javascript" src="../../static/jsdoc.js"></script>
+
+    <link href="../../static/rainbow/themes/pastie.css" rel="stylesheet" type="text/css">
+    <script src="../../static/rainbow/rainbow.min.js"></script>
+    <script src="../../static/rainbow/language/generic.js"></script>
+    <script src="../../static/rainbow/language/javascript.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="module color1">
+            <h1><a href="http://gamejs.org">GameJs.org</a></h1>
+        </div>
+
+        <nav class="module color4">
+            <h2><a href="http://docs.gamejs.org">API Reference</a></h2>
+            <nav class="jsdoc">
+                <div class="jsdocSidenav">
+
+   <input id="filter" type="text" placeholder="Filter modules" />
+
+   <ul id="modulelist">
+            <li><a href="../../gamejs/index.html">gamejs</a></li>
+            <li><a href="../../gamejs/animate/index.html">gamejs/animate</a></li>
+            <li><a href="../../gamejs/audio/index.html">gamejs/audio</a></li>
+            <li><a href="../../gamejs/display/index.html">gamejs/display</a></li>
+            <li><a href="../../gamejs/event/index.html">gamejs/event</a></li>
+            <li><a href="../../gamejs/font/index.html">gamejs/font</a></li>
+            <li><a href="../../gamejs/graphics/index.html">gamejs/graphics</a></li>
+            <li><a href="../../gamejs/http/index.html">gamejs/http</a></li>
+            <li><a href="../../gamejs/image/index.html">gamejs/image</a></li>
+            <li><a href="../../gamejs/logging/index.html">gamejs/logging</a></li>
+            <li><a href="../../gamejs/pathfinding/index.html">gamejs/pathfinding</a></li>
+            <li><a href="../../gamejs/pixelcollision/index.html">gamejs/pixelcollision</a></li>
+            <li><a href="../../gamejs/thread/index.html">gamejs/thread</a></li>
+            <li><a href="../../gamejs/tiledmap/index.html">gamejs/tiledmap</a></li>
+            <li><a href="../../gamejs/time/index.html">gamejs/time</a></li>
+            <li><a href="../../gamejs/math/angles/index.html">gamejs/math/angles</a></li>
+            <li><a href="../../gamejs/math/binaryheap/index.html">gamejs/math/binaryheap</a></li>
+            <li><a href="../../gamejs/math/matrix/index.html">gamejs/math/matrix</a></li>
+            <li><a href="../../gamejs/math/noise/index.html">gamejs/math/noise</a></li>
+            <li><a href="../../gamejs/math/random/index.html">gamejs/math/random</a></li>
+            <li><a href="../../gamejs/math/vectors/index.html">gamejs/math/vectors</a></li>
+            <li><a href="../../gamejs/utils/arrays/index.html">gamejs/utils/arrays</a></li>
+            <li><a href="../../gamejs/utils/base64/index.html">gamejs/utils/base64</a></li>
+            <li><a href="../../gamejs/utils/callback/index.html">gamejs/utils/callback</a></li>
+            <li><a href="../../gamejs/utils/objects/index.html">gamejs/utils/objects</a></li>
+            <li><a href="../../gamejs/utils/strings/index.html">gamejs/utils/strings</a></li>
+            <li><a href="../../gamejs/utils/uri/index.html">gamejs/utils/uri</a></li>
+            <li><a href="../../gamejs/utils/xml/index.html">gamejs/utils/xml</a></li>
+      </ul>
+</div>
+
+            </nav>
+        </nav>
+
+    </header>
+
+
+    <div class="main-content">
+        <article class="color3 module">
+
+            <div class="content jsdoc">
+            
+            <h1 class="modulename">gamejs/tiledmap</h1>
+        <div class="fileoverview">
+            <p>This is a loader for the general purpose tile map editor "Tiled".</p>
+
+<p>This module can load all ".tmx" files even if additionally base64 encoded
+(can be configured in Tiled).</p>
+
+<p>This module loads the whole map definition, including the TileSets with
+all necessary images. For an example on how to render a map loaded with
+this module, see <code data-language="javascript" >examples/tiledmap</code>.</p>
+
+<p>You will typically create a Map instance with <code data-language="javascript" >Map(url)</code> and deal
+with the layers, tilesets, etc. through the Map instance
+instead of loading & creating them yourself.</p>
+
+<p>Only orthogonol maps are supported (no isometric maps).</p>
+
+
+        </div>
+
+                <div>
+            <h4>See</h4>
+            <div>
+                <a href="http://www.mapeditor.org/">http://www.mapeditor.org/</a><br /><a href="https://github.com/bjorn/tiled/wiki/TMX-Map-Format">https://github.com/bjorn/tiled/wiki/TMX-Map-Format</a>
+            </div>
+        </div>
+        <div class="classoverview">
+
+            <div class="classes">
+                                <h2>Class <a href="#LayerView" class="jsdoc-title">LayerView</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#LayerView.prototype.draw" class="jsdoc-title"> draw</a>(display)
+                    </li>
+                    </ul>
+                                <h3>Instance Properties</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#LayerView.prototype.surface" class="jsdoc-title"> surface</a>
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#Map" class="jsdoc-title">Map</a></h2>
+                                <h3>Instance Properties</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Map.prototype.height" class="jsdoc-title"> height</a>
+                    </li>
+                                        <li>
+                        <a href="#Map.prototype.layers" class="jsdoc-title"> layers</a>
+                    </li>
+                                        <li>
+                        <a href="#Map.prototype.properties" class="jsdoc-title"> properties</a>
+                    </li>
+                                        <li>
+                        <a href="#Map.prototype.tileHeight" class="jsdoc-title"> tileHeight</a>
+                    </li>
+                                        <li>
+                        <a href="#Map.prototype.tileWidth" class="jsdoc-title"> tileWidth</a>
+                    </li>
+                                        <li>
+                        <a href="#Map.prototype.tiles" class="jsdoc-title"> tiles</a>
+                    </li>
+                                        <li>
+                        <a href="#Map.prototype.width" class="jsdoc-title"> width</a>
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#MapView" class="jsdoc-title">MapView</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#MapView.prototype.draw" class="jsdoc-title"> draw</a>(display, offset)
+                    </li>
+                                        <li>
+                        <a href="#MapView.prototype.redraw" class="jsdoc-title"> redraw</a>()
+                    </li>
+                    </ul>
+                                <h3>Instance Properties</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#MapView.prototype.image" class="jsdoc-title"> image</a>
+                    </li>
+                                        <li>
+                        <a href="#MapView.prototype.layerViews" class="jsdoc-title"> layerViews</a>
+                    </li>
+                                        <li>
+                        <a href="#MapView.prototype.mapImage" class="jsdoc-title"> mapImage</a>
+                    </li>
+                                        <li>
+                        <a href="#MapView.prototype.timeout" class="jsdoc-title"> timeout</a>
+                    </li>
+                                        <li>
+                        <a href="#MapView.prototype.viewRect" class="jsdoc-title"> viewRect</a>
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#Tile" class="jsdoc-title">Tile</a></h2>
+                                <h3>Instance Properties</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#Tile.prototype.properties" class="jsdoc-title"> properties</a>
+                    </li>
+                                        <li>
+                        <a href="#Tile.prototype.surface" class="jsdoc-title"> surface</a>
+                    </li>
+                    </ul>
+                                <h2>Class <a href="#TileSets" class="jsdoc-title">TileSets</a></h2>
+                                <h3>Instance Methods</h3>
+                <ul class="propertyoverview">
+                                        <li>
+                        <a href="#TileSets.prototype.getProperties" class="jsdoc-title"> getProperties</a>(gid)
+                    </li>
+                                        <li>
+                        <a href="#TileSets.prototype.getSurface" class="jsdoc-title"> getSurface</a>(gid)
+                    </li>
+                                        <li>
+                        <a href="#TileSets.prototype.getTile" class="jsdoc-title"> getTile</a>(gid)
+                    </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="details">
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="LayerView">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="LayerView" href="#LayerView" class="itemtitle itemname">LayerView</a></span>
+                    <span class="itemtitle light">(layer, opts)</span></h3>
+                <div>
+                    <p>LayerView
+Renders the layer to a big surface.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">layer</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">opts</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="LayerView.prototype.draw">
+                <h3 >
+                    <span class="itemtitle">LayerView.prototype.<a id="LayerView.prototype.draw" href="#LayerView.prototype.draw" class="itemtitle itemname">draw</a></span>
+                    <span class="itemtitle light">(display)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">display</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="LayerView.prototype.surface">
+                <h3 >
+                    <span class="itemtitle">LayerView.prototype.<a id="LayerView.prototype.surface" href="#LayerView.prototype.surface" class="itemtitle itemname">surface</a></span>
+                    </h3>
+                <div>
+                    <p>constructor</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Map">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Map" href="#Map" class="itemtitle itemname">Map</a></span>
+                    <span class="itemtitle light">(url)</span></h3>
+                <div>
+                    <p>A Tiled Map holds all layers defined in the tmx file as well
+as the necessary tiles to render the map.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>String</td>
+                            <td class="paramname">url</td>
+                            <td>Relative or absolute URL to the tmx file</td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Map.prototype.height">
+                <h3 >
+                    <span class="itemtitle">Map.prototype.<a id="Map.prototype.height" href="#Map.prototype.height" class="itemtitle itemname">height</a></span>
+                    </h3>
+                <div>
+                    <p>Height of the map in tiles</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Map.prototype.layers">
+                <h3 >
+                    <span class="itemtitle">Map.prototype.<a id="Map.prototype.layers" href="#Map.prototype.layers" class="itemtitle itemname">layers</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Map.prototype.properties">
+                <h3 >
+                    <span class="itemtitle">Map.prototype.<a id="Map.prototype.properties" href="#Map.prototype.properties" class="itemtitle itemname">properties</a></span>
+                    </h3>
+                <div>
+                    <p>Custom properties of the map</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Map.prototype.tileHeight">
+                <h3 >
+                    <span class="itemtitle">Map.prototype.<a id="Map.prototype.tileHeight" href="#Map.prototype.tileHeight" class="itemtitle itemname">tileHeight</a></span>
+                    </h3>
+                <div>
+                    <p>Height of a single tile in pixels</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Map.prototype.tileWidth">
+                <h3 >
+                    <span class="itemtitle">Map.prototype.<a id="Map.prototype.tileWidth" href="#Map.prototype.tileWidth" class="itemtitle itemname">tileWidth</a></span>
+                    </h3>
+                <div>
+                    <p>Width of a single tile in pixels</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Map.prototype.tiles">
+                <h3 >
+                    <span class="itemtitle">Map.prototype.<a id="Map.prototype.tiles" href="#Map.prototype.tiles" class="itemtitle itemname">tiles</a></span>
+                    </h3>
+                <div>
+                    <p>All tiles of this map.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Map.prototype.width">
+                <h3 >
+                    <span class="itemtitle">Map.prototype.<a id="Map.prototype.width" href="#Map.prototype.width" class="itemtitle itemname">width</a></span>
+                    </h3>
+                <div>
+                    <p>Width of the map in tiles</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="MapView">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="MapView" href="#MapView" class="itemtitle itemname">MapView</a></span>
+                    <span class="itemtitle light">(map)</span></h3>
+                <div>
+                    <p>FIXME explain viewRect (change it to sroll!) and image, mapImage and how to update, redraw</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">map</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="MapView.prototype.draw">
+                <h3 >
+                    <span class="itemtitle">MapView.prototype.<a id="MapView.prototype.draw" href="#MapView.prototype.draw" class="itemtitle itemname">draw</a></span>
+                    <span class="itemtitle light">(display, offset)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">display</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">offset</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="MapView.prototype.image">
+                <h3 >
+                    <span class="itemtitle">MapView.prototype.<a id="MapView.prototype.image" href="#MapView.prototype.image" class="itemtitle itemname">image</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="MapView.prototype.layerViews">
+                <h3 >
+                    <span class="itemtitle">MapView.prototype.<a id="MapView.prototype.layerViews" href="#MapView.prototype.layerViews" class="itemtitle itemname">layerViews</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="MapView.prototype.mapImage">
+                <h3 >
+                    <span class="itemtitle">MapView.prototype.<a id="MapView.prototype.mapImage" href="#MapView.prototype.mapImage" class="itemtitle itemname">mapImage</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="MapView.prototype.redraw">
+                <h3 >
+                    <span class="itemtitle">MapView.prototype.<a id="MapView.prototype.redraw" href="#MapView.prototype.redraw" class="itemtitle itemname">redraw</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="MapView.prototype.timeout">
+                <h3 >
+                    <span class="itemtitle">MapView.prototype.<a id="MapView.prototype.timeout" href="#MapView.prototype.timeout" class="itemtitle itemname">timeout</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="MapView.prototype.viewRect">
+                <h3 >
+                    <span class="itemtitle">MapView.prototype.<a id="MapView.prototype.viewRect" href="#MapView.prototype.viewRect" class="itemtitle itemname">viewRect</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Tile">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="Tile" href="#Tile" class="itemtitle itemname">Tile</a></span>
+                    <span class="itemtitle light">()</span></h3>
+                <div>
+                    <p>A Tile. Can not be instantiated. Get a Tile by calling <code data-language="javascript" >getTile(gid)</code>
+on a <code data-language="javascript" >TileSets</code> instance.</p>
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Tile.prototype.properties">
+                <h3 >
+                    <span class="itemtitle">Tile.prototype.<a id="Tile.prototype.properties" href="#Tile.prototype.properties" class="itemtitle itemname">properties</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="Tile.prototype.surface">
+                <h3 >
+                    <span class="itemtitle">Tile.prototype.<a id="Tile.prototype.surface" href="#Tile.prototype.surface" class="itemtitle itemname">surface</a></span>
+                    </h3>
+                <div>
+                    
+
+
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="TileSets">
+                <h3 class="classtitle">
+                    <span class="itemtitle"><a id="TileSets" href="#TileSets" class="itemtitle itemname">TileSets</a></span>
+                    <span class="itemtitle light">(mapNode, mapUrl)</span></h3>
+                <div>
+                    <p>A TileSets instance holds all tilesets of a map. This class
+makes it easy to get the image for a certain tile ID. You usually
+don't care about in which specific TileSet an image is so this
+class holds them all and deals with the lookup.</p>
+
+<p>You don't usually create a <code data-language="javascript" >TileSets</code> instance yourself, instead
+it is automatically created and attached to a <code data-language="javascript" >Map</code>.</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">mapNode</td>
+                            <td></td>
+                        </tr>
+                                                <tr>
+                            <td></td>
+                            <td class="paramname">mapUrl</td>
+                            <td></td>
+                        </tr>
+                        </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="TileSets.prototype.getProperties">
+                <h3 >
+                    <span class="itemtitle">TileSets.prototype.<a id="TileSets.prototype.getProperties" href="#TileSets.prototype.getProperties" class="itemtitle itemname">getProperties</a></span>
+                    <span class="itemtitle light">(gid)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">gid</td>
+                            <td>global tile id</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> the custom properties of this tile</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="TileSets.prototype.getSurface">
+                <h3 >
+                    <span class="itemtitle">TileSets.prototype.<a id="TileSets.prototype.getSurface" href="#TileSets.prototype.getSurface" class="itemtitle itemname">getSurface</a></span>
+                    <span class="itemtitle light">(gid)</span></h3>
+                <div>
+                    <p>Retrieve the image for a tile ID (gid).</p>
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">gid</td>
+                            <td>global tile id to retrieve</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>gamejs.graphics.Surface</td>
+                            <td> the Surface for the gid</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+                        <hr />
+            <!-- tpl-docitem -->
+            <div class="docitem" data-docitem="TileSets.prototype.getTile">
+                <h3 >
+                    <span class="itemtitle">TileSets.prototype.<a id="TileSets.prototype.getTile" href="#TileSets.prototype.getTile" class="itemtitle itemname">getTile</a></span>
+                    <span class="itemtitle light">(gid)</span></h3>
+                <div>
+                    
+
+
+                </div>
+                                <div>
+                    <h4>Parameters</h4>
+                    <table>
+                                                <tr>
+                            <td>Number</td>
+                            <td class="paramname">gid</td>
+                            <td>global tile id</td>
+                        </tr>
+                        </table>
+                </div>
+                                <div>
+                    <h4>Returns</h4>
+                    <table>
+                        <tr>
+                            <td>Object</td>
+                            <td> the Tile object for this gid</td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>
+    
+            </div>
+
+        </article>
+    </div>
+
+</body>
+</html>
+

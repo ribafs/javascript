@@ -1,0 +1,31 @@
+How to Make Your Website Mobile Friendly Using PHP
+By Angela Bradley
+Updated February 12, 2019
+
+It is important to make your website accessible to all of your users. Although many people still access your website through their computer, a huge amount of people are also accessing your website from their phones and tablets. When you are programming your website it is important to keep these types of media in mind so that your site will work on these devices.
+
+PHP is all processed on the server, so by the time the code gets to the user, it is just HTML. So basically, the user requests a page of your website from your server, your server then runs all the PHP and sends the user the results of the PHP. The device never actually sees or has to do anything with the actual PHP code. This gives websites done in PHP an advantage over other languages that process on the user side, such as Flash.
+
+It has become popular to redirect users to mobile versions of your website. This is something that you can do with the htaccess file but you can also do with PHP. One way to do this is by using strpos() to look for the name of certain devices. Here is an example:
+
+<?php
+$android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
+$bberry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");
+$iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+$ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
+$webos = strpos($_SERVER['HTTP_USER_AGENT'],"webOS");
+if ($android || $bberry || $iphone || $ipod || $webos== true) 
+{ 
+header('Location: http://www.yoursite.com/mobile');
+}
+?>
+
+If you chose to redirect your users to a mobile site, make sure you give the user an easy way to access the full site. 
+
+Another thing to keep in mind is that if someone reaches your site from a search engine, they often aren't going through your home page so they don't want to be redirected there. Instead, redirect them to the mobile version of the article from the SERP (search engine results page.) 
+
+Something of interest may be this CSS switcher script written in PHP. This allows the user to put on a different CSS template via a drop-down menu. This would allow you to offer the same content in different mobile-friendly versions, perhaps one for phones and another for tablets. This way the user would have the option to change to one of these templates, but would also have the option to keep the full version of the site if they prefer.
+
+One final consideration: Although PHP is good to use for websites that will be accessed by mobile users, people often combine PHP with other languages to make their sit do everything they want. Be careful when adding features that the new features won't make your site unusable by members of the mobile community. Happy programming! 
+
+https://www.thoughtco.com/mobile-friendly-websites-2693900

@@ -1,0 +1,101 @@
+<style>	
+
+    /*  Inicio do CSS / Menu Boostrap / Navbar  */
+
+    /*  Navbars vem com suporte integrado para um punhado de sub-componentes. 
+	    Escolha entre os seguintes, sempre que precisar:
+        .navbar-brand para o nome de seu projeto, produto ou companhia;
+        .navbar-nav para obter uma leve navegação com suporte a dropdowns;
+        .navbar-toggler para usar com nosso plugin collapse e outros comportamentos;
+        .form-inline para qualquer campo de formulário e ações;
+        .navbar-text para adicionar texto centralizado verticalmente;
+        .collapse .navbar-collapse para agrupar e esconder conteúdos navbar, de acordo com o breakpoint do pai. */
+		  
+	/*	Navbars precisam de um .navbar com .navbar-expand{-sm|-md|-lg|-xl} (para responsividade) 
+		e classes do esquema de cores;
+		Navbars são responsivas por default. Garanta acessibilidade com o elemento (nav) ou, se estiver 
+		usando um elemento mais genérico como (div), coloque (role="navigation") em cada navbar para 
+		identificá-lo como tal, em tecnologias assistivas. */
+		
+        /* CSS / Cores padrão */
+		/* color: #f4511e = laranja escuro */
+        /* color: #9F00FF = violeta médio royal */
+        /* color: #c71585 = rosa médio royal */		 
+		/* color: #fffddd = amarelo claro */
+		/* color: #ffffff = branco escuro */
+		/* color: #005aff = azul royal */
+        /* color: #4CAF50 = verde */
+        /* color: #D6EFFF = azul muito claro */
+        /* color: #C6E9FF = azul claro */
+
+
+	    /* Style Bootstrap / Menu Vertical = Navbar Default  */
+		/* Style Bootstrap / Menu Horizontal = Navbar Expand  */
+		/* Style Bootstrap / Menu Fixo = Navbar Fixed  */
+		/* Style Bootstrap / Menu Toggler = Navbar Toggle  */
+		/* Style Bootstrap / Menu Collapse = Navbar Collapse  */
+
+
+
+
+	#menu {
+		
+	    /* Código de página UTF-8 / ISO-8859-1 / PT-BR */
+	    @charset 'UTF-8'; @language 'pt-br';	
+
+
+        /* display=inline => Faz o Menu ficar posição horizontal */
+
+        .nav .navbar { display: inline; 
+		              float: left; 
+					  cursor: pointer; 
+					  position: relative; 
+					  overflow-x: scroll; 
+		              list-style: none; 
+					  align-content: center; 
+					  text-align: center; 
+					  text-decoration: none; 
+			          line-height: 0.123456789; 
+					  letter-spacing: 5px; 
+					  word-spacing: 3px; 
+					  z-index: 2%;
+			          border: 0px solid #aaa;
+					  }
+									
+		.flex-container { display: inline; }	
+		
+		.navbar-header { float: none !important; }
+
+		.navbar-brand { float: none !important; }
+									
+        .navbar-left, .navbar-right { float: none !important; }
+						  
+		.navbar-toggle { border:0; display: inline !important; position: relative; cursor: pointer; }
+					
+	    .navbar-collapse { box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+			               z-index: 2%; border: 0; display: block !important; }
+		
+		.navbar-fixed { display: inline; float: none; position: absolute; cursor: pointer; }
+		
+		.button { margin:0; padding:0; top:0; bottom:0; list-style: none; }
+			
+			
+		/* Links do Menu */
+        .ul li { margin:0px; padding:0px; list-style:none; float:none; display:none; margin-top:0px;}	
+		
+        .ul li a { margin:0; padding:2px; display: inline-block; text-decoration: none; border:0; list-style: none; } 	
+							
+							
+        /* The :hover selector is used to select elements when you mouse over them.	*/	
+		.ul li a:hover {color:blue;}		
+	
+		.ul li a:active {color:green;}
+		
+		
+	} /* Fim do #menu */
+	
+/* Fim do CSS */	
+
+</style>
+
+

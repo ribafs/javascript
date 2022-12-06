@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=VT323|Coustard:900" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/ledfont-sharp" type="text/css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Word Guess Game</title>
+  </head>
+  <body>
+    <div class="container p-3 my-2 shadow-lg">
+      <div>
+      <header class="header my-3 p-1 text-center">
+          <div class="display-4">WORD <span class="text-primary">GUESS</span></div>
+      </header>
+        
+      <section>
+        <div class="row d-flex justify-content-center bg-dark py-3">
+          <div class="col-sm-3 col-md-3">
+              <img class="img-fluid rounded-circle p-3" src="https://images3.selzstatic.com/uploads/HwZJ8pRHHWJNYZa8/speak_and_spell_11.jpeg.jpg">
+          </div>
+
+          <div class="col-sm-8 col-md-8 text-primary text-center font-weight-bold">
+              <p>Wins: <span id="wins">0</span>  Losses: <span id="losses">0</span>
+              </p>
+              <p id="fillInTheBlank">_</p>
+              <p>Number of guesses remaining:</p>
+              <p id="guessCount">0</p>
+
+              <p>Letters already guessed:</p>
+              <p id="alreadyGuessed">none</p>
+          </div>
+        </div>
+
+        <div class="row keypad d-flex justify-content-center bg-primary">
+          <div class="p-2">
+            <div >
+                <button type="button" class="btn btn-warning mx-3" id="playButton">PLAY</button> 
+                <button type="button" class="btn btn-warning" id="resetButton">RESET</button>
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+          <div class="p-3">
+            <h1 id="feedback">Press <strong>PLAY</strong> to start the game</h1>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer text-info text-center">
+        Sound Samples from maximporges.com | LED Font Family from fontlibrary.org
+      </footer>
+
+    </div>
+    </div>
+    
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- Load Game Script -->
+    <script src="assets/javascript/game.js"></script>
+
+
+  </body>
+</html>

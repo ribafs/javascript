@@ -1,0 +1,142 @@
+#background
+{
+	background-image: url('mario-background_1.png');
+	background-repeat: repeat-x;
+	background-position: 0px -380px;
+	
+	height: 480px;			/* entspricht in etwa 15 Blöcken -> sollte so bleiben!!! */
+	width: 640px;			/* entspricht in etwa 20 Blöcken -> bei Änderung auch die folgenden Zeilen anpassen!!! */
+	
+	position: absolute;		/* damit man relativ zum body ausrichten kann */
+	top: 50%;
+	left: 50%;				/* linke, obere Ecke exakt in Fenstermitte */
+	margin-top: -240px;		/* jetzt um halbe background-Ausmaße nach links oben verschoben */
+	margin-left: -320px;	/* => background-Div ist immer exakt mittig im Browserfenster :-) */
+	
+	cursor: crosshair;		/* damit der cursor im Spielfeld nicht unnötig stört */
+}
+
+#world
+{
+	margin: 0;
+	padding: 0;
+	
+	height: 480px;			/* entspricht in etwa 15 Blöcken -> sollte so bleiben!!! */
+	width: 640px;			/* entspricht in etwa 20 Blöcken -> bei Änderung auch #background ändern!!! */
+	
+	position: absolute;		/* damit man relativ zum #background ausrichten kann */
+	bottom: 0px;
+	left: 0px;				/* #world liegt exakt auf #background */
+	
+	z-index: 0;
+	
+	overflow: hidden;		/* Wichtig: damit alle Objekte, die sich außerhalb des Anzeigebereichs des #world-Divs befinden, nicht mehr angezeigt werden!!! */
+}
+
+#number_of_coins
+{
+	margin: 0;
+	padding: 0;
+	height: 50px;
+	width: 70px;
+	
+	text-align: right;
+	font-family: 'Comic Sans MS' , 'Georgia' , 'Arial';
+	font-size: 33px;
+	font-weight: bold;
+	
+	position: absolute;		/* damit man relativ zur #world ausrichten kann */
+	top: 7px;
+	left: 0px;
+	z-index: 1000;			/* ist immer vor Mario und allen anderen Objekten im Spiel */
+}
+
+#coin
+{
+	margin: 0;
+	padding: 0;
+	height: 32px;
+	width: 32px;
+	
+	background-image : url('mario-objects.png'); 
+	background-position : 0px 0px;	/* das Bild einer Münze */
+	
+	position: absolute;		/* damit man relativ zur #world ausrichten kann */
+	top: 15px;
+	left: 70px;
+	z-index: 1000;			/* ist immer vor Mario und allen anderen Objekten im Spiel */
+}
+
+#number_of_lives
+{
+	margin: 0;
+	padding: 0;
+	height: 50px;
+	width: 70px;
+	
+	text-align: right;
+	font-family: 'Comic Sans MS' , 'Georgia' , 'Arial';
+	font-size: 33px;
+	font-weight: bold;
+	
+	position: absolute;		/* damit man relativ zur #world ausrichten kann */
+	top: 7px;
+	right: 52px;
+	z-index: 1000;			/* ist immer vor Mario und allen anderen Objekten im Spiel */
+}
+
+#lives
+{
+	margin: 0;
+	padding: 0;
+	height: 40px;
+	width: 40px;
+	
+	background-image : url('mario-sprites.png'); 
+	background-position : 0px -430px;	/* ein rotierender Mariokopf */
+	
+	position: absolute;		/* damit man relativ zur #world ausrichten kann */
+	top: 12px;
+	right: 8px;
+	z-index: 1000;			/* ist immer vor Mario und allen anderen Objekten im Spiel */
+}
+
+#credits
+{
+	margin: 0;
+	padding: 40px;
+	height: 3000px;
+	width: 560px;
+	
+	position: absolute;		/* damit man relativ zur #world ausrichten kann */
+	top: 0px;
+	left: 0px;
+	z-index: 1001;			/* ist vor Mario und allen anderen Objekten im Spiel */
+	
+	background-color: rgba(0,0,0,0.7);	/* ein leicht durchsichtiges Grau */
+	
+	text-align: center;
+	font-family: 'Comic Sans MS' , 'Georgia' , 'Arial';
+	font-size: 22px;
+	font-weight: bold;
+	color: white;
+	
+	display: none;
+}
+
+#levelloading
+{
+	background-color: black;
+	
+	margin: 0;
+	padding: 0;
+	
+	height: 480px;			/* entspricht in etwa 15 Blöcken -> sollte so bleiben!!! */
+	width: 640px;			/* entspricht in etwa 20 Blöcken -> bei Änderung auch #background ändern!!! */
+	
+	position: absolute;		/* damit man relativ zum #background ausrichten kann */
+	bottom: 0px;
+	left: 0px;				/* #levelloading liegt exakt auf #background */
+	
+	z-index: 1;				/* #leveloading ist über der #world im #background angeordnet */
+}

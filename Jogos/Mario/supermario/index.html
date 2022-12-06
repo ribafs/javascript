@@ -1,0 +1,407 @@
+﻿<!doctype html>
+<html lang="de">
+
+	<head>
+	
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="menu.css" type="text/css" media="screen, projection" />
+		<link rel="stylesheet" href="editor.css" type="text/css" media="screen, projection" />
+		<link rel="stylesheet" href="game.css" type="text/css" media="screen, projection" />
+		<link rel="stylesheet" href="controlls.css" type="text/css" media="screen, projection" />
+		<link rel="stylesheet" href="Cookie.css" type="text/css" media="screen, projection" />
+		
+<!--[if lte IE 8]>
+        <link rel="stylesheet" href="layout_ie_lte_8.css" type="text/css" media="screen, projection" />
+        <![endif]-->
+        
+        <link rel="shortcut icon" type="image/x-icon" href="icon.ico" />
+
+<title>Super Mario World</title>
+		
+	</head>
+	
+	<body>
+		<div id="loading">
+        	Super Mario World wird geladen...<br /><br />
+            <noscript>Dieses Spiel ben&ouml;tigt JavaScript!</noscript>
+        </div>
+
+		<canvas id="canvas" style="display: none;"></canvas>
+		
+		<!-- Game Musik -->
+		<audio id="GameMusic" preload="auto" loop>
+            <source src="audio/music.ogg" type="audio/ogg" />
+            <source src="audio/music.mp3" type="audio/mp3" />
+        </audio>
+		<audio id="InvincibilityMusic" preload="auto">
+            <source src="audio/invincible.ogg" type="audio/ogg" />
+            <source src="audio/invincible.mp3" type="audio/mp3" />
+        </audio>
+		<audio id="DieMusic" preload="auto">
+            <source src="audio/die.ogg" type="audio/ogg" />
+            <source src="audio/die.mp3" type="audio/mp3" />
+        </audio>
+		<audio id="SuccessMusic" preload="auto">
+            <source src="audio/success.ogg" type="audio/ogg" />
+            <source src="audio/success.mp3" type="audio/mp3" />
+        </audio>
+		<audio id="GameOverMusic" preload="auto">
+            <source src="audio/gameover.ogg" type="audio/ogg" />
+            <source src="audio/gameover.mp3" type="audio/mp3" />
+        </audio>
+		<audio id="EndingMusic" preload="auto">
+            <source src="audio/peach.ogg" type="audio/ogg" />
+            <source src="audio/peach.mp3" type="audio/mp3" />
+        </audio>
+		<audio id="CreditMusic" preload="auto">
+            <source src="audio/ending.ogg" type="audio/ogg" />
+            <source src="audio/ending.mp3" type="audio/mp3" />
+        </audio>
+
+		<!-- Menu Musik -->
+		<audio autoplay loop preload="auto" id="menuMusic">
+                <source src="audio/menu.ogg" type="audio/ogg" />
+                <source src="audio/menu.mp3" type="audio/mp3" />
+        </audio>
+        
+        <!-- Editor Musik -->
+		<audio loop preload="auto" id="editorMusic">
+                <source src="audio/editor.ogg" type="audio/ogg" />
+                <source src="audio/editor.mp3" type="audio/mp3" />
+        </audio>
+        
+        		
+		<div id="controllpage">
+			<div id="exit_controllpage">X</div>
+			
+			<div id="rightarrow"> <img src="arrow.png" width="50px" height="30px" alt="" /> </div>
+			<div id="leftarrow"> <img src="arrow.png" width="50px" height="30px" alt="" /> </div>
+			<div id="uparrow"> <img src="arrow.png" width="50px" height="30px" alt="" /> </div>
+			<div id="downarrow"> <img src="arrow.png" width="50px" height="30px" alt="" /> </div>
+			<div id="Strg">Strg / Y</div>
+			
+			<div id="texts">
+				<div id="rightarrowtext" class="text">: nach rechts bewegen</div>
+				<div id="leftarrowtext" class="text">: nach links bewegen</div>
+				<div id="uparrowtext" class="text">: springen</div>
+				<div id="downarrowtext" class="text">: ducken</div>
+				<div id="Strgtext" class="text">: sprinten + schießen</div>
+			</div>
+			
+			<div id="back_to_menu">Spiel beenden</div>
+		</div>
+		
+		<div id="cookiepage">
+			<div id="cookietext">Wollen Sie beim zuletzt gespeicherten Spielstand fortfahren oder ein neues Spiel beginnen?</div>
+			<div id="exit_cookiepage">X</div>
+			<div id="continue">Spiel fortsetzen</div>
+			<div id="newgame2">Neues Spiel</div>
+		</div>
+		
+		<div id="menu">
+           		 <img id="img1dia" />
+        		<img id="img2dia" />
+            
+            		<div id="menu_buttons">
+              			  <div id="newgame">Spielen</div>
+              				  <div id="edit">Leveleditor</div>
+              			  <div id="controlls">Steuerung</div>
+					</div>
+		</div>
+
+<div id="editor">
+
+	<!-- Hier sind wichtige Buttons -->
+	<div id="editor_left">
+		<form method="post" id="form">
+			<input type="button" value="Raster" id="grid_button" />
+		    <input type="button" value="R&uuml;ckg&auml;ngig" id="cancel_button" />
+            <input type="button" value="Alles l&ouml;schen" id="delete_button" />
+		    <input type="button" value="Level spielen" id="play_button" />
+		    <input type="button" value="Level speichern" id="save_button" />
+            <input type="button" value="Level laden" id="load_button" />
+            <input type="button" value="Entwickler" id="developer_button" />
+            <input type="button" value="zur&uuml;ck zum Menu" id="editor_back" />
+		</form>
+    </div>
+    
+    <div id="editor_right">
+        <!-- Hier wird das neue Level zusammengebaut -->
+        <div id="edit_world">
+            <div id="level_size">
+                <canvas id="edit_canvas"></canvas> <!-- Canvas fuer Level -->
+                <canvas id="edit_canvas_help"></canvas> <!-- Canvas fuer Hilfslinien -->
+            </div>
+        </div>
+    
+    
+        <!-- Reiter um eine Art von Bausteinen / Operationen auszuwaehlen -->
+        <div id="labels">
+            <span id="l1" style="height: 32px">Optionen</span>
+            <span id="l2">Bausteine</span>
+            <span id="l3">Figuren</span>
+            <span id="l4">Spezial-Bausteine 1</span>
+            <span id="l5">Spezial-Bausteine 2</span>
+        </div>
+    
+        <!-- Das ist der Baukasten mit den Bausteinen -->
+        <div id="workbench">
+            <div id="options">
+            	<span class="workbench_title">Levelbreite in Blocks</span>
+                <form onSubmit="return false">
+                    <input value="100" type="range" min="30" max="400" step="1" id="canvas_width" /> <span id="range_value">100</span><br />
+            	</form>
+                <span class="workbench_title" style="margin-top: 10px">Level-Hintergrund</span>
+                <div id="edit_backgrounds">
+                	<div>
+                        <img src="mario-background_1.png" id="edit_background_img1" style="margin: 0 3px; border: 2px #f00 solid" />
+                        <img src="mario-background_2.png" id="edit_background_img2" />
+                        <img src="mario-background_3.png" id="edit_background_img3" />
+                        <img src="mario-background_4.png" id="edit_background_img4" />
+                        <img src="mario-background_5.png" id="edit_background_img5" />
+                        <img src="mario-background_6.png" id="edit_background_img6" />
+                        <img src="mario-background_7.png" id="edit_background_img7" />
+                        <img src="mario-background_8.png" id="edit_background_img8" />
+                    </div>
+                </div>
+            </div>
+            <span id="objects">
+                <span id="bricks" style="display: none">
+                	<span class="workbench_title">Drag &amp; Drop Bausteine</span>
+                    <div class="grass_top_left_1x1"></div>
+                    <div class="grass_top_1x1"></div>
+                    <div class="grass_top_right_1x1"></div>
+                    <div class="grass_right_1x1"></div>
+                    <div class="grass_left_1x1"></div>
+                    <div class="grass_top_left_rounded_1x1"></div>
+                    <div class="grass_top_left_rounded_soil_1x1"></div>
+                    <div class="grass_top_right_rounded_1x1"></div>
+                    <div class="grass_top_right_rounded_soil_1x1"></div>
+                    <div class="grass_top_left_corner_1x1"></div>
+                    <div class="grass_top_right_corner_1x1"></div>
+                    <div class="soil_1x1"></div>
+                    <div class="soil_left_1x1"></div>
+                    <div class="soil_right_1x1"></div>
+                    <div class="planted_soil_left_1x1"></div>
+                    <div class="planted_soil_middle_1x1"></div>
+                    <div class="planted_soil_right_1x1"></div>
+                    <div class="bush_left_1x1"></div>
+                    <div class="bush_middle_left_1x1"></div>
+                    <div class="bush_middle_1x1"></div>
+                    <div class="bush_middle_right_1x1"></div>
+                    <div class="bush_right_1x1"></div>
+                    <div class="pipe_top_left_1x1"></div>
+                    <div class="pipe_top_right_1x1"></div>
+                    <div class="pipe_left_1x1"></div>
+                    <div class="pipe_right_1x1"></div>
+                    <div class="pipe_left_grass_1x1"></div>
+                    <div class="pipe_right_grass_1x1"></div>
+                    <div class="pipe_left_soil_1x1"></div>
+                    <div class="pipe_right_soil_1x1"></div>
+                    <div class="brown_block_1x1"></div>
+                    <div class="stone_1x1"></div>
+                    <div class="coin_1x1"></div>
+                    <div class="multiple_coinbox_1x1"></div>
+                    <div class="coinbox_1x1"></div>
+                    <div class="mushroombox_1x1"></div>
+                    <div class="starbox_1x1"></div>
+                    <div class="tools_eraser_1x1" title="Radiergummi"></div>
+                </span>
+                
+                <span id="figures" style="display: none">
+                	<span class="workbench_title">Drag &amp; Drop Figuren</span>
+                    <div class="fig_greenturtle_1x1"></div>
+                    <div class="fig_ballmonster_1x1"></div>
+                    <div class="fig_spikedturtle_1x1"></div>
+                    <div class="fig_pipeplant_1x1"></div>
+                    <div class="fig_staticplant_1x1"></div>
+                    <div class="fig_mario_1x1"></div>
+                </span> 
+                
+                <span id="tool1" style="display: none">
+                    <span class="workbench_title">Drag &amp; Drop Spezial 1</span>
+                    <div class="tool1_soil_2x2"></div>
+                    <div class="tool1_soil_3x3"></div>
+                    <div class="tool1_soil_4x4"></div>
+                    <div class="tool1_grass_left_4x1"></div>
+                    <div class="tool1_grass_right_4x1"></div>
+                    <div class="tool1_soil_left_4x1"></div>
+                    <div class="tool1_soil_right_4x1"></div>
+                    <div class="tool1_pipe_left_soil_4x1"></div>
+                    <div class="tool1_pipe_right_soil_4x1"></div>
+                    <div class="tool1_pipe_left_4x1"></div>
+                    <div class="tool1_pipe_right_4x1"></div>
+                </span>
+                <span id="tool2" style="display: none">
+                    <span class="workbench_title">Drag &amp; Drop Spezial 2</span>
+                    <div class="tool2_grass_top_1x2"></div>
+                    <div class="tool2_grass_top_1x4"></div>
+                    <div class="tool2_grass_left_2x1"></div>
+                    <div class="tool2_grass_right_2x1"></div>
+                    <div class="tool2_soil_left_2x1"></div>
+                    <div class="tool2_soil_right_2x1"></div>
+                    <div class="tool2_pipe_left_soil_2x1"></div>
+                    <div class="tool2_pipe_right_soil_2x1"></div>
+                    <div class="tool2_pipe_left_2x1"></div>
+                    <div class="tool2_pipe_right_2x1"></div>
+                </span>
+			</span>
+        </div>
+    </div>
+</div>
+
+		<div id="background">
+			<div id="world">
+				<div id="number_of_coins"></div>
+				<div id="coin"></div>
+				<div id="number_of_lives"></div>
+				<div id="lives"></div>
+				<div id="credits">
+					<br /><br /><br /><br /><br />
+					<span style="font-size: 44px; text-decoration: underline;">The End</span>
+					<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+					Dieses Spiel wurde im WS 2011/2012 als Abschlussprojekt im Rahmen des Kurses <br /> <i>"Programmierung und Design von WebApplications mit HTML5, CSS3 und JavaScript"</i> <br /> 
+					der Universität Regensburg erstellt.
+					<br /><br /><br />
+					<span style="font-size: 25px; text-decoration: underline;">Programmierung:</span><br />
+					Leveleditor, Leveldesign und Styling: <br /> <i>Patrick Saar</i>
+					<br /><br />
+					Gameengine und Leveldesign: <br /> <i> Martin Buchner </i>
+					<br /><br /><br />
+					Ein besonderer Dank geht an <i>Florian Rappl</i>, den Leiter des Kurses, der nicht nur den Anstoß zu diesem Projekt gab, sondern insbesondere den Beginn der 
+					Entwicklungsphase durch das Bereitstellen eines kleinen Demoprogramms sehr vereinfachte. Außerdem basiert auch der verwendete Soundmanager auf seinen Ideen.<br />
+					Vielen Dank!
+					<br /><br /><br /><br />
+					Das vorliegende Spiel wurde weder von Nintendo angefertigt, noch wird es von Nintendo unterstützt. <br />
+					Sämtliche Grafiken, Musik und Sounds wurden ohne explizite Kenntnis bzw. Einwilligung von Nintendo den originalen "Super Mario"-Spielen entnommen. <br /> <br />
+					This game was not made and is not supported by Nintendo.<br />
+					All graphics, music and sounds were taken from the original "Super Mario"-games without Nintendo's explicit knowledge or permission.
+					<br /><br /><br />
+					Die Handlung des Spiels und alle auftretenden Charaktere wurden frei erfunden. <br />
+					Jedwede Ähnlichkeit mit lebenden oder verstorbenen Personen wäre daher rein zufällig und war nicht beabsichtigt.
+				</div>
+			</div>
+			<div id="levelloading"></div>
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<!-- Menu Skripte -->
+    		<script type="text/javascript" src="diashow.js"></script>
+		<script type="text/javascript" src="Handler.js"></script>
+
+		<!-- Editor Skripte -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="EditorScripts.js"></script>
+        <script type="text/javascript" src="EditorMsgBoxes.js"></script>
+		<script type="text/javascript" src="DragAndDrop.js"></script>
+
+		<!-- Game Skripte -->
+		<script src="jquery.spritely-0.6.1.js"></script>
+		<script src="Hero.js"></script>
+		<script src="Bullet.js"></script>
+		<script src="Coin.js"></script>
+		<script src="CoinBox.js"></script>
+		<script src="MultipleCoinBox.js"></script>
+		<script src="StarBox.js"></script>
+		<script src="MushroomBox.js"></script>
+		<script src="StaticPlant.js"></script>
+		<script src="PipePlant.js"></script>
+		<script src="SpikedTurtle.js"></script>
+		<script src="BallMonster.js"></script>
+		<script src="GreenTurtle.js"></script>
+		<script src="myLevel.js"></script>
+		<script src="SoundManager.js"></script>
+		<script src="GameLoop.js"></script>
+		<script src="Cookie.js"></script>
+		<script>
+			
+			var levelarray;						//hier werden die Leveltiles abgelegt -> geschieht in DefaultLevel() oder im Leveleditor
+			var levelimage;						//Abbild des Levels -> wird in LoadLevel() als *.png abgespeichert
+			var objects;						//die Objekttiles des Spiels -> werden in LoadLevel() als *.png geladen
+			var custom = false;					//Custom- oder Defaultlevel?
+			
+			var mario;							//unsere Spielfigur mit all ihren interessierenden Eigenschaften
+			var coins = new Array();			//die Münzen im Level
+			var coinboxes = new Array();		//die Münzboxen
+			var multiple_coinboxes = new Array();//die multiplen, zeitlich begrenzten Münzboxen
+			var starboxes = new Array();		//die Sternboxen
+			var mushroomboxes = new Array();	//die Pilzboxen
+			var plants = new Array();			//die fleischfressenden Pflanzen
+			var enemies = new Array();			//sämtliche Gegner, die man im Laufe des Levels auslöst
+			
+			var screenwidth, width04, width06, screenpos_x, mario_x, levelwidth;	//zur Berechnung des richtigen Bildschirmausschnitts und der Position der Objekte auf dem Bildschirm
+			
+			var leftkey_down = false, rightkey_down = false;	//linke bzw. rechte Richtungstaste gedrückt? Nötig, um schnelle Richtungswechsel nicht abzuwürgen...
+			var s_down = false, k_down = false, i_down = false, p_down = false;		//für den Levelskip-Cheat
+			var Strg_down = false, y_down = false;									//für die 2 Tasten zum schnellen Laufen
+			
+			var sounds, music, invincibilityMusic, gameoverMusic, endingMusic, successMusic, creditMusic, dieMusic, menuMusic, editorMusic;
+			
+			var savegame = false, cookie_lives, cookie_coins, cookie_level, cookie_state, cookie_shooter;		//fürs Auslesen der Cookies
+
+			$(document).ready(function() {
+											// Diashow starten
+											animation();
+											// Browserunterstützung testen
+											var canvas_support = document.getElementById('canvas');
+											if(!canvas_support.getContext) 
+											{
+												$('#loading').html('Dein Browser unterst&uuml;tzt kein HTML5 Canvas-Element. Bitte installiere einen modernen Browser wie z.B. <a href="http://de.opera.com" target="_blank">Opera</a>.');
+											}
+											else 
+											{
+												$('#background').hide();    // Spiel verstecken									
+												$('#editor').hide();        // Editor verstecken
+												$('#loading').fadeOut(500); // Ladescreen ausblenden
+												
+												$('body').css({'overflow': 'auto'}); // Scrollbalken herstellen
+												
+											}
+
+											mario = null;	//noch keine Spielfigur erstellt!!!
+											
+											//Musik und Sounds:
+											sounds = new soundManager();				//lade sämtliche Spielsounds
+											music = document.getElementById('GameMusic');				//Ingame-Musik
+											invincibilityMusic = document.getElementById('InvincibilityMusic');	//wenn Mario unbesiegbar wird
+											gameoverMusic = document.getElementById('GameOverMusic');	//bei Game Over
+											endingMusic = document.getElementById('EndingMusic');		//Mario trifft Daisy
+											successMusic = document.getElementById('SuccessMusic');		//Mario hat Level gemeistert
+											creditMusic = document.getElementById('CreditMusic');		//Credits
+											dieMusic = document.getElementById('DieMusic');				//Mario stirbt
+											menuMusic = document.getElementById('menuMusic');			//Menu-Musik
+											editorMusic = document.getElementById('editorMusic');		//Editor-Musik
+
+											$('#controllpage').hide();
+											$('#cookiepage').hide();
+											$('#back_to_menu').hide();
+											$('#levelloading').hide();
+											
+											screenwidth = parseInt($('#world').css('width'));
+											width04 = Math.floor( 0.4 * screenwidth - 40 );	//wie weit kann Mario nach links laufen, bis das Level mitwandert?
+											width06 = Math.floor( 0.6 * screenwidth - 40 );	//wie weit kann Mario nach rechts laufen, bis das Level mitwandert?
+											
+											$('#coin').sprite( { fps: 10 , no_of_frames: 4 } );	//damit sich die Münze links oben dreht
+											$('#lives').sprite( { fps: 6 , no_of_frames: 6 , rewind: true } );	//damit sich der Mariokopf rechts oben dreht
+											
+											// Editor Array initialisieren
+											init_editor();
+											
+											//Mausevents zuweisen:
+											$('#editor_back').click( function() { editorBackHandler(); } );
+											$('#exit_controllpage').click( function() { exit_controllpageHandler(); } );
+											$('#back_to_menu').click( function() { back_to_menuHandler(); } );
+											$('#newgame').click( function() { newgameHandler(); } );
+											$('#edit').click( function() { editHandler(); } );
+											$('#controlls').click( function() { controllsHandler(); } );
+											$('#exit_cookiepage').click( function() { exit_cookiepageHandler(); } );
+											$('#newgame2').click( function() { newgame2Handler(); } );
+											$('#continue').click( function() { continueHandler(); } );
+										 });
+			
+		</script>
+		
+	</body>
+	
+</html>

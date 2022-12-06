@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mk.js</title>
+    <script src="src/movement.js"></script>
+    <script src="src/mk.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+    <table>
+    <thead>
+        <th>
+            Arena
+        </th>
+        <th>
+            Webcam
+        </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <div id="parent">
+                    <div id="utils">
+                        <div id="player1Name" class="playerName">Sub-Zero</div>
+                        <div id="player1LifeBar" class="lifebar"><div class="life" id="player1Life"></div></div>
+                        <div id="player2Name" class="playerName">Kano</div>
+                        <div id="player2LifeBar" class="lifebar"><div class="life" id="player2Life"></div></div>
+                    </div>
+                    <div id="arena">
+                    </div>
+                    <div id="loading">
+                        <span class="loadingLabel">Loading...</span>
+                    </div>
+                </div>
+            </td>
+            <td id="webcam-parent">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h1>Instructions</h1>
+                <p>
+                    <ul class="instructions-list">
+                        <li>For playing with gesture recognition you need Google Chrome 22+ or Firefox 19+.</li>
+                        <li>Choose proper place to position your computer. I recommend you to use white wall as background and dark clothes for best contrast.</li>
+                        <li>Stay outside the scope of the webcam. It needs to capture the background behind you at first place.</li>
+                        <li>Allow to the web page to use your webcam.</li>
+                        <li>If the webcam canvas is black then you can start playing otherwise restart and try again.</li>
+                        <li>Stay in about 2.5 meters away from your computer in the middle of the view zone.</li>
+                        <li>For walking left stay in the left side of the webcam view region and right if you want to walk right. If you want to stop just go back in the middle.</li>
+                        <li>Raise your left or right arm to punch.</li>
+                        <li>Raise your left or right leg to kick.</li>
+                        <li>Squat and your fighter will squat too.</li>
+                        <li>Squat and punch for squat low punch attack.</li>
+                        <li>Enjoy!</li>
+                    </ul>
+                </p>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+    <div class="manual">
+    </div>
+    <script>
+        (function () {
+
+            function $(id) {
+                return document.getElementById(id);
+            }
+
+            function setLife(container, life) {
+                container.style.width = life + '%';
+            }
+
+            document.onkeydown = function (e) {
+                if (e.keyCode === 32) {
+                    window.location.reload();
+                }
+            };
+
+            (function () {
+                
+                var startGame = function () {
+                    $('loading').style.visibility = 'hidden';
+                    $('arena').style.visibility = 'visible';
+                    $('utils').style.visibility = 'visible';
+                };
+                
+                var options = {
+                    arena: {
+                        container: document.getElementById('arena'),
+                        arena: mk.arenas.types.THRONE_ROOM
+                    },
+                    fighters: [{ name: 'Subzero' }, { name: 'Kano' }],
+                    callbacks: {
+                        attack: function (f, o, l) {
+                            if (o.getName() === 'kano') {
+                                setLife($('player2Life'), o.getLife());
+                            } else {
+                                setLife($('player1Life'), o.getLife());
+                            }
+                        }
+
+                    },
+                    isHost: /^yes$/i.test(prompt('Are you going to be host?')),
+                    gameName: prompt('Enter game name:'),
+                    gameType: 'network'
+                };
+
+                function startNewGame() {
+                    mk.start(options).ready(function () {
+                        startGame();
+                    });
+                }
+                
+                startNewGame();
+                
+            }());
+
+        }());
+    </script>
+</body>
+</html>

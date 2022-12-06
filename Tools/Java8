@@ -1,0 +1,57 @@
+Remover a versão atual do openjdk
+
+sudo apt remove --purge openjdk-*
+
+Instalar o openjdk 8
+
+sudo nano /etc/apt/sources.list
+
+Adicionar
+deb http://ftp.us.debian.org/debian sid main
+
+sudo apt update
+
+sudo apt install openjdk-8-jdk
+
+sudo update-alternatives --config java
+
+javac
+
+javac -version
+
+https://stackoverflow.com/questions/57031649/how-to-install-openjdk-8-jdk-on-debian-10-buster
+
+nano ~/.bashrc
+
+Adicionar
+
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+export ANDROID_SDK_ROOT=/home/ribafs/Android/Sdk
+export ANDROID_HOME=/home/ribafs/Android/Sdk
+export PATH=${PATH}:$ANDROID_SDK_ROOT/tools::$ANDROID_HOME:$ANDROID_SDK_ROOT/platform-tools:$JAVA_HOME/bin:$PATH
+
+source ~/.bashrc
+
+
+
+Configurar java 15
+
+Baixar
+
+https://www.oracle.com/java/technologies/javase-jdk15-downloads.html
+
+
+Baixar o .deb e isntalar
+
+cordova requirements
+
+ls /usr/lib/jvm/
+
+sudo update-alternatives --config java
+
+sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk-15.0.2/bin/java" 1
+
+sudo update-alternatives --set java /usr/lib/jvm/jdk-15.0.2/bin/java
+
+
+/usr/lib/jvm/java-11-openjdk-amd64/

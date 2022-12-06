@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<title>Jogo Pong</title>
+<body style='background-color:#9FaFaF;' onkeydown="move(event.which);">
+<table><tr>
+<td style='vertical-align:top; padding-left:60px;'>
+	<h1 style='color:#222277; font-family:Courier; font-size:56px;'>Pong</h1>
+	<div id=pontuacao>0 Pontos</div><br>
+	<input type=button style='width:100px; padding:8px;' value=Jogar onclick="pontos=0;fase=1;inicio();"><br><br>
+	<input type=button style='width:100px; padding:8px;' value=Tutorial onclick="location.href='tutorial.htm';">
+</td>
+<td style='width:100%; text-align:center;'><canvas id="canvas" width="400" height="450" style="margin-top:20px; border:12px solid #222222; border-radius:12px;"></canvas></td>
+</tr></table>
+<script>
+ctx=document.getElementById("canvas").getContext("2d");
+x=20,y=200;
+dx=2,dy=2;
+tamanho=10;
+vivo=false;
+barrax=150;
+fase=1;
+pontos=0;
+function inicio(){
+	dx=2,dy=3;
+	x=20,y=200;
+	vivo=true;
+	barrax=150;
+	bloco=[];
+	for(c=0;c<fase;c++)
+		for(j=0;j<5;j++)
+			for(i=0;i<8;i++)
+				bloco.push({x:i*50,y:j*20,cor:c,vivo:true});
+}
+function anda(){
+	ctx.fillStyle="#2F4F4F";
+	ctx.fillRect(0,0,400,450);
+	ctx.fillStyle="#FF0000";
+	ctx.fillRect(barrax,430,100,20);
+	if(vivo){
+		for(var i=0;i<bloco.length;i++){
+			if(bloco[i].vivo){
+				switch(bloco[i].cor){
+					case 0: ctx.fillStyle="#0000ff"; break;
+					case 1: ctx.fillStyle="#00ff00"; break;
+					case 2: ctx.fillStyle="#ff0000"; break;
+					case 3: ctx.fillStyle="#00ffff"; break;
+					case 4: ctx.fillStyle="#ff00ff"; break;
+					case 5: ctx.fillStyle="#ffff00"; break;
+					case 6: ctx.fillStyle="#e1e1e1"; break;
+					case 7: ctx.fillStyle="#cccccc"; break;
+					case 8: ctx.fillStyle="#999999"; break;
+					case 9: ctx.fillStyle="#666666"; break;
+					default: ctx.fillStyle="#333333"; break;
+				}
+				ctx.fillRect(bloco[i].x,bloco[i].y,50,20);
+			}
+		}
+        for(i=bloco.length-1;i>=0;i--){
+			if(bloco[i].vivo){
+				dif=y-bloco[i].y-tamanho;
+				if((dy<0&&(dif>0&&dif<20))||(dy>0&&(dif<=0&&dif>-20))){
+					if(x>bloco[i].x&&x<bloco[i].x+50){
+						dy=dy*-1;
+						bloco[i].vivo=false;
+						pontos++;
+						document.getElementById('pontuacao').innerHTML=pontos+' Pontos';
+					}
+				}
+			}
+		}
+		x+=dx;
+		y+=dy;
+		if(y>=430-tamanho){
+			dif=x-barrax;
+			if(dif>-10&&dif<110){
+				dy=dy*-1;
+				if(dif>=-10&&dif<15)dx=-3;
+				if(dif>=15&&dif<50)dx=-2;
+				if(dif>=50&&dif<85)dx=2;
+				if(dif>=85&&dif<110)dx=3;
+				y=430-tamanho;
+			}
+		}
+		if(y>=450-tamanho){
+			vivo=false;
+			pontos=0;
+		}
+		if(y<=0+tamanho){
+			dy=dy*-1;
+			y=tamanho;
+		}
+		if(x>=400-tamanho)dx=dx*-1;
+		if(x<=0+tamanho)dx=dx*-1;
+		ctx.fillStyle="#00FF00";
+		ctx.beginPath();
+		ctx.arc(x,y,tamanho,0,Math.PI*2,false);
+		ctx.fill();
+		fim=true;
+		for(j=0;j<bloco.length;j++)
+			if(bloco[j].vivo)
+				fim=false;
+        if(fim){
+			fase++;
+			inicio();
+		}
+	}
+}
+function move(e){
+	if(e==37)barrax-=40;
+	if(barrax<0)barrax=0;
+	if(e==39)barrax+=40;
+	if(barrax>300)barrax=300;
+}
+setInterval('anda()',10);
+</script>
+</body>
+</html>
