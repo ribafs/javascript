@@ -1,0 +1,123 @@
+
+<!-- TWO STEPS TO INSTALL JAVASCRIPT QUIZ:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  -->
+
+<!-- STEP ONE: Paste this code into the HEAD of your HTML document  -->
+
+<HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+var ans = new Array;
+var done = new Array;
+var yourAns = new Array;
+var explainAnswer = new Array;
+
+var score = 0;
+ans[1] = "b";
+ans[2] = "b";
+ans[3] = "a";
+ans[4] = "c";
+ans[5] = "b";
+
+explainAnswer[1]="The reason why Answer 1 is Blah Blah Blah";
+explainAnswer[2]="The reason why Answer 2 is Blah Blah Blah";
+explainAnswer[3]="The reason why Answer 3 is Blah Blah Blah";
+explainAnswer[4]="The reason why Answer 4 is Blah Blah Blah";
+explainAnswer[5]="The reason why Answer 5 is Blah Blah Blah";
+
+function Engine(question, answer) {
+yourAns[question]=answer;
+}
+
+function Score(){
+var answerText = "How did you do?\n------------------------------------\n";
+for(i=1;i<=5;i++){
+   answerText=answerText+"\nQuestion :"+i+"\n";
+  if(ans[i]!=yourAns[i]){
+    answerText=answerText+"\nThe correct answer was "+ans[i]+"\n"+explainAnswer[i]+"\n";
+  }
+  else{
+    answerText=answerText+" \nCorrect! \n";
+    score++;
+  }
+}
+
+answerText=answerText+"\n\nYour total score is : "+score+"\n";
+
+//now score the user
+answerText=answerText+"\nComment : ";
+if(score<=0){
+answerText=answerText+"You need to learn some more";
+}
+if(score>=1 && score <=2){
+answerText=answerText+"bit more practice";
+}
+if(score>=3 && score <=3){
+answerText=answerText+"doing ok";
+}
+if(score>4){
+answerText=answerText+"You are one hot java babe!";
+}
+
+alert(answerText);
+
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<!-- STEP TWO: Copy this code into the BODY of your HTML document  -->
+
+<BODY>
+
+<DIV ALIGN="CENTER">
+<h1>Java Quiz</h1>
+<b>Test your knowledge of Java!</b>
+<hr>
+<FORM>
+<b>1. What is the name of the Java mascot?</b><br>
+<input type=radio name="q1" value="a" onClick="Engine(1, this.value)">a) Luke<br>
+<input type=radio name="q1" value="b" onClick="Engine(1, this.value)">b) Duke<br>
+<input type=radio name="q1" value="c" onClick="Engine(1, this.value)">c) Nuke<br>
+<input type=radio name="q1" value="d" onClick="Engine(1, this.value)">d) Sunny<p>
+<b>2. Where is the best place to get Java software?</b><br>
+<input type=radio name="q2" value="a" onClick="Engine(2, this.value)">a) From a can<br>
+<input type=radio name="q2" value="b" onClick="Engine(2, this.value)">b) From java.sun.com<br>
+<input type=radio name="q2" value="c" onClick="Engine(2, this.value)">c) You have to buy it from Microsoft<br>
+<input type=radio name="q2" value="d" onClick="Engine(2, this.value)">d) From your local Star Bucks<p>
+<b>3. A 'for' loop in Java looks like this....</b><br>
+<input type=radio name="q3" value="a" onClick="Engine(3, this.value)">a) for(int i=0;i<5;i++){}<br>
+<input type=radio name="q3" value="b" onClick="Engine(3, this.value)">b) for i=1 to 5 do<br>
+<input type=radio name="q3" value="c" onClick="Engine(3, this.value)">c) repeat...until(i=5)<br>
+<input type=radio name="q3" value="d" onClick="Engine(3, this.value)">d) FOR I:=5 DOWNTO 1 DO  <p>
+<b>4. Which platform can not run Java.</b><br>
+<input type=radio name="q4" value="a" onClick="Engine(4, this.value)">Linux<br>
+<input type=radio name="q4" value="b" onClick="Engine(4, this.value)">Windows NT<br>
+<input type=radio name="q4" value="c" onClick="Engine(4, this.value)">Commodore 64<br>
+<input type=radio name="q4" value="d" onClick="Engine(4, this.value)">Apple Mac<p>
+<b>5. 'JMF' stands for: </b><br>
+<input type=radio name="q5" value="a" onClick="Engine(5, this.value)">A pop group of the 90's who had the hit "Unbelievable"<br>
+<input type=radio name="q5" value="b" onClick="Engine(5, this.value)">Java Media Framework<br>
+<input type=radio name="q5" value="c" onClick="Engine(5, this.value)">Java Messaging Framework<br>
+<input type=radio name="q5" value="d" onClick="Engine(5, this.value)">Java Meditation Forum<p>
+<CENTER>
+<input type=button onClick="Score()" value="Well... How did I do?">
+</CENTER>
+</FORM>
+</DIV>
+
+
+<p><center>
+<font face="arial, helvetica" size"-2">Free JavaScripts provided<br>
+by <a href="http://javascriptsource.com">The JavaScript Source</a></font>
+</center><p>
+
+<!-- Script Size:  4.69 KB -->

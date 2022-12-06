@@ -1,0 +1,54 @@
+<script>
+
+function sum() {
+  var num1 = document.getElementById("n1");
+  var num2 = document.getElementById("n2");
+  var result = parseFloat(num1.value) + parseFloat(num2.value);
+  alert(result);
+}
+
+function sub() {
+  var num1 = document.getElementById("n3");
+  var num2 = document.getElementById("n4");
+  var result = parseFloat(num1.value) - parseFloat(num2.value);
+  alert(result);
+}
+
+function mult() {
+  var num1 = document.getElementById("n5");
+  var num2 = document.getElementById("n6");
+  var result = parseFloat(num1.value) * parseFloat(num2.value);
+  alert(result);
+}
+
+function div() {
+  var num1 = document.getElementById("n7");
+  var num2 = document.getElementById("n8");
+  var result = parseFloat(num1.value) / parseFloat(num2.value);
+  alert(result);
+}
+
+// Adapted from https://stackoverflow.com/questions/60346902/i-cant-do-a-simple-calculator-with-javascript
+// https://medium.com/@singhamritpal49/creating-simple-addition-calculator-with-javascript-563ede3527e2
+</script>
+
+<h3>Sum</h3>
+<input type="text" id="n1"> + 
+<input type="text" id="n2">
+<button id="btn" onclick="return sum();">Sum</button>
+
+<h3>Subtraction</h3>
+<input type="text" id="n3"> - 
+<input type="text" id="n4">
+<button id="btn" onclick="return sub();">Sub</button>
+
+<h3>Multiplication</h3>
+<input type="text" id="n5"> * 
+<input type="text" id="n6">
+<button id="btn" onclick="return mult();">Multiplicate</button>
+
+<h3>Division</h3>
+<input type="text" id="n7"> / 
+<input type="text" id="n8">
+<button id="btn" onclick="return div();">Divide</button>
+

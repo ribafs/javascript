@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copiar e Colar</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="">
+    <style>
+
+    </style>
+</head>
+<body>
+	<div class="container py-4">
+
+    <h1>Copiar e Colar Texto com Javascript</h1>
+
+    <h3>Para copiar texto de um elemento input</h3>
+    Apenas adicione o atributo data-copy-origin="#nomeElemento" ao botão. Exemplo:
+
+		<div class="input-group mb-3">
+			<input type="text" class="form-control" value="Texto para copiar" id="txtCopy">
+			<div class="input-group-append">
+				<button class="btn btn-success" data-copy-origin="#txtCopy" onclick="alert('Texto copiado para a memória.\nAgora pode colar em qualquer lugar com Ctrl+V')">Copiar</button>
+			</div>
+		</div>
+    </div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/assisfery/CopyPasteJS@1.2/src/CopyPasteJS.min.js"></script>
+    <script type="text/javascript" src=""></script>
+    <script>
+
+    </script>
+</body>
+</html>

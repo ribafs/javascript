@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Formulário de teste</title>
+
+	<style type="text/css">
+	h1
+	{
+		text-align: center;
+	}
+	.parente
+	{
+		background: #d25b5b;;
+		padding: 5px;
+		border-radius: 5px;
+		color: #fff;
+		border: 1px solid #ff0000;
+		text-decoration: none;
+		float: right;
+		margin-bottom: 20px;
+		clear: both;
+	}
+	form
+	{
+		display: block;
+		clear: both;
+	}
+	</style>
+</head>
+<body>
+	<h1>Sistemas de Reserva</h1>
+	<a href="#1" class="parente">+ add Parente</a>
+	<form id="form" action="create.php" method="post">
+		<fieldset>
+			<legend>Titular</legend>
+			<label>Nome:</label> <input type="text" name="titular[0][nome]">
+			<label>Email:</label> <input type="text" name="titular[0][email]">
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend>Adicional - Acompanhante</legend>
+			<input type="hidden" name="acompanhante[0][id_titular]" value="1">
+			<label>Nome:</label> <input type="text" name="acompanhante[0][nome]">
+			<label>Idade:</label> <input type="text" name="acompanhante[0][idade]">
+		</fieldset>
+		<br>
+		<div id="adicionais"></div>
+		<input type="submit" value="Enviar">
+	</form>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			var indice = 0;
+
+			$('.parente').click(function(){
+
+			indice++;
+
+			/**
+			 * Template
+			 */
+			var template = '<fieldset>'+
+			'<legend>Adicional - Parente '+ indice +'</legend>'+
+			'<input type="hidden" name="acompanhante['+indice+'][id_titular]" value="1">'+
+			'<label>Nome:</label> <input type="text" name="acompanhante['+indice+'][nome]">'+
+			'<label>Idade:</label> <input type="text" name="acompanhante['+indice+'][idade]">'+
+			'</fieldset>';
+
+			$("#adicionais").append(template);
+
+			return false;
+
+			});
+
+		});
+	</script>
+</body>
+</html>

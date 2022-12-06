@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bin</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet"  href="./css/estilo.css">
+	</head>
+	<body>
+		<div class="container">
+			<h1>Conversor Digital</h1>
+			<form id="form" class="form" action="#">
+				<div class="element">
+					<div class="decimal">
+						<label>Decimal</label>
+						<input type="text" placeholder="Decimal" id="dec" onclick="this.value=''" onkeyup="binCalc(this.form.bin)">
+					</div>
+					<div class="binario">
+						<label>Binário</label>
+						<input type="text" placeholder="Binário"  onclick="this.value=''" onkeyup="decCalc(this.form.dec);minmax=(value,0,65536)" id="bin"> 
+					</div>
+					<div class="hexadecimal">
+						<label>Hexadecimal</label>
+						<input type="text" placeholder="Hexadecimal"  id="hex" disabled="disabled" >
+					</div>
+				</div>
+			</form>
+		</div>
+		<span><a href="https://free.facebook.com/alexandrejose.decarvalho.16">Facebook: Vicente Victor Sombo</a></span>
+		
+	<script src="./js/index.js"></script>
+	</body>
+</html>

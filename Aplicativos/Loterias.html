@@ -1,0 +1,92 @@
+<!-- TWO STEPS TO INSTALL LOTTERY NUMBERS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  -->
+
+<!-- STEP ONE: Paste this code into the HEAD of your HTML document  -->
+<HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+function numbers() {
+var nummenu = document.lotto.numbercount;
+var numbercount = nummenu.options[nummenu.selectedIndex].value*1;
+var maxnumbers = document.lotto.maxnum.value*1;
+if (numbercount > maxnumbers) {
+alert("Esteja seguro de selecionar um valor máximo para a loteria!");
+}
+else {
+var ok = 1;
+r = new Array (numbercount);
+for (var i = 1; i <= numbercount; i++) {
+r[i] = Math.round(Math.random() * (maxnumbers-1))+1;
+}
+for (var i = numbercount; i >= 1; i--) {
+for (var j = numbercount; j >= 1; j--) {
+if ((i != j) && (r[i] == r[j])) ok = 0; 
+   }   
+}
+if (ok) {
+var output = "";
+for (var k = 1; k <= numbercount; k++) {
+output += "Número " + k + " = " + r[k] + "\n";
+}
+document.lotto.results.value = output;
+}     
+else numbers();
+   }
+}
+//  End -->
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Cantinho do Mambo - Utilidades</title></HEAD>
+
+<!-- STEP TWO: Copy this code into the BODY of your HTML document  -->
+
+<BODY bgcolor="#0066FF">
+
+<center>
+
+<h3><font color="#FFFFFF">Cantinho do Mambo - Utilidades</font></h3>
+<font color="#FFFF00"><strong>Sorteio de N&uacute;meros para Loterias</strong> </font><font color="#FFFFFF"><br>
+</font>
+<form name="lotto">
+<table width=100% border=0>
+<tr>
+<td align=center><font color="#FFFFFF">Quantas dezenas?
+    <select name="numbercount">
+      <option value="1">1
+      <option value="2">2
+      <option value="3">3
+      <option value="4">4
+      <option value="5">5
+      <option value="6" selected>6
+      <option value="7">7
+      <option value="8">8
+      <option value="9">9
+      <option value="10">10
+    </select>  
+    <br>
+    De 1 até    <input type=text name=maxnum value="49" size=2 maxlength=2>
+    <br>
+    <input type=button value="Sortear" onClick="numbers()">
+</font>
+  <p>
+    <font color="#FFFFFF">
+    <textarea name="results" rows=11 cols=15></textarea>
+    </font></td>
+</tr>
+</table>
+</form>
+</center>
+
+<p><center>
+  <font color="#FFFFFF" size="-2" face="arial, helvetica">JavaScripts gentilmente oferecido por:<br>
+  <a href="http://javascriptsource.com">The JavaScript Source</a></font>
+</center><p>
+
+  <font color="#FFFFFF">
+  <!-- Script Size:  1.91 KB -->
+  </font>

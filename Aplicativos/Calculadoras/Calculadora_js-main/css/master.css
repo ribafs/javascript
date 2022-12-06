@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    margin-top: 10%;
+    width: 420px;
+    border: #000 solid;
+    border-radius: 10px;
+    background: rgb(105, 105, 250);
+}
+input[type="text"]{
+    text-align: right;
+    width: 350px;
+    height: 70px;
+    font-size: 50pt;
+    margin:20px 0 20px 40px;
+    font-weight: bold;
+    border-radius: 10px;
+    background: rgb(255, 255, 255);
+}
+.btns{
+    display: flex;
+    justify-content: center;
+    background: rgb(228, 228, 228);
+
+}
+.btn1 input[type="button"]{
+    width: 70px;
+    height: 50px;
+    font-size: 30pt;
+    margin: 5px;
+    border-radius: 10px none none;
+}
+
+.btn2{
+    width: 600px;
+}
+.btn2 input[type="button"]{
+    display: inline;
+    width: 70px;
+    height: 50px;
+    font-size: 30pt;
+    margin: 5px;
+}
+input[type="button"]:hover{
+    background-color: rgb(212, 212, 212);
+   border: none;
+}
+#igual{
+    width: 155px;
+    height: 100px;
+    color: #fff;
+    background-color: #000;
+}
+#lmp{
+    color: #fff;
+    background-color: rgb(248, 10, 10);
+}
+#igual:hover{
+    background-color: rgb(212, 212, 212);
+    border: none;
+}

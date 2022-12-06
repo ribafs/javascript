@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+
+:root {
+    --green: rgb(0, 163, 73);
+    --gray: rgb(156, 156, 156);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    background-color: #eee;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .calculator {
+        width: 320px;
+        height: fit-content;
+        background: #e8eaec;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        box-shadow: 12px 12px 32px rgba(13,39,80,0.25), 
+                    -10px 10px 15px #fff;
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .middle {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+
+                .speaker {
+                    width: 50px;
+                    height: 6px;
+                    border-radius: 3rem;
+                    background-color: #000;
+                }
+
+                .camera {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background-color: #000;
+                }
+            }
+
+            .icons {
+                display: flex;
+                gap: .5rem;
+                align-items: center;
+
+                i {
+                    font-size: 1.3rem;
+                    color: #000;
+
+                    &#wifi {
+                        transform: translateY(-10%);
+                    }
+                }
+            }
+        }
+
+        .screen {
+            width: 100%;
+            padding: 1.5rem 1rem;
+            font-size: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: right;
+
+            background: #e8eaec;
+            box-shadow: 6px 6px 8px rgba(13, 39, 80, 0.25), 
+                        -6px -6px 10px #fff, 
+                        inset -8px -8px 12px rgba(255,255,255,0.7), 
+                        inset 5px 5px 8px rgba(13,39,80,0.2);
+            border: none;
+            border-radius: 1rem;
+            outline: none;
+        }
+
+        .keyboard {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.40rem;
+            width: 100%;
+            
+            button {
+                width: 50px;
+                height: 50px;
+                border-radius: .5rem;
+                background: transparent;
+                box-shadow: 4px 4px 8px rgba(13, 39, 80, 0.25), 
+                -4px 4px 8px #fff;
+                border: none;
+                font-size: 1.3rem;
+                font-weight: bold;
+                cursor: pointer;
+                color: var(--green);
+
+                &.result {
+                    height: calc(2 * 50px + 1.40rem);
+                }
+
+                &:active {
+                    box-shadow: -3px -3px 7px #a0a0a032, 
+                                3px 3px 5px rgba(94, 104, 121, 0.417);
+                }
+
+                &.number {
+                    color: var(--gray);
+
+                    transition: ease all .4s;
+                    &:hover {
+                        color: #000;
+                    }
+                }
+            }
+            
+            .numbers {
+                display: flex;
+                flex-direction: column;
+                gap: 1.40rem;
+
+                .row {
+                    display: flex;
+                    gap: 1.40rem;
+                    flex-wrap: wrap;
+                }
+            }
+
+            .others {
+                display: flex;
+                flex-direction: column;
+                gap: 1.40rem;
+            }
+        }
+    }
+}

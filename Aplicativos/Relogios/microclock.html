@@ -1,0 +1,206 @@
+<html>
+<!Micro Clock-->
+<head>
+<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
+<style>
+v\:* { behavior: url(#default#VML); }
+</style>
+</head>
+
+<script>
+// MICRO RELOGIO-INICIO
+// CREDITS:
+// Micro Clock
+// By Peter Gehrig
+// Copyright (c) 2003 Peter Gehrig. All rights reserved.
+// Permission given to use the script provided that this notice remains as is.
+// Additional scripts can be found at http://www.24fun.com
+// info@24fun.com
+// 11/19/2003
+
+// IMPORTANT:
+// If you add this script to a script-library or script-archive
+// you have to add a highly visible link to
+// http://www.24fun.com on the webpage
+// where this script will be featured
+
+// set the length for each hand (pixels)
+var hand_sec_length=15
+var hand_min_length=12
+var hand_hour_length=10
+
+// set the color for each hand (hexadecimal values required)
+var hand_sec_color="#FF0000"
+var hand_min_color="#0000FF"
+var hand_hour_color="#000000"
+
+// set the weight for each hand (pixels) 
+var hand_sec_weight=1
+var hand_min_weight=1
+var hand_hour_weight=1
+
+// set width and height for the face (pixels)
+var face_width=32
+var face_height=32
+
+// set the weight of the face's outline (pixels)
+var face_outlineweight=1
+
+// set color of the face's outline
+var face_outlinecolor="#000000"
+
+// set the filling-color of the face's outline (only IE5x)
+var face_fillcolor="#FFFF00"
+
+// set the form of the face (only IE5x)
+// set "rect" if you want a rectangle, set "oval" if you want an oval.
+var faceform="oval"
+
+// set the corresponding values for the small circle in the center of the watch (only IE5x)
+var innercircle_width=2
+var innercircle_height=2
+var innercircle_outlineweight=1
+var innercircle_outlinecolor="#000000"
+var innercircle_fillcolor="#FFFF00"
+
+// do not edit below this line
+var pi= Math.PI
+var x_sec=0
+var y_sec=0
+var x_min=0
+var y_min=0
+var x_hour=0
+var y_hour=0
+var angle=270
+var x,y
+
+var opera=navigator.userAgent.match(/Opera/)?1:0 
+var ie5=document.getElementById&&document.all&&!navigator.userAgent.match(/Opera/)?1:0 
+var ns6=document.getElementById&&!document.all&&!navigator.userAgent.match(/Opera/)?1:0 
+
+function getxy(thistime,thisradius) {
+	angle=6*parseInt(thistime)-90
+	x=(thisradius*Math.cos(angle*(pi/180)))+face_width/2
+	y=(thisradius*Math.sin(angle*(pi/180)))+face_height/2
+}
+
+function dorotateIE() {
+	var now = new Date()
+	var nowsec = now.getSeconds()
+	var nowmin = now.getMinutes()
+	var nowhour = now.getHours()
+	if (nowhour>=12) {
+		nowhour-=12
+	}
+	nowhour=(30*nowhour+(nowmin/2))/6
+	getxy(nowsec,hand_sec_length)
+	document.getElementById('secid').to=x+","+y
+	getxy(nowmin,hand_min_length)
+	document.getElementById('minid').to=x+","+y
+	getxy(nowhour,hand_hour_length)
+	document.getElementById('hourid').to=x+","+y
+	var timer=setTimeout("dorotateIE()",1000)
+}
+
+function dorotateNS() {
+	var now = new Date()
+	var nowsec = now.getSeconds()
+	var nowmin = now.getMinutes()
+	var nowhour = now.getHours()
+	if (nowhour>=12) {
+		nowhour-=12
+	}
+	nowhour=(30*nowhour+(nowmin/2))/6
+	for (i=1;i<=hand_sec_length;i++) {
+		getxy(nowsec,i)
+		document.getElementById('sec'+i).style.left=x
+		document.getElementById('sec'+i).style.top=y
+	}
+	for (i=1;i<=hand_min_length;i++) {
+		getxy(nowmin,i)
+		document.getElementById('min'+i).style.left=x
+		document.getElementById('min'+i).style.top=y
+	}
+	for (i=1;i<=hand_hour_length;i++) {
+		getxy(nowhour,i)
+		document.getElementById('hour'+i).style.left=x
+		document.getElementById('hour'+i).style.top=y
+	}
+	var timer=setTimeout("dorotateNS()",1000)
+}
+
+function DL_GetElementLeft(eElement) {
+    var nLeftPos = eElement.offsetLeft;          
+    var eParElement = eElement.offsetParent;     
+    while (eParElement != null) {                                            
+        nLeftPos += eParElement.offsetLeft;      
+        eParElement = eParElement.offsetParent;  
+    }
+    return nLeftPos;                            
+}
+
+function DL_GetElementTop(eElement) {
+    var nTopPos = eElement.offsetTop;            
+    var eParElement = eElement.offsetParent;     
+    while (eParElement != null) {                                            
+        nTopPos += eParElement.offsetTop;        
+        eParElement = eParElement.offsetParent;  
+    }
+    return nTopPos;                              
+}
+
+function getpos(){
+	document.getElementById('roof').style.left=DL_GetElementLeft(document.getElementById('marker'));
+	document.getElementById('roof').style.top=DL_GetElementTop(document.getElementById('marker'));
+	document.getElementById('marker').style.visibility="hidden"
+	document.getElementById('roof').style.visibility="visible"
+	if (ie5) {
+		dorotateIE()
+	}
+	else {
+		dorotateNS()
+	}
+}
+
+if (ie5) {
+	document.write('<span id="marker" style="position:relative;width:'+face_width+';height:'+face_height+'"><img width='+face_width+' height='+face_height+' src="microclock.gif"></span>')
+	document.write('<span id="roof" style="position:absolute;top:0px;left:0px;width:'+face_width+'px;height:'+face_height+'px;visibility:hidden">')
+	document.write('<v:'+faceform+' id="faceid"  strokeweight="'+face_outlineweight+'" strokecolor="'+face_outlinecolor+'" fillcolor="'+face_fillcolor+'" style="position:absolute;top:0px;left:0px;width:'+face_width+'px;height:'+face_height+'px"/>')
+	document.write('<v:line id="secid"  strokeweight="'+hand_sec_weight+'" strokecolor="'+hand_sec_color+'" from="'+face_width/2+','+face_height/2+'" to="'+face_width/2+','+face_height/2+'"/>')
+	document.write('<v:line id="minid"  strokeweight="'+hand_min_weight+'" strokecolor="'+hand_min_color+'" from="'+face_width/2+','+face_height/2+'" to="'+face_width/2+','+face_height/2+'"/>')
+	document.write('<v:line id="hourid"  strokeweight="'+hand_hour_weight+'" strokecolor="'+hand_hour_color+'" from="'+face_width/2+','+face_height/2+'" to="'+face_width/2+','+face_height/2+'"/>')
+	document.write('<v:oval id="innercircleid"  strokecolor="'+innercircle_outlinecolor+'" fillcolor="'+innercircle_fillcolor+'" style="position:absolute;top:'+(face_height/2-innercircle_height/2)+'px;left:'+(face_width/2-innercircle_width/2)+'px;width:'+innercircle_width+'px;height:'+innercircle_height+'px">')
+	document.write('</v:oval>')
+	document.write('</span>')
+	window.onload=getpos
+}
+
+if (opera || ns6) {
+	document.write('<span id="marker" style="position:relative;width:'+(hand_hour_weight+face_width)+';height:'+(hand_hour_weight+face_height)+'">')
+	if (ns6) {
+		document.write('<img width='+(hand_hour_weight+face_width)+' height='+(hand_hour_weight+face_height)+' src="microclock.gif">')
+	}
+	document.write('</span>')
+	document.write('<div id="roof" style="position:absolute;width:'+(hand_hour_weight+face_width)+';height:'+(hand_hour_weight+face_height)+';top:0px;left:0px;visibility:hidden">')
+	for (i=1;i<=30;i++) {
+		angle=12*parseInt(i)-90
+		x=(face_width/2*Math.cos(angle*(pi/180)))+face_width/2
+		y=(face_height/2*Math.sin(angle*(pi/180)))+face_height/2
+		document.write('<div style="position:absolute;left:'+x+'px;top:'+y+'px;background-color:'+face_outlinecolor+'"><img src="microclock.gif" width='+face_outlineweight+'></div>')
+	}
+	for (i=1;i<=hand_sec_length;i++) {
+		document.write('<div id="sec'+i+'" style="position:absolute;left:0px;top:0px;background-color:'+hand_sec_color+'"><img src="microclock.gif" width='+hand_sec_weight+'></div>')
+	}
+	for (i=1;i<=hand_min_length;i++) {
+		document.write('<div id="min'+i+'" style="position:absolute;left:0px;top:0px;background-color:'+hand_min_color+'"><img src="microclock.gif" width='+hand_min_weight+'></div>')
+	}
+	for (i=1;i<=hand_hour_length;i++) {
+		document.write('<div id="hour'+i+'" style="position:absolute;left:0px;top:0px;background-color:'+hand_hour_color+'"><img src="microclock.gif" width='+hand_hour_weight+'></div>')
+	}
+	document.write('</div>')
+	window.onload=getpos
+}
+// MICRO RELOGIO-FINAL
+</script>
+<!Micro Clock-->
+</html>

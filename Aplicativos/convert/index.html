@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Convert com Bootbox.js</title>
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/bootbox.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" media="screen">
+
+    <script src="convert.js"></script>
+</head>
+<body>
+
+<script>
+
+bootbox.alert("<h3>Conversão entre bases: binários, decimais e hexa</h3>", function(){ 
+
+    var numero = prompt("Entre o número a ser convertido", 11); 
+
+    bootbox.prompt({
+        title: "Selecione e entre somente o número!",
+        value: ['1'],
+        inputType: 'checkbox',
+        inputOptions: [{
+            text: '1 - bin2dec',
+            value: '1'
+        },
+        {
+            text: '2 - dec2hex',
+            value: '2'
+        },
+        {
+            text: '3 - hex2bin',
+            value: '3'
+        },
+        {
+            text: '4 - dec2bin',
+            value: '4'
+        }],
+        callback: function (result) {
+            if(result == null) { 
+                alert('Você cancelou');
+            }else if (result != null) {
+              if (result.length > 1) {
+                bootbox.alert("Favor selecionar somente uma opção");
+                return false;
+              } else if(result == 1) {
+                var bin = ConvertBase.bin2dec(numero);
+                bootbox.alert('<b>Convertendo '+numero+' de binário para decimal teremos => '+bin);
+                history.back();
+              }else if(result == 2) {
+                var bin = ConvertBase.dec2hex(numero);
+                bin = bin.toUpperCase();
+                bootbox.alert('<b>Convertendo '+numero+' de decimal para hexadecimal teremos => '+bin);
+                history.back();
+              }else if(result == 3) {
+                var bin = ConvertBase.hex2bin(numero);
+                bootbox.alert('<b>Convertendo '+numero+' de hexadecimal para binário teremos => '+bin);
+                history.back();
+              }else if(result == 4) {
+                var bin = ConvertBase.dec2bin(numero);
+                bootbox.alert('<b>Convertendo '+numero+' de decimal para binário teremos => '+bin);
+                history.back();
+              }
+            }
+        }
+    });
+});
+
+// http://bootboxjs.com/examples.html
+</script>
+<br>
+<h3 align="center"><a href="https://github.com/ribafs/convert/">Detalhes teóricos sobre bases numéricas</a></h3>
+
+<h3 align="center"><input type="button" value="Nova Conversão" onClick="window.location.reload()"></h3>       
+    
+</body>
+</html>    

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="auhtor" content="Josué N. Mendonça - portfolio: josuenm.github.io/portfolio">
+    <meta name="description" content="Essa é uma linda calculadora com efeito de Neomorphism">
+
+
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="./icon.svg" type="image/x-icon">
+
+    <title>Calculadora Neomorphic</title>
+</head>
+<body>
+    <main>
+        <form class="calculator" onsubmit="handleSubmit(event)">
+            <div class="header">
+                <div class="time"></div>
+                <div class="middle">
+                    <div class="speaker"></div>
+                    <div class="camera"></div>
+                </div>
+                <div class="icons">
+                    <i class="bi bi-battery-full"></i>
+                    <i class="bi bi-wifi-2" id="wifi"></i>
+                </div>
+            </div>
+
+            <input type="text" class="screen" value="">
+
+            <div class="keyboard">
+                    <button onclick="clean()"> AC </button>
+                    <button onclick="deleteValue()"> < </button>
+                    <button onclick="insertValue('%')"> % </button>
+                    <button onclick="insertValue('/')"> &divide; </button>
+                    
+                    <div class="numbers">
+                        <div class="row">
+                            <button onclick="insertValue('7')" class="number"> 
+                                7 
+                            </button>
+                            <button onclick="insertValue('8')" class="number">
+                                8 
+                            </button>
+                            <button onclick="insertValue('9')" class="number">
+                                9 
+                            </button>
+                        </div>
+                        <div class="row">
+                            <button onclick="insertValue('4')" class="number">
+                                4 
+                            </button>
+                            <button onclick="insertValue('5')" class="number">
+                                5 
+                            </button>
+                            <button onclick="insertValue('6')" class="number">
+                                6 
+                            </button>
+                        </div>
+                        <div class="row">
+                            <button onclick="insertValue('1')" class="number">
+                                1 
+                            </button>
+                            <button onclick="insertValue('2')" class="number">
+                                2 
+                            </button>
+                            <button onclick="insertValue('3')" class="number">
+                                3 
+                            </button>
+                        </div>
+                        <div class="row">
+                            <button onclick="insertValue('0')" class="number">
+                                0 
+                            </button>
+                            <button onclick="insertValue('.')"> . </button>
+                            <button onclick="insertValue('+')"> + </button>
+                        </div>
+                    </div>
+                    <div class="others">
+                        <button onclick="insertValue('*')"> &times; </button>
+                        <button onclick="insertValue('-')"> &ndash; </button>
+                        <button onclick="result()" class="result"> = </button>
+                    </div>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

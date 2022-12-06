@@ -1,0 +1,225 @@
+<html><head><title>Cálculo dos Feriados Móveis - JavaScript.BR</title>
+<script language="JavaScript">
+<!--
+/*
+Este programa (JavaScript, Netscape 3.0) e' linkware, ou seja, voce pode usa-lo e abusa-lo desde que, nas
+paginas aonde usa-lo, mantenha um link para a minha pagina 
+http://www.infra.ita.cta.br/~flavio informando a autoria do mesmo. 
+A mesma regra se aplica para partes do codigo aqui contido. Por favor mande-me um 
+(mailto:flavio@infra.ita.cta.br) e-mail se usar este programa.
+
+This program (JavaScript, Netscape 3.0) is linkware, I mean, you can use and abuse it since, in those pages
+you use it, you keep a link to my homepage http://www.infra.ita.cta.br/~flavio informing its author. 
+The same rule applies for pieces of the code herein.
+Please send me a (mailto:flavio@infra.ita.cta.br) e-mail if you use this program.
+*/
+// (C) 1997 by Flavio Mendes  
+var M=0;           // Constantes usadas no calculo da data da Pascoa [Constantes()]
+var N=0;           // idem
+
+var DiaPascoa = 0; // Dia do mes da Pascoa
+var MesPascoa = 0; // Mes da Pascoa
+
+var _dia = 0;      // Variaveis globais temporarias
+var _mes = 0;      // Usadas palas funcoes SomaDias() e SubtraiDias()
+var _ano = 0;      //
+
+var DataCarnaval = 0;
+var DataPascoa = 0;
+var DataCorpusChristi = 0;
+
+function Constantes(Year){
+//
+// Calcula constantes de Gauss
+// Altera os valores das variaveis M e N (globais)
+//
+   if (Year>=1900 && Year<=1999){M=24; N=5}
+   else { if (Year>=2000 && Year<=2199){M=24; N=6}
+      else { if (Year>=2200 && Year<=2299){M=25; N=0}
+         else { if (Year>=2300 && Year<=2399){M=26; N=1}
+            else { if (Year>=2400 && Year<=2499){M=25; N=1}
+                 }
+              } 
+           }
+        }
+}
+
+function Pascoa(Ano){
+//
+// Calcula o dia e mes da Pascoa, vale para anos
+// entre 1900 e 2499
+// Altera o valor das variaveis DiaPascoa e MesPascoa (globais)
+//
+ if (Ano>=1900 && Ano<=2499){
+  Constantes(Ano);
+  a=Ano % 19; b=Ano % 4; c=Ano % 7;
+  d=(19*a+M) % 30;
+  e=(2*b+4*c+6*d+N) % 7;
+  p=22+d+e;
+  if (p<=31){DiaPascoa=p; MesPascoa=3}
+  else { MesPascoa=4;
+         p=d+e-9;
+         if (p<=25){DiaPascoa=p} else {DiaPascoa=p-7}
+       }
+ }
+}
+
+function DiasDoMes(Mes,Ano){
+//
+// Calcula qual o numero de dias de cada mes
+//
+  if (Mes>=1 && Mes<=12 && Ano>0)
+  {
+     if (Mes==7){ return 31 }
+     else {
+            if (Mes==2){ return (Ano % 4)==0 ? 29 : 28  }
+            else { return 30+( (Mes % 7) % 2) }
+          }
+  } else { return 0 }
+}
+
+function SomaDias(Diferenca){
+// 
+// Partindo da data _dia,_mes e _ano (globais)
+// esta function soma Diferenca dias
+//
+  var diasmes=0;
+  for (i=1; i<=Diferenca; i++){
+      diasmes = DiasDoMes(_mes,_ano);
+      if (_dia<diasmes){++_dia}
+      else { _dia=1;
+              if (_mes<12 ){++_mes}
+                 else { _mes=1; ++_ano }
+           }
+  }
+}
+
+function SubtraiDias(Diferenca){
+// 
+// Partindo da data _dia,_mes e _ano (globais)
+// esta function subtrai Diferenca dias
+//
+  for (var i=1; i<=Math.abs(Diferenca); i++){
+      if (_dia>1){_dia--}
+      else {  
+              if (_mes>1 ){_mes--}
+                 else { _mes=12; _ano--; }
+             _dia=DiasDoMes(_mes,_ano) 
+           }
+  }
+}
+
+function VeDias(Diferenca){
+//
+// Escolhe qual funcao usar: SomaDias() ou SubtraiDias
+// dependendo do sinal da Diferenca
+//
+   if (Diferenca>0){SomaDias(Diferenca)}
+     else {if (Diferenca<0) {SubtraiDias(Diferenca)}}
+}
+
+function CalculaDatas(Ano){
+//
+// Calcula data da Pascoa, Carnaval e Corpus Christi
+//
+  Pascoa(Ano);
+  _ano=Ano; _mes=MesPascoa; _dia=DiaPascoa;
+  DataPascoa= MostraData();
+  _ano=Ano; _mes=MesPascoa; _dia=DiaPascoa;
+  VeDias(-49); // Domingo de Carnaval
+  DataCarnaval = MostraData();
+  _ano=Ano; _mes=MesPascoa; _dia=DiaPascoa;
+  VeDias(60); // Corpus Christi
+  DataCorpusChristi = MostraData()
+}
+
+function MostraData(){
+//
+// Retorna um string com a data em "Portugues"
+//
+ m=_mes
+ if (m==1) {mon="Janeiro"} 
+  else if (m==2) {mon="Fevereiro"} 
+  else if (m==3) {mon="Março"} 
+  else if (m==4) {mon="Abril"} 
+  else if (m==5) {mon="Maio"} 
+  else if (m==6) {mon="Junho"} 
+  else if (m==7) {mon="Julho"} 
+  else if (m==8) {mon="Agosto"} 
+  else if (m==9) {mon="Setembro"} 
+  else if (m==10) {mon="Outubro"} 
+  else if (m==11) {mon="Novembro"} 
+  else if (m==12) {mon="Dezembro"} 
+ return _dia + " de " + mon + " de " + _ano
+}
+
+function PrintDatas(Ano){
+//
+// Calcula e imprime, no formulario, as datas
+//
+  CalculaDatas(Ano);
+  document.Dados.Pascoa.value=DataPascoa;
+  document.Dados.Carnaval.value=DataCarnaval;
+  document.Dados.Corpus.value=DataCorpusChristi;
+}
+
+function ZeraDados(){
+     document.Dados.oano.value=2020
+     document.Dados.oano.focus()
+     document.Dados.Pascoa.value=""
+     document.Dados.Carnaval.value=""
+     document.Dados.Corpus.value=""
+}
+
+function ChecaAno(Ano) {
+//
+// Ve se o ano esta' entre 1970 (JavaScript) e 2499 (Gauss)
+//
+   var returnVal = false
+   if (Ano<1900) alert("O ano deve ser maior ou igual a 1900" )
+     else if (Ano > 2499) alert("O ano deve ser menor ou igual a 2499" )
+        else returnVal = true
+   if (!returnVal){ZeraDados()}
+   return returnVal
+}
+
+// -->
+
+</script>
+</head>
+
+<body text="#FFFFFF" bgcolor="#000000" link="#00CCFF" vlink="#00CCFF" alink="#FF0000"
+onload="ZeraDados()">
+<center><table border="0" cellpadding="0" cellspacing="0" width="450">
+  <tr>
+        <td> 
+          <h2 align="center"><strong><font face="Arial" color="#FFFFFF"><strong><big><font face="Courier New, Courier, mono" size="7" color="#00CCFF"><b><font color="#0099FF">ALL4ALL<br>
+            JAVASCRIPT</font></b></font> </big></strong></font></strong><br>
+            <font face="Arial">Programa para calcular feriados móveis por: </font><a href="http://www.infra.ita.cta.br/~flavio/"><font face="Arial">Flavio 
+            Mendes Neto</font></a> </h2>
+          <hr>
+    		<form name="Dados">
+      		<p><font face="Arial">Digite o ano: <input type="text" name="oano" size="4" value="2020"
+      		onchange="ChecaAno(this.form.oano.value)"><br></font></p>
+      	<p align="left"><font face="Arial"><input type="button" value="Calcula!" name="calcula" onclick="PrintDatas(this.form.oano.value)"></font><br></p>
+
+      	<table>
+        	<tr>
+          <td><font face="Arial"><b>Domingo de Páscoa: </b></font></td>
+          <td><font face="Arial"><input type="text" name="Pascoa" size="20" value="Pascoa"></font></td>
+        	</tr>
+        	<tr>
+          <td><font face="Arial"><b>Domingo de Carnaval: </b></font></td>
+          <td><font face="Arial"><input type="text" name="Carnaval" size="20" value="Carnaval"></font></td>
+        	</tr>
+        	<tr>
+          <td><font face="Arial"><b>Corpus Christi: </b></font></td>
+          <td><font face="Arial"><input type="text" name="Corpus" size="20" value="Corpus Christi"></font></td>
+        	</tr>
+      	</table>
+      
+    		</form></td>
+  </tr>
+</table></center>
+</body>
+</html>

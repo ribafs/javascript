@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <heaer>
+        <title>
+            Tetse
+        </title>
+        <meta charset="UTF-8">
+        <style>
+            .display span{
+                font-size: 50px;
+            }
+
+        </style>
+    </heaer>
+    <body>
+        <div class="display">
+            <!--DISPLAY-->
+            <span id="minuto">00</span><span>:</span><span id="segundo">00</span>
+
+        </div>
+
+        <script>
+            let segundos = 0;
+            let minutos = 0;
+          
+            function segundo(){
+                //incrementa os segundos
+                segundos++;
+                if(segundos==60){
+                    //incrementa os minutos
+                    minutos++;
+                    //Zerar os segundos
+                    segundos=0;
+                    //escreve os minutos
+                    document.getElementById('minuto').innerHTML=minutos
+                }
+                //escreve os segundos
+                document.getElementById('segundo').innerHTML=segundos
+                
+            }
+
+            setInterval(function(){ segundo() },1000)
+        </script>
+
+    </body>
+</html>

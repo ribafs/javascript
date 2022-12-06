@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
+
+:root {
+  --main-background: #111340;
+  --main-text: #faedf0;
+  --main-font: "Courier Prime", Courier, monospace;
+  --button-primary: #ed255a;
+  --button-hover: #ff4879;
+}
+
+/* Resets */
+
+* {
+  font-family: var(--main-font) !important;
+}
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+input[type="text"] {
+  border: none;
+  width: 15rem;
+  height: 2em;
+}
+
+button {
+  border: none;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 48px;
+}
+
+/* Styles */
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--main-background);
+  color: var(--main-text);
+  min-height: 100vh;
+  overflow-y: hidden;
+  text-align: center;
+}
+
+button {
+  margin: 0em 0.5em;
+  padding: 0.8em 1em;
+  font-size: 22px;
+  border-radius: 6px;
+  background-color: var(--button-primary);
+  color: var(--main-text);
+}
+
+button:hover {
+  background-color: var(--button-hover);
+  cursor: pointer;
+}
+
+input[type="text"] {
+  margin-bottom: 3em;
+  border-radius: 6px;
+  font-size: 23px;
+  padding: 0.4em 0.5em;
+  text-align: center;
+}
+
+input[type="text"]:focus-visible {
+  outline: none;
+  border: 1px solid var(--main-text);
+}

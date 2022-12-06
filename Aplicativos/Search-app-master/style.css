@@ -1,0 +1,39 @@
+body * {
+    font-family: 'Roboto Mono', monospace;
+
+}
+/* Nav bar*/
+.brand {font-size: 2em}
+
+.brand .icon {color: rgb(22, 19, 19);font-size: 2em}
+
+/* Search Section*/
+.search-section {margin: 3em 0}
+
+.search-section .card h2 {
+    color: rgba(128, 128, 128, 0.678);
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.search-section .form-check >*{margin-left: 10px}
+
+.search-section .card h4 {margin: 10px 0}
+
+.search-section .card .submit {font-size: 1.5em;margin: 37px 0}
+
+.search-section .results h2 {
+    border: 1px solid gray;
+    background-color: #EEE;
+    margin: 20px 0;
+    padding: 11px;
+}
+
+.search-section .posts {margin: 3em 0}
+
+/* Footer */
+footer {
+    bottom: 0;
+    color: #EEE;
+    padding: 20px;
+}

@@ -1,0 +1,149 @@
+<html> 
+<body> 
+<head> 
+<!--PESO IDEAL -->
+<script language="JavaScript"> 
+<!-- 
+function dynAnimation() {} 
+function clickSwapImg() {} 
+//--> 
+</script> 
+
+<script language="JavaScript1.2"> 
+</script> 
+</head> 
+  
+
+<p align="left"><font size="3" color="#000000">Coloque a sua altura em cm e não em metro. 
+Ex: 1,73m então coloque 173. O Em "comentário" apareçe o resultado.</font></p> 
+
+<form method="post" name="BMI"> 
+<table border="0"> 
+<font size="4"><tbody> 
+</font> 
+<tr> 
+<td align="left"></td> 
+<td align="left"></td> 
+<td align="left"></td> 
+</tr> 
+<tr> 
+<td align="left"><font size="3" color="#000000"><b>Seu peso (kg)</b>&nbsp;</font><font size="3" color="#0080C0">&nbsp;&nbsp;&nbsp;&nbsp;</font><font size="4"><input type="text" size="12" name="weight" 
+      value="Você informa" onfocus="this.form.weight.value=''">&nbsp;&nbsp;</font></td> 
+<td align="left"><font size="4"><input type="hidden" size="13" name="bmi" 
+      value="O computador informa"></font></td> 
+</tr> 
+<tr> 
+<td align="left"><font size="3" color="#000000"><b>Sua altura (cm)</b>&nbsp; 
+</font><font size="4"><input type="text" size="12" name="height" 
+      value="Você informa" onfocus="this.form.height.value=''"></font></td> 
+</tr> 
+<tr> 
+<td align=center> 
+<table border="0"> 
+<tr> 
+<td align="left"><font size="3" color="#000000"><b>Comentário</b></font></td> 
+</tr> 
+<tr> 
+<td align="left"><input type="text" name="my_comment" size="90" value="Veja aqui o comentário" style="color: #FFFFFF; background-color: black; border-style: none"></td> 
+</tr> 
+</table> 
+</td> 
+</tr> 
+
+<font size="3"></tbody> 
+</font> 
+</table> 
+<div align="center"><center><p><font size="3"><input type="button" value="Verificar" 
+  onclick="computeform(this.form)"> <input type="reset" value="Cancelar" 
+  onclick="ClearForm(this.form)"> </font></p> 
+</center></div> 
+</form> 
+<font size="3"><script language="JAVASCRIPT"> 
+<!-- 
+
+function ClearForm(form){ 
+
+    form.weight.value = ""; 
+    form.height.value = ""; 
+    form.bmi.value = ""; 
+    form.my_comment.value = ""; 
+
+} 
+
+function bmi(weight, height) { 
+
+          bmindx=weight/eval(height*height); 
+          return bmindx; 
+} 
+
+function checkform(form) { 
+
+       if (form.weight.value==null||form.weight.value.length==0 || form.height.value==null||form.height.value.length==0){ 
+            alert("\nComplete o formulário primeiro"); 
+            return false; 
+       } 
+
+       else if (parseFloat(form.height.value) <= 0|| 
+                parseFloat(form.height.value) >=500|| 
+                parseFloat(form.weight.value) <= 0|| 
+                parseFloat(form.weight.value) >=500){ 
+                alert("\nO cara, você tem idéia do que você tá fazendo? \nEscreva os valores de novo \nPeso em quilos \naltura em cm"); 
+                ClearForm(form); 
+                return false; 
+       } 
+       return true; 
+
+} 
+
+function computeform(form) { 
+
+       if (checkform(form)) { 
+
+       yourbmi=Math.round(bmi(form.weight.value, form.height.value/100)); 
+       form.bmi.value=yourbmi; 
+
+       if (yourbmi >40) { 
+          form.my_comment.value="Você esta muito gordo!!!É melhor procurar um médico!"; 
+       } 
+
+       else if (yourbmi >30 && yourbmi <=40) { 
+          form.my_comment.value="Você esta obeso!!! Pratique algum esporte!"; 
+       } 
+
+       else if (yourbmi >27 && yourbmi <=30) { 
+          form.my_comment.value="Você está gordo!!! Mas da pra recuperar!"; 
+       } 
+
+       else if (yourbmi >22 && yourbmi <=27) { 
+          form.my_comment.value="Você não está tão gordo. Mas é bom começar a fazer uma dieta"; 
+       } 
+
+       else if (yourbmi >=21 && yourbmi <=22) { 
+          form.my_comment.value="Seu peso é o ideal!!!"; 
+       } 
+
+       else if (yourbmi >=18 && yourbmi <21) { 
+          form.my_comment.value="Coma mais um pouco pra chegar ao peso ideal."; 
+       } 
+
+       else if (yourbmi >=16 && yourbmi <18) { 
+          form.my_comment.value="Você está magro demais"; 
+       } 
+
+       else if (yourbmi <16) { 
+          form.my_comment.value="Você está muito magro... É melhor você carregar uma bola de boliche quando sair pro vento não levar você"; 
+       } 
+
+       } 
+       return; 
+} 
+ //  --> 
+</script> 
+</font> 
+
+<form name="schuld"> 
+</form> 
+  
+
+</body> 
+</html> 

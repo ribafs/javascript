@@ -1,0 +1,38 @@
+<script>
+
+var result
+function calc() {
+  let num1 = document.getElementById("n1");
+  let num2 = document.getElementById("n2");
+  let op = document.getElementById("op");
+
+  if(op.value === '+'){
+    result = parseFloat(num1.value) + parseFloat(num2.value);
+  }else if(op.value === '-'){
+    result = parseFloat(num1.value) - parseFloat(num2.value);
+  }else if(op.value === '*'){
+    result = parseFloat(num1.value) * parseFloat(num2.value);
+  }else if(op.value === '/' && num2.value == 0){
+    alert('The second number cannot be zero');    
+    return;
+  }else{
+    result = parseFloat(num1.value) / parseFloat(num2.value);
+  }
+  alert(result);
+}
+
+// Adapted from https://stackoverflow.com/questions/60346902/i-cant-do-a-simple-calculator-with-javascript
+// https://medium.com/@singhamritpal49/creating-simple-addition-calculator-with-javascript-563ede3527e2
+</script>
+
+<h3>Simple Javascript Calculator</h3>
+<input type="text" id="n1">
+<select name="select" id="op">
+  <option value="+" selected>+</option>
+  <option value="-">-</option>
+  <option value="*">*</option>
+  <option value="/">/</option>
+</select>
+<input type="text" id="n2">
+<button id="btn" onclick="return calc();">Sum</button>
+

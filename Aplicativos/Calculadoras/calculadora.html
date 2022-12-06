@@ -1,0 +1,202 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+ <html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var wynik=0, op=0, nowe=0, nowe2=0, done=1, oset=0, kropka, temp;
+function reset(value) {
+ document.form1.ekran.value = value;
+ wynik = 0,
+ op    = 0,
+ nowe  = 0,
+ nowe2 = 0;
+ done  = 1;
+ oset  = 0;
+}
+
+
+function wspolna(new_temp) {
+ kropka = 1;
+
+ if(nowe || done) {
+   nowe = 0;
+   done = 0;
+   temp = new_temp;
+ } 
+ {
+     if (temp.indexOf(".")!=-1) {
+      kropka=0;
+     }
+ }
+}
+
+
+function button(ktory,ktory2)
+{
+
+temp = document.form1.ekran.value;
+
+
+if(ktory2=='.') {
+  wspolna('0');
+  if(kropka==1) {
+     temp += ktory2;
+    document.form1.ekran.value = temp;
+    oset = 0;
+  }
+}
+
+
+if(ktory>=0 && ktory<=9)  {
+  wspolna('');
+  if(temp==0 && kropka==1) temp='';
+  temp += ktory;
+  document.form1.ekran.value = temp;
+  oset = 1;
+}
+
+
+if(ktory2=='-' || ktory2=='+' || ktory2=='/' || ktory2=='*') {
+ if(nowe) op = ktory2
+ else {
+   if(!nowe2) {
+     op = ktory2;
+     wynik = temp;
+     nowe2=1;
+   }
+   else {
+     wynik = eval(wynik + op + temp);
+     op = ktory2;
+     document.form1.ekran.value = wynik;
+   }
+   oset=0;
+   nowe = 1;
+ }
+}
+
+if(ktory2=='1/x' ) { wynik = eval(1 / temp) ; reset(wynik); }
+
+if(ktory2=='sqrt') { wynik = Math.sqrt(temp); reset(wynik); }
+
+if(ktory2=='exp' ) { wynik = Math.exp(temp) ; reset(wynik); }
+
+if(ktory2=='+/-')  document.form1.ekran.value = eval(-temp);
+
+if(ktory2=='=' && oset && op!='0') reset(eval(wynik + op + temp));
+
+if (ktory2=='C') reset(0);
+
+if(document.form1.ekran.value[0] == '.')
+  document.form1.ekran.value = '0' + document.form1.ekran.value;
+
+}
+//-->
+</SCRIPT>
+<title>Cantinho do Mambo - UTILIDADES</title></head>
+<body>
+<center><h1><font color="#FFFFFF">DNOCS<br>
+Cantinho do Mambo - Utilidades</font></h1>
+<br>
+<table width="430" border="0" cellspacing="0" cellpadding="0">
+  <tr align="center"> 
+    <td height="310" width="430" valign="top"> 
+      <p> <font face="Arial, Verdana" size="2" color="#FFFFFF"><b>Calculadora</b></font><br>
+        <br>
+        <!-- inserir o código listado abaixo na seção BODY da sua página html -->
+      <form name="form1">
+        <TABLE bgcolor="#FF6600">
+          <TR> 
+            <TD> 
+              <TABLE BORDER="0" cellspacing="3" cellpadding="1" bgcolor="#FF9933">
+                <TR align="center" bgcolor="#FF6600"> 
+                  <TD colspan="5"> 
+                    <input type="text" name="ekran" value="0">
+                  </TD>
+                </TR>
+                <TR align="center" bgcolor="#FF6600"> 
+                  <TD colspan="4"><B><font color="#FFFFFF" face="Georgia, Times New Roman, Times, serif" size="2">Calculadora</font></B></TD>
+                  <TD > 
+                    <input type="button" name="C" value="  C  " onclick="button(11,'C')">
+                  </TD>
+                </TR>
+                <TR align="center" bgcolor="#FF6600"> 
+                  <TD> 
+                    <input type="button" name="7" value="  7  "   onclick="button(7 ,'')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="8" value="  8  "   onclick="button(8 ,'')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="9" value="  9  "   onclick="button(9 ,'')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="/" value="  /  "   onclick="button(11,'/')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="sqrt" value="sqrt" onclick="button(11,'sqrt')">
+                  </TD>
+                </TR>
+                <TR align="center" bgcolor="#FF6600"> 
+                  <TD> 
+                    <input type="button" name="4" value="  4  " onclick="button(4,'')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="5" value="  5  " onclick="button(5,'')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="6" value="  6  " onclick="button(6,'')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="*" value=" *  "  onclick="button(11,'*')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="exp" value="exp" onclick="button(11,'exp')">
+                  </TD>
+                </TR>
+                <TR align="center" bgcolor="#FF6600"> 
+                  <TD> 
+                    <input type="button" name="1" value="  1  "  onclick="button(1,'')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="2" value="  2  "  onclick="button(2,'')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="3" value="  3  "  onclick="button(3,'')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="-" value="  -  "  onclick="button(11,'-')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="1/x" value="1/x " onclick="button(11,'1/x')">
+                  </TD>
+                </TR>
+                <TR align="center" bgcolor="#FF6600"> 
+                  <TD> 
+                    <input type="button" name="0" value="  0  "   onclick="button(0,'')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="+/-" value=" +/- " onclick="button(11,'+/-')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="." value="  ,   "   onclick="button(11,'.')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="+" value=" +  "   onclick="button(11,'+')">
+                  </TD>
+                  <TD> 
+                    <input type="button" name="=" value="  =  "   onclick="button(11,'=')">
+                  </TD>
+                </TR>
+              </TABLE>
+            </TD>
+          </TR>
+        </TABLE>
+      </form>
+      <!-- Termina Aqui ->
+    </td>
+  </tr>
+</table>
+</center>
+</body>
+</html>

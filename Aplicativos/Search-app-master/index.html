@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+
+    <!-- Css File -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Reddit search</title>
+  </head>
+  <body>
+
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-dark bg-primary mb-3">
+        <div class="container">
+            <span class="navbar-brand brand text-uppercase">
+            <i class="icon fab fa-reddit-alien"></i>Finddit
+            </span>
+        </div>
+    </nav>
+
+    <!--Search Section -->
+    <div class="search-section">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-8">
+
+                    <div class="card bg-light">
+
+                        <h2 class="text-capitalize">search reddit</h2>
+
+                        <div class="card-body">
+
+                            <form class="search-form">
+
+                                <div class="form-group">
+
+                                    <input type="text" class="search-input form-control" placeholder="Search..">
+
+                                </div>
+
+                                <div class="form-check form-check-inline">
+
+                                    <span class="sorted">Sorted by:</span>
+
+                                    <input type="radio" name="sortby" value="relevance" id="relevance" checked />
+
+                                    <label  class="form-check-label">
+                                        Relevance 
+                                    </label>
+                                    
+                                    <input type="radio" name="sortby" value="latest" id="latest" />
+
+                                    <label class="form-check-label">
+                                        Latest
+                                    </label>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <h4>Limit:</label>
+
+                                    <select name="limit" id="limit" class="form-control">
+
+                                        <option value="5" selected>
+                                            5
+                                        </option>
+
+                                        <option value="10">
+                                            10
+                                        </option>
+
+                                        <option value="25">
+                                            25
+                                        </option>
+
+                                        <option value="50" >
+                                            50
+                                        </option>
+
+                                        <option value="100">
+                                            100
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                                <button type="submit" class="submit btn btn-success btn-block text-uppercase">
+                                    Search
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                    <div class="results">
+                        <h2 class="text-capitalize">results</h2>
+                        <div class="row posts"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    
+    </div>
+
+    <!--Footer-->
+    <footer class="bg-primary">
+        <p class="lead text-center">
+            Copyrights reserved &copy;2019 Designed by @elbeqqal
+        </p>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script  src="app.js"></script>
+  </body>
+</html>

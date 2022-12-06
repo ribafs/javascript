@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+:root {
+  --green: rgb(0, 163, 73);
+  --gray: rgb(156, 156, 156);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  background-color: #eee;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .calculator {
+  width: 320px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background: #e8eaec;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 12px 12px 32px rgba(13, 39, 80, 0.25), -10px 10px 15px #fff;
+          box-shadow: 12px 12px 32px rgba(13, 39, 80, 0.25), -10px 10px 15px #fff;
+}
+
+main .calculator .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .calculator .header .middle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+}
+
+main .calculator .header .middle .speaker {
+  width: 50px;
+  height: 6px;
+  border-radius: 3rem;
+  background-color: #000;
+}
+
+main .calculator .header .middle .camera {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #000;
+}
+
+main .calculator .header .icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: .5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .calculator .header .icons i {
+  font-size: 1.3rem;
+  color: #000;
+}
+
+main .calculator .header .icons i#wifi {
+  -webkit-transform: translateY(-10%);
+          transform: translateY(-10%);
+}
+
+main .calculator .screen {
+  width: 100%;
+  padding: 1.5rem 1rem;
+  font-size: 1.5rem;
+  margin: 1.5rem 0;
+  text-align: right;
+  background: #e8eaec;
+  -webkit-box-shadow: 6px 6px 8px rgba(13, 39, 80, 0.25), -6px -6px 10px #fff, inset -8px -8px 12px rgba(255, 255, 255, 0.7), inset 5px 5px 8px rgba(13, 39, 80, 0.2);
+          box-shadow: 6px 6px 8px rgba(13, 39, 80, 0.25), -6px -6px 10px #fff, inset -8px -8px 12px rgba(255, 255, 255, 0.7), inset 5px 5px 8px rgba(13, 39, 80, 0.2);
+  border: none;
+  border-radius: 1rem;
+  outline: none;
+}
+
+main .calculator .keyboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1.40rem;
+  width: 100%;
+}
+
+main .calculator .keyboard button {
+  width: 50px;
+  height: 50px;
+  border-radius: .5rem;
+  background: transparent;
+  -webkit-box-shadow: 4px 4px 8px rgba(13, 39, 80, 0.25), -4px 4px 8px #fff;
+          box-shadow: 4px 4px 8px rgba(13, 39, 80, 0.25), -4px 4px 8px #fff;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--green);
+}
+
+main .calculator .keyboard button.result {
+  height: calc(2 * 50px + 1.40rem);
+}
+
+main .calculator .keyboard button:active {
+  -webkit-box-shadow: -3px -3px 7px #a0a0a032, 3px 3px 5px rgba(94, 104, 121, 0.417);
+          box-shadow: -3px -3px 7px #a0a0a032, 3px 3px 5px rgba(94, 104, 121, 0.417);
+}
+
+main .calculator .keyboard button.number {
+  color: var(--gray);
+  -webkit-transition: ease all .4s;
+  transition: ease all .4s;
+}
+
+main .calculator .keyboard button.number:hover {
+  color: #000;
+}
+
+main .calculator .keyboard .numbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.40rem;
+}
+
+main .calculator .keyboard .numbers .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.40rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main .calculator .keyboard .others {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.40rem;
+}
+/*# sourceMappingURL=styles.css.map */

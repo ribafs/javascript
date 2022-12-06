@@ -1,0 +1,34 @@
+/* ################################################################################## */
+/*																                      */
+/*	  		            	    	fstooltips.css 			   						  */
+/*																                      */
+/* ################################################################################## */
+
+.fstooltips {
+
+border: 1px solid #0000A0;
+width: 180;
+
+}
+
+.tipheader {
+
+background-color: #0000A0;
+color: #F3B627;
+FONT-WEIGHT: bold;
+FONT-SIZE: 8pt;
+FONT-FAMILY: arial;
+
+}
+
+.tipcontent {
+
+background-color: #CACAFF;
+color: #0000A0;
+FONT-WEIGHT: normal;
+FONT-SIZE: 8pt;
+FONT-FAMILY: arial;
+
+}
+
+/* ################################################################################## */
