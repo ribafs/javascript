@@ -1,0 +1,8 @@
+function deletevowels(str) {
+    let result = str.replace(/[aeiou]/g, '')
+    return result
+}
+  
+var text = "Javascript";
+const a = deletevowels(text);
+console.log(a);

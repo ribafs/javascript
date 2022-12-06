@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vogais em JS</title>
+</head>
+<body>
+    <h1>Vogais em JS</h1>
+    <script>
+        function removeDuplicateCharacters(string) {
+            return string
+            .split('')
+            .filter(function(item, pos, self) {
+                return self.indexOf(item) == pos;
+            })
+            .join('');
+        // https://www.codegrepper.com/code-examples/javascript/find+duplicate+characters+from+string+in+javascript
+        }
+        //console.log(removeDuplicateCharacters('iaa'));
+        
+        /* Retornar:
+        - a palavra digitada
+        - Se ela contem vogais
+        - quantas vogais contem
+        - a quantidade de cada vogal
+        */
+
+        var vogais = ''
+        var qa = 0
+        var qe = 0
+        var qi =0
+        var qo = 0
+        var qu = 0
+        
+        function getVogais(str) {
+            vogais = str.match(/[aeiou]/ig).join("");
+            
+            for(var v = 0; v < str.length; v++){
+                if (str[v] == 'a') qa = qa + 1
+                if (str[v] == 'e') qe = qe + 1
+                if (str[v] == 'i') qi = qi + 1
+                if (str[v] == 'o') qo = qo + 1
+                if (str[v] == 'u') qu = qu + 1
+            }    
+            
+            console.log('A palavra: '+str)
+            vog = removeDuplicateCharacters(vogais)
+            console.log('Contém '+vog.length+' vogais, que são: '+vog)
+
+            if(qa > 0) {
+                if( qa > 1){
+                    console.log('Contém ' + qa + ' letras a') 
+                }else{
+                    console.log('Contém uma letra a') 
+                }
+                if(qe > 0) console.log('Contém ' + qe + ' da letra e')
+                if(qi > 0) console.log('Contém ' + qi + ' da letra i')
+                if(qo > 0) console.log('Contém ' + qo + ' da letra o')
+                if(qu > 0) console.log('Contém ' + qu + ' da letra u')
+                
+                return vogais
+            }
+        }
+        getVogais('ribamar')
+
+        </script>
+    </body>
+    </html>

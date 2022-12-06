@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Apprendre l'alphabet arabe !</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Apprendre l'alphabet arabe !</h1>
+
+    <p>Cette web-application a pour but de vous faire apprendre l'alphabet arabe. Elle fonctionne comme un jeu, c'est à dire qu'il va vous falloir passer des niveaux les uns après les autres pour débloquer de nouvelles lettres à apprendre.</p>
+    <p>L'alphabet arabe est composé de 28 lettres. </p>
+    <p>Pour passer au niveau suivant, il vous faut atteindre au moins trois étoiles, c'est-à-dire 28 réponses justes sur 32 questions.</p>
+
+
+    <h1>Niveaux</h1>
+
+    <div id="levels-container"></div>
+
+    <div class="modal" id='game-area'>
+        <div class="modal__header">
+            <button icon="icon" onclick="toggleGameAreaModal()">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                    <path d="M12 11.293l10.293-10.293.707.707-10.293 10.293 10.293 10.293-.707.707-10.293-10.293-10.293 10.293-.707-.707 10.293-10.293-10.293-10.293.707-.707 10.293 10.293z">
+                    </path>
+                </svg>
+            </button>
+            <div id="progress-bar"></div>
+        </div>
+        <div class="modal__content">
+            <canvas id="myCanvas" dir="rtl" width="400" height="400" style="border:1px solid #d3d3d3;">
+                Your browser does not support the HTML5 canvas tag.
+              </canvas>
+            <div id='canvas-data'></div>
+        </div>
+        <div class="modal__footer">
+            <div id="button-area"></div>
+        </div>
+    </div>
+
+    <h2>Options avancées</h2>
+    <button onclick="clearProgressAndReset()" title="settings" class="icon-button" id="btnSettings">
+        <span>Remettre la progression à zéro</span>
+    </button>
+
+    <h1>Lexique</h1>
+    <p>J'ai choisi de construire mon apprentissage autour des mots suivants :</p>
+    <table>
+        <thead>
+            <tr>
+                <td>Mot de référence (transcrit)</td>
+                <td>Mot (alphabet arabe)</td>
+                <td>Sens</td>
+            </tr>
+        </thead>
+        <tr>
+            <td>7abibi</td>
+            <td class='arabic'>ح ب ي ب ي</td>
+            <td>Habibi (mon chéri)</td>
+        </tr>
+        <tr>
+            <td>khiar</td>
+            <td class='arabic'>خ ي ار </td>
+            <td>concombre</td>
+        </tr>
+        <tr>
+            <td>tabboule</td>
+            <td class='arabic'>ت ب و ل ة</td>
+            <td>taboulé</td>
+        </tr>
+        <tr>
+            <td>toum</td>
+            <td class='arabic'>ث و م</td>
+            <td>ail</td>
+        </tr>
+        <tr>
+            <td>djej</td>
+            <td class='arabic'>د ج ا ج</td>
+            <td>poulet</td>
+        </tr>
+        <tr>
+            <td>dhara</td>
+            <td class='arabic'>ذ ر ة</td>
+            <td>maïs</td>
+        </tr>
+        <tr>
+            <td>roz</td>
+            <td class='arabic'>ر ز</td>
+            <td>riz</td>
+        </tr>
+        <tr>
+            <td>shams</td>
+            <td class='arabic'>ش م س</td>
+            <td>soleil</td>
+        </tr>
+        <tr>
+            <td>souss asfar</td>
+            <td class='arabic'>ص و ص أ ص ف ر</td>
+            <td>poussin jaune</td>
+        </tr>
+        <tr>
+            <td>daou</td>
+            <td class='arabic'>ض و </td>
+            <td>lumière</td>
+        </tr>
+        <tr>
+            <td>batata</td>
+            <td class='arabic'>ب ط ا ط ا</td>
+            <td>pomme de terre</td>
+        </tr>
+        <tr>
+            <td>zol</td>
+            <td class='arabic'>ظ ل</td>
+            <td>ombre</td>
+        </tr>
+        <tr>
+            <td>Aïda</td>
+            <td class='arabic'>ع ي د ا</td>
+            <td>Aïda</td>
+        </tr>
+        <tr>
+            <td>ghasil alyadin</td>
+            <td class='arabic'>غ س ل ا ل ي د ي ن </td>
+            <td>laver les mains</td>
+        </tr>
+        <tr>
+            <td>qamar</td>
+            <td class='arabic'>ق م ر</td>
+            <td>lune</td>
+        </tr>
+        <tr>
+            <td>kalb </td>
+            <td class='arabic'>ك ل ب </td>
+            <td>chien</td>
+        </tr>
+        <tr>
+            <td>nur </td>
+            <td class='arabic'>ن و ر </td>
+            <td>lumière</td>
+        </tr>
+        <tr>
+            <td>haida </td>
+            <td class='arabic'>ه ذ ا</td>
+            <td>cela</td>
+        </tr>
+    </table>
+    <p>Pour plus de détails sur l'apprentissage de l'alphabet arabe, je vous propose de vous référer à la page suivante : <a href="https://jeretiens.net/lalphabet-arabe-les-28-lettres">https://jeretiens.net/lalphabet-arabe-les-28-lettres</a>.</p>
+
+    <script src="script.js"></script>
+    <script src="https://luis.leiva.name/jsketch/js/dist/sketchable.full.min.js"></script>
+    <script>
+        setupLevels()
+    </script>
+</body>

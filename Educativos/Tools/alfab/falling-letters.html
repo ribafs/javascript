@@ -1,0 +1,77 @@
+<!doctype html>
+ 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ 
+<script>
+ 
+//JS to explain
+//literals var function = + a.b ()
+ 
+//methods to explain
+//String.charAt, String.fromCharCode
+//Math.random, Math.floor
+//setInterval
+ 
+//jQuery to explain
+//$.css, $.text, $.appendTo, $.remove, $.animate, $.on, $.first, $.width(), $.contains
+
+var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+//breaking task into subtasks
+
+//create a function returning a random number
+function randomNumber(max) {
+    
+    var randomNum       = Math.random();
+    var numExpanded     = randomNum * max;
+    var numFloored      = Math.floor(numExpanded);
+    
+    return numFloored;
+}
+
+//create a function returning a random letter
+function randomLetter() {
+    
+    var random0to25     = randomNumber(letters.length);
+	var randomLetter    = letters.charAt(random0to25);
+	
+	return randomLetter;
+}
+
+//create a function creating a span containing a random letter and attaching it to body
+function createLetter() {
+	
+	var span            = $("<span/>");
+	span.css("position", "absolute");
+	span.css("top", 0);
+	randomPercent       = randomNumber(100)+"%";    //concatenation
+	span.css("left", randomPercent); 
+	span.text(randomLetter())
+	
+	span.appendTo("body");
+ 	
+ 	return span;
+}
+
+//explain how to animate an element
+function makeLetterFall() {
+
+    var letterElement = createLetter();
+    letterElement.animate({"top":"95%"}, 5000);     //any ideas how not to use {} here?
+}
+
+//handle keyup, find a letter and remove it
+function removeTypedLetter(pressedKey) {
+	
+	var typedLetter     = String.fromCharCode(pressedKey.keyCode);
+	var letterElement  = $("span:contains("+typedLetter+")").first();
+	
+	letterElement.remove();
+}
+
+$(document).on("keyup", removeTypedLetter);
+
+//make a new letter every second
+setInterval(makeLetterFall, 1000);
+ 
+</script>

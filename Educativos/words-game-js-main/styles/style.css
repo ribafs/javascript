@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  user-select: none;
+}
+
+body {
+  background-color: #29b6d1;
+  font-family: 'Nunito', sans-serif;
+
+  color: #f2edeb;
+}
+
+#page-game {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+}
+
+#game {
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  padding: 20px;
+}
+
+#game h1 {
+  text-align: center;
+  font-size: 48px;
+
+  margin: 20px 0;
+}
+
+#game .word span.correct {
+  color: #fabc2a;
+}
+
+#game .word span {
+  font-size: 48px;
+
+  text-transform: uppercase;
+}
+
+#buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(4, auto);
+  gap: 10px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  width: 100px;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #333;
+
+  font-size: 48px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  border-radius: 30px;
+
+  background-color: #96feff;
+
+  cursor: pointer;
+
+  transition: background-color 1s ease;
+}
+
+.button:active {
+  box-shadow: 0 0 3px 5px #0b6364;
+}
+
+.button.correct {
+  background-color: #fabc2a;
+  color: #8d734b;
+
+  pointer-events: none;
+}
+
+.button.error {
+  animation: error 0.1s 2;
+}
+
+@media (max-width: 550px) {
+  #page-game {
+    height: auto;
+
+    padding-top: 100px;
+  }
+
+  #game > h1 {
+    font-size: 36px;
+  }
+
+  #buttons-grid {
+    gap: 5px;
+  }
+
+  .button {
+    width: 80px;
+    height: 80px;
+
+    border-radius: 20px;
+  }
+}

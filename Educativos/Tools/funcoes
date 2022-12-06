@@ -1,0 +1,22 @@
+// Function to generate random number 
+function randomNumber(min, max) { 
+    return Math.floor(Math.random() * (max - min) + min);
+    // https://www.geeksforgeeks.org/how-to-generate-random-number-in-given-range-using-javascript/
+} 
+  
+document.write("Random Number between 65 and 90: ") 
+  
+// Function call
+document.write( randomNumber(65, 90) ); 
+
+function makeid() {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < 5; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
+}
+
+alert(makeid());

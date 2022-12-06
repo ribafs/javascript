@@ -1,0 +1,64 @@
+function removeDuplicate(string)
+{
+   return string.split('')
+    .filter(function(item, pos, self)
+    {
+      return self.indexOf(item) == pos;
+    }
+   ).join('');
+}
+ 
+var str = "geeksforgeeks";
+console.log( " "+removeDuplicate(str))
+//https://www.geeksforgeeks.org/javascript-program-to-remove-duplicates-from-a-given-string/
+
+
+// javascript program to remove duplicates
+/*
+* Function removes duplicate characters from the string This function work
+* in-place
+*/
+function removeDuplicates( str) {
+    var lhs = new Set();
+    for (var i = 0; i < str.length; i++)
+    lhs.add(str[i]);
+    
+    // print string after deleting duplicate elements
+    for (var ch of lhs)
+    console.log(ch);
+}
+
+/* Driver program to test removeDuplicates */
+
+var str = "geeksforgeeks";
+removeDuplicates(str);
+
+// This code is contributed by umadevi9616
+//https://www.geeksforgeeks.org/javascript-program-to-remove-duplicates-from-a-given-string/
+
+// javascript program to create a unique String using unordered_map
+
+/* access time in unordered_map on is O(1) generally if no collisions occur
+and therefore it helps us check if an element exists in a String in O(1)
+time complexity with constant space. */
+function removeDuplicates( s , n) {
+    var exists = new Map();
+    
+    var st = "";
+    for (var i = 0; i < n; i++) {
+        if (!exists.has(s[i])) {
+            st += s[i];
+            exists.set(s[i], 1);
+        }
+    }
+    return st;
+}
+
+// driver code
+
+var s = "geeksforgeeks";
+var n = s.length;
+console.log(removeDuplicates(s, n));
+// This code contributed by umadevi9616
+
+//https://www.geeksforgeeks.org/javascript-program-to-remove-duplicates-from-a-given-string/

@@ -1,0 +1,136 @@
+<!--
+//========================================================================
+//   "WebHangman"  JavaScript Hangman  
+//
+//   Copyright (C) 2000,2001  Jan Mulder
+//
+//   This program is free software; you can redistribute it and/or modify
+//   it under the terms of the GNU General Public License as published by
+//   the Free Software Foundation; either version 2 of the License, or
+//   (at your option) any later version, and as long as this notice is
+//   kept unmodified at the top of the script source code.
+//
+//   This program is distributed in the hope that it will be useful,
+//   but WITHOUT ANY WARRANTY; without even the implied warranty of
+//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//   GNU General Public License (license.txt) for more details.
+//
+//   Contact: http://janmulder.com/contact/
+//
+//=======================================================================
+-->
+<html>
+<head>
+<title>Javascript Hangman Example</title>
+
+<STYLE type="text/css">
+.heading {
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 12pt;
+  color: #990033;
+}
+.default {
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 10pt;
+  text-align: left;
+  text-decoration: none;
+  color: black;
+}
+</STYLE>
+
+<SCRIPT language="JavaScript">
+var sourceDir = "";
+
+var words = new Array(
+ "TABLE","Dining room",
+ "CHAIR","Goes with table",
+ "COOKER","In the kitchen",
+ "DISHWASHER","In the kitchen",
+ "SINK","For washing",
+ "WASHING MACHINE","For your clothes",
+ "TELEPHONE","Electronic",
+ "RECORD PLAYER","Electronic",
+ "TUNER","Part of your HI-FI",
+ "AMPLIFIER","Part of your HI FI",
+ "COMPUTER","Electronic",
+ "BOOKSHELF","In the livingroom",
+ "ARMCHAIR","In the livingroom",
+ "CARPET","You walk on it",
+ "SCANNER","Electronic",
+ "TELEVISION","Electronic",
+ "IRONING BOARD","For your clothes",
+ "RADIATOR","For comfort",
+ "BLANKET","Keeps you warm",
+ "COFFEE MAKER","For drinks",
+ "KETTLE","For drinks",
+ "KNIFE","In the kitchen",
+ "FORK","In the kitchen",
+ "SPOON","In the kitchen",
+ "Curtain","For privacy",
+ "shower","Keeps you clean",
+ "BATH","Nice and warm"
+);
+</SCRIPT>
+
+<SCRIPT SRC="hangman.js"></SCRIPT>
+
+</head>
+
+<body bgcolor="#FFFFF0" link="#000000" vlink="#000000">
+
+</HEAD>
+<BODY bgcolor="#FFFFF0" LINK="navy" VLINK="navy">
+<p>
+<span class="heading"><b>Hangman - Household items</b> - by Jan Mulder.</span><br>
+<i>Click on the letters and guess the words.</i>
+<br>
+<br>
+
+<table cellpadding=10>
+<tr>
+<td align="center">
+
+<table border=0 bgcolor="#FFFFF0" cellpadding=10>
+<tr><td>
+<SCRIPT language=JavaScript>
+  drawHangman();
+</SCRIPT>
+<BR><BR>
+</td></tr>
+</table>
+
+</td>
+<td>
+
+
+<BR>
+
+<SCRIPT language=JavaScript>
+ drawControl();
+</SCRIPT>
+
+<BR><BR><BR>
+<SCRIPT language=JavaScript>
+  drawAnswer();
+</SCRIPT>
+
+<br>
+<SCRIPT language=JavaScript>
+  drawHint();
+</SCRIPT>
+
+
+</TD>
+
+</TR>
+</TABLE>
+
+<BR>
+<span class="default">
+<p>
+Contact: http://janmulder.com/contact
+
+
+</span>
+</body>
+</html>

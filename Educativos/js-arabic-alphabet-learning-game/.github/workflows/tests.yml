@@ -1,0 +1,23 @@
+name: Tests
+
+on: [pull_request]
+
+jobs:
+  test:
+    name: Test on node ${{ matrix.node }} and ${{ matrix.os }}
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node: [12, 13]
+        os: [ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install
+        run: npm ci
+
+      - name: Test
+        run: npm test

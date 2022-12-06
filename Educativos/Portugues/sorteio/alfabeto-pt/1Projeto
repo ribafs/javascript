@@ -1,0 +1,9 @@
+- Criar estilo para centralizar letra e grande na tela
+- Sortear uma letra e mostrar na tela
+- Ao mesmo tempo mostrar o áudio da letra sorteada
+
+- Aguardar que a tecla correspondente à letra mostrada seja pressionada
+    Caso seja pressionada a tecla correta, mostrar uma mensagem de parabéns então sortear outra letra e mostrar
+    Caso sera errada, mostrar mensagem de erro na tela com áudio e repetir a mesma letra com áudio
+
+

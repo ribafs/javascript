@@ -1,0 +1,128 @@
+@keyframes error {
+	from { background-color: #D0253C; }
+
+	to { background-color: #96FEFF; }
+}
+
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.up:nth-child(1) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 0.0625s;
+
+  opacity: 0;
+}
+
+.up:nth-child(2) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 0.125s;
+
+  opacity: 0;
+}
+
+.up:nth-child(3) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 0.1875s;
+
+  opacity: 0;
+}
+
+.up:nth-child(4) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 0.25s;
+
+  opacity: 0;
+}
+
+.up:nth-child(5) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 0.3125s;
+
+  opacity: 0;
+}
+
+.up:nth-child(6) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 0.375s;
+
+  opacity: 0;
+}
+
+.up:nth-child(7) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 0.4375s;
+
+  opacity: 0;
+}
+
+.up:nth-child(8) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 0.5s;
+
+  opacity: 0;
+}
+
+.up:nth-child(9) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 0.5625s;
+
+  opacity: 0;
+}
+
+.up:nth-child(10) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 0.625s;
+
+  opacity: 0;
+}
+
+.up:nth-child(11) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 0.6875s;
+
+  opacity: 0;
+}
+
+.up:nth-child(12) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 0.75s;
+
+  opacity: 0;
+}
+
+.up:nth-child(13) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 0.8125s;
+
+  opacity: 0;
+}
+
+.up:nth-child(14) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 0.875s;
+
+  opacity: 0;
+}
+
+.up:nth-child(15) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 0.9375s;
+
+  opacity: 0;
+}
+
+.up:nth-child(16) {
+  animation: up 0.3s ease forwards;
+  animation-delay: 1s;
+
+  opacity: 0;
+}

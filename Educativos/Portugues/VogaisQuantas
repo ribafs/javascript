@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>
+            How to get a number of vowels
+            in a string in JavaScript?
+        </title>
+    </head>
+   <body>
+       <h1>
+           GeeksforGeeks
+       </h1>
+       <h2>
+           How to get a number of vowels in 
+           a string in JavaScript?
+       </h2>
+<script>
+   function getVowels(string) {
+      var Vowels = 'aAeEiIoOuU';
+      var vowelsCount = 0;
+      for(var i = 0; i < string.length ; i++) {
+         if (Vowels.indexOf(string[i]) !== -1) {
+            vowelsCount += 1;
+        }
+      }
+   return vowelsCount;
+   }
+   document.write("The Number of vowels in -"+
+   " A Computer Science Portal for Geeks:" 
+   + getVowels("A Computer Science Portal for Geeks"));
+//
+</script>
+</body>
+</html>

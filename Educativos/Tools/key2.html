@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  
+<body style="text-align:center;">
+    <h1 style="color:green;">
+        GeeksForGeeks
+    </h1>
+  
+    <p>
+        <b>onKeyPress Vs. onKeyUp
+            and onKeyDown Events</b>
+    </p>
+  
+    <input type="text" id="field" placeholder="Type here">
+    <p id="status"></p>
+  
+    <script>
+        // Script to test which key 
+        // event gets triggered 
+        // when a key is pressed
+        var key_pressed =
+            document.getElementById('field');
+  
+        key_pressed
+            .addEventListener("keydown", onKeyDown);
+        key_pressed
+            .addEventListener("keypress", onKeyPress);
+        key_pressed
+            .addEventListener("keyup", onKeyUp);
+  
+        function onKeyDown(event) {
+            document.getElementById("status")
+                .innerHTML = 'keydown: '
+                + event.key + '<br>'
+        }
+        function onKeyPress(event) {
+            document.getElementById("status")
+                .innerHTML += 'keypress: '
+                + event.key + '<br>'
+        }
+        function onKeyUp(event) {
+            document.getElementById("status")
+                .innerHTML += 'keyup: '
+                + event.key + '<br>'
+        }
+    </script>
+</body>
+  
+</html>

@@ -1,0 +1,39 @@
+Criar repositórios no GH para cada um com seu respectivo README
+
+Usar uma bonita animação de um bichinho para falar cada letra?
+
+O bichinho fala a letra e ela aparece no centro da tela bem grande e colorida (cor aleatória)
+
+Ele espera que a letra tenha a respectiva tecla pressionada.
+
+Após o jogador soltar a tecla o bichinho avalia:
+- Se a tecla estiver correta ele faz uma festa, uma música bonita é tocada, aparece uma imagem de prêmio e o bichinho diz "muito bem, correto". Faz uma pausa e sorteia outra letra e repete o processo
+- Caso a tecla esteja errada, o bichinho diz "Não, errado, eu falei ... " e aguarda que a mesma tecla seja pressionada.
+
+
+alfabeto-pt-BR
+Aprendendo a reconhecer o alfabeto em português
+
+Pressione uma tecla de A a Z para que seja mostrada no centro da tela e seu áudio reproduzido
+
+Caso seja pressionada uma tecla diferente de A a Z nada será mostrado na tela (ocultar também as bordas, usar duas classes?) e será emitido um som indicando erro
+
+
+Usar o bootstrap para tornar responsivos
+Gerar binários com o Monaca
+Oferecer os binários em releases do GH
+
+
+algarismos-pt-BR
+Aprendendo a reconhecer os algarismos de 0 a 9 com áudios em pt-BR
+
+Idem para os demais
+
+
+alfabeto-en
+Aprendendo a reconhecer o alfabeto com áudio em inglês
+
+algarismos-en
+Aprendendo a reconhecer os algarismos de 0 a 9 com áudio em inglês
+
+

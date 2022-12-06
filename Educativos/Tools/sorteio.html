@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title> Adivinhe o número - JavaScript </title>
+</head>
+<body>
+  <h1>Adivinhe o número - JavaScript!</h1>
+  <p>Vou sortear um número entre 1 e 100. Advinhe qual foi.</p>
+
+  <form>
+    <label for="guess">Minha vez</label>
+    <input type="number" id="guess">
+    <input type="submit" id="submitGuess" value="Check My Guess">
+  </form>
+
+  <p id="feedback"></p>
+
+  <script>
+    const randomNumber = Math.floor(Math.random() * 100) + 1
+    console.log('Número sorteado', randomNumber)
+
+    function checkGuess() {
+      let myGuess = guess.value
+      if (myGuess === randomNumber) {
+        feedback.textContent = "Você acertou!"
+      } else if (myGuess > randomNumber) {
+        feedback.textContent = "Seu palpite foi " + myGuess + ". Que é maior. Tente novamente!"
+      } else if (myGuess < randomNumber) {
+       feedback.textContent = "Seu palpite foi " + myGuess + ". Que é menor. Tente novamente!"
+     }
+   }
+   submitGuess.addEventListener('click', checkGuess)
+ </script>
+
+</body>
+
+</html>

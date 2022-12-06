@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Matching Game</title>
+  <meta name="description" content="Game Matching, Memory">  
+  <script src="https://use.fontawesome.com/c28f92028d.js"></script>
+  <link rel="stylesheet prefetch" href="assets/css.css">
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+
+<body cz-shortcut-listen="true">
+
+  <div class="container game-board">
+    <header>
+      <h1>Matching Game</h1>
+    </header>
+
+    <section class="score-panel">
+      <ul class="stars">
+        <li>
+          <i class="rating fa fa-star"></i>
+        </li>
+        <li>
+          <i class="rating fa fa-star"></i>
+        </li>
+        <li>
+          <i class="rating fa fa-star-o"></i>
+        </li>
+      </ul>
+
+      <span class="timer">
+        <span class="timer-minutes">00</span>
+        <span>:</span>
+        <span class="timer-seconds">15</span>
+      </span>
+
+      <div>
+        <span class="moves">1</span> Movimentos
+      </div>
+
+      <div class="restart">
+        <i class="fa fa-repeat"></i>
+      </div>
+    </section>
+
+    <ul class="deck">
+    <li id="0" class="card"><i class="fa fa-bolt"></i></li><li id="1" class="card"><i class="fa fa-bolt"></i></li><li id="2" class="card"><i class="fa fa-anchor"></i></li><li id="3" class="card"><i class="fa fa-diamond"></i></li><li id="4" class="card"><i class="fa fa-paper-plane-o"></i></li><li id="5" class="card"><i class="fa fa-bicycle"></i></li><li id="6" class="card"><i class="fa fa-cube"></i></li><li id="7" class="card"><i class="fa fa-bomb"></i></li><li id="8" class="card"><i class="fa fa-paper-plane-o"></i></li><li id="9" class="card"><i class="fa fa-leaf"></i></li><li id="10" class="card"><i class="fa fa-diamond"></i></li><li id="11" class="card"><i class="fa fa-anchor"></i></li><li id="12" class="card"><i class="fa fa-cube"></i></li><li id="13" class="card"><i class="fa fa-bomb"></i></li><li id="14" class="card"><i class="fa fa-bicycle"></i></li><li id="15" class="card"><i class="fa fa-leaf"></i></li></ul>
+  </div>
+
+  <div class="container win-dialog">
+    <section>
+      <div>
+        <i class="win-icon fa fa-check-circle-o"></i>
+        <h1 class="win-banner">Você é um Vencedor!</h1>
+        <p class="win-summary">Você ganhou em
+          <span class="win-minutes">00</span> minutos,
+          <span class="win-seconds">00</span> segundos, usando
+          <span class="win-moves">00</span> movimentos, por
+          <span class="win-stars">0</span> estrelas
+        </p>
+        <span class="win-button">
+          Jogar novamente!
+        </span>
+      </div>
+    </section>
+  </div>
+
+  <script src="assets/bundle-app.js"></script>
+</body></html>

@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <td>Key:</td>
+    <td id="key"></td>
+  </tr>
+  <tr>
+    <td>Key Code:</td>
+    <td id="keyCode"></td>
+  </tr>
+  <tr>
+    <td>Event Code:</td>
+    <td id="eventCode"></td>
+  </tr>
+</table>
+<script type="text/javascript">
+  window.addEventListener("keydown", function(e) {
+    //tested in IE/Chrome/Firefox
+    document.getElementById("key").innerHTML = e.key;
+    document.getElementById("keyCode").innerHTML = e.keyCode;
+    document.getElementById("eventCode").innerHTML = e.code;
+  })
+</script>

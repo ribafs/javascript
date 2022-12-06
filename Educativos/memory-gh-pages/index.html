@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Memory Game</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Uncial+Antiqua|UnifrakturMaguntia|Acme|Lilita+One" rel="stylesheet">
+	<link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+	<div id="background" class="background farm">
+		<div class="overlay-text visible">
+			Click to start
+		</div>
+		<div id="victory-text" class="overlay-text farmstyle">
+			VICTORY
+			<span class="overlay-text-small">Click to restart</span>
+		</div>
+
+		<div class="game-container">
+			<div class="game-info-container">
+				<div id="game-info" class="farmstyle">
+					<ul>
+						<li>
+						Flips: <span id="flips">0</span>
+						</li>
+						<li>
+						Theme: 
+						<div class="changeTheme " id="farm">Farm</div>
+						<div class="changeTheme " id="ballroom">Ballroom</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="board">
+				<div id="board" class="farm">
+				</div>
+			</div>
+		</div> 
+
+		<footer class="footer farmstyle">
+			<a href="http://www.freepik.com">Vectors by vectorpocket and macrovector/ Freepik</a>
+		</footer>
+	</div> 
+	<script src="script.js" async></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!--
+//========================================================================
+//   "WebHangman"  JavaScript Hangman  
+//
+//   Copyright (C) 2000,2001  Jan Mulder
+//
+//   This program is free software; you can redistribute it and/or modify
+//   it under the terms of the GNU General Public License as published by
+//   the Free Software Foundation; either version 2 of the License, or
+//   (at your option) any later version, and as long as this notice is
+//   kept unmodified at the top of the script source code.
+//
+//   This program is distributed in the hope that it will be useful,
+//   but WITHOUT ANY WARRANTY; without even the implied warranty of
+//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//   GNU General Public License (license.txt) for more details.
+//
+//   To contact me visit: http://janmulder.com/contact/
+//
+//=======================================================================
+-->
+<html>
+<head>
+<title>Javascript Hangman Example</title>
+
+<STYLE type="text/css">
+.heading {
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 12pt;
+  color: #990033;
+}
+.default {
+  font-family: Verdana, Geneva, Arial, sans-serif;
+  font-size: 10pt;
+  text-align: left;
+  text-decoration: none;
+  color: black;
+}
+</STYLE>
+
+<SCRIPT language="JavaScript">
+var sourceDir = "hangman/";
+
+var words = new Array(
+"Afghanistan", "",
+"Albania", "",
+"Algeria", "",
+"Argentina", "",
+"Australia", "",
+"Austria", "",
+"Bahamas", "",
+"Bangladesh", "",
+"Belgium", "",
+"Bhutan", "",
+"Bolivia", "",
+"Bosnia", "",
+"Botswana", "",
+"Brazil", "",
+"Bulgaria", "",
+"Burundi", "",
+"Cambodia", "",
+"Cameroon", "",
+"Canada", "",
+"Chile", "",
+"China", "",
+"Colombia", "",
+"Congo", "",
+"Costa Rica", "",
+"Croatia", "",
+"Cuba", "",
+"Cyprus", "",
+"Denmark", "",
+"Ecuador", "",
+"Egypt", "",
+"Estonia", "",
+"Ethiopia", "",
+"Fiji", "",
+"Finland", "",
+"France", "",
+"Germany", "",
+"Ghana", "",
+"Georgia", "",
+"Greece", "",
+"Greenland", "",
+"Haiti", "",
+"Hungary", "",
+"Iceland", "",
+"India", "",
+"Indonesia", "",
+"Iran", "",
+"Iraq", "",
+"Ireland", "",
+"Israel", "",
+"Italy", "",
+"Jamaica", "",
+"Japan", "",
+"Jordan", "",
+"Kazakhstan", "",
+"Kenya", "",
+"Kuwait", "",
+"Latvia", "",
+"Laos", "",
+"Lebanon", "",
+"Libya", "",
+"Lithuania", "",
+"Luxembourg", "",
+"Malaysia", "",
+"Mexico", "",
+"Moldavia", "",
+"Monaco", "",
+"Morocco", "",
+"Nepal", "",
+"Netherlands", "",
+"Nigeria", "",
+"North Korea", "",
+"Norway", "",
+"Pakistan", "",
+"Panama", "",
+"Paraguay", "",
+"Peru", "",
+"Poland", "",
+"Portugal", "",
+"Qatar", "",
+"Rwanda", "",
+"Sierra Leone", "",
+"Singapore", "",
+"Slovenia", "",
+"South Korea", "",
+"Somalia", "",
+"Spain", "",
+"Sri Lanka", "",
+"Sweden", "",
+"Switzerland", "",
+"Syria", "",
+"Taiwan", "",
+"Thailand", "",
+"Tunisia", "",
+"Turkey", "",
+"Uganda", "",
+"Uruguay", "",
+"Venezuela", "",
+"Yugoslavia", "",
+"Zaire", "",
+"Zimbabwe", ""
+);
+</SCRIPT>
+
+<SCRIPT SRC="hangman/hangman.js"></SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#FFFFF0" LINK="blue" VLINK="blue">
+<p>
+<span class="heading"><b>JavaScript Hangman Example - Countries (100)</b> - by Jan Mulder.</span><br>
+<i>Click on the letters and guess the words.</i>
+<br>
+<br>
+
+<table cellpadding=10>
+<tr>
+<td align="center">
+
+<table border=0 bgcolor="#FFFFF0" cellpadding=10>
+<tr><td>
+<SCRIPT language=JavaScript>
+  drawHangman();
+</SCRIPT>
+<BR><BR>
+</td></tr>
+</table>
+
+</td>
+<td>
+
+
+
+<SCRIPT language=JavaScript>
+ drawControl();
+</SCRIPT>
+
+<BR><BR><BR>
+<SCRIPT language=JavaScript>
+  drawAnswer();
+</SCRIPT>
+
+
+</TD>
+
+</TR>
+</TABLE>
+
+
+<BR><BR>
+<A HREF="http://JanMulder.co.uk/download/webhangman.zip">Download this game...</A>
+
+<span class="default">
+<BR><BR>
+<p>
+Contact: http://janmulder.com/contact/
+
+
+</span>
+</body>
+</html>

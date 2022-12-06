@@ -1,0 +1,325 @@
+<title>Forca</title>
+<!--  Autor:  Francke Peixoto Data:  05-Jun-2002-->
+<style>
+<!--
+.teclado {
+	font-size: 11px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-color:#000000;
+ 	color:#000000;
+	font-weight:bold; 
+	text-decoration : none;
+}
+.visao {
+	font-size: 16px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-color:#FF0000;
+ 	color:#FF0000;
+	font-weight:bold;
+	text-decoration : none;
+}
+
+.gameover {
+	font-size: 13px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-color:#ffffff;
+ 	color:#ffffff;
+	font-weight:bold;
+	text-decoration : none;
+}
+//-->
+</style>
+<html>
+<body onload="sorteio();" bgcolor="#000000">
+<center>
+<font color="white">Palavra Aleatória em Português</font><br>
+<div id="jg"></div>
+<div id="tcdo">
+<script language="JavaScript">
+
+/*
+-------------------
+      FORCA em DHTML 0.1 beta;  
+               -------------------    
+ 		      by Francke Silva
+	-------------------		   
+		MSN :  Francke@xmasters.com.br
+ 						-------------------
+*/
+  //  BIBLIOTECA DE PALAVRAS  
+  var palavras   = new Array();
+    palavras[0]  = "carteira";
+    palavras[1]  = "brasil";
+    palavras[2]  = "amorzinho";
+    palavras[3]  = "fresquinho";
+    palavras[4]  = "andrezinho";
+    palavras[5]  = "bobeira";
+    palavras[6]  = "marcos";
+    palavras[7]  = "selio";
+	palavras[8]  = "jogo";
+	palavras[9]  = "mapa";
+	palavras[10] = "babado";
+	palavras[11] = "ana";
+	palavras[12] = "critico";
+	palavras[13] = "windows";
+	palavras[14] = "linux";
+	palavras[15] = "macaco";
+	palavras[16] = "panela";
+	palavras[17] = "frederico";
+	palavras[18] = "fofura";
+	palavras[19] = "grafico";
+	palavras[20] = "mula";
+	palavras[21] = "cavalo";
+	palavras[22] = "escola";
+
+	// Variaveis GLOBAIS
+    var  k;
+    var iconte = Math.floor(Math.random()*2);
+    var dj  = document.getElementById('jg');
+    var erro = 1;
+    var d = "<pre><font class=gameover>";
+    var iconte = Math.floor(Math.random()*7);
+    var ki = new Array(palavras[iconte].length);
+      // adicinando adicionar o valor "__" 
+	//no vetor que armazena a palavra sorteada;
+	var itempodejogo = 0;
+    for(k=0;k<palavras[iconte].length;k++){
+
+        ki[k]="__";
+   }
+
+    var p = new Array();
+function tempodejogo(){
+  setTimeout("tempodejogo()",1000);
+  itempodejogo++;
+}
+/*
+-------------------
+      SORTEIO,
+	  essa funcao eh chamada
+	  todas as vezes que a 
+	  pagina eh chamada ou
+	  quando atualiza a pagina
+	  e no termino do jogo
+	  precionando o botao
+	  NOVO JOGO; 
+          -------------------    
+ 		      by Francke Silva
+	-------------------		   
+		E¹/²:  Francke@xmasters.com.br
+		WEB :  http://xmasters.com.br
+		MSN :  Francke@xmasters.com.br
+ 						-------------------
+*/	
+	
+function sorteio() {
+    var djc = "<table cellpadding=2  ";
+        djc = djc + "cellspacing=4 border=0 width=390 ";
+        djc = djc + " height=40 bgcolor=#000000 style='border: ";
+        djc = djc + " 1px solid #666666;'><tr>";
+    for(k = 0; k < palavras[iconte].length; k++){
+   		p[k] = k;
+		djc = djc + "<td style='border: 0px solid #000000;' ";
+        djc = djc + " bgcolor=#000000 align=center ";
+        djc = djc + " valign=middle class=visao> __ </td>";
+	}
+        djc = djc + "</tr></table><br>";
+ 	    dj.innerHTML = djc;
+		tempodejogo();
+}
+/*
+-------------------
+      VERIFICA ERRO
+	  quando essa funcao eh chamada,
+	  significa que o usuario chutou
+	  uma letra que nao existe na 
+	  palavra sorteada;  
+          -------------------    
+ 		      by Francke Silva
+	-------------------		   
+		E¹/²:  Francke@xmasters.com.br
+		WEB :  http://xmasters.com.br
+		MSN :  Francke@xmasters.com.br
+ 						-------------------
+*/
+function verificaerro(){
+   var m = document.getElementById('g');
+   switch (erro){
+    case 0:
+        break
+    case 1:
+        d = d + "      O   \n"
+        break
+    case 2:
+        d = d + "    -"
+        break
+    case 3:
+        d = d + " | "
+        break
+    case 4:
+        d = d + "-\n"
+        break
+    case 5:
+        d = d + "     /"
+        break
+    case 6:
+        d = d + " \\ \n"
+        break
+    default:
+    var tecladaosome = document.getElementById('tecladao');
+        tecladaosome.style.display = 'none';
+        /*
+        d = d + "        ";
+        d = d + "\n\n<b>       ";
+        d = d + "GAME OVER</b>".blink() +"  \n\n";
+        d = d + "    palavra: " + palavras[iconte];
+        d = d + "\n\n      ";
+        d = d + "<a href=# onclick='window.location.reload( false );' ";
+        d = d + "  tyle='border: ";
+        d = d + " 1px solid #000000;' class=gameover>[ NOVO JOGO ]</a>";
+        */
+        d = "<img src='gover.gif'><br><br>";
+        d = d + "<font class=gameover><b>GAME OVER</b></font><br>";
+        
+        d = d + "<br>";
+        d = d + "<a href=# onclick='window.location.reload( false );' ";
+        d = d + "  tyle='border: ";
+        d = d + " 1px solid #000000;' class=gameover>[ NOVO JOGO ]</a><br>";
+        d = d + "<font class=gameover> Palavra: <blink>" + palavras[iconte].toUpperCase() +"</blink></font>";
+		
+  }
+     // passar resultados de erro;
+	// criar boneco para a forca;  
+        m.innerHTML = d;
+        erro++;		
+}
+/*
+-------------------
+      JOGAR -
+	  inicia uma jogada.
+	  quando o usuario clica em uma das
+	  letras, esses dados sao  passados
+	  por essa funcao que verifica se 
+	  existe a letra na palavra sorteada; 
+          -------------------    
+ 		      by Francke Silva
+	-------------------		   
+		E¹/²:  Francke@xmasters.com.br
+		WEB :  http://xmasters.com.br
+		MSN :  Francke@xmasters.com.br
+ 						-------------------
+*/
+
+function jogar(letra){
+   var nome = palavras[iconte].toUpperCase();
+       nome.split("");
+   var erroSim = 0;
+   var coleta = "";
+   for(k = 0; k < palavras[iconte].length; k++){
+      
+		if(nome[k] == letra){
+
+                ki[k] = letra;
+
+         }
+             if(ki[k] != "__") {
+
+                coleta =  coleta + ki[k];
+
+             }
+       
+    }
+     if(coleta.match(letra) == letra){
+
+        //  ENCONTROU
+      } else {
+               erroSim = 1;
+             }
+      var ik;
+      var t;
+      t = "<table cellpadding=2 cellspacing=4 ";
+      t = t + " border=0 width=390 height=40 ";
+      t = t + " bgcolor=#000000 style='border: ";
+      t = t + " 1px solid #666666;'><tr>";
+	  
+     for(ik = 0; ik < palavras[iconte].length; ik++){
+	     t = t + "<td style='border: ";
+         t = t + "0px solid #000000;' bgcolor=#000000 ";
+         t = t + " align=center valign=middle ";
+         t = t + " class=visao>"+ ki[ik] +"</td>";
+     }
+	 
+     if(erroSim == 1){            
+        verificaerro();
+        erroSim = 0;
+     }
+   	   t = t + "</tr></table><br>";
+  	   dj.innerHTML = t;
+	   
+     if(coleta == palavras[iconte].toUpperCase()){
+
+            var winmsg = "<br><img src='gwin.gif'>";
+                winmsg = winmsg + "<br><br><font class=gameover>Palavra revelada: <b><blink>";
+                winmsg = winmsg + palavras[iconte].toUpperCase() + "</blink>";
+                winmsg = winmsg + "<br><br>PARABÉNS VOCÊ VENCEU!!!<br><br>";
+                winmsg = winmsg + "<a href=# onclick='window.location.reload( false );' ";
+                winmsg = winmsg + "class=gameover>[ NOVO JOGO ]</a>";
+              
+            var winG = document.getElementById('g');
+                winG.innerHTML =  winmsg;
+               var tsome = document.getElementById('tecladao');
+                   tsome.style.display = 'none';
+
+
+				   
+				var stempo = window.open("", "forca", 'width=370,height=20');
+				
+				    if(itempodejogo < 30) {
+						stempo.document.write("<center><font style='font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif;font-color:#ffffff;color:#ffffff;font-weight:bold; text-decoration : none;'><b>PARABENS seu tempo foi de ("+itempodejogo+")seg.<br><img src='gwin.gif'>"); 
+					}else {
+					      if(itempodejogo < 60){
+						 stempo.document.write("<center><font style='font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif;font-color:#ffffff;color:#ffffff;font-weight:bold; text-decoration : none;'><b>eh vc foi mais ou menos, mas mesmo assim PARABENS seu tempo foi de ("+itempodejogo+")seg.<br><img src='gwin.gif'>"); 
+						  } else {
+						         stempo.document.write("<center><font style='font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif;font-color:#ffffff;color:#ffffff;font-weight:bold; text-decoration : none;'><b></b>Ateh ganhou, mas es MUITO FRACO.. seu tempo foi de ("+itempodejogo+")seg.<br><img src='gwin.gif'>"); 
+								  }
+					}			   
+					stempo.document.bgColor="black"
+					stempo.document.close() 		  
+     }
+}   
+
+/*
+-------------------
+      TECLADO VIRTUAL  
+          -------------------    
+ 		      by Francke Silva
+	-------------------		   
+		E¹/²:  Francke@xmasters.com.br
+		WEB :  http://xmasters.com.br
+		MSN :  Francke@xmasters.com.br
+ 						-------------------
+*/
+	document.write("<table id=tecladao cellpadding=3 cellspacing=6 border=1 width=390 height=90 bgcolor=#000000");
+	document.write(" style='border: 1px solid #666666;'><tr style='border: 1px #000000;'> <form name=f action=# onsubmit='return false;'>");
+var linha=0;
+for(i=65; i < 91; i++){
+    if(linha == 8) {
+       linha=0;
+       document.write("</tr><tr style='border: 1px #000000;'>");
+    }
+    document.write("<td align=center valign=middle width=15  style='border: 1px solid #000000;' bgcolor=#000000 ");
+    document.write(" onmouseover=style.backgroundColor='#FF0000;' onmouseout=style.backgroundColor='#000000' > ");
+    document.write("<input type=submit name='" + String.fromCharCode(i)+"'  onclick=\"jogar('" + String.fromCharCode(i));
+    document.write("');document.f."+ String.fromCharCode(i)+".style.display ='none';\" class=teclado value=" + String.fromCharCode(i) + " ></td>");
+    linha++;
+}
+    document.write("</tr></form></table>");
+</script>
+</div>
+
+<div id="g"></div>
+
+</body>
+
+</html>
+
