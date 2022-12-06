@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of the Document</title>
+    <style>
+      h1 {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="textId">
+    </div>
+    <script>
+      let element = document.getElementById("textId");
+      function createTextUnder(element, html) {
+        // create text element
+        let text = document.createElement('div');
+        // it’s recommended to apply here a css class for the style 
+        text.style.cssText = "position:fixed; color: green; font-size: 25px";
+        // assign coordinates, don't forget "px"!
+        let coords = element.getBoundingClientRect();
+        text.style.left = coords.left + "px";
+        text.style.top = coords.bottom + "px";
+        text.innerHTML = html;
+        return text;
+      }
+      let text = createTextUnder(element, 'Welcome to W3Docs');
+      document.body.append(text);
+      setTimeout(() => text.remove(), 3000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of the Document</title>
+    <style>
+      #textId {
+        height: 450px;
+      }
+      div {
+        border: 1px solid red;
+      }
+      h1 {
+        color: green;
+      }
+      h2 {
+        color: blue;
+      }
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="textId">
+      <h1>Welcome to W3Docs</h1>
+      <h2>MouseEvent clientX and clinetY Property</h2>
+      <p>To get the x and y of the mouse pointer, click on this page.
+      </p>
+    </div>
+    <p id="divId"></p>
+    <p id="pageId"></p>
+    <script>
+      let elem = document.getElementById('divId');
+      document.addEventListener('click', function(event) {
+        elem.innerHTML = "clientX  " + event.clientX + ' : ' + " clinetY " + event.clientY;
+      });
+      let el = document.getElementById('pageId');
+      document.addEventListener('click', function(event) {
+        el.innerHTML = "pageX  " + event.pageX + ' : ' + " pageY " + event.pageY;
+      });
+    </script>
+  </body>
+</html>
