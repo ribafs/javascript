@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="description" content="Simple JavaScript code editor and executor.">
+    <meta name="keywords" content="editor,JavaScript,JS,executor,online,HTML">
+    <meta name="author" content="mat3e">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+
+    <link rel="stylesheet" href="hybrid.css">
+</head>
+
+<body>
+
+    <article style="width: 800px; margin: 0 auto; text-align: center; font-size: 1.5em;">
+        <pre style="text-align: left;">
+            <code class="javascript" contentEditable="true">
+var name = 'World';
+alert(`Hello ${name}`);
+
+var num = 123;
+console.log('nice one: ' + num);
+            </code>
+        </pre>
+        <button onclick="controls.evalCode(this)">eval</button>
+    </article>
+    
+    <a href="https://github.com/mat3e/simple-js-editor"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+
+    <script src="highlight.pack.js"></script>
+    <script>
+        var controls = (function () {
+            hljs.initHighlightingOnLoad();
+
+            return {
+                evalCode: function (btn) {
+                    var codeBlock = btn.previousElementSibling.firstElementChild;
+                    hljs.highlightBlock(codeBlock);
+
+                    eval(codeBlock.innerText);
+                }
+            }
+        })();
+    </script>
+<a href="" onclick="history.back()">Voltar</a>
+</body>
+
+</html>

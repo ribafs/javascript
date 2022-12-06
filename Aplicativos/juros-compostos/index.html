@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Calculadora de Juros Compostos</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="calculadora">
+            <form>
+              <figure class="text-center">
+                  <h4>CALCULADORA DE RENDA FIXA</h4>
+                  <figcaption class="blockquote-footer">
+                      Faça simulações de renda fixa
+                  </figcaption>
+              </figure>
+                <div class="form-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputAporteInicial">Investimento inicial</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">R$</span>
+                            </div>
+                            <input type="text" class="form-control" id="aporte-inicial" onKeyUp="mascararCampoMoeda(this)"
+                                placeholder="0,00">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputAporteMensal">Investimento mensal</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">R$</span>
+                            </div>
+                            <input type="text" class="form-control" id="aporte-mensal" onKeyUp="mascararCampoMoeda(this)"
+                                placeholder="0,00">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputJurosMes">Taxa de juros ao mês</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">%</span>
+                            </div>
+                            <input type="text" class="form-control" id="juros-mes" onKeyUp="mascararCampoJuros(this)"
+                                placeholder="0,00">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPeriodoEm">Período em</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                            </div>
+                            <input type="number" class="form-control" id="periodo" value="1">
+                            <div class="input-group-append">
+                                <select class="custom-select" id="periodo-em">
+                                  <option value="anos" selected>anos</option>
+                                  <option value="meses">meses</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-block btn-calcular" onclick="calcular();return false;">Calcular</button>
+                </div>
+            </form>
+            <div class="resultado">
+                <h5>Resultado</h5>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <th>DESCRIÇÃO</th>
+                            <th>VALOR</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Total aplicado</td>
+                                <td id="totalAplicado" class="text-info"></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Valor ganho em juros</td>
+                                <td id="valorGanhoBruto" class="text-success"></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Total de rendimento líquido</td>
+                                <td id="valorGanhoLiquido" class="text-success"></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Total bruto</td>
+                                <td id="totalBruto" class="text-success"></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Total líquido a receber</td>
+                                <td id="totalLiquido" class="text-success"></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Imposto de renda sobre a rentabilidade</td>
+                                <td id="imposto" class="text-danger"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer>
+            <!-- Copyright -->
+            <div class="text-center py-3">
+                Copyright &copy; Calculadora de Juros Compostos - <a href="https://github.com/EduardoHFBezerra" target="_blank">Eduardo Bezerra</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+        <script>
+            function formatarMoeda(value) {
+                return `R$ ${new Intl.NumberFormat('pt-BR').format(value.toFixed(2))}`;
+            }
+
+            function mascararCampoMoeda(valor) {
+                return $(valor).mask('000.000.000.000.000,00', {
+                    reverse: true
+                });
+            }
+
+            function mascararCampoJuros(valor) {
+                return $(valor).mask('000,00', {
+                    reverse: true
+                });
+            }
+
+            function moedaParaFloat(valor) {
+                if (!valor) {
+                    return 0;
+                }
+                valor = valor.split('.').join('');
+                valor = valor.split(',').join('.');
+                return Number(valor.replace(/[^0-9.]/g, ""));
+            }
+
+            function calculoImpostoRenda(periodo) {
+                if (periodo < 6) {
+                    return 0.225
+                } else if (periodo >= 6 && periodo < 12) {
+                    return 0.20
+                } else if (periodo >= 12 && periodo < 24) {
+                    return 0.175
+                } else if (periodo >= 24) {
+                    return 0.15
+                } else {
+                    throw new Error('Erro em calculoImpostoRenda para ' + periodo)
+                }
+            }
+
+            function calcular() {
+
+                const aporteInicial = moedaParaFloat(document.getElementById('aporte-inicial').value);
+                const aporteMensal = moedaParaFloat(document.getElementById('aporte-mensal').value);
+                var jurosMes = document.getElementById('juros-mes').value.replace(/,/g, '.');
+                var periodo = document.getElementById('periodo').value;
+                const periodoEm = document.getElementById('periodo-em').value;
+
+                if (jurosMes == '') {
+                    alert("Preencha a taxa de juros");
+                    return false;
+                }
+
+                jurosMes = jurosMes / 100;
+                periodo = periodoEm == "anos" ? periodo * 12 : periodo;
+
+                const valorFuturo = (aporteInicial * ((1 + jurosMes) ** periodo)) +
+                    aporteMensal * (
+                        ((1 + jurosMes) ** periodo) - 1
+                    ) / jurosMes;
+
+                const totalAplicado = (aporteMensal * periodo) + parseFloat(aporteInicial);
+
+                const valorGanhoBruto = valorFuturo - totalAplicado;
+
+                const imposto = calculoImpostoRenda(periodo);
+                const valorGanhoLiquido = valorGanhoBruto - (valorGanhoBruto * imposto);
+
+                document.getElementById('valorGanhoBruto').innerText = formatarMoeda(valorGanhoBruto)
+                document.getElementById('valorGanhoLiquido').innerText = formatarMoeda(valorGanhoLiquido)
+                document.getElementById('imposto').innerText = `${(imposto * 100)}% <-> ${formatarMoeda(imposto * valorGanhoBruto)}`
+
+                document.getElementById('totalBruto').innerText = formatarMoeda(valorFuturo)
+                document.getElementById('totalAplicado').innerText = formatarMoeda(totalAplicado)
+
+                document.getElementById('totalLiquido').innerText = formatarMoeda(totalAplicado + valorGanhoLiquido)
+
+                document.getElementsByClassName('resultado')[0].scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        </script>
+    </body>
+</html>

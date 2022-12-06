@@ -1,0 +1,75 @@
+@font-face 
+  font-family: "fontS"
+  src: url("Lato.ttf")
+
+*
+    margin: 0px
+    padding: 0px
+    box-sizing: border-box
+    font-family: fontS
+
+body
+    overflow-x: hidden
+
+@mixin mob()
+    @media ( max-width:  600px)
+        @content
+        
+@mixin flex
+    display: flex
+    text-align: center
+    align-items: center
+    justify-content: center
+    flex-direction: column
+
+
+.progressBar
+    height: 100vh
+    padding: 5rem
+    margin: 0 auto
+    @include flex
+
+    .progressBarStart
+        padding: 0.1px
+        width: 500px
+        margin: 20px 0
+        overflow: hidden
+        border-radius: 5px
+        background: #ccc
+        position: relative
+        text-align: left
+
+        @include mob
+            width: 420px
+
+
+        i
+            width: 0%
+            float: left
+            padding: 8px
+            display: block
+            background: #666
+            border-radius: 5px 
+
+    div
+        margin: 5px 0
+
+        p
+            padding: 15px 0
+        span
+            a
+                color: #666
+                margin: 0 2px
+                padding: 0 8px
+                font-weight: 900
+                font-size: .9rem
+                text-decoration: none
+                border-right: 2px solid #ccc
+
+                &:last-child
+                    border-right: none
+
+
+    // .progressBarStart
+    //     width: 300px
+    //     margin: 20px

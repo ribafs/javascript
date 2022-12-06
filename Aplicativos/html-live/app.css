@@ -1,0 +1,128 @@
+@charset "utf-8";
+/* CSS Document */
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
+	background-color: #252525;
+}
+.codeplayer {
+	width: 99%;
+	height: 100%;
+	margin: 0 auto;
+	max-width: 100%;
+	padding: 0;
+}
+.codeplayer__row {
+	height: 45%;
+}
+.codeplayer__row:after {
+	clear: both;
+	content: '';
+	display: table;
+}
+
+.codeplayer__nav {
+	width: 100%;
+	height: 50px;
+	margin: 0;
+	border-radius: 1em;
+	background-color: #e8e8e8;
+	padding:2px;
+	border-bottom: 1px solid #333;
+}
+.codeplayer__nav:after {
+	clear: both;
+	content: '';
+	display: table;
+}
+.codeplayer__nav h1 {
+	font-size: 1.5em;
+	padding: 10px 0 0 60px;
+	margin: 0;
+	float: left;
+}
+.codeplayer__button-container {
+	float: right;
+	margin: 0;
+	padding: 2px 60px 0 0;	
+}
+.codeplayer__button {
+	padding: 10px 20px;
+	margin: 0;
+	background-color: green;
+	color: #fff;
+	font-size: 1.25em;
+	font-weight: 700;
+	border-radius: 5px;
+}
+.codeplayer__button:hover {
+	background-color: #08C724;
+}
+.codeplayer__toggles {
+	width: 216px;
+	margin: 0 auto;
+	list-style: none;
+	border: 1px solid grey;
+	border-radius: 5px;
+	height: 35px;
+	padding: 0;
+	position: relative;
+	top: 7px;
+}
+.codeplayer__toggle {
+	float: left;
+	border-right: 1px solid grey;
+	padding: 8px 9px;
+}
+.codeplayer__toggle.last {
+	border: none;
+}
+.codeplayer__toggle--selected {
+	background-color: #cfcfcf;
+}
+.codeplayer__player {
+	height: 100%;
+	width: 33.33%;
+	position: relative;
+	float: left;
+}
+.codeplayer__player textarea {
+	width: 100%;
+	height:100%;
+	border: none;
+	border-right: 1px solid grey;
+	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+	font-size: 90%;
+	box-sizing: border-box;
+	padding: 5px;
+	color: #00EBFF;
+	background-color: transparent;
+	overflow-wrap: unset;
+}
+.codeplayer__label {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, .4);
+	color: #252525;
+	padding: 5px;
+}
+iframe {
+	height: 100%;
+	position: relative;
+	width: 100%;
+	border: none;
+}
+.codeplayer__player-results {
+	border: 0;
+	border-top: 1px solid #fff;
+	position: relative;
+	height: 100%;
+}

@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header, section, footer, aside, nav, main, article, figure {
+    display: block;
+}
+
+html {
+    font-size: 16px;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100%;
+    background: #111;
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #eee;
+    padding: 0 5%;
+    font-family: "Raleway", sans-serif;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #40c4ff;
+    padding: 2px;
+    border-bottom: 1px solid transparent;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #51d5ff;
+    border-color: #51d5ff;
+}
+
+header {
+    padding: 25px 0;
+    text-align: right;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    display: inline-block;
+    margin-left: 25px;
+    color: #eee;
+}
+
+nav ul li a:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+main {
+    text-align: center;
+    width: 60%;
+    margin: 10% auto;
+}
+
+h1 {
+    color: #fff;
+    line-height: 1;
+    font-weight: 700;
+    font-size: 2.6rem;
+    font-family: "Playfair Display", sans-serif;
+}
+
+section:before, section:after {
+    content: "";
+    display: block;
+    width: 75px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #fff;
+    border-style: dashed;
+}
+
+section:before {
+    margin: 50px auto 0 auto;
+}
+
+section:after {
+    margin: 25px auto 0 auto;
+}
+
+p {
+    margin-top: 25px;
+}
+
+footer {
+    padding: 25px 0;
+    position: absolute;
+    bottom: 0;
+}
+
+@media only screen and (min-width: 1600px) {
+    main {
+        margin: 15% auto;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    nav ul li {
+        display: block;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    footer {
+        position: static;
+    }
+
+    footer a {
+        word-wrap: break-word;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    main {
+        margin: 5% auto;
+    }
+}
+
+@media only screen and (max-height: 600px) {
+    footer {
+        position: static;
+    }
+}

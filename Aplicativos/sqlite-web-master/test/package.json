@@ -1,0 +1,28 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "scripts": {
+    "test": "./node_modules/.bin/mocha ci.js --timeout 10000"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "jasmine": {
+      "integrity": "sha1-K9Wf1+xuwOistk4J9Fpo7SrRlSo=",
+      "requires": {
+        "glob": "7.1.2",
+        "jasmine-core": "3.1.0"
+      },
+      "resolved": "https://registry.npmjs.org/jasmine/-/jasmine-3.1.0.tgz",
+      "version": "3.1.0"
+    },
+    "jasmine-core": {
+      "integrity": "sha1-pHheE11d9lAk38kiSVPfWFvSdmw=",
+      "resolved": "https://registry.npmjs.org/jasmine-core/-/jasmine-core-3.1.0.tgz",
+      "version": "3.1.0"
+    },
+    "selenium-webdriver": "^4.0.0-alpha.7"
+  },
+  "devDependencies": {
+    "mocha": "^8.0.1"
+  }
+}

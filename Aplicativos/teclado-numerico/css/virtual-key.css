@@ -1,0 +1,25 @@
+.table_teclado tr td
+{
+	background: #828282;
+	color: #FFF;
+	padding: .2em .5em;
+	cursor: pointer;
+	border-radius: 3px;
+	font-family: sans-serif;
+	border: 1px solid #757575;
+    max-width: 10px;
+	position: relative;
+}
+
+.table_teclado tr td:hover
+{
+	background: #525252;
+}
+
+.btn_delete
+{
+	position: absolute;
+	left: .1em;
+	bottom: .1em;
+	width: 19px;
+}
