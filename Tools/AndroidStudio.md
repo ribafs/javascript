@@ -1,6 +1,7 @@
-Android Studio
+# Android Studio
 
 Download
+
 https://developer.android.com/studio
 
 Para 64 bit
@@ -16,13 +17,14 @@ android-studio/bin/studio.sh
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 
 Add the Android SDK command-line directories to PATH. Each directory corresponds to the category of command-line tool.
-# avdmanager, sdkmanager
+
+## avdmanager, sdkmanager
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
 
-# adb, logcat
+## adb, logcat
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
-# emulator
+## emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 
 https://ionicframework.com/docs/developing/android
