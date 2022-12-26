@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Tempo Vivido</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="calculator-container">
+      <h1>Insira a sua data de nascimento</h1>
+
+      <form class="birth-date-form">
+        <input type="datetime-local" data-birth-date />
+        <button data-calculate-button>Calcular</button>
+      </form>
+
+      <div class="time-lived-container" data-time-lived></div>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
