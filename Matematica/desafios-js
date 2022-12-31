@@ -1,0 +1,141 @@
+// Algoritmo para ler do usuário o tamanho para um vetor de inteiros e preencher cada posição do vetor com o número do seu índice multiplicado por 2. Após preenchido exibir cada valor armazenado.
+
+Solução
+var vetor = [];
+var i;
+
+for(i=0;i<20;i++){
+    vetor[i] = i*2;     
+}
+document.write(vetor);
+
+// Mostrar os ímpares de uma divisão
+var x;
+
+for(x=2;x<50;x++){
+  var y = x % 2
+  if(y != 0){ // ou y == 1
+    document.write(x+'<br>');
+  }
+}
+
+//Números pares
+for(x=2;x<50;x++){
+  var y = x % 2
+  if(y == 0){ // ou y != 1
+    document.write(x+'<br>');
+  }
+}
+
+//Fatorial
+
+function factorial(number) {
+  let result = 1;
+
+  for (let i = 2; i <= number; i += 1) {
+    result *= i;
+  }
+
+  return result;
+}
+document.write(factorial(4))
+
+//Fatorial recursivo
+
+function factorialRecursive(number) {
+  return number > 1 ? number * factorialRecursive(number - 1) : 1;
+}
+
+Conversão
+Grau para Radiano
+
+function degreeToRadian(degree) {
+  return degree * (Math.PI / 180);
+}
+
+Radiano para Grau
+
+function radianToDegree(radian) {
+  return radian * (180 / Math.PI);
+}
+
+Fibonacci
+
+function fibonacci(n) {
+  const fibSequence = [1];
+
+  let currentValue = 1;
+  let previousValue = 0;
+
+  if (n === 1) {
+    return fibSequence;
+  }
+
+  let iterationsCounter = n - 1;
+
+  while (iterationsCounter) {
+    currentValue += previousValue;
+    previousValue = currentValue - previousValue;
+
+    fibSequence.push(currentValue);
+
+    iterationsCounter -= 1;
+  }
+
+  return fibSequence;
+}
+
+Triângulo de Pascal
+
+function pascalTriangle(lineNumber) {
+  const currentLine = [1];
+
+  const currentLineSize = lineNumber + 1;
+
+  for (let numIndex = 1; numIndex < currentLineSize; numIndex += 1) {
+    // See explanation of this formula in README.
+    currentLine[numIndex] = currentLine[numIndex - 1] * (lineNumber - numIndex + 1) / numIndex;
+  }
+
+  return currentLine;
+}
+
+Matriz Quadrada
+
+function squareMatrixRotation(originalMatrix) {
+  const matrix = originalMatrix.slice();
+
+  // Do top-right/bottom-left diagonal reflection of the matrix.
+  for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) {
+    for (let columnIndex = rowIndex + 1; columnIndex < matrix.length; columnIndex += 1) {
+      // Swap elements.
+      [
+        matrix[columnIndex][rowIndex],
+        matrix[rowIndex][columnIndex],
+      ] = [
+        matrix[rowIndex][columnIndex],
+        matrix[columnIndex][rowIndex],
+      ];
+    }
+  }
+
+  // Do horizontal reflection of the matrix.
+  for (let rowIndex = 0; rowIndex < matrix.length; rowIndex += 1) {
+    for (let columnIndex = 0; columnIndex < matrix.length / 2; columnIndex += 1) {
+      // Swap elements.
+      [
+        matrix[rowIndex][matrix.length - columnIndex - 1],
+        matrix[rowIndex][columnIndex],
+      ] = [
+        matrix[rowIndex][columnIndex],
+        matrix[rowIndex][matrix.length - columnIndex - 1],
+      ];
+    }
+  }
+
+  return matrix;
+}
+
+Outros
+https://github.com/trekhleb/javascript-algorithms/
+

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equação do 2o. Grau em Javascript</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+<h1 class="text-center">Equação do 2o. Grau em Javascript</h1>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta name="author" content="Admin" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+			$(function() {
+				$("#form-equacao").submit(function() {
+				    var mensagem;
+				    var a = $('#num1').val();
+					var b = $('#num2').val();
+					var c = $('#num3').val();
+                    if(a === "" && b ==="" &&  c == ""){
+						var mensagem = ("Voce deve prencher todos os campos!");
+						$('#num1').addClass("campo-erro");
+						$('#num2').addClass("campo-erro");
+						$('#num3').addClass("campo-erro");
+					}else if(a ==="" && b === ""){
+					    var mensagem = ("Você deve preencher  os campos a e b!");
+						$('#num1').addClass("campo-erro");
+						$('#num2').addClass("campo-erro");
+					}else if(a ==="" && c === ""){
+						var mensagem = ("Você deve preencher  os campos a e c !");
+						$('#num1').addClass("campo-erro");
+						$('#num3').addClass("campo-erro");
+					}else if(b ==="" && c === ""){
+						var mensagem = ("Você deve preencher  os campos b e c !");
+						$('#num2').addClass("campo-erro");
+						$('#num3').addClass("campo-erro");
+					}else if(a === ""){
+						var mensagem = ("Você deve preencher  o campo a !");
+						$('#num1').addClass("campo-erro");
+					}else if(b === ""){
+						var mensagem = ("Você deve preencher o campo b !");
+						$('#num2').addClass("campo-erro");
+					}
+					else if(c === ""){
+						var mensagem = ("Você deve preencher o campo c !");
+						$('#num3').addClass("campo-erro");
+					}
+					 $('#mensagem').val(mensagem);
+					if(a != 0 && b != 0){
+						var delta = Math.pow(b , 2) - ((4 * a)*c);	
+					}
+					if( delta > 0){
+						var deltaR = Math.sqrt(delta);
+						var  x1 = ((-b +  deltaR)  /(2 * a));
+						var  x2 = ((-b -  deltaR)  /(2 * a));
+					}else{
+						x1 = ("Sem raiz");
+						x2 = ("Sem raiz");
+					}
+					$('#x1').val(x1);
+					$('#x2').val(x2);
+					return false;		
+				}
+				);
+            });
+		
+    </script>
+<style type="text/css" />
+
+
+/* FUNDO  */
+
+#fundo{
+	margin:0px 0px 0px 0px;
+	background-color:black;
+}
+
+
+/* PRINCIPAL  */
+
+#principal{
+	margin:0px auto;
+	width:1000px;
+	height:900px;
+	background-color:#C0C0C0;
+	}
+
+/* FORMULARIO */
+
+#formulario{
+	font-family:Trebuchet MS, verdana, Arial;
+	float:left;
+	margin-left:10px;
+	margin-top:50px;
+	}
+
+
+/* CABECALHO  */
+
+#cabecalho{
+	background-color:#383838;
+	width:100%;
+	height:220px;
+	}
+
+
+/* RODAPE  */
+
+#rodape{
+	background-color:#383838;
+	margin:0px auto;
+	width:1000px;
+	height:220px;
+	}
+/* CONTEUDO  */
+
+#conteudo h3{
+	font-family:Trebuchet MS, Verdana, Arial;
+	}
+</style>
+	
+</head>
+<body id="fundo">
+
+	
+
+<div id="principal"><!--inicio da div principal-->
+
+	
+
+		<div id="cabecalho"><!--inicio da div cabecalho-->
+		</div><!--fim da div cabecalho-->
+
+	<div id="conteudo"><!--inicio da div principal-->
+	<h3>Equação do 2º Grau</h3>
+	</div><!--fim da div principal-->
+
+
+	<div id="formulario">
+						
+			<form id="form-equacao">
+				<input type="text" id="mensagem" value="" size="78"/>
+				<h4>Digite os valores de A, B e C para calcular a equação.</h4>
+				<label for="num1">A: </label>
+				<input type="text" id="num1" size="5" /><br/>
+				<label for="num2"/>B:  </label>
+				<input type="text" id="num2" size="5" />
+				&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;X'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+				<input type="text" id="x1" value="" /><br/>
+				<label for="num3" />C: </label>
+				<input type="text" id="num3" size="5" />
+				&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;X''&nbsp;&nbsp; &nbsp;
+                <input type="text" id="x2" value="" />
+				<br/><br/>
+				<table>
+				<tr>
+				<td><button type="submit" style="width:95px; margin:0px; display:inline;">Calcular</button></td>
+				<td><button type="reset" style="width:95px; margin:0px; display:inline;">Limpar</button><br/></td>
+				</tr>
+				</table>
+			</form>
+					  
+    	</div>
+
+</div><!--fim da div principal-->
+
+<div id="rodape"><!--inicio da div rodape-->
+</div><!--fim da div rodape-->
+
+</body>
+</html>

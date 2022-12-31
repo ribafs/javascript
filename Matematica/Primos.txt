@@ -1,0 +1,49 @@
+
+0
+
+Quem está armazenando os números primos é o método push()
+
+O método push() adiciona um ou mais elementos ao final de um array e retorna o novo comprimento desse array.
+
+O simbolo do operador % é chamado de operador de módulo. O resultado de uma operação com esse operador gera resto da divisão de dois valores. Se o resto for zero, então o primeiro valor pode ser dividido exatamente pelo segundo.
+
+A aritmética é útil para aquelas ocasiões em que você deseja saber se um número é divisível perfeitamente por outro
+
+A variável quantidadeDeDivisores é uma variável que quantifica o números de divisores de i por b cujo resto é zero 0
+
+Execute o código abaixo clicando em Executar no final desta resposta e observe que quando a variável quantidadeDeDivisores é zero significa ser um numero primo e é armazenado no array.
+
+ function buscaNumeroPrimos(n) {
+
+  var numerosPrimos = [];
+
+  for (var i = 2; i < n; i++){   //Armazenou os números de 2 a 9
+     var quantidadeDeDivisores = 0; 
+     
+     var explica = (" Para i = " + i);
+     
+     for(var b = 2; b < i; b++) { //Armazenou os números de 2 a 9     
+        explica += (" ; b = " + b);
+        //se o resto dessa divisão for 0 é um divisor e incrementa quantidadeDeDivisores
+        if (i % b == 0) {
+           quantidadeDeDivisores ++;
+        }
+
+     }
+        console.log(" ");
+        explica +=(" quantidadeDeDivisores = " + quantidadeDeDivisores);
+     
+ console.log(explica);
+ 
+     //if (quantidadeDeDivisores  == 0) {
+     if (quantidadeDeDivisores % i == 0) {
+     
+        numerosPrimos.push(i);
+        console.log(numerosPrimos);
+        
+     }
+
+  }
+
+return numerosPrimos;
+// https://pt.stackoverflow.com/questions/456179/n%C3%BAmeros-primos-function-array

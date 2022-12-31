@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrizes em JS</title>
+</head>
+<body>
+    <h1>Matrizes em JS</h1>
+    <script>
+        var linhas = prompt('Digite a quantidade de linhas da matriz')
+        var colunas = prompt('Digite a quantidade de colunas da matriz')
+        document.write('Criar uma matriz com '+linhas+' linhas por '+colunas+' colunas')
+        var matriz = []
+        for(var i=0; i<linhas;i++){
+            matriz[i] = []
+            for(var j=0;j<colunas;j++){
+                matriz[i][j] = ''
+            }
+        }
+        // Laço para preencher os elementos da matriz
+        for(var l=0;l<linhas;l++){
+            for(var c=0; c<colunas;c++){
+                matriz[l][c] = prompt('Digite o elemento da matriz '+'Linha '+l+'- Coluna '+c)
+            }
+        }
+        // Mostrar na tela a matriz
+        var valores2 = ''
+        for(var l=0;l<linhas;l++){
+            for(var c=0;c<colunas;c++){
+                if(c<colunas -1){
+                    valores2 += matriz[l][c]+" "
+                }else{
+                    valores2 += matriz[l][c] + "\n"
+                }
+            }
+        }
+        alert('Matriz\n\n'+valores2)
+    </script>
+</body>
+</html>

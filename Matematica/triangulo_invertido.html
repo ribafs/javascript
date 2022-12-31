@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triângulo invertido com Javascript</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+<h1 class="text-center">Triângulo invertido com Javascript</h1>
+<h3 class="text-center">Ctrl+Shift+I</h3>
+<script>
+let n = 5;
+let string = "";
+for (let i = 0; i < n; i++) {
+  // printing star
+  for (let k = 0; k < n - i; k++) {
+    string += "*";
+  }
+  string += "\n";
+}
+console.log(string);
+
+// Invertido vazado
+/*
+let n = 6;
+let string = "";
+
+for (let i = 1; i <= n; i++) {
+  // printing star
+  for (let j = 0; j < i; j++) {
+    if(i === n) {
+      string += "*";
+    }
+    else {
+      if (j == 0 || j == i - 1) {
+        string += "*";
+      }
+      else {
+        string += " ";
+      }
+    }
+  }
+  string += "\n";
+}
+console.log(string);
+*/
+</script>

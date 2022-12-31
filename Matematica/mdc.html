@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+   <head>
+       <meta charset="utf-8"/>
+       <title>Cálculo de MDC entre 2 números</title>
+   </head>
+<body>
+
+ <h1 align="center">Cálculo de MDC entre 2 números</h1>	
+
+<div align="center">
+
+<script>
+//Algoritmo de Euclides iterativo
+var a, b, r, n1, n2;
+
+// Algoritmo do MDC
+function mdc(a, b){
+    while(b != 0){
+        r = a % b;
+        a = b;
+        b = r;
+    }
+    return a;
+}
+
+n1 = prompt('Digite o primeiro número');
+n2 = prompt('Digite o segundo número');
+
+//Testes
+function main() {
+    document.writeln("MDC<br>");
+    document.writeln("mdc("+n1+", "+n2+") = "+mdc(n1, n2)+"<br>");
+    exit;
+}
+
+document.writeln(main());
+</script>
+
+</div>

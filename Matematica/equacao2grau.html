@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+   <head>
+       <meta charset="utf-8"/>
+       <title>Resolução de Equações do Segundo Grau</title>
+   </head>
+<body>
+
+ <h1 align="center">Resolução de Equações do Segundo Grau</h1>	
+
+<div align="center">
+<script>
+
+    // Definir as variáveis
+    var a,b,c,delta,x1,x2;
+
+    // Receber o valor das variáveis do usuário
+    a = prompt('Entre com o valor de "a"');
+    b = prompt('Entre com o valor de "b"');
+    c = prompt('Entre com o valor de "c"');
+
+    // Definir o valor do delta
+    delta = Math.pow(b,2) - 4*a*c;
+
+    // Escrever adequadamente a equação na tela inicialmente
+    if(a>0 && b>0 && c>0){
+        if(a==1){// Se a for 1 não mostrar o 1
+            document.writeln('Equação : <b>x^2 +'+b+'x + '+c+' =0</b>');
+        }else{
+            document.writeln('Equação : <b>'+a+'x^2 +'+b+'x + '+c+' =0</b>');
+        }
+    }else if(a<0 && b>0 && c>0){
+        document.writeln('Equação : <b>-'+a+'x^2 +'+b+'x + '+c+' =0</b>');
+    }else if(a>0 && b<0 && c>0){
+        document.writeln('Equação : <b>'+a+'x^2 -'+b+'x + '+c+' =0</b>');
+    }else if(a>0 && b>0 && c<0){
+        document.writeln('Equação : <b>'+a+'x^2 +'+b+'x - '+c+' =0</b>');
+    }
+
+    // Extrair as raízes, caso existam
+    if(delta > 0){
+        x1 = (-b + Math.sqrt(delta))/2*a;
+        x2 = (-b - Math.sqrt(delta))/2*a;
+        x1 = Math.round(x1);
+        x2 = Math.round(x2);
+        //alert('Delta é > 0, então existem duas raízes reais e diferentes: \nX1 vale: '+x1+' \ne\nX2 vale: '+x2);
+    }else if(delta == 0){
+        x1 = (-b + Math.sqrt(delta))/2*a;
+        x1 = Math.round(x1);
+        //alert('Delta é = 0, então existem duas raizes reais e iguais X1 = X2 \ne vale cada uma: '+x1);
+    }else{
+        //alert('Como o delta é menor que zero, não existem raizes reais');
+    }
+
+    // Mostrando os detalhes na tela
+    document.writeln('<br><br>O delta da equação <b>b^2 -4ac vale: '+delta+'</b>');
+    if(delta > 0){
+        document.writeln('<br><br>Como o delta é positivo as raízes da equação são diferentes:<b><br><br> X1 = '+x1+'<br>e<br>X2 = '+x2+'</b>');
+    }else if(delta == 0){
+        document.writeln('<br><br>Como o delta é igual a zero, as duas raízes são iguais: <b><br><br>X1 = X2 = '+x1+'</b>');
+    }else{
+        document.writeln('<br><br>A equação não tem raízes reais, pois seu delta é negativo!');
+    }
+
+</script>
+</div>

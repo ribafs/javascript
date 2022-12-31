@@ -1,0 +1,25 @@
+<script language="JavaScript">
+	/*
+	79. Criar um vetor de 2 elementos e uma matriz de 2 linhas por 2 colunas
+	– solicitar para o usuário digitar valores no intervalo de 1 a 2 e inserir no vetor,
+	– após a inserção no vetor, ler o vetor e para cada elemento lido calcular a tabuada e inserir na matriz.
+	– Ao final mostrar o elemento do vetor e a tabuada correspondente que esta na matriz
+        */
+	var vetValores = new Array(2), strApresenta = "";
+	var matValores = new Array(new Array(2), new Array(2), new Array(2), new Array(2), new Array(2), new Array(2), new Array(2), new Array(2), new Array(2), new Array(2));
+	for (var i = 0; i < 2; i++){
+		vetValores[i] = parseInt(prompt("Informe o " + (i + 1) + "º valor para o vetor: "));
+	}
+	for (var i = 0; i < 2; i++){
+		for (var j = 0; j < 2; j++){
+			matValores[i][j] = vetValores[i] * (j + 1);
+		}				
+	}
+	for (var i = 0; i < 2; i++){
+		for (var j = 0; j < 2; j++){
+			strApresenta = strApresenta + vetValores[i] + " X " + (j + 1) + " = " + matValores[i][j] + "\n";
+		}
+		strApresenta = strApresenta + "\n\n";
+	}
+	alert("Tabuadas dos números informados:\n" + strApresenta);
+</script>

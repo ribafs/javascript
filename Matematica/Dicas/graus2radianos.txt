@@ -1,0 +1,13 @@
+Conversão
+Grau para Radiano
+PI = 180 graus
+1 grau = PI/180
+
+function graus2radianos(graus)
+{
+  var pi = Math.PI;
+  return graus * (pi/180) + ' radianos';
+}
+
+console.log(graus2radianos(180));
+

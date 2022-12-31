@@ -1,0 +1,14 @@
+<canvas id="myCanvas" style="border: 1px solid #d3d3d3;" width="250" height="300"></canvas>
+<input type="button" value="Draw Curve" Onclick="DrawCurve()">
+
+<script>
+function DrawCurve()
+{
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.moveTo(20, 20);
+    ctx.quadraticCurveTo(90, 400, 200, 20);
+    ctx.stroke();
+}
+</script>

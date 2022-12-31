@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz em JS</title>
+</head>
+<body>
+    <h1>Matriz em JS</h1>
+    <script>
+        var matriz = [
+            ['Banana', 'Maçã'],
+            ['Manga', 'Tangerina'],
+            ['Uva', 'Morando']
+        ]
+
+        // Mostrar o elemento 20
+        //document.write(matriz[2][0])
+        // Mostrar todos
+        //document.write(matriz)
+/*
+        var valores = ''
+		for(var l=0; l<2;l++){
+			for(var c=0; c<2; c++) {
+                valores += matriz[l][c] + "<br>"
+            }
+		}
+        document.write('Matriz <br>'+valores)
+*/
+        // Mostrar os elementos em forma de tabela, tipo matriz
+        var valores = ''
+		for(var l=0; l<3;l++){
+			for(var c=0; c<2; c++) {
+                if(c < 1){
+                    valores += matriz[l][c] + " "
+                }else{ // Se a coluna for 1
+                    valores += matriz[l][c] + '<br>'
+                }
+            }
+		}
+        document.write('<b>Matriz</b> <br>'+valores)
+
+    </script>
+</body>
+</html>

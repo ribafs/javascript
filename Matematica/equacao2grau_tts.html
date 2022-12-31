@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+   <head>
+       <meta charset="utf-8"/>
+       <title>Resolução de Equações do Segundo Grau</title>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
+       <script type="text/javascript" src='voicerss-tts.min.js'></script>
+   </head>
+<body>
+
+<br>
+<h1 align="center">Resolução de Equações do Segundo Grau</h1>	
+
+<br>
+<h3 align="center">Exemplo com delta positivo: 1x² -5x +6 = 0, x1 = 3 e x2 = 2</h3>	
+
+<div align="center">
+<script type="text/javascript">
+    // Criar a função que reaproveita o código do TTS
+    function tts(param){
+        VoiceRSS.speech({
+            key: 'd0d551cdd7284cc3b0c0c7cbfd49efeb',
+            src: param,
+            hl: 'pt-br',
+            r: 0, 
+            c: 'mp3',
+            f: '44khz_16bit_stereo',
+            ssml: false
+        });
+    }
+
+    // Criar as variáveis
+    var a,b,c,delta,x1,x2,nome,x1r,x2r;
+
+    // Receber o nome
+    nome = 'Olá, como é o seu nome?';
+    tts(nome);
+    nome = prompt('Digite o seu nome');
+
+    // Receebr o valor de a
+    a = nome+' digite o valor de "a"';
+    tts(a);
+    a = prompt('Digite o valor de a');    
+
+    // Receebr o valor de b
+    b = nome+' digite o valor de "b" ';
+    tts(b);
+    b = prompt('Digite o valor de b');
+
+    // Receebr o valor de c
+    c = nome+' digite o valor de "c" ';
+    tts(c);
+    c = prompt('Digite o valor de c');
+
+    // Encontrar o valor do delta
+    delta = Math.pow(b,2) - 4*a*c;
+
+    // Escrever na tela o delta
+    document.writeln(' Delta é b^2 -4ac = '+delta+' (delta > 0)<br><br>');
+
+    // Se a for 1 encreve na tela a equação sem a, caso contrário com a
+    if(a == 1){
+        document.writeln(' A equação é x^2+' +b+'x + '+c+' = 0 <br><br>');
+    }else{
+        document.writeln(' A equação é '+a+'x^2 + '+b+'x + '+c+' = 0 <br><br>');
+    }
+
+    // Calcular as raízes da equação nas 3 situações: d > 0, d = 0 e d < 0 e escrever na tela as raízes
+    if(delta > 0){
+        x1 = (-b + Math.sqrt(delta))/2*a;
+        x2 = (-b - Math.sqrt(delta))/2*a;
+        // Arredondar o valor de cada raiz para o TTS        
+        x1r = Math.round(x1);
+        x2r = Math.round(x2);
+        document.writeln(nome+' Delta é > 0, então existem duas raízes reais e diferentes: <br>X1 = '+x1+' <br>e<br> X2 = '+x2);
+        tts(nome+' Delta é > 0, então existem duas raízes reais e diferentes: <br>X1 = '+x1+' <br>e<br> X2 = '+x2);
+    }else if(delta == 0){
+        x1 = (-b + Math.sqrt(delta))/2*a;
+        x1r = Math.round(x1);
+        document.writeln(nome+' Delta é = 0, então existem duas raizes reais e iguais X1 = X2 \ne vale cada uma delas: '+x1);
+        tts(nome+' Delta é = 0, então existem duas raizes reais e iguais X1 = X2 <br>e valem cada uma delas: '+x1r);
+    }else{
+        document.writeln(nome+' como o delta é menor que zero, não existem raizes reais!');
+        tts(nome+' Como o delta é menor que zero, não existem raizes reais!');
+    }
+
+</script>
+</div>

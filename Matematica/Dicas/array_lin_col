@@ -1,0 +1,8 @@
+let arrayGeral = [
+{nome: 'Joao', idade: 32, pais: 'Brasil'}, 
+{nome: 'Alex', idade: 25, pais: 'EUA'}
+];
+console.log('total de linhas:', arrayGeral.length);
+console.log('total de colunas:', Object.keys(arrayGeral[0]).length);
+
+Augusto Paiva no grupo Javascript Brasil

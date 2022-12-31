@@ -1,0 +1,172 @@
+<!-- TWO STEPS TO INSTALL MATH QUIZ:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  -->
+
+<!-- STEP ONE: Paste this code into the HEAD of your HTML document  -->
+
+<HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Anja Henseler -->
+<!-- Web Site:  http://www.hens.com/binoculars -->
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+correct=0;
+wrong=0;
+
+function random(maxValue) {
+day= new Date();
+hour= day.getHours();
+min=day.getMinutes();
+sec=day.getSeconds();
+mili=day.getTime()
+return(((hour*3600)+(min*60)+(sec)+mili) % maxValue);
+}
+function ranom(maxValue) {
+day= new Date();
+mil=day.getTime();
+return((mil) % maxValue);
+}
+
+function add() {
+if(document.quizform.arithmetic[0].checked)
+maxValue=10;
+else {
+if(document.quizform.arithmetic[1].checked)
+maxValue=30;
+else {
+maxValue=60;
+   }
+}
+numA=random(maxValue);
+numB=ranom(maxValue);
+numC=numA + numB;
+Answer=window.prompt(  numA + "+"  + numB +  " = ", "");
+ans();
+}
+function subtract() {
+if(document.quizform.arithmetic[0].checked)
+maxValue=10;
+else
+{if(document.quizform.arithmetic[1].checked)
+maxValue=30;
+else {
+maxValue=60
+   }
+}
+numA=random(maxValue);
+numB=ranom(maxValue);
+numC=numA - numB;
+Answer=window.prompt(  numA + "-"  + numB+  " = ", 0);
+ans()
+}
+function divide() {
+if(document.quizform.arithmetic[0].checked)
+maxValue=10;
+else {
+if(document.quizform.arithmetic[1].checked)
+maxValue=30;
+else {
+maxValue=60
+   }
+}
+numA=random(maxValue)+1;
+numB=ranom(maxValue)+1;
+numC=numA / numB;
+numC=Math.round(numC)
+window.alert("Favor arredondar sua resposta para:\n"
++".5 ou um número acima\n"
++".4 ou um número abaixo");
+Answer=window.prompt(  numA + "/"  + numB +  " = ", 0);
+ans()
+}
+function multiply() {
+if(document.quizform.arithmetic[0].checked)
+maxValue=10;
+else {
+if(document.quizform.arithmetic[1].checked)
+maxValue=30;
+else {
+maxValue=60
+   }
+}
+numA=random(maxValue);
+numB=ranom(maxValue);
+numC=numA * numB;
+Answer=window.prompt(  numA + "*"  + numB +  " = ", 0);
+ans();
+}
+function check() {
+if ((correct+wrong) != 0) {
+score = "" + ((correct / (correct + wrong)) * 100);
+score = score.substring(0,4) + "%";
+alert("SEUS PONTOS:  " + score + "\n" 
++ correct + " correto\n"
++ wrong + " incorreto")
+}
+else alert("Você ainda não completou os exercícios.");
+}
+function ans() {
+if (Answer == numC) {
+correct++;
+msg = "Parabéns, sua resposta está correta.";
+}
+else {
+wrong++;
+msg = "Oops!  " + Answer + " está incorreto.\n\n"
++ "A resposta correta é " +numC + ".";
+   }
+score = "" + ((correct / (correct + wrong)) * 100);
+score = score.substring(0,4) + "%";
+alert(msg + "\n\nSEUS PONTOS:  " + score + "\n" 
++ correct + " correto\n"
++ wrong + " incorreto")
+}
+//  End -->
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></HEAD>
+
+<!-- STEP TWO: Copy this code into the BODY of your HTML document  -->
+
+<BODY bgcolor="#0066FF" background="Cantinho do Mambo - Utilidades">
+
+<center>
+<h1><font color="#FFFFFF">Cantinho do Mambo - Utilidades</font></h1>
+<h2><font color="#FFFFFF">Instrução Online</font></h2>
+<font color="#FFFFFF"><br>
+<br>
+<b>TESTES DE MATEMÁTICA</B><br>
+</font>
+<form name=quizform>
+  <font color="#FFFFFF">
+<input type=button value="Soma" onClick="add()">
+<input type=button value="Subtração" onClick="subtract()">
+<input type=button value="Multiplicação" onClick="multiply()">
+<input type=button value="Divisão" onClick="divide()">
+<br>
+<br>
+<input type="radio" name="arithmetic">
+Fácil
+<input type="radio" name="arithmetic" checked>
+Médio
+<input type="radio" name="arithmetic">
+Difícil <br>
+<br>
+<input type=button value="Seus Pontos" onClick="check()">
+<input type=button value="Limpar Pontos" onClick="javascript:correct=0;wrong=0;">
+  </font>
+</form>
+</center>
+
+<p><center>
+  <font color="#FFFFFF" size="-2" face="arial, helvetica">JavaScripts gentilmente cedido por:<br>
+by <a href="http://javascriptsource.com">The JavaScript Source</a></font>
+</center><p>
+
+  <font color="#FFFFFF">
+  <!-- Script Size:  3.61 KB -->
+  </font>

@@ -1,0 +1,44 @@
+function retangulo(colunas, linhas){
+    // definindo uma string vazia
+    let str = "";
+
+    for(let coluna = 0; coluna < colunas; coluna++) { // laço externo
+      for(let linha = 0; linha < linhas; linha++) { // laço interno
+          str += "*";
+      }
+      // insere quebra de linha
+      str += "\n";
+    }
+    return str
+}
+// desenha o quadrado
+console.log(retangulo(5, 8));
+/*
+- Define a variável string com string vazia
+- Executa o primeiro laço que tem em seu corpo o segundo laço
+- O segundo laço desenha a primeira linha de asteriscos usando o índice zero, armazenando na variável str
+- Ao sair do segundo laço, logo abaixo ele insere uma quebra de linha com \n na variável str
+- Volta para o início do primeiro laço, que executa seu índice 1
+- Então o laço 2 é chamado com seu índice 1 para desenhar a segunda linha
+- E assim as coisas continuam até concluir-
+  Uma boa ideia para ver os dois laços em ação é fazer isso:
+
+function quadrado(n){
+    // definindo uma string vazia
+    let str = "";
+
+    for(let coluna = 0; coluna < n; coluna++) { // laço externo
+      alert('Coluna '+coluna)
+      for(let linha = 0; linha < n; linha++) { // laço interno
+          alert('Linha '+linha)
+          str += "*";
+      }
+      // insere quebra de linha
+      str += "\n";
+    }
+    return str
+}
+// desenha o quadrado
+console.log(quadrado(5));
+
+*;

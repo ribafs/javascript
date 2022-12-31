@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equação do 2o. Grau em Javascript</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+<h1 class="text-center">Equação do 2o. Grau em Javascript</h1>
+
+<main class="main">
+  <section class="calc-bhaskara">
+    <h1>Fórmula do 2 Grau</h1>
+    <form class="form" id="form">
+      <label for="a">
+        Entre com o valor de a:
+        <input name="a" id="a" placeholder="a" type="number" />
+      </label>
+      <label for="kilos">
+        Entre com o valor de b:
+        <input name="b" id="b" placeholder="b" type="number" />
+      </label>
+      <label for="altura">
+        Entre com o valor de c:
+        <input name="c" id="c" placeholder="c" type="number" />
+      </label>
+      <div class="result">
+        <label for="x1">
+          x1
+          <input disabled="disabled" name="x1" id="x1" />
+        </label>
+        <label for="x2">
+          x2
+          <input disabled="disabled" name="x2" id="x2" />
+        </label>
+      </div>
+      <button>Calcular</button>
+    </form>
+  </section>
+</main>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Acme", sans-serif;
+  font-size: 20px;
+  color: #2c3e50;
+  background-color: #dfdbe5;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.calc-bhaskara {
+  padding: 1em;
+  box-shadow: 6px 6px 20px gray, -6px -6px 20px white;
+  background-color: #dfdbe5;
+}
+
+@media (min-width: 500px) {
+  .calc-bhaskara {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    width: 100%;
+    padding: 1em;
+  }
+}
+
+.calc-bhaskara h1 {
+  text-align: center;
+  font-size: 2em;
+  text-decoration: underline;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.3em;
+}
+
+.form label,
+.form button {
+  margin-top: 1em;
+}
+
+.form input,
+.form button {
+  font-size: inherit;
+  font-family: inherit;
+  width: 100%;
+  padding: 0.5em;
+}
+
+.form button {
+  background-color: #fbefff;
+  cursor: pointer;
+  border-radius: 0.3em;
+  width: 50%;
+}
+
+.form button:hover {
+  filter: opacity(0.8);
+}
+
+.form button:active {
+  background-color: #ffefff;
+  color: #000;
+  filter: opacity(0.8);
+}
+
+.result {
+  display: flex;
+  justify-content: space-between;
+}
+
+.result label {
+  margin: 1rem;
+}
+
+.alert {
+  display: block;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 1.2rem;
+  font-style: italic;
+  position: fixed;
+  box-shadow: 0 0 4px #333;
+  background-color: #ef5350;
+  color: #fff;
+}
+
+@media screen and (max-width: 500px) {
+  .alert {
+    bottom: 0;
+  }
+}
+
+</style>
+
+<script>
+const $form = document.querySelector("form");
+const $a = document.querySelector("#a");
+const $b = document.querySelector("#b");
+const $c = document.querySelector("#c");
+const $x1 = document.querySelector("#x1");
+const $x2 = document.querySelector("#x2");
+
+function bhaskara() {
+  const a = $a.value;
+  const b = $b.value;
+  const c = $c.value;
+
+  const delta = b * b - 4 * a * c;
+
+  if (!a || !b || !c) {
+    createAlert("Insira os valores de a, b e c");
+  } else if (a == 0) {
+    createAlert("O valor de <strong>a</strong>, deve ser diferente de 0");
+  } else if (delta < 0) {
+    createAlert("Sem raízes reais");
+  } else {
+    const x1 = (-b + Math.sqrt(delta)) / (2 * a);
+    const x2 = (-b - Math.sqrt(delta)) / (2 * a);
+    $x1.value = x1;
+    $x2.value = x2;
+  }
+}
+
+function createAlert(msg) {
+  document
+    .querySelector("body")
+    .insertAdjacentHTML("beforebegin", `<div class='alert'>${msg}</div>`);
+
+  setTimeout(function () {
+    deleteAlert();
+  }, 3000);
+}
+
+function deleteAlert() {
+  const list = document.querySelectorAll(".alert");
+  for (const item of list) {
+    item.remove();
+  }
+}
+
+$form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  bhaskara();
+});
+// https://codepen.io/franciscochaves/pen/MWjLZwL
+</script>
+

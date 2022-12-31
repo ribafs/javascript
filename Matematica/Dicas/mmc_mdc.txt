@@ -1,0 +1,25 @@
+// MDC
+
+function mdc(a, b){
+  while(b != 0){
+      var r = a % b;
+      a = b;
+      b = r;
+  }
+  return a;
+}
+console.log(mdc(10,20))
+
+//Algoritmo do MMC
+
+function mmc(a, b){
+  return a * (b / mdc(a, b));
+}
+//Testes
+  console.log("mmc(30, 60) " + mmc(30, 60));
+  console.log("mmc(60, 100) " + mmc(60, 100));
+  console.log("mmc(36, 14) " + mmc(36, 14));
+  
+
+// Adaptado do original para C em:
+/* https://www.blogcyberini.com/2018/03/algoritmo-para-calcular-o-mmc.html */

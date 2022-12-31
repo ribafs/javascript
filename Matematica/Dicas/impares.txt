@@ -1,0 +1,10 @@
+// Mostrar os ímpares de uma divisão
+var x;
+
+for(x=2;x<10;x++){
+  var y = x % 2
+  if(y != 0){ // ou y == 1
+    console.log(x);
+  }
+}
+

@@ -1,0 +1,62 @@
+Alguns comandos do MathML
+Para criar fórmulas materáticas
+
+<math> - delimita a fórmula
+<mrow> - agrupa subexpressões na horizontal
+<mi> - variaveis
+<mn> - números
+<mo> - para mostrar o sinal = ou +/- <mo>&PlusMinus;</mo>
+<mo form="prefix">&minus;</mo> - mostrar o menos (-)
+<mfrac> - criar um traço de fração
+<msqrt> - criar uma raiz
+<msup>
+    <mi>b</mi>      b elevado a 2
+    <mn>2</mn>
+</msup>
+
+Exemplo
+
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+     <mn>4</mn>
+     <mi>x</mi>
+     <mo>+</mo>
+     <mn>4</mn>
+     <mo>=</mo>
+     <mo>(</mo>
+     <mn>2</mn>
+     <mo>+</mo>
+     <mn>2</mn>
+     <mo>)</mo>
+     <mi>x</mi>
+     <mo>+</mo>
+     <mn>2</mn>
+     <mo>&middot;</mo>
+     <mn>2</mn>
+</math>
+
+ <mover><mi>v</mi><mo>&rharu;</mo></mover>
+  <mo>+</mo>
+  <mover><mi>w</mi><mo>&rarr;</mo></mover>
+  <mo>+</mo>
+  <mover><mi>m</mi><mo>&tilde;</mo></mover>
+  <mo>+</mo>
+  <mover><mi>y</mi><mo>_</mo></mover>
+  <mo>+</mo><mover><mi>m</mi><mo>^</mo></mover>
+
+
+   <msub>
+     <mi>y</mi>
+     <mn>0</mn>
+   </msub>
+   <mo>=</mo>
+   <msup>
+     <mi>x</mi>
+     <mn>2</mn>
+   </msup>
+
+
+Mais exemplos em
+http://math-it.org/Publikationen/MathML.html
+https://www.tutorialspoint.com/mathml/mathml_quick_guide.htm
+https://reference.wolfram.com/language/XML/tutorial/MathML.html
+

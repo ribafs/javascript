@@ -1,0 +1,281 @@
+trogonométricas
+sin
+cos
+tg
+round
+media
+min
+max
+sqrt
+%
+
+    abs — Valor absoluto
+    acos — Cosseno Inverso (arco cosseno)
+    acosh — Cosseno Hiperbólico Inverso
+    asin — Seno Inverso (arco seno)
+    asinh — Seno Hiperbólico Inverso
+    atan2 — Tangente inversa de duas variáveis
+    atan — Tangente Inversa (arco tangente)
+    atanh — Tangente hiperbólica inversa
+    base_convert — Converte um número entre bases arbitrárias
+    bindec — Binário para decimal
+    ceil — Arredonda frações para cima
+    cos — Coseno
+    cosh — Cosseno hiperbólico
+    decbin — Decimal para binário
+    dechex — Decimal para hexadecimal
+    decoct — Decimal para octal
+    deg2rad — Converte o número em graus ao equivalente em radianos
+    exp — Calcula o expoente de e
+    expm1 — Retorna exp(numero) - 1, computado de forma que é preciso mesmo quando o valor do número é perto de zero.
+    floor — Arredonda frações para baixo
+    fmod — Retorna o resto em ponto flutuante (módulo) da divisão dos argumentos
+    getrandmax — Retorna o maior valor aletório possível
+    hexdec — Hexadecimal para decimal
+    hypot — Calcula o tamanho da hipotenusa de um ângulo reto do triângulo Retorna a raiz quadrada de (num1*num1 + num2*num2)
+    intdiv — Dividir números inteiros
+    is_finite — Verifica se um valor é um número finito
+    is_infinite — Descrição
+    is_nan — Verifica se um valor não é um número
+    lcg_value — Gerador congruente linear combinado
+    log10 — Logaritmo Base-10
+    log1p — Retorna o log(1 + numero), calculado de forma que o valor do número seja próximo de zero.
+    log — Logaritmo natural
+    max — Localiza o maior valor
+    min — Encontra o menor valor
+    mt_getrandmax — Retorna o maior valor aletório possível
+    mt_rand — Gerador melhorado de números aleatórios
+    mt_srand — Semeia o gerador melhorado de números aleatórios
+    octdec — Octal para decimal
+    pi — Obtém o valor de pi
+    pow — Potência
+    rad2deg — Converte o número em radianos para o equivalente em graus
+    rand — Gera um inteiro aleatório
+    round — Arredonda um número
+    sin — Seno
+    sinh — Seno hiperbólico
+    sqrt — Raiz quadrada
+    srand — Semeia o gerador de números aletórios
+    tan — Tangente
+    tanh — Tangente hiperbólica
+
+
+Funções Matemáticas com PHP
+13 de janeiro de 2009 / Rafael Couto / 4 Comentários	/ 31.882 visualizações
+
+Fala galera, hoje nesse artigo vou tentar ensinar algumas funções matemáticas para ajudar nos calculos. Para isso, você terá que conhecer ao menos um pouco da linguagem. No final do artigo disponibilizarei os arquivos para download. Antes de mais nada, vamos lembrar dos conceitos matematicos:
+
+Fatorial:
+3! = 3 * 2 * 1
+5! = 5 * 4 * 3 * 2 * 1
+9! = 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1
+
+function factorial($s){
+    if($s) $r = $s * factorial($s - 1);
+    else $r = 1;
+    return $r;
+}
+print factorial(5);
+
+Exponenciação:
+52 = 5 * 5
+25 = 2 * 2 * 2 * 2 * 2
+
+Equação de Segundo Grau:
+Forma Geral: ax2 + bx + c = 0
+Fórmula de Delta: b2 – 4 * a * c
+Calculando X: -(b) +- (Raiz quadrada de Delta) / 2 * a
+
+Saiba mais clicando aqui
+
+Vamos aos códigos.
+1. Fatorial
+
+PHP
+<!--?php 
+// Numero que será calculado o fatorial
+$num = 5;
+
+// Caso seja fatorial de 0
+if ($num == 0) {
+$num = 1;
+}
+
+// Calculando o fatorial
+for($i = $num; $i --> 1; $i--) {
+$num = $num * ($i - 1);
+}
+
+// Exibindo Resultado
+echo $num;
+<?php 
+// Numero que será calculado o fatorial
+$num = 5;
+ 
+// Caso seja fatorial de 0
+if ($num == 0) {
+$num = 1;
+}
+ 
+// Calculando o fatorial
+for($i = $num; $i --> 1; $i--) {
+$num = $num * ($i - 1);
+}
+ 
+// Exibindo Resultado
+echo $num;
+?&gt;
+
+Bom, agora vamos entender a lógica:
+
+Linha 3: Esse será o numero da qual vamos calcular o fatorial;
+
+Linha 6, 7 e 8: Devemos lembrar que o fatorial de 0 é igual a 1, portanto definimos: Se $num for igual a 0, seu novo valor será 1;
+
+Linha 11, 12 e 13: é aqui que se acontece tudo, primeiramente for() é utilizado para gerar loops enquanto uma condição for verdadeira. Portanto, estamos dizendo que: $i é igual a $num (definimos o valor); que $i é maior que 1 (condição); que $i vai sofrer um decremento a cada loop. Então o loop vai acontecer da seguinte forma, o $i vai sofrer um decremento e vai multiplicar pelo $num, enquanto o valor de $i ser maior que 1. Podemos visualizar melhor da seguinte maneira:
+
+Inicio do Loop
+1° Loop: $i = 4 * $num = 5
+2° Loop: $i = 3 * $num = 20
+3° Loop: $i = 2 * $num = 60
+Fim do Loop
+
+Veja em prática clicando aqui
+
+
+2. Exponenciação
+
+PHP
+<!--?php 
+// Recebe o numero
+$num = 2;
+$inicial = $num;
+
+// Recebe o expoente
+$exp = 3;
+
+// Caso o valor da exponenciação seja diferente de 0
+if ($exp != 0) {
+// Calculando o valor
+for ($i = 1; $i < $exp; $i++) {
+$num = $inicial * $num;
+// Caso o valor da exponenciação seje igual a 0
+}
+} else {
+$num = "1";
+}
+
+// Exibindo o resultado
+echo $num;
+
+<?php 
+// Recebe o numero
+$num = 2;
+$inicial = $num;
+ 
+// Recebe o expoente
+$exp = 3;
+ 
+// Caso o valor da exponenciação seja diferente de 0
+if ($exp != 0) {
+// Calculando o valor
+for ($i = 1; $i < $exp; $i++) {
+$num = $inicial * $num;
+// Caso o valor da exponenciação seje igual a 0
+}
+} else {
+$num = "1";
+}
+ 
+// Exibindo o resultado
+echo $num;
+?-->
+
+Bom, esse segue o mesmo conceito praticamente, vamos a explicação:
+
+Linha 3: O número que receberá a exponenciação;
+
+Linha 4: Fazemos uma cópia do numero inicial, pois ele terá que ser utilizado no loop;
+
+Linha 7: O número que será elevado;
+
+Linha 10: Verificamos se o valor é diferente de 0, pois todo número elevado a 0 é igual a 1;
+
+Linha 12 e 13: Como já foi dito, o for() vai gerar loops, ou seja, $i = 1; $i é menor que o numero que será elevado; $i receberá um incremento a cada loop. Então:
+
+Inicio do Loop
+1° Loop: $i = 1 / $num = 2 * $inicial = 2
+2° Loop: $i = 2 / $num = 4 * $inicial = 2
+Fim do Loop
+
+Linha 16: Se o valor for igual a 0, o resultado passa a ser 1;
+
+Veja em prática clicando aqui
+
+
+3. Equação de Segundo Grau
+
+Antes de mais nada, veja em prática clicando aqui
+PHP
+<!--?php 
+// Valores
+$a = $_POST['a'];
+$b = $_POST['b'];
+$c = $_POST['c'];
+
+// Descobrindo Delta
+$delta = ($b * $b) - ((4 * $a) * $c);
+
+// Calculando os valores de X
+$x1 = (-$b + sqrt($delta)) / (2 * $a);
+$x2 = (-$b - sqrt($delta)) / (2 * $a);
+
+// Se delta não for negativo, exibe os valores
+if ($x1 != "NAN" and $x2 != "NAN") {
+// Exibindo os valores
+echo "x1 = " . $x1 . "<br ?-->";
+echo "x2 = " . $x2;
+// Caso delta seja negativo
+} else {
+echo "Impossivel calcular o valor,
+delta negativo (".$delta.")";
+}
+
+<?php 
+// Valores
+$a = $_POST['a'];
+$b = $_POST['b'];
+$c = $_POST['c'];
+ 
+// Descobrindo Delta
+$delta = ($b * $b) - ((4 * $a) * $c);
+ 
+// Calculando os valores de X
+$x1 = (-$b + sqrt($delta)) / (2 * $a);
+$x2 = (-$b - sqrt($delta)) / (2 * $a);
+ 
+// Se delta não for negativo, exibe os valores
+if ($x1 != "NAN" and $x2 != "NAN") {
+// Exibindo os valores
+echo "x1 = " . $x1 . "<br ?-->";
+echo "x2 = " . $x2;
+// Caso delta seja negativo
+} else {
+echo "Impossivel calcular o valor,
+delta negativo (".$delta.")";
+}
+?&gt;
+
+Linha 3, 4 e 5: Recebe os valores dos campos (a, b e c);
+
+Linha 8: Calcula o valor de delta;
+
+Linha 11 e 12: Calcula os valores de X, a função sqrt() calcula raiz quadrada;
+
+Linha 15: Se os valores de X forem diferente de NAN, ou seja, se o delta for positivo, ele exibe os resultados de x1 e x2;
+
+Linha 20: Caso os valores de X sejem iguais a NAN, ou seja, o delta for negativo, não será possível calcular os valores de X;
+
+https://rafaelcouto.com.br/funcoes-matematicas-com-php/
+
+

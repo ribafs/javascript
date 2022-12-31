@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+   <head>
+       <meta charset="utf-8"/>
+       <title>Resolução de Equações do Segundo Grau</title>
+   </head>
+<body>
+
+ <h1 align="center">Resolução de Equações do Segundo Grau</h1>	
+
+<script>
+
+    var a,b,c,delta,x1,x2;
+
+    a = prompt('Entre com o valor de "a"');
+    b = prompt('Entre com o valor de "b"');
+    c = prompt('Entre com o valor de "c"');
+
+    delta = Math.pow(b,2) - 4*a*c;
+
+    if(delta > 0){
+        x1 = (-b + Math.sqrt(delta))/2*a;
+        x2 = (-b - Math.sqrt(delta))/2*a;
+        x1 = Math.round(x1);
+        x2 = Math.round(x2);
+        alert('Delta é > 0, então existem duas raízes reais e diferentes: \nX1 vale: '+x1+' \ne X2 vale: '+x2);
+    }else if(delta == 0){
+        x1 = (-b + Math.sqrt(delta))/2*a;
+        x1 = Math.round(x1);
+        alert('Delta é = 0, então existem duas raizes reais e iguais X1 = X2 \ne vale cada uma: '+x1);
+    }else{
+        alert('Como o delta é menor que zero, não existem raizes reais');
+    }
+
+</script>

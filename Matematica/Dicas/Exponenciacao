@@ -1,0 +1,41 @@
+ Exponenciação em JavaScript (elevado a): método pow()
+As quatro operações Matemáticas básicas de soma, diferença, produto e divisão, são bem simples e sem mistério, como explicadas acima, basta usar os operadores: + - * /
+
+Porém, existe uma outra operação muito importante e usada, a exponenciação.
+É o famoso: ... elevado a ...
+
+Por exemplo:
+2 elevado a 2 = 2² = 2 * 2 = 4
+3 elevado a 2 = 3² = 3 * 3 = 9
+2 elevado a 3 = 2³ = 2 * 2 * 2 = 8
+
+Lembrou, né?
+
+Não tem um operador ( + - * /) pra fazer isso, diretamente.
+Em JavaScript, usamos o método pow()
+
+Sintaxe:
+Math.pow(x , y)
+
+Ele vai retornar: x elevado a y.
+Vamos ver um exemplo de um site, com um script JS que solicita dois números ao usuário e retorna o valor do primeiro elevado ao segundo:
+
+
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>Curso JavaScript Progressivo</title>
+
+   <script type="text/javascript">
+    var num1 = prompt("Primeiro numero: ");
+    num1 = parseInt(num1);
+
+    var num2 = prompt("Segundo  numero: ");
+    num2 = parseInt(num2);
+
+    document.write(num1," elevado a ", num2, " = ", Math.pow(num1, num2) );
+
+   </script>
+
+ </head>
+</html>

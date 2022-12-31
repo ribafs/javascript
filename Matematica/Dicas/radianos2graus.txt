@@ -1,0 +1,10 @@
+Radiano para Grau
+
+function radianos2graus(radianos)
+{
+  var pi = Math.PI;
+  return radianos * (180/pi) + ' graus';
+}
+          
+console.log(radianos2graus(0.7853981633974483));
+

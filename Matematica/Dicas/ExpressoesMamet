@@ -1,0 +1,23 @@
+Usando expressões matemáticas em JS
+Google Sala de Aula
+Facebook
+Twitter
+E-mail
+Na linguagem JavaScript (e na maioria das linguagens de programação), podemos usar operadores matemáticos para calcular números e criar expressões.
+Você já viu exemplos de adição em JS, usando o operador +. Você também pode usar - para a subtração, * para a multiplicação, / para divisão e % para descobrir o resto. Temos aqui alguns exemplos do uso desses operadores:
+
+var x = 10;
+var a = x + 5; // soma 5, o resultado é 15
+var b = x - 5; // subtrai 5, o resultado é 5
+var c = x * 2; // multiplica por 2, o resultado é 20
+var d = x / 4; // divide por 4, o resultado é 2,5
+var e = x % 4; // divide por 4 & retorna o resto, o resultado é 2
+
+Quando você usa vários operadores matemáticos em uma única expressão, o computador segue uma "ordem de operações" para garantir que o resultado seja calculado sempre da mesma forma. É a mesma ordem de operações que você provavelmente aprendeu nas aulas de matemática, e é normalmente lembrado como "PEMDAS" - parênteses, expoentes, multiplicação, divisão, adição, subtração. Você pode aprender mais sobre a ordem de operações na Khan Academy.
+Por exemplo, no código a seguir, primeiro seriam calculadas as duas expressões entre parênteses, então seriam multiplicados os resultados e, por fim, o código somaria 100 ao resultado.
+
+  var x = 10;
+  var a = (x + 10) * (x / 2) + 100;
+
+Assim como em expressões matemáticas, você só precisa de parênteses se você quiser que sua expressão seja calculada de forma diferente do que ela seria de acordo com a ordem de operações. Caso contrário, você não precisa usá-los.
+A seguir, vamos ver um exemplo com expressões mais complicadas, com variáveis e operadores matemáticos. Se você quiser, brinque com algumas dessas expressões matemáticas para garantir que você saiba como o computador as calcula.

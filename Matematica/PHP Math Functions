@@ -1,0 +1,619 @@
+PHP Math Functions (abs, pi, deg2rad, rad2deg, fmod, floor, ceil, round, is_finite, is_infinite)
+
+As you know PHP is a sever side script language and is used for creating dynamic web pages. PHP provides a number of built-in math functions which help in performing several operations while dealing with mathematical data. It has nice support for mathematical processing. No installation is required to use these functions.
+
+Some examples of mathematical functions in PHP are as follows:
+
+1. abs() :
+This function takes negative value as input and returns the absolute (positive) value of a integer or float number.
+
+
+Syntax :
+
+abs(number);
+
+In this function ‘number’ can be float or integer.
+
+Example :
+filter_none
+
+edit
+
+play_arrow
+
+brightness_4
+<?php 
+// PHP code to return absolute value. 
+function absolute($degree) 
+{ 
+    return (abs($degree)); 
+} 
+  
+// Driver Code 
+$number = -8.4; 
+echo(absolute($number)); 
+?> 
+
+Output :
+
+8.4
+
+ 
+
+2. pi() :
+This function returns the value of pi. The named constant M_PI is identical to pi().
+
+Syntax :
+
+pi();
+
+Example :
+filter_none
+
+edit
+
+play_arrow
+
+brightness_4
+<?php 
+# PHP function to convert degree to radian value. 
+echo(pi()); 
+?> 
+
+Output :
+
+3.1415926535898
+
+ 
+3. deg2rad() :
+This function takes a degree value as input and convert it to a radian value.
+
+
+Syntax :
+
+deg2rad(number);
+
+Example :
+filter_none
+
+edit
+
+play_arrow
+
+brightness_4
+<?php 
+// PHP code to convert degree to radian value. 
+function deg_radian($degree) 
+{ 
+    return (deg2rad($degree)); 
+} 
+  
+// Driver Code 
+$number = 180; 
+echo(deg_radian($number)); 
+?> 
+
+Output :
+
+3.1415926535898
+
+ 
+4. rad2deg() :
+This function takes a radian value as input and convert it to a degree value.
+
+Syntax :
+
+rad2deg(number);
+
+Example :
+filter_none
+
+edit
+
+play_arrow
+
+brightness_4
+<?php 
+// PHP function to convert degree to radian value. 
+echo(rad2deg(pi())); 
+?> 
+
+Output :
+
+180
+
+ 
+
+5. fmod() :
+This function takes two arguments as input returns the floating point remainder (modulo) of division of arguments.
+
+Syntax :
+
+
+fmod(x, y);
+
+Here, x is dividend and y is divisor. The remainder (r) is defined as: x = i * y + r, for some integer i. If y is non-zero, r has the same sign as x and a magnitude less than the magnitude of y.
+
+Example :
+filter_none
+
+edit
+
+play_arrow
+
+brightness_4
+<?php 
+// PHP code to find modulo of x / y 
+function result($x, $y) 
+{ 
+    return fmod($x, $y); 
+} 
+  
+// Driver function 
+$x = 5.7; 
+$y = 1.3; 
+echo(result($x, $y)); 
+?> 
+
+Output :
+
+0.5
+
+Here, $r equals 0.5, because 4 * 1.3 + 0.5 = 5.7 (x = i * y + r)
+ 
+
+6. floor() :
+This function takes numeric value as argument and returns the next lowest integer value (as float) by rounding down value if necessary.
+Syntax :
+
+floor($number);
+
+Example :
+filter_none
+
+edit
+
+play_arrow
+
+brightness_4
+<?php 
+echo(floor(0.60)."\n"); 
+echo(floor(5)."\n"); 
+echo(floor(-5.9)); 
+?> 
+
+Output :
+
+0
+5
+-6
+
+ 
+
+7. ceil() :
+This function takes numeric value as argument and returns the next highest integer value by rounding up value if necessary.
+
+Syntax :
+
+
+ceil($number);
+
+Example :
+filter_none
+
+edit
+
+play_arrow
+
+brightness_4
+<?php 
+echo(ceil(0.60)."\n"); 
+echo(ceil(-5.9)); 
+?> 
+
+Output :
+
+1
+-5
+
+ 
+
+8. round() :
+This function takes numeric value as argument and returns the next highest integer value by rounding up value if necessary.
+
+Syntax :
+
+round(number, precision, mode);
+
+In this, number specifies the value to round, precision specifies the number of decimal digits to round to (Default is 0) and, mode(optional) specifies one of the following constants to specify the mode in which rounding occurs :
+
+    PHP_ROUND_HALF_UP : (set by Default) Rounds number up to precision decimal, when it is half way there. Rounds 1.5 to 2 and -1.5 to -2
+    PHP_ROUND_HALF_DOWN : Round number down to precision decimal places, when it is half way there. Rounds 1.5 to 1 and -1.5 to -1
+    PHP_ROUND_HALF_EVEN : Round number to precision decimal places towards the next even value.
+    PHP_ROUND_HALF_ODD : Round number to precision decimal places towards the next odd value.
+
+Example :
+filter_none
+
+edit
+
+play_arrow
+
+brightness_4
+<?php 
+echo(round(1.95583, 2)."\n"); 
+echo(round(1241757, -3)."\n"); 
+echo(round(9.5, 0, PHP_ROUND_HALF_UP)."\n"); 
+echo(round(9.5, 0, PHP_ROUND_HALF_DOWN)."\n"); 
+echo(round(9.5, 0, PHP_ROUND_HALF_EVEN)."\n"); 
+echo round(9.5, 0, PHP_ROUND_HALF_ODD); 
+?> 
+
+Output :
+
+1.96
+1242000
+10
+9
+10
+9
+
+ 
+
+9. is_finite() :
+This function takes any value as argument and checks whether a value is finite or not. It returns TRUE (1) if the specified value is a finite number, otherwise it returns FALSE/NOTHING.
+The value is a legal finite if it is within the allowed range for a PHP float on this platform.
+
+
+Syntax :
+
+is_finite(value);
+
+Example :
+filter_none
+
+edit
+
+play_arrow
+
+brightness_4
+<?php 
+echo is_finite(234)."\n"; 
+echo is_finite(log(0)); 
+?> 
+
+Output :
+
+1
+
+ 
+
+10. is_infinite() :
+This function takes any value as argument and checks whether a value is infinite or not. It returns TRUE (1) if the specified value is a infinite number, otherwise it returns FALSE/NOTHING.
+The value is a legal infinite if it is outside the allowed range for a PHP float on this platform.
+
+Syntax :
+
+is_infinite(value);
+
+Example :
+filter_none
+
+edit
+
+play_arrow
+
+brightness_4
+<?php 
+echo is_infinite(234)."\n"; 
+echo is_infinite(log(0)); 
+?> 
+
+Output :
+
+1
+
+
+
+
+Recommended Posts:
+
+    PHP | Math Functions Complete Reference
+    PHP | rad2deg() Function
+    PHP | deg2rad() Function
+    PHP Math Functions (is_nan, pow, sqrt, exp, log, log10, log1p, max, min, getrandmax, rand, mt_rand)
+    PHP | fmod() Function
+    Underscore.js | _.isFinite() with Examples
+    p5.js | ceil() function
+    PHP | ceil( ) Function
+    Difference between regular functions and arrow functions
+    p5.js | floor() function
+    PHP | round( ) Function
+    p5.js | round() function
+    Round off a number to the next multiple of 5 using JavaScript
+    How to Round off Time to Nearest 5 Min using JavaScript ?
+    Goldman Sachs Interview Experience | Coding Round
+
+shreyanshi_arun
+Check out this Author's contributed articles.
+
+If you like GeeksforGeeks and would like to contribute, you can also write an article using contribute.geeksforgeeks.org or mail your article to contribute@geeksforgeeks.org. See your article appearing on the GeeksforGeeks main page and help other Geeks.
+
+Please Improve this article if you find anything incorrect by clicking on the "Improve Article" button below.
+
+https://www.geeksforgeeks.org/php-math-functions-abs-pi-deg2rad-rad2deg-fmod-floor-ceil-round-is_finite-is_infinite/
+
+
+PHP Predefined Math Constants
+Constant 	Value 	Description
+INF 	INF 	The infinite
+M_E 	2.7182818284590452354 	Returns e
+M_EULER 	0.57721566490153286061 	Returns Euler constant
+M_LNPI 	1.14472988584940017414 	Returns the natural logarithm of PI: log_e(pi)
+M_LN2 	0.69314718055994530942 	Returns the natural logarithm of 2: log_e 2
+M_LN10 	2.30258509299404568402 	Returns the natural logarithm of 10: log_e 10
+M_LOG2E 	1.4426950408889634074 	Returns the base-2 logarithm of E: log_2 e
+M_LOG10E 	0.43429448190325182765 	Returns the base-10 logarithm of E: log_10 e
+M_PI 	3.14159265358979323846 	Returns Pi
+M_PI_2 	1.57079632679489661923 	Returns Pi/2
+M_PI_4 	0.78539816339744830962 	Returns Pi/4
+M_1_PI 	0.31830988618379067154 	Returns 1/Pi
+M_2_PI 	0.63661977236758134308 	Returns 2/Pi
+M_SQRTPI 	1.77245385090551602729 	Returns the square root of PI: sqrt(pi)
+M_2_SQRTPI 	1.12837916709551257390 	Returns 2/square root of PI: 2/sqrt(pi)
+M_SQRT1_2 	0.70710678118654752440 	Returns the square root of 1/2: 1/sqrt(2)
+M_SQRT2 	1.41421356237309504880 	Returns the square root of 2: sqrt(2)
+M_SQRT3 	1.73205080756887729352 	Returns the square root of 3: sqrt(3)
+NAN 	NAN 	Not A Number
+PHP_ROUND_HALF_UP 	1 	Round halves up
+PHP_ROUND_HALF_DOWN 	2 	Round halves down
+PHP_ROUND_HALF_EVEN 	3 	Round halves to even numbers
+PHP_ROUND_HALF_ODD 	4 	Round halves to odd numbers
+
+
+PHP Math
+
+PHP provides many predefined math constants and functions that can be used to perform mathematical operations.
+PHP Math: abs() function
+
+The abs() function returns absolute value of given number. It returns an integer value but if you pass floating point value, it returns a float value.
+Syntax
+
+    number abs ( mixed $number )  
+
+Example
+
+    <?php  
+    echo (abs(-7)."<br/>"); // 7 (integer)  
+    echo (abs(7)."<br/>"); //7 (integer)  
+    echo (abs(-7.2)."<br/>"); //7.2 (float/double)  
+    ?>  
+
+Output:
+
+7 
+7 
+7.2
+
+PHP Math: ceil() function
+
+The ceil() function rounds fractions up.
+Syntax
+
+    float ceil ( float $value )  
+
+Example
+
+    <?php  
+    echo (ceil(3.3)."<br/>");// 4  
+    echo (ceil(7.333)."<br/>");// 8  
+    echo (ceil(-4.8)."<br/>");// -4  
+    ?>  
+
+Output:
+
+4
+8
+-4
+
+PHP Math: floor() function
+
+The floor() function rounds fractions down.
+Syntax
+
+    float floor ( float $value )  
+
+Example
+
+    <?php  
+    echo (floor(3.3)."<br/>");// 3  
+    echo (floor(7.333)."<br/>");// 7  
+    echo (floor(-4.8)."<br/>");// -5  
+    ?>  
+
+Output:
+
+3
+7
+-5
+
+PHP Math: sqrt() function
+
+The sqrt() function returns square root of given argument.
+Syntax
+
+    float sqrt ( float $arg )  
+
+Example
+
+    <?php  
+    echo (sqrt(16)."<br/>");// 4  
+    echo (sqrt(25)."<br/>");// 5  
+    echo (sqrt(7)."<br/>");// 2.6457513110646  
+    ?>  
+
+Output:
+
+4
+5
+2.6457513110646
+
+PHP Math: decbin() function
+
+The decbin() function converts decimal number into binary. It returns binary number as a string.
+Syntax
+
+    string decbin ( int $number )  
+
+Example
+
+    <?php  
+    echo (decbin(2)."<br/>");// 10  
+    echo (decbin(10)."<br/>");// 1010  
+    echo (decbin(22)."<br/>");// 10110  
+    ?>  
+
+Output:
+
+10
+1010
+10110
+
+PHP Math: dechex() function
+
+The dechex() function converts decimal number into hexadecimal. It returns hexadecimal representation of given number as a string.
+Syntax
+
+    string dechex ( int $number )  
+
+Example
+
+    <?php  
+    echo (dechex(2)."<br/>");// 2  
+    echo (dechex(10)."<br/>");// a  
+    echo (dechex(22)."<br/>");// 16  
+    ?>  
+
+Output:
+
+2
+a
+16
+
+PHP Math: decoct() function
+
+The decoct() function converts decimal number into octal. It returns octal representation of given number as a string.
+Syntax
+
+    string decoct ( int $number )  
+
+Example
+
+    <?php  
+    echo (decoct(2)."<br/>");// 2  
+    echo (decoct(10)."<br/>");// 12  
+    echo (decoct(22)."<br/>");// 26  
+    ?>  
+
+Output:
+
+2
+12
+26
+
+PHP Math: base_convert() function
+
+The base_convert() function allows you to convert any base number to any base number. For example, you can convert hexadecimal number to binary, hexadecimal to octal, binary to octal, octal to hexadecimal, binary to decimal etc.
+Syntax
+
+    string base_convert ( string $number , int $frombase , int $tobase )  
+
+Example
+
+    <?php  
+    $n1=10;  
+    echo (base_convert($n1,10,2)."<br/>");// 1010  
+    ?>  
+
+Output:
+
+1010
+
+PHP Math: bindec() function
+
+The bindec() function converts binary number into decimal.
+Syntax
+
+    number bindec ( string $binary_string )  
+
+Example
+
+    <?php  
+    echo (bindec(10)."<br/>");// 2  
+    echo (bindec(1010)."<br/>");// 10  
+    echo (bindec(1011)."<br/>");// 11  
+    ?>  
+
+Output:
+
+2
+10
+11
+
+PHP Math Functions
+
+Let's see the list of important PHP math functions.
+Function 	Description
+abs() 	It is used to find the absolute (positive) value of a number.
+sin() 	It is used to return the sine of a number.
+sinh() 	It is used to return the hyperbolic sine of a number.
+asin() 	It is used to find the arc sine of a number.
+asinh() 	It is used to find the inverse hyperbolic sine of a number.
+cos() 	It is used to find the cosine of a number.
+cosh() 	It is used to return the cosh of a number.
+acos() 	It is used to return the arc cosine of a number.
+acosh() 	It is used to return the inverse hyperbolic cosine of a number.
+tan() 	It is used to return the tangent of a number.
+tanh() 	It is used to return the hyperbolic tangent of a number.
+atan() 	It is used to return the arc tangent of a number in radians.
+atan2() 	It is used to return the arc tangent of two variables x and y.
+atanh() 	It is used to return the inverse hyperbolic tangent of a number.
+base_convert() 	It is used to convert a number from one number base to another.
+bindec() 	It is used to convert a binary number to a decimal number.
+ceil() 	It is used to find round a number up to the nearest integer.
+pi() 	It returns the approximation value of PI.
+decbin() 	It converts a decimal number to a binary number.
+dechex() 	It converts a decimal number to a hexadecimal number.
+decoct() 	It converts a decimal number to an octal number
+deg2rad() 	It converts a degree value to a radian value.
+rad2deg() 	It converts a radian value to a degree value.
+exp() 	It is used to calculate the exponent of e.
+expm1() 	It is used to return exp(x) - 1.
+floor() 	It converts round a number down to the nearest integer.
+fmod() 	It returns the remainder of x/y.
+getrandmax() 	It returns the largest possible value returned by rand().
+hexadec() 	It is used to convert a hexadecimal number to a decimal number.
+hypot() 	It is used to calculate the hypotenuse of a right-angle triangle.
+is_finite() 	To check whether a value is finite or not.
+is_infinite() 	It is used to check whether a value is infinite or not.
+is_nan() 	It is used to check whether a value is 'not-a-number'.
+lcg_value() 	It is used to return a pseudo random number in a range between 0 and 1.
+log() 	It is used to return the natural logarithm of a number.
+log10() 	It is used to return the base-10 logarithm of a number.
+log1p() 	It is used to return log(1+number).
+max() 	It is used to return the highest value in an array, or the highest value of several specified values.
+min() 	It returns the lowest value in an array, or the lowest value of several specified values.
+getrandmax() 	It is used to return the maximum value by using rand().
+mt_getrandmax() 	Returns the largest possible value returned by mt_rand().
+mt_rand() 	Generates a random integer using Mersenne Twister algorithm.
+mt_srand() 	Seeds the Mersenne Twister random number generator.
+octdec() 	It is used to converts an octal number to a decimal number.
+pow() 	It is used to return x raised to the power of y.
+intdiv 	It returns the integer quotient of the division of dividend by divisor.
+rand() 	It is used to generates a random integer.
+round() 	It is used to round a floating-point number.
+fmod() 	It is used to return the floating point remainder of the division of the argument.
+sqrt() 	It is used to return the square root of a number.
+https://www.javatpoint.com/php-math
+
+

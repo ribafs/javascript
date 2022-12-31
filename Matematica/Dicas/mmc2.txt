@@ -1,0 +1,23 @@
+function mmc(num1, num2)
+{
+    var x,y,r,mmc;
+       
+    x = num1;
+    y = num2;
+    do
+    {
+        r = x % y;
+        x = y;
+        y = r;
+    }
+    while (r != 0);
+
+    mmc = (num1 * num2) / x;
+
+    return mmc;
+}
+
+console.log("MMC(30, 60) " + mmc(30, 60));
+console.log("MMC(60, 100) " + mmc(60, 100));
+console.log("MMC(36, 14) " + mmc(36, 14));
+

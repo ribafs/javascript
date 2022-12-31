@@ -1,0 +1,10 @@
+// Algoritmo para ler do usuário o tamanho para um vetor de inteiros e preencher cada posição do vetor com o número do seu índice multiplicado por 2. Após preenchido exibir cada valor armazenado.
+
+var vetor = [];
+var i;
+
+for(i=0;i<20;i++){
+    vetor[i] = i*2;     
+}
+console.log(vetor);
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ptimos em Javascript</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+<h1 class="text-center">Primos com Javascript</h1>
+<h3>Tecle Ctrl+Shift+I para visualizar o resultado na console</h3>
+<script>
+// Criar função que receba um número e retorne todos os primos de 2 até o número recebido, fora o número
+function primos(n){
+    // Aqui se inicia o array numerosPrimos com [2,3] para complementar a função    
+    var numerosPrimos = [2,3];
+
+    // Iniciar numeroAtual com 4, pois 2 e 3 já tem e variar até o n
+    for (var numeroAtual = 4; numeroAtual < n; numeroAtual++) {
+      // Iniciar quantidadeDeDivisores com zero
+      var quantidadeDeDivisores = 0;
+
+      // Iniciar numeroMenos com 2, que é o menor primo e testar se ele é menor que numeroAtual
+      for(var numeroMenor = 2; numeroMenor < numeroAtual; numeroMenor++) {
+        // Pegar o módulo da divisão de numeroAtual por numeroMenor. Se for zero incremente quantidadeDeDivisores
+        if (numeroAtual % numeroMenor == 0) {
+          quantidadeDeDivisores ++;
+        }
+      }
+
+      // Se a quantidadeDeDivisores for zero adiciona numeroAtual ao array numerosPrimos
+      if (quantidadeDeDivisores == 0) {
+        numerosPrimos.push(numeroAtual);
+      }
+    }
+
+    return numerosPrimos;
+}
+console.log(primos(7))
+</script>

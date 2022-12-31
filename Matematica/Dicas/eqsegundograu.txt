@@ -1,0 +1,21 @@
+var a = 1;
+var b = -6;
+var c = 5;
+
+// Descobrindo Delta
+var delta = (b * b) - ((4 * a) * c);
+
+// Calculando os valores de X
+var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+
+// Se delta não for negativo, exibe os valores
+if (x1 != "NAN" && x2 != "NAN") {
+// Exibindo os valores
+    console.log("x1 = " + x1)
+    console.log("x2 = " + x2)
+// Caso delta seja negativo
+} else {
+    console.log("Impossivel calcular o valor, delta negativo "+delta)
+}
+

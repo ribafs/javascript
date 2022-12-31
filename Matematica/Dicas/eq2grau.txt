@@ -1,0 +1,22 @@
+var a = 1
+var b = -5
+var c = 6
+
+function bhaskara(a, b, c) {
+  
+   var ret = [];
+   var d = delta(a, b, c);
+   ret[0] = ((b * -1) - Math.sqrt(d)) / (2 * a);
+   ret[1] = ((b * -1) + Math.sqrt(d)) / (2 * a);
+   return ret;
+  
+   // calcula o delta separadamente
+   function delta(a, b, c) {
+       return Math.pow(b, 2) - (4 * a * c); 
+   }
+  
+}
+
+console.log(bhaskara(a, b, c).join(', '));
+
+

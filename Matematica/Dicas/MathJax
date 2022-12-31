@@ -1,0 +1,11 @@
+Server Integration
+
+If you prefer to render server-side, MathJax version 3 makes that easy as well. MathJax is available as a node package, which is easy to install via node's package manager npm using the command
+
+npm install mathjax
+
+Alternatively, MathJax is available on Packagist. Just add the following line to your require section in the composer.json file of your project
+
+"mathjax/mathjax": "3.*"
+
+Or simply download a copy of the latest distribution. This allows you to run MathJax on your server and configure it yourself. There are plenty of examples on how to use and configure MathJax for node in our MathJax Node Demos repository. 

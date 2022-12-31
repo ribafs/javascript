@@ -1,0 +1,22 @@
+var a = 1056261433; 
+var b = 431977909;
+var c = -281860834.022;
+
+function bhaskara(a, b, c) {
+  
+   var ret = [];
+   var d = delta(a, b, c);
+   ret[0] = ((b * -1) - Math.sqrt(d)) / (2 * a);
+   ret[1] = ((b * -1) + Math.sqrt(d)) / (2 * a);
+   return ret;
+  
+   // calcula o delta separadamente
+   function delta(a, b, c) {
+       return Math.pow(b, 2) - (4 * a * c); 
+   }
+  
+}
+
+document.body.innerHTML = bhaskara(a, b, c).join(', ');
+
+
