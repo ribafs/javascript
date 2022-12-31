@@ -1,0 +1,6 @@
+function countWords(str) {
+  return str.trim().split(/\s+/).length;
+}
+
+countWords('Riba testa isto')
+

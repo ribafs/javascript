@@ -1,0 +1,142 @@
+Executar código JS no terminal do VSCode como se estivesse na console do navegador
+
+Code Runner
+
+O arquivo precisa estar em .js ou ser em Javascript
+
+Clicar na área que contém o código JS
+F1
+Run code
+
+Para limpar o terminal clicar na área do mesmo com o botão direito - Clear Output
+
+Caso queira que o Code Runner limpe automaticamente o Output a cada nova execução:
+
+- File - Preferences - Settings
+- Digita na caixa: clear output
+- Marque a caixa Code Runner: clear previous output (Wheter to clear previous output before each run)
+
+
+Visual Studio IntelliCode 
+Ajuda na programação com Python, TypeScript/JavaScript and Java 
+This extension provides AI-assisted IntelliSense by showing recommended completion items for your code context at the top of the completions list.
+just open a TypeScript or JavaScript file, and start editing.
+Após instalar clique na pequena roldana para configurar e desmarque as linguagens que não use. Deixei apenas Typescript/Javascript
+
+Temas
+
+Material Icon Theme
+Após instalar clicar acima em 
+Set File Icon Theme
+E clicar em Material Icon Theme
+
+Material Theme
+Após instalar selecione a alternativa acima na caixa de comando
+Também pode clicar em Set Color Theme e escolher
+
+file-icons
+
+Outro tema
+Dracula Official
+
+Mais de 40 extensões para dev web
+https://www.tabnine.com/blog/top-vscode-extensions/
+
+Remote SSH
+
+Settings Sync - sincronizar com github
+
+Icon Fonts - Fontes Awesome
+
+Live Server
+Após instalar, abra um arquivo html ou htm e clique no botão Go Live na barra do rodapé. 
+O arquivo será aberto no navegador default em certa porta
+Clicar novamente no botão agora com Port:5500 fecha o servidor
+Podemos também mudar o browser default em File - Preferences - Settings - Live Server
+
+Live Preview
+Mostra página em HTML na janela do VSCode, ao lado do código.
+F1
+Live Preview: Show Prview (Internal Browser)
+
+
+Para usar o Firefox Developer do Linux:
+- Baixe e descompacte no diretório /opt/firefox
+- sudo ln -sf /opt/firefox/firefox /usr/bin/firefox
+
+JavaScript Snippets
+Autocompleta vários snippets JS. Vaja na descrição a relação.
+Nas configurações altere "editor.snippetSuggestions" para top
+Exemplo: digite
+ife
+E tecle enter
+Observe que em algumas vezes a opção desejada não aparece no topo da lista sugerida. Então selecione manualmente
+
+
+ESLint
+basicamente verifica seu código quanto a erros comuns e permite que você saiba onde está o bug no próprio editor. 
+his extension contributes the following commands to the Command palette.
+
+Create '.eslintrc.json' file: creates a new .eslintrc.json file.
+Fix all auto-fixable problems: applies ESLint auto-fix resolutions to all fixable problems.
+Reset Library Decisions: Resets the ESLint library validation confirmations.
+Manage Library Execution: Opens the library execution confirmation dialog.
+
+
+Color Highlight
+é uma ótima extensão para front-ends. Ela identifica quando você escreve o código de uma cor e a exibe no editor. Assim fica fácil de saber de qual cor se trata cada código. 
+
+Existe uma enorme quantidade e ótimas extensões para o VSCode, mas lembre de não instalar muitas, especialmente se tiver pouca memória, pois o VSCode precisa carregá-las para a RAM
+
+
+vscode-icons
+Instalar
+Reload
+Abra uma pasta para ver o resultado
+
+
+Lorem Ipsum
+
+lorem-ipsum.line
+lorem-ipsum.paragraph
+lorem-ipsum.multipleParagraphs
+
+{
+  "key": "ctrl+shift+l",
+  "command": "lorem-ipsum.paragraph",
+  "when": "editorTextFocus"
+}
+
+Usando
+F1
+lorem (selecione o comando desejado para linha, parágrafo ou multiplos parágrafos)
+
+================
+Para PHP
+
+PHP Intelephense
+
+Ele ajuda na suestão de código ao digitar
+
+Fast camel/underscore case code completion (IntelliSense) for document, workspace and built-in symbols and keywords with automatic addition of use declarations.
+Detailed signature (parameter) help for document, workspace and built-in constructors, methods, and functions.
+Rapid workspace wide go to definition support.
+Workspace wide find all references.
+Fast camel/underscore case workspace symbol search.
+Full document symbol search that also powers breadcrumbs and outline UI.
+Multiple diagnostics for open files via an error tolerant parser and powerful static analysis engine.
+Lossless PSR-12 compatible document/range formatting. Formats combined HTML/PHP/JS/CSS files too.
+Embedded HTML/JS/CSS code intelligence.
+Detailed hover with links to official PHP documentation.
+Smart highlight of references and keywords.
+Reads PHPStorm metadata for improved type analysis and suggestions.
+Easy rename of symbols. When appropriate, files/folders are automatically renamed too. PREMIUM
+Accurate code folding of definitions, blocks, use declarations, heredoc, comments, and custom regions. PREMIUM
+Quickly find all implementations of interfaces and abstract classes and associated methods. PREMIUM
+Fast go to type definition of typed variables and parameters. PREMIUM
+Fast go to declaration for methods implementing an interface or abstract method declaration. PREMIUM
+Configurable auto PHPDoc creation that infers return types and identifies thrown exceptions. PREMIUM
+Syntax tree driven smart select to intelligently expand/shrink selection. PREMIUM
+Helpful code actions to import symbols, add PHPDoc, and implement all abstract methods.
+
+

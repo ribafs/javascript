@@ -1,0 +1,455 @@
+What is the JS equivalent to the PHP function number_format?
+Asked 8 years, 11 months ago
+Active 2 months ago
+Viewed 96k times
+75
+9
+
+PHP Function:
+
+function formatNumberForDisplay($number, $decimal=0, $decimalSeperator='.', $numberSeperator=',')
+{
+     return number_format($number, $decimal, $decimalSeperator, $numberSeperator);
+}
+
+Can anybody suggest to me the equivalent functionality in jQuery/JavaScript?
+php
+javascript
+jquery
+Share
+Edit
+Follow
+edited Feb 23 at 18:57
+TylerH
+19.5k5252 gold badges6666 silver badges8686 bronze badges
+asked Oct 10 '12 at 13:18
+RONE
+5,12388 gold badges3434 silver badges6868 bronze badges
+
+    1
+    stackoverflow.com/questions/1068284/… – 
+    Bhavik Maneck
+    Oct 10 '12 at 13:23
+
+Add a comment
+12 Answers
+
+Não encontrou uma resposta? Pergunte em Stack Overflow em Português.
+102
+
+The same equivalent of number_format in js can found here
+
+function number_format (number, decimals, dec_point, thousands_sep) {
+    // Strip all characters but numerical ones.
+    number = (number + '').replace(/[^0-9+\-Ee.]/g, '');
+    var n = !isFinite(+number) ? 0 : +number,
+        prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+        sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+        dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+        s = '',
+        toFixedFix = function (n, prec) {
+            var k = Math.pow(10, prec);
+            return '' + Math.round(n * k) / k;
+        };
+    // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+    s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+    if (s[0].length > 3) {
+        s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+    }
+    if ((s[1] || '').length < prec) {
+        s[1] = s[1] || '';
+        s[1] += new Array(prec - s[1].length + 1).join('0');
+    }
+    return s.join(dec);
+}
+
+Share
+Edit
+Follow
+answered Dec 7 '15 at 19:42
+Umair Hamid
+3,14033 gold badges1818 silver badges2424 bronze badges
+
+    13
+    Even though this was posted quite a while ago, I still thought I'd say thank you - this brilliant answer saved my day! – 
+    The Codesee
+    Jun 25 '16 at 9:16 
+
+Add a comment
+48
+
+is this what you'd like to get?
+
+yourFloatVarHere.toFixed(2);
+
+voilà.
+Share
+Edit
+Follow
+edited May 11 '16 at 7:19
+Raptor
+49.4k4343 gold badges209209 silver badges347347 bronze badges
+answered Jan 15 '13 at 19:16
+MoVod
+90588 silver badges1010 bronze badges
+
+    23
+    @MoVod: what about formatting number like 1 340.23 or 1,340.00(note thousand separator)? – 
+    zergussino
+    Aug 8 '13 at 11:33 
+
+    1
+    toFixed() rounds up decimal point when it is >5, but number_format() in php does when decimal point is >=5. I am having an issue in validation – 
+    Annapurna
+    Feb 21 '18 at 9:10
+    22
+    This doesn't even do half the job of PHP's number_format() unfortunately. – 
+    BadHorsie
+    Mar 1 '18 at 16:27
+    1
+    insufficient. if you run (95**12).toFixed(0) you get "5.40360087662637e+23", but if you in php run number_format(95**12,0) you get 540,360,087,662,636,990,201,856 – 
+    hanshenrik
+    Oct 3 '20 at 13:09
+
+Add a comment
+47
+
+Just use toLocaleString on an integer object.
+
+https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString#Browser_compatibility
+
+let x = 1234567;
+//if x is a string/non-number, use parseInt/parseFloat to convert to a number. Thanks @Aleksandr Kopelevich
+x.toLocaleString('us', {minimumFractionDigits: 2, maximumFractionDigits: 2})
+
+Share
+Edit
+Follow
+edited Oct 25 '18 at 8:50
+answered Dec 15 '16 at 7:47
+Ahmed-Anas
+5,12388 gold badges4747 silver badges7171 bronze badges
+
+    12
+    This should be the right answer. Just one thing though: this function doesnt work with Strings. So if you are getting the value directly from a JSON object (for example), apply a parseInt() or parseFloat() to this string. – 
+    Aleksandr Kopelevich
+    Jun 4 '18 at 5:10
+
+Add a comment
+18
+
+Native "Intl" object approach:
+
+var amount = 5000.25;
+var locale = 'de';
+var options = {style: 'currency', currency: 'eur', minimumFractionDigits: 2, maximumFractionDigits: 2};
+var formatter = new Intl.NumberFormat(locale, options);
+
+console.log(formatter.format(amount));
+
+http://jsfiddle.net/arturrelax/sa9jL138/1/
+
+More information at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl
+Share
+Edit
+Follow
+edited Mar 25 '15 at 13:18
+answered Dec 12 '14 at 8:01
+Artur Beljajev
+4,60222 gold badges2525 silver badges2323 bronze badges
+
+    2
+    Browser compatibility note: Mobile Safari and IE < 11 are not supported. Not suggested to use. – 
+    Raptor
+    May 11 '16 at 7:20
+
+Add a comment
+13
+
+I know it's an old thread, but I made my own function, which is in pure Javascript.
+Simple Solution
+
+https://gist.github.com/VassilisPallas/d73632e9de4794b7dd10b7408f7948e8/bf17eccef8521b4e5869bdc6a5b09a771356fbff
+
+This works fine with finite numbers
+
+function number_format(number, decimals, dec_point, thousands_point) {
+
+    if (number == null || !isFinite(number)) {
+        throw new TypeError("number is not valid");
+    }
+
+    if (!decimals) {
+        var len = number.toString().split('.').length;
+        decimals = len > 1 ? len : 0;
+    }
+
+    if (!dec_point) {
+        dec_point = '.';
+    }
+
+    if (!thousands_point) {
+        thousands_point = ',';
+    }
+
+    number = parseFloat(number).toFixed(decimals);
+
+    number = number.replace(".", dec_point);
+
+    var splitNum = number.split(dec_point);
+    splitNum[0] = splitNum[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands_point);
+    number = splitNum.join(dec_point);
+
+    return number;
+}
+
+Complex Solution
+
+This solves the issue with big numbers
+
+https://gist.github.com/VassilisPallas/d73632e9de4794b7dd10b7408f7948e8
+
+ const splitThousands = (number) => (dec_point, thousands_point) => {
+  const splitNum = number.toString().split(dec_point);
+  splitNum[0] = splitNum[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands_point);
+  return splitNum.join(dec_point);
+};
+
+const isBigNumber = (number) => number.toString().includes("e");
+
+const isBigFloat = (number) => number.toString().includes("-");
+
+const calcTrailing = (dec, len) => Number(dec) + 2 - len;
+
+const handleBigFloats = (number, decimals) => {
+  if (!decimals) {
+    return "0";
+  }
+
+  const [numbers, dec] = number.toString().replace(".", "").split("e-");
+  const trailingZeros = calcTrailing(dec, numbers.length);
+  const res = `${"0.".padEnd(trailingZeros + 2, "0")}${numbers}`;
+
+  return decimals ? res.substring(0, 2) + res.substring(2, decimals + 2) : res;
+};
+
+const handleBigNumbers = (number, decimals, dec_point, thousands_point) => {
+  if (isBigFloat(number)) {
+    return handleBigFloats(number, decimals);
+  }
+
+  return splitThousands(BigInt(number))(dec_point, thousands_point);
+};
+
+function handleFiniteNumbers(number, decimals, dec_point, thousands_point) {
+  if (!isFinite(number)) {
+    throw new TypeError("number is not finite number");
+  }
+
+  if (!decimals) {
+    const len = number.toString().split(".").length;
+    decimals = len > 1 ? len : 0;
+  }
+
+  return splitThousands(
+    parseFloat(number).toFixed(decimals).replace(".", dec_point)
+  )(dec_point, thousands_point);
+}
+
+const numberFormat = (
+  number,
+  decimals,
+  dec_point = ".",
+  thousands_point = ","
+) => {
+  if (number == null || typeof number !== "number") {
+    throw new TypeError("number is not valid");
+  }
+
+  if (isBigNumber(number)) {
+    return handleBigNumbers(number, decimals, dec_point, thousands_point);
+  }
+
+  return handleFiniteNumbers(number, decimals, dec_point, thousands_point);
+};
+
+https://jsfiddle.net/p2ft9n4v/1/
+Share
+Edit
+Follow
+edited Oct 4 '20 at 19:08
+answered Aug 16 '17 at 8:53
+Vassilis Pallas
+4,44144 gold badges2828 silver badges4646 bronze badges
+
+    1
+    found a bug: if you run number_format(95**12,0) in your function you get "5.40360087662637e+23", but if you run it in php you get "540,360,087,662,636,990,201,856" – 
+    hanshenrik
+    Oct 3 '20 at 22:35
+
+Add a comment
+10
+
+Closer function to php number_format($number) should be number.toLocaleString('en') of javascript
+Share
+Edit
+Follow
+answered Jan 17 '20 at 22:08
+Mihai Galan
+17122 silver badges1010 bronze badges
+
+    2
+    This is a great suggestion. To take it a step further, I'd add parseInt() to it: parseInt(data).toLocaleString('en'); – 
+    phoenix
+    May 30 '20 at 15:44 
+
+Add a comment
+5
+
+Here is another short solution that should behaviour like the php-equivalent.
+
+function number_format(number,decimals,dec_point,thousands_sep) {
+    number  = number*1;//makes sure `number` is numeric value
+    var str = number.toFixed(decimals?decimals:0).toString().split('.');
+    var parts = [];
+    for ( var i=str[0].length; i>0; i-=3 ) {
+        parts.unshift(str[0].substring(Math.max(0,i-3),i));
+    }
+    str[0] = parts.join(thousands_sep?thousands_sep:',');
+    return str.join(dec_point?dec_point:'.');
+}
+
+Share
+Edit
+Follow
+edited Jul 18 '16 at 7:57
+Oki Erie Rinaldi
+1,7352020 silver badges3131 bronze badges
+answered Jan 15 '16 at 18:05
+Dennis Bohn
+6111 silver badge33 bronze badges
+
+    2
+    love this kind of short function. but, we have to force number as a number/integer by adding number = number*1; at the first line in the function. because sometimes the browser recognizes it as a string, and then toFixed function will not be recognized (undefined function number.toFixed()) – 
+    Oki Erie Rinaldi
+    Jul 18 '16 at 7:04 
+
+Add a comment
+3
+
+Here is a simple function that you can use to achieve almost the same result of number_format in php:
+
+function number_format(user_input){
+    var filtered_number = user_input.replace(/[^0-9]/gi, '');
+    var length = filtered_number.length;
+    var breakpoint = 1;
+    var formated_number = '';
+
+    for(i = 1; i <= length; i++){
+        if(breakpoint > 3){
+            breakpoint = 1;
+            formated_number = ',' + formated_number;
+        }
+        var next_letter = i + 1;
+        formated_number = filtered_number.substring(length - i, length - (i - 1)) + formated_number; 
+
+        breakpoint++;
+    }
+
+    return formated_number;
+}
+
+Another way is to use ajax to make a call to a php script where you run number_format on the number and return it with ajax as a string. But it`s a bit messy.
+Share
+Edit
+Follow
+edited Nov 24 '14 at 12:18
+answered Nov 24 '14 at 12:09
+spreadzz
+25033 silver badges99 bronze badges
+Add a comment
+1
+
+It no easy, try to use simple jquery-plugins such as:
+
+jquery-numberformatter
+
+Jquery-Price-Format
+Share
+Edit
+Follow
+answered Oct 10 '12 at 13:24
+RDK
+4,50522 gold badges1818 silver badges2727 bronze badges
+Add a comment
+0
+
+Another variant of exposed examples:
+
+const numberFormat = (value, decimals, decPoint, thousandsSep) => {
+    decPoint = decPoint || '.';
+    decimals = decimals !== undefined ? decimals : 2;
+    thousandsSep = thousandsSep || ' ';
+
+    if (typeof value === 'string') {
+        value = parseFloat(value);
+    }
+
+    let result = value.toLocaleString('en-US', {
+        maximumFractionDigits: decimals,
+        minimumFractionDigits: decimals
+    });
+
+    let pieces = result.split('.');
+    pieces[0] = pieces[0].split(',').join(thousandsSep);
+
+    return pieces.join(decPoint);
+};
+
+Share
+Edit
+Follow
+edited Jan 30 '19 at 8:53
+answered Dec 27 '18 at 12:31
+Максим Калябин
+122 bronze badges
+Add a comment
+0
+
+My take on this:
+
+var number_format = function(num) {
+  stringNum = num.toString();
+  stringNum = stringNum.split("");
+  c = 0;
+  if (stringNum.length>3) {
+    for (i=stringNum.length; i>-1; i--) {
+      if ( (c==3) && ((stringNum.length-i)!=stringNum.length) ) {
+        stringNum.splice(i, 0, ",");
+        c=0;
+      }
+      c++
+    }
+    return stringNum;
+  }
+  return num;
+}
+
+$("body").append(number_format(100000000));
+
+Share
+Edit
+Follow
+answered Sep 27 '16 at 8:24
+Nir Tzezana
+2,00833 gold badges2626 silver badges5353 bronze badges
+Add a comment
+-3
+
+I'm to do it just calling the JS function as follows and it works:
+
+var formattedNumber = number_format(value)
+
+https://stackoverflow.com/questions/12820312/what-is-the-js-equivalent-to-the-php-function-number-format
+
+

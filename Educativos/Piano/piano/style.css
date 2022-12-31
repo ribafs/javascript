@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 10px;
+}
+
+body{
+  min-height: 100vh;
+  display: grid;
+  gap: 5rem;
+  align-items: start;
+  color: #e9e9e9;
+  background-color: #010101;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.heading {
+  display: grid;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+h1 {
+font-size: 5rem;
+margin: 0;
+}
+
+.subhead {
+font-size: 2rem;
+}
+
+.key {
+  background: rgba(255, 255, 255, .8);
+  background-size: contain;
+  position: relative;
+  float: left;
+  height: 300px;
+  flex-basis: 5em;
+  display: grid;
+  align-content: space-between;
+  border: 1px solid #111;
+  font-size: 1.5rem;
+  transition: all 0.07s ease;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 .5rem black;
+}
+
+.playing {
+  transform: translateX(0);
+  transform: translateY(.8em);
+}
+
+kbd {
+  color: white;
+  display: block;
+  font-size: 3rem;
+  margin-top: -4rem;
+  text-align: center;
+}
+
+.sound {
+  font-size: 2rem;
+  letter-spacing: .1rem;
+  color: #010101;
+  text-shadow: none;
+  margin-bottom: 1.5rem;
+}
+
+.sound.high {
+color: #e9e9e9;
+}
+
+ul {
+  margin: 0;
+  padding: 0 0 5rem;
+  position: relative;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-content: center;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  float: left;
+}
+
+ul .white {
+  background-color: white;
+  z-index: 1;
+  border-left: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  margin-top: 4rem; 
+}
+
+ul .white:active {
+  border-top: 1px solid #777;
+  border-left: 1px solid #999;
+  border-bottom: 1px solid #999;
+  box-shadow: 2px 0 3px rgba(0, 0, 0, 0.1) inset, -5px 5px 20px rgba(0, 0, 0, 0.2) inset, 0 0 3px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(top, #fff 0%, #e9e9e9 100%);
+}
+
+.black {
+  height: 15em;
+  width: 2.5rem;
+  flex-basis: 0;
+  margin: 0 0 0 -1em;
+  margin-top: 4rem;  
+  z-index: 2;
+  border: 1px solid #000;
+  border-radius: 0 0 3px 3px;
+  box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 0 -5px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(45deg, #222 0%, #555 100%);
+}
+
+.black:active {
+  box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 0 -2px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(left, #444 0%, #222 100%);
+}
+
+.a,
+.b,
+.d,
+.e {
+  margin: 0 0 0 -1em;
+}
+
+.g {
+margin-left: -.8em;
+}
+
+.c3,
+.f,
+.c4 {
+  margin-left: -.2em;
+}

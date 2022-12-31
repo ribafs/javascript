@@ -1,0 +1,10 @@
+function desenhaPiramide(altura, caractere){
+  let elemento = caractere;
+  for(let i = 0; i <= altura; i++){
+    console.log(elemento);
+    elemento += caractere;
+  }
+}
+
+desenhaPiramide(10, '*');
+

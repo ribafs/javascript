@@ -1,0 +1,30 @@
+    var vogais = ''
+    var qa = 0
+    var qe = 0
+    var qi =0
+    var qo = 0
+    var qu = 0
+
+   function getVogais(str) {
+    vogais = str.match(/[aeiou]/ig).join("");
+
+    for(var v = 0; v < str.length; v++){
+        if (str[v] == 'a') qa = qa + 1
+        if (str[v] == 'e') qe = qe + 1
+        if (str[v] == 'i') qi = qi + 1
+        if (str[v] == 'o') qo = qo + 1
+        if (str[v] == 'u') qu = qu + 1
+    }    
+    return vogais
+  }
+var str = 'elias'
+getVogais(str)
+console.log('A palavra: '+str)
+console.log('Contem as vogais: '+vogais)
+console.log('São '+vogais.length+' vogais')
+if(qa > 0) console.log('Contém ' + qa + ' da letra a') 
+if(qe > 0) console.log('Contém ' + qe + ' da letra e')
+if(qi > 0) console.log('Contém ' + qi + ' da letra i')
+if(qo > 0) console.log('Contém ' + qo + ' da letra o')
+if(qu > 0) console.log('Contém ' + qu + ' da letra u')
+

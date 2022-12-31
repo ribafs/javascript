@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>BazarList</title>
+    
+</head>
+
+<body>
+  <div class="bg-dark text-light mb-4">
+      <h1 class="py-4 text-center display-5">BazarList</h1>
+  </div>
+   <div class="container">
+      <div class="card card-body card-form ">
+         <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+            <div>
+                <label>Name*</label><label class="validation-error hide" id="fullNameValidationError"></label>
+                <input class="form-control" type="text" name="fullName" id="fullName" placeholder="Apple" required>
+            </div>
+            <div class="mt-3">
+                <label>Quantity</label>
+                <input class="form-control" type="text" name="quantity" id="quantity" placeholder="gm/kg" required>
+            </div>
+            <div class="mt-3">
+                <label>Quality (Optional)</label>
+                <input class="form-control" type="text" name="quality" id="quality" placeholder="Good/Super/Premium">
+            </div>
+            <div class="mt-3">
+                <label>Price</label>
+                <input class="form-control" type="text" name="price" id="price" placeholder="Tk" required>
+            </div>
+            <div  class="form-action-buttons">
+                <input type="submit" value="Add to list" class="btn btn-primary mt-2">
+                <input type="reset" value="Reset" class="btn btn-primary mt-2 ml-2">
+            </div>
+        </form> 
+      </div>
+       
+        <div class="card card-body card-form mt-4">
+            <table class="list table" id="bazarList">
+                <thead class="thead-dark bg-primary ">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Quality</th>
+                        <th scope="col">Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    
+   </div>
+    
+    <footer class="mt-5 p-3 text-center bg-light">
+     &copy; BazarList | Powerd by Javascript
+  </footer>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

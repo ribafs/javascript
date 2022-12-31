@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;500&display=swap');
+
+:root {
+    --bg: #253759;
+    --text: #c0d9d9;
+    --yellow-others: #b78c38;
+    --light-gray: #b0babf;
+    --button-text: #466273;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'DM Mono', monospace;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+#wrapper {
+    height: 100vh;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+}
+
+#wrapper section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 30px 40px;
+}
+
+#wrapper h1 {
+    margin: 0 0 30px;
+    color: var(--yellow-others);
+    font-size: 2rem;
+}
+
+#wrapper section p {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+#wrapper section form {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+#wrapper form select {
+    width: 100%;
+    height: 60px;
+    padding: 0 10px 0 10px;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    border: 2px solid var(--yellow-others);
+    outline: none;
+}
+
+#wrapper form select option {
+    background-color: aliceblue;
+}
+
+#results table {
+    background-color: var(--yellow-others);
+    width: 300px;
+    border-radius: 5px;
+}
+
+#results table tr td{
+    width: 80px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: 300;
+}
+
+#results table tr:nth-child {
+    background-color: #dddddd;
+  }
+
+@media (max-width: 800px) {
+    #wrapper h1 {
+        text-align: center;
+    }
+
+    #wrapper form select {
+        background-color: transparent;
+    }
+}

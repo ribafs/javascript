@@ -1,0 +1,4 @@
+Confirmação antes de excluir registro
+
+<a href="URL" onClick="return confirm('Tem certeza de que deseja excluir?');">Delete</a>
+

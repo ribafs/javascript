@@ -1,0 +1,8 @@
+  function consoantes(str){
+    let res = str.match(/[^aeiou]/ig).join("");
+    return res
+  }
+  consoantes('elias')
+
+// https://stackoverflow.com/questions/64503733/how-can-i-extract-vowels-in-a-javascript-string
+

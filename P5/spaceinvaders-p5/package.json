@@ -1,0 +1,24 @@
+{
+  "name": "spaceinvaders",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelsofsteel/spaceinvaders"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wheelsofsteel/spaceinvaders/issues"
+  },
+  "homepage": "https://github.com/wheelsofsteel/spaceinvaders#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "nodemon": "^1.11.0"
+  },
+  "description": ""
+}

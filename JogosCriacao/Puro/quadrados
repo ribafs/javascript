@@ -1,0 +1,52 @@
+<script>
+
+	// JavaScript program to print
+	// hollow and solid square patterns
+
+	// Function for hollow square
+	function hollowSquare(rows) {
+		var i, j;
+		for (i = 1; i <= rows; i++) {
+		// Print stars for each solid rows
+		if (i == 1 || i == rows)
+			for (j = 1; j <= rows; j++) document.write("*");
+			
+		// stars for hollow rows
+		else
+			for (j = 1; j <= rows; j++)
+			if (j == 1 || j == rows) document.write("*");
+			else document.write("");
+
+		// Move to the next line/row
+		document.write("<br>");
+		}
+	}
+
+	// Function for Solid square
+	function solidSquare(rows) {
+		var i, j;
+		for (i = 1; i <= rows; i++) {
+		// Print stars after spaces
+		for (j = 1; j <= rows; j++) document.write("*");
+
+		// Move to the next line/row
+		document.write("<br>");
+		}
+	}
+
+	// Utility program to print all patterns
+	function printPattern(rows) {
+		document.write("Solid Square:<br>");
+		solidSquare(rows);
+
+		document.write("<br>Hollow Square:<br>");
+
+		hollowSquare(rows);
+	}
+
+	// Driver program
+	var rows = 5;
+	printPattern(rows);
+	
+</script>
+

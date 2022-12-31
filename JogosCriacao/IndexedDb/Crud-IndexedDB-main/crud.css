@@ -1,0 +1,58 @@
+.add-nombres{
+    margin: 10px auto 10px auto;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+.add-nombres input{
+    margin: 10px auto 10px auto;
+    width: 60%;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+}
+
+.add-nombres button{
+    height: 30px;
+    width: 70px;
+    align-self: center;
+    background: transparent;
+    border: 1px solid #000;
+}
+
+.save-boton{
+    padding: 5px;
+    width: 60%;
+    background: transparent;
+    border: 1px solid #000;
+}
+
+.delete-boton{
+    width: 60%;
+    padding: 5px;
+    background: transparent;
+    border: 1px solid #000;
+}
+
+.nombres{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nombres div{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nombres div h2{
+    text-align: center;
+}

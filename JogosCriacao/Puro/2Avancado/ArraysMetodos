@@ -1,0 +1,61 @@
+// length
+var arr = [1,2,3,4,5];
+
+console.log(arr.length);
+
+// push - add elemento ao final do array
+arr.push(6);
+arr.push('Qualquer coisa');
+
+console.log(arr);
+
+// pop -remover elemento do final do array
+arr.pop();
+
+console.log(arr);
+
+// unshift - add ao início do array
+arr.unshift(0);
+arr.unshift('teste');
+
+console.log(arr);
+
+// shift - remover do início do array
+arr.shift();
+
+console.log(arr);
+
+// acessar o último elemento
+console.log(arr[arr.length - 1]);
+
+// isArray
+console.log(Array.isArray(5));
+
+console.log(Array.isArray(arr));
+
+// splice
+var arr = [1,2,3,4,5];
+
+// splice - add elemento no array
+//splice(indice para add após o mesmo, remover, 'valor')
+arr.splice(2, 0, 999);
+
+console.log(arr);
+
+arr.splice(4, 1); // Remover o elemento 4
+
+console.log(arr);
+
+// indexOf -- encontrar índice de elemento
+
+console.log(arr.indexOf(5));
+
+
+// join - converte array em string com delimitador
+var arr2 = ["O", "rato", "roeu", "a", "roupa"];
+
+console.log(arr2.join(","));
+
+
+// reverse - inverter a ordem dos elementos
+console.log(arr2.reverse());

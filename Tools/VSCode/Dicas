@@ -1,0 +1,64 @@
+Existe uma ótima extensão nativa no VSCode que autocompleta muita coisa (Emmet)
+
+Exemplo máximo:
+
+Digite
+!
+E tecle enter
+
+
+Quando estamos trabalhando com HTML e precisamos renomear uma Tag, basta renomear uma delas. O VS Code já faz isso para nós. 
+
+
+Executando HTML, CSS e JS Online:
+
+https://jsfiddle.net/
+https://codepen.io/
+https://jsbin.com/?html,output
+
+
+Como deliminar todas as palavras de um texto com aspas e também as separar com vírgula para comporem um array?
+
+Exemplo: Eu tenho as palavras abaixo:
+
+como deliminar todas as palavras de
+
+Quero que fiquem assim:
+
+"como", "deliminar", "todas", "as", "palavras", "de"
+
+Após colar as palavras num arquivo qualquer do VSCode eu executo o comando abaixo para procurar e sobrescrever todas:
+
+Ctrl+H
+
+Na caixa de cima digito um espaço em branco
+Na caixa de baixo digito:
+", "
+
+E a mágica está feita.
+
+
+Para acessar a paleta de comandos, apenas tecle:
+F1
+Veja que ele já abre a lista de comandos
+Selecione o comando desejado e tecle enter
+
+Exemplo: Alterar as cores do tema:
+F1
+Preferences color theme
+Mova-se com as setas para cima e para baixo para visualizar os temas
+Selecionar um tema e enter
+
+
+Font monospace - são fontes em que cada cactere ocupa o mesmo espaço dos demais, facilitando a leitura
+https://www.fontsquirrel.com/fonts/monoid
+
+
+Selecionar múltiplas linhas:
+
+
+    Windows: Ctrl + Alt + Arrow Keys
+    Linux: Shift + Alt + Arrow Keys
+    Mac: Opt + Cmd + Arrow Keys
+
+

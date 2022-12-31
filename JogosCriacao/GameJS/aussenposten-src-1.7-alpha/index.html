@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> AP</title>
+    <link href="./normalize.css" rel="stylesheet" type="text/css" />
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+    <script src="./lib/mustache.js"></script>
+
+    <!-- for simplegraph -->
+    <script src="./lib/jquery.js" type="text/javascript"></script>
+    <script src="./lib/raphael.js" type="text/javascript"></script>
+    <script src="./lib/raphael.path.methods.js" type="text/javascript"></script>
+    <script src="./lib/jquery.simplegraph.js" type="text/javascript"></script>
+    <!-- end for simplegraph -->
+
+    <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+    <style type=text/css>
+
+    </style>
+    <script src="./lib/gamejs-2.0.1.js"></script>
+    <script>
+        (function() {
+            setInterval(function() {
+                var image = new Image();
+                image.src = "http://aussenposten.gamejs.org/ping?r=" + (Math.random() * 1000000000);
+            }, 30 * 1000);
+        })();
+        require.setModuleRoot('./src/');
+        require.run('main');
+    </script>
+</head>
+<body>
+    <div id="gjs-loader-custom">
+        <div id="mainmenu-container">
+            <h1> Aussenposten</h1>
+
+            <div id="level-select">
+                <div data-map="map.tmx" class="level-button">
+                    <img src="./images/10.bmp">
+                    <p>
+                        Intermediate. Enough resources if you know what you're doing.
+                    </p>
+                </div>
+                <div class="level-button">
+                    <img src="./images/0.bmp">
+                    <div data-map="map.tmx" class="level-title" title="Click to connect to Hedon">Hedon</div>
+                    <p>
+                        Beginner. Lush moon with strong biosphere.
+                    </p>
+                    <div class="level-save-delete inactive">
+                        Delete save game
+                    </div>
+                </div>
+                <div data-map="map.tmx" class="level-button">
+                    <img src="./images/13.bmp">
+                    <p>
+                      Expert. Harsh environment.
+                    </p>
+                </div>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <p id="gjs-loader-text">
+        Connecting to terminal...<br/>
+        <img src="./images/ajax-loader.gif">
+        </p>
+    </div>
+
+    <div id="gamecontainer" class="hidden">
+        <div class="dome-storage">
+            <div title="Total stone stored in dome" class="stone real-stone">Stone: <span class="current stone" id="dome-stone"> </span></div>
+            <div title="Total metal stored in dome" class="money real-money">Metal: <span class="current money" id="dome-money"> </span></div>
+            <div id="menu-open">Menu</div>
+            <div id="stats-open">Reports</div>
+        </div>
+        <div id="domestatus">
+            <ul>
+                <li title="Current population / maximum population" class="population">
+                    <progress class="currentprogress" value="85" max="100"></progress>
+
+                    <p class="progressdesc"> Population<span class="current">5</span>/<span class="max">8</span>
+                    </p>
+
+                <li title="Average happiness" class="happiness">
+                    <progress class="currentprogress" value="70" max="100"></progress>
+
+                    <p class="progressdesc"> Happiness<span class="current">80</span>%
+                    </p>
+                <li title="Average fullness" class="fullness">
+                    <progress class="currentprogress" value="85" max="100"></progress>
+                    <p class="progressdesc"> Fullness<span class="current">85</span>%
+                    </p>
+                <li title="Oxygen level" class="oxygen">
+                    <progress class= "currentprogress" value="2" max="100"></progress>
+
+                    <p class="progressdesc"> Oxygen<span class="current">2</span>%
+                    </p>
+                <li title="Energy level" class="energy">
+                    <progress class = "currentprogress" value="5" max="100"></progress>
+                    <p class="progressdesc"> Energy<span class="current">5</span>%
+                    </p>
+            </ul>
+        </div>
+        <div style="clear:both"></div>
+
+        <div id="buildmenu-container">
+            <div class="buildmenu-tabs">
+                <div title="Service buildings" data-type="service" class="tab-entry">
+                    <img src="./images/ext/service.png">
+                </div>
+                <div title="Industry buildings" data-type="industry" class="tab-entry">
+                    <img src="./images/ext/industry.png">
+                </div>
+                <div title="Colonist buildings" data-type="citizens" class="tab-entry">
+                    <img src="./images/ext/citizens.png">
+                </div>
+            </div>
+            <div style="clear:both"></div>
+            <div id="buildmenu">
+            </div>
+        </div>
+
+        <canvas id="gjs-canvas"></canvas>
+
+    </div>
+
+    <script id="tmpl-building-info" type="x-tmpl-mustache">
+        <div data-id="{{type}}" class="building disabled">
+            <img src="./images/{{type}}.png">
+            <div class="resource-info">
+                {{#cost}}
+                <span class="smallmoneyrequired">{{cost}}</span>
+                <br/>
+                {{/cost}}
+                <span class="smallstonerequired">{{stone}}</span>
+            </div>
+            <div class="building-title">{{display}}</div>
+        </div>
+    </script>
+    <script id="tmpl-building-details" type="x-tmpl-mustache">
+        <div id="{{type}}-info" class="building-details">
+            <img src="./images/{{type}}.png" width="80px">
+            <div class="building-title">{{display}}</div>
+            <p class="description"> {{description}}</p>
+            <div class="statcontainer">
+                Requires <span class="stonerequired">{{stone}}</span> stone
+                {{#cost}}
+                    and <span class="moneyrequired">{{cost}}</span> metal
+
+                {{/cost}}
+                to build.
+            </div>
+        </div>
+    </script>
+
+    <div id="building-info">
+        <div id="building-info-title"> Space farm </div>
+        <fieldset id="status-container">
+            <legend>Status</legend>
+                <p id="electricity-container" title="Without electricity this building stops functioning.">
+                <input id="electricity-switch" disabled=true type="checkbox">&nbsp;<label for="electricity-switch">Electricity </label>
+                </p>
+
+            <div id="damage-container" title="Damage reduces the efficiency. Very high damage renders a building inactive.">
+                <progress id="damage-building-progress"  class="infoprogress" value="0" steps="0.1" max="1"></progress>
+                <p class="infodesc">Damage <span id="damage-building-desc">5</span>
+                </p>
+            </div>
+            <div id="productivity-container" title="Buildings produce more the higher the productivity. Productivity depends on the damage of the building, the general oxygen level in the perimeter as well as on the workers' happiness and fullness.">
+                <progress id="productivity-building-progress"  class="infoprogress" value="0" min="0" steps="0.1" max="1"></progress>
+                <p class="infodesc" >
+                    Efficiency <span id="productivity-building-desc">5</span>
+                </p>
+            </div>
+
+            <div id="storage-container" title="Production stops when the output storage is full.">
+                <progress id="storage-building-progress"  class="infoprogress" value="85" max="100"></progress>
+                <p class="infodesc">Output storage <span id="storage-building-desc">5</span>
+                </p>
+            </div>
+        </fieldset>
+
+        <fieldset id="building-info-storage">
+            <legend>Stored goods</legend>
+            <ul id="building-info-storage-list">
+            </ul>
+        </fieldset>
+
+        <fieldset id="worker-container" title="Maximum number of workers you want here.">
+            <legend>Workers</legend>
+
+            <div id="updatefactor-container">
+                 <progress id="building-info-updatefactor" min="0" max="1" steps="0.1" class="infoprogress"></progress>
+                <p class="infodesc">Working...
+                </p>
+            </div>
+
+            <div>
+                <div>Maximum workers: <span id="workers-display">3/4</span> </div>
+                <input id="workers-range" type="range"  min="0" max="5">
+            </div>
+
+        </fieldset>
+
+        <fieldset id="importexport-container" title="Control which resource should be imported/exported.">
+            <legend>Import/export</legend>
+
+            <label for="import">Import</label>
+            <select data-type="import" class="importexport-select" name="import">
+                <option value="">---------</option>
+                <option value="nutrition">Nutrition</option>
+                <option value="stone">Stone</option>
+                <option value="ore">Ore</option>
+                <option value="money">Metal</option>
+                <option value="drugs">Feel Good</option>
+            </select>
+            <label for="export">Export</label>
+            <select data-type="export" class="importexport-select" name="export">
+                <option value="">---------</option>
+                <option value="nutrition">Nutrition</option>
+                <option value="stone">Stone</option>
+                <option value="ore">Ore</option>
+                <option value="money">Metal</option>
+                <option value="drugs">Feel Good</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Description</legend>
+            <p id="building-info-desc"></p>
+        </fieldset>
+
+        <div id="missing-input-resource" class="not-functional-display">
+            Production has stopped because input resource <span id="missing-resource-title"></span>is missing.
+        </div>
+        <div id="has-incident" class="not-functional-display">
+            Building is currently under attack and does not function.
+        </div>
+
+        <div id="storage-full" class="not-functional-display">
+            Output storage full: production has stopped.
+        </div>
+        <div id="normal-storage-full" class="not-functional-display">
+            No more storage place.
+        </div>
+
+        <fieldset>
+            <button id="building-info-destroy" alt="Gives back some resources. Destorying a relax house sends the residents back underground.">Demolish building</button>
+        </fieldset>
+    </div>
+    <div id="unit-info-container">
+        <div id="unit-info">
+            <img id="unit-info-portrait" >
+            <div id="unit-info-title"> Missing Unit Name X</div>
+
+            <div id="happiness-container" title="Colonists need relax time to work efficently.">
+                <progress id="happiness-unit-progress"  class="infoprogress" value="0" steps="0.1" max="1"></progress>
+
+                <p class="infodesc"><img src="./images/happiness_icon.png">
+                    Happiness <span id="happiness-unit-desc">5</span>
+                </p>
+            </div>
+            <div id="fullness-container" title="Hungry colonists will eventually stop working at all.">
+
+                <progress id="fullness-unit-progress"  class="infoprogress" value="0" min="0" steps="0.1" max="1"></progress>
+                <p class="infodesc"><img src="./images/hunger_icon.png">
+                    Fullness <span id="fullness-unit-desc">5</span>
+                </p>
+            </div>
+
+            <p>
+                <span id="unit-info-todo">
+                </span>
+                (<span id="unit-info-timeleft"></span>).
+            </p>
+            <p id="unit-carrying-info">
+                    Carries <span id="carrying-info-amount"></span> <span id="carrying-info-resource"></span>
+            </p>
+
+
+
+        </div>
+    </div>
+
+    <div id="game-menu">
+        <h1>Aussenposten</h1>
+        <ul>
+            <li class="menu-button" data-action="continueGame"> Continue game<br/>
+            <li class="menu-button" data-action="saveAndExit">Save &amp; Exit
+        </ul>
+
+        <div id="game-menu-settings">
+            <fieldset id="jukebox-container">
+                <legend>Jukebox</legend>
+                <audio id="music-player" src="" controls preload></audio>
+                <ul id="jukebox">
+                    <li data-file="Taking it piano.ogg">Taking it piano</li>
+                    <li data-file="Viracocha's Demise.ogg">Viracocha's Demise</li>
+                    <li data-file="space.ogg">Lasercheese's Space</li>
+                    <li data-file="Deliciously Sour_0.ogg">Deliciously Soure</li>
+                    <li data-file="Stepping Stones.ogg">Stepping Stones</li>
+                    <li data-file="Pleasant Creek.ogg">Pleasant Creek</li>
+                    <li data-file="Snowland.ogg">Snowload</li>
+                    <li data-file="Always Remembered_0.ogg">Always Remembered</li>
+                    <li data-file="To Be Tacribian_0.ogg">To Be Tacribian</li>
+                    <li data-file="Little People At Work.ogg">Little People At Work</li>
+                    <li data-file="Ambush in buch.ogg">Ambush in buch</li>
+                </ul>
+            </fieldset>
+            <fieldset id="settings-container">
+                <legend>Options</legend>
+                <ul>
+                    <li class="menu-button" data-action="musicToggle"> <input type="checkbox" checked> Music</li>
+                    <li class="menu-button" data-action="soundToggle"> <input type="checkbox" checked> Sounds</li>
+                    <li data-action="fullscreenToggle"> <input type="checkbox" checked> Fullscreen <br/> (button does nothing)</li>
+                </ul>
+            </fieldset>
+
+        </div>
+    </div>
+
+    <div id="stats-container">
+            <button id="stats-close">Close screen</button>
+        <div id="stats-canvas"></div>
+
+        <div id='stats-options'>
+            <fieldset data-minor="stone">
+                <legend>Stone</legend>
+                <input type="checkbox" data-major="storage" id="stone-storage">
+                <label for="stone-storage">Storage</label>
+                <br/>
+                <input type="checkbox" data-major="production" id='stone-production'>
+                <label for="stone-production">Production</label>
+            </fieldset>
+            <fieldset data-minor="nutrition">
+                <legend>Nutrition</legend>
+                <input type="checkbox" data-major="storage" id="nutrition-storage">
+                <label for="nutrition-storage">Storage</label>
+                <br/>
+                <input type="checkbox" data-major="production" id="nutrition-production">
+                <label for="nutrition-production">Production</label>
+            </fieldset>
+            <fieldset data-minor="money">
+                <legend>Metal</legend>
+                <input type="checkbox" data-major="storage" id="money-storage">
+                <label for="money-storage">Storage</label>
+                <br/>
+                <input type="checkbox" data-major="production" id="money-production">
+                <label for="money-production">Production</label>
+            </fieldset>
+            <fieldset data-minor="ore">
+                <legend>Ore</legend>
+                <input type="checkbox" data-major="storage" id="ore-storage">
+                <label for="ore-storage">Storage</label>
+                <br/>
+                <input type="checkbox" data-major="production" id="ore-production">
+                <label for="ore-production">Production</label>
+            </fieldset>
+            <div style="clear:both"></div>
+            <fieldset data-minor="drugs">
+                <legend>Drugs</legend>
+                <input type="checkbox" data-major="storage" id="ore-storage">
+                <label for="ore-storage">Storage</label>
+                <br/>
+                <input type="checkbox" data-major="production" id="ore-production">
+                <label for="ore-production">Production</label>
+            </fieldset>
+            <fieldset data-major="population">
+                <legend>Population</legend>
+                <input type="checkbox" data-minor="count" id="population-count">
+                <label for="population-count">Residents</label>
+                <br/>
+                <input type="checkbox" data-minor="happiness" id="population-happiness">
+                <label for="population-happiness">Happiness</label>
+                <br/>
+                <input type="checkbox" data-minor="fullness" id="population-fullness">
+                <label for="population-fullness">Fullness</label>
+            </fieldset>
+            <fieldset data-major="buildings">
+                <legend>Buildings</legend>
+                <input type="checkbox" data-minor="count" id="buildings-count">
+                <label for="buildings-count">Count</label>
+                <br/>
+                <input type="checkbox" data-minor="damage" id="buildings-damage">
+                <label for="buildings-damage">Damage</label>
+            </fieldset>
+        </div>
+    </div>
+</body>
+</html>

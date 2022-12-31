@@ -1,0 +1,22 @@
+{
+  "main": "index.html",
+  "name": "aussenposten",
+  "description": "SciFi base building",
+  "version": "0.1.0",
+  "keywords": [ "city builder", "game" ],
+  "window": {
+    "title": "Aussenposten",
+    "icon": "link.png",
+    "toolbar": false,
+    "frame": true,
+    "width": 1280,
+    "height": 850,
+    "position": "center",
+    "fullscreen": false
+  },
+  "webkit": {
+    "plugin": false
+  },
+  "nodejs": false,
+  "chromium-args": "--ignore-gpu-blacklist --disable-cache"
+}

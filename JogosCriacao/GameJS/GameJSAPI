@@ -1,0 +1,282 @@
+
+Modules: GameJs API
+
+    gamejs
+
+    gamejs.ready() is maybe the most important function as it kickstarts your app:
+
+    var gamejs = require('gamejs');
+    ready(function() {
+        gamejs.logging.info('I am ready!')
+    });
+
+    If you use images or sounds preload all assets with gamejs.preload(['./files/foo.png']) before calling ready().
+
+    Also in this module is the Rect class which is generally useful when dealing with Surfaces and simple rectangles (e.g. for collisions).
+    gamejs/animate
+
+    Provides Animations and SpriteSheets.
+    gamejs/audio
+
+    Playing sounds with the html5 audio tag. Audio files must be preloaded with the usual gamejs.preload() function. Ogg, wav and webm supported.
+    gamejs/display
+
+    Methods to create, access and manipulate the display Surface.
+
+    You can just grab the canvas element whether it exists in the DOM or not (GameJs will create it if necessary):
+
+    var display = gamejs.display.getSurface();
+
+    If you need to resize the canvas - although it is recommended to style it with CSS - you can call the setMode() function, which conviniently returns the new display surface:
+
+    newDisplay = gamejs.display.setMode([800, 600]);
+
+    Browser window gets resized
+
+    When the canvas size is configured with CSS, the display surface might change when the browser window is resized. GameJs will internally deal with this and recreate the the display surface with the new size.
+
+    You will typically not have to worry about this but if you want to get informed about a display resize, you can register a callback with gamejs.event.onDisplayResize.
+    Flags
+
+    For advanced uses you can set a few modes which additionally change how the display behaves with regards to pixel smoothing and whether you want a fullscreen canvas with or withouth the mouse pointer locked inside the window (for endless mouse movement in all directions).
+
+    gamejs.display.setMode() understands three flags:
+        gamejs.display.FULLSCREEN
+        gamejs.display.DISABLE_SMOOTHING
+        gamejs.display.POINTERLOCK (implies FULLSCREEN)
+    For example:
+
+     // disable smoothing
+     gamejs.display.setMode([800, 600], gamejs.display.DISABLE_SMOOTHING);
+     // disable smoothing and fullscreen
+     gamejs.display.setMode(
+               [800, 600],
+               gamejs.display.DISABLE_SMOOTHING | gamejs.display.FULLSCREEN
+         );
+
+    Fullscreen mode
+
+    When setMode() is called with the fullscreen flag then the fullscreen mode can be enabled by the player by clicking on the DOM element with id "gjs-fullscreen-toggle". Browser security requires that a user enables fullscreen with a "gesture" (e.g., clicking a button) and we can not enable fullscreen in code.
+
+    Fullscreen mode can be exited by many keys, e.g., anything window manager related (ALT-TAB) or ESC. A lot of keys will trigger a browser information popup explaining how fullscreen mode can be exited.
+
+    The following keys are "whitelisted" in fullscreen mode and will not trigger such a browser popup:
+        left arrow, right arrow, up arrow, down arrow
+        space
+        shift, control, alt
+        page up, page down
+        home, end, tab, meta
+    Relevant DOM node ids accessed by this module
+
+    You can provide your own tags with those ids
+        gjs-canvas - the display surface
+        gjs-loader - loading bar
+        gjs-fullscreen-toggle a clickable element to enable fullscreen
+        gjs-canvas-wrapper this wrapper is added when in fullscreen mode
+    gamejs/event
+
+    Deal with mouse and keyboard events.
+
+    You can either handle all events in one callback with gamejs.event.onEvent():
+
+    gamejs.onEvent(function(event) {
+       if (event.type === gamejs.event.MOUSE_UP) {
+         gamejs.logging.info(event.pos, event.button);
+       } else if (event.type === gamejs.event.KEY_UP) {
+         gamejs.logging.info(event.key);
+       }
+    });
+
+    Or recieve more specific callbacks, e.g. only for KEY\_UP with gamejs.event.onKeyUp():
+
+    gamejs.onKeyUp(function(event) {
+         gamejs.logging.info(event.key);
+    });
+
+    All events passed to your callback are instances of gamejs.event.Event and have a type property to help you distinguish between the different events. This type property is set to one of those constants:
+        gamejs.event.MOUSE_UP
+        gamejs.event.MOUSE_MOTION
+        gamejs.event.MOUSE_DOWN
+        gamejs.event.KEY_UP
+        gamejs.event.KEY_DOWN
+        gamejs.event.DISPLAY_FULLSCREEN_ENABLED
+        gamejs.event.DISPLAY_FULLSCREEN_DISABLED
+        gamejs.event.QUIT
+        gamejs.event.MOUSE_WHEEL
+        gamejs.event.TOUCH_DOWN
+        gamejs.event.TOUCH_UP
+        gamejs.event.TOUCH_MOTION
+    Keyboard constants
+
+    There are also a lot of keyboard constants for ASCII. Those are all prefixed with K\_, e.g. gamejs.event.K\_a would be the "a" key and gamejs.event.K_SPACE is the spacebar.
+    Touch events
+
+    Touch events do not have a single position but for all TOUCH\_* events you get an array of touches, which each have their own pos attribute and a unique identifier for tracking this touch across multiple TOUCH\_MOTION events.
+    User defined events
+
+    All user defined events can have the value of gamejs.event.USEREVENT or higher. Make sure your custom event ids follow this system.
+    gamejs/font
+
+    Methods for creating Font objects which can render text to a Surface.
+    gamejs/graphics
+
+    This module holds the important Surface class which is the general container for image data.
+
+    var surface = new gamejs.graphics.Surface([width, height]);
+
+    The functions to draw geometric lines like circles, lines, rectangles, etc. are also all in this module:
+
+    gamejs.graphics.line(surface, '#ff0000', centerPoint, radius);
+
+    Each Surface instance has methods to create a new rotated, flipped, scaled, etc. instance of itself:
+
+    // the original `surface` remains untouched by the
+    // filp operation. A new Surface instance
+    // is returned by `flip()`.
+    var horizontalFlippedSurface = surface.flip(true);
+
+    If you want to put images (png, jpg) on the screen, also see the gamejs.image module and gamejs.preload().
+
+    There are several ways to specify colors. Whenever the docs says "valid #RGB string" you can pass in any of the following formats: "#ff00ff", "rgb(255, 0, 255)" or "rgba(255, 0, 255, 1)".
+    gamejs/http
+
+    Make synchronous http requests to your game's serverside component.
+
+    If you configure a ajax base URL you can make http requests to your server using those functions. The most high-level functions are load() and save() which take and return a JavaScript object, which they will send to / recieve from the server-side in JSON format.
+    gamejs/image
+
+    Load images as Surfaces.
+
+    Sounds & Images are loaded relative to your game's html page (the html which includes the GameJs code) or relative to the property window.$g.resourceBaseHref if it is set.
+    gamejs/logging
+
+    Static methods for logging and setting the log level. All logging functions (info(), debug(), etc.) take any number of arguments and will print them in one line.
+    gamejs/pathfinding
+
+    A* path finding algorithm
+
+    Use the findRoute(map, from, to, [timeout]) function to get the linked list leading from a point to another on the given map.
+
+    The map must implement the interface gamejs.pathfinding.Map. This class already holds an example implementation for debugging use.
+
+    Optionally, the search is cancelled after timeout in millseconds.
+
+    If there is no route null is returned.
+    gamejs/pixelcollision
+
+    Image mask. Usefull for pixel perfect collision detection:
+    gamejs/thread
+
+    gamejs.worker makes it more convinient to work with W3C WebWorkers by providing a way to run CommonJs modules inside of them. GameJs also provides the typically gamejs.ready() and event loop to facilitate communication between workers and the main application.
+
+    See the examples/workers directory for a running example.
+
+    Create a worker with the main module "foo-worker" (see below for how the worker's module looks like):
+
+    var fooWorker = new Worker('./foo-worker');
+    // Send a message to your worker.
+    // The Message doesn't have to be a string but it
+    // must be `JSON.stringify()`-able
+    fooWorker.post("foobar");
+
+    You can also recieve messages from the worker:
+
+    // recieve events from the worker
+    fooWorker.onEvent(function(event) {
+        if(event.timestamp > ...)
+     });
+
+    And this is how the above referenced "foo-worker" module would looke like. As usual, we need a gamejs.ready() to get started and within that we bind an event handler:
+
+    var gamejs = require('gamejs');
+    gamejs.ready(function() {
+        gamejs.event.onEvent(function(event) {
+             var plaintext = fastCrack(event.password)
+             ....
+         });
+    });
+
+    Our event worker could do expensive calculations (seperate and not blocking the main game) when recieving an event. Once the result is caculated, it can be sent back to the main application with gamejs.thread.post():
+
+    gamejs.thread.post({
+       info: "important message from worker",
+       timestamp: 12232435234
+     });
+
+    The main application would in turn recieve an event posted like this from fooWorker.onEvent, as seen above.
+
+    This module is useful for expensive algorithms where the result does not have to available instantiously (e.g., path-finding) or for continous logic which can be calculated seperately from the rendering loop, and which only needs to feed back into the model of the rendering every now and then (e.g. physics) The main draw back of the Worker model is that you can only communicate with them via text messages (typically JSON.stringify()ed messages).
+    gamejs/tiledmap
+
+    This is a loader for the general purpose tile map editor "Tiled".
+
+    This module can load all ".tmx" files even if additionally base64 encoded (can be configured in Tiled).
+
+    This module loads the whole map definition, including the TileSets with all necessary images. For an example on how to render a map loaded with this module, see examples/tiledmap.
+
+    You will typically create a Map instance with Map(url) and deal with the layers, tilesets, etc. through the Map instance instead of loading & creating them yourself.
+
+    Only orthogonol maps are supported (no isometric maps).
+    gamejs/time
+
+    Only used by GameJs internally to provide a game loop.
+    gamejs/math/angles
+
+    Degrees and radians.
+    gamejs/math/binaryheap
+
+    Binary Heap implementation from Eloquent JavaScript
+    gamejs/math/matrix
+
+    Matrix manipulation, used by GameJs itself. You probably do not need this unless you manipulate a Context's transformation matrix yourself.
+    gamejs/math/noise
+
+    A noise generator comparable to Perlin noise, which is useful for generating procedural content.
+
+    This implementation provides 2D and 3D noise:
+
+    var simplex = new Simplex(); simplex.get(2, 4); simple.get3d(1, 2, 4);
+
+    You can optionally pass a seedable pseudo-random number generator to its constructor. This generator object is assumed to have a random() method; Math is used per default:
+
+    var Alea = require('gamejs/math/random').Alea;
+    var simplex = new Simplex(new Alea());
+
+    Also see gamejs/math/random for a seedable pseudo random number generator
+    gamejs/math/random
+
+    A seedable random-number generator.
+
+    A generator is initialized by GameJs and can be used with the static functions of this module:
+
+    gamejs.random.choose([1,2,4]); // integet between and including 2 and 5 gamejs.random.integer(2, 5);
+
+    You can re-initialize this generator with a different seed by calling gamejs.utils.prng.init(seed) after which the static functions in this module will use the new seed.
+    gamejs/math/vectors
+    gamejs/utils/arrays
+
+    Utility functions for working with Obiects
+    gamejs/utils/base64
+
+    Base64 encode / decode
+    gamejs/utils/callback
+
+    Manage a callback with invocation scope. This is used internally by GameJs but might be useful for others.
+    gamejs/utils/objects
+
+    Utility functions for working with Objects
+    gamejs/utils/strings
+
+    Working with strings
+    gamejs/utils/uri
+
+    Utilies for URI handling.
+    gamejs/utils/xml
+
+    Provides facilities for parsing a xml String.
+
+    You will typically get a gamejs.xml.Document instance by loading the data with one of the two static Document.fromString(string) or Document.fromUrl(url). Querying for elements(name) or children() will return a new gamejs.xml.Document matching your result (or null).
+
+    Use attributes(name) and value() to get the data stored in the XML Document.
+
+

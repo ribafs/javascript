@@ -1,0 +1,15 @@
+<script>
+   function getVowels(string) {
+      var Vowels = 'aAeEiIoOuU';
+      var vowelsCount = 0;
+      for(var i = 0; i < string.length ; i++) {
+         if (Vowels.indexOf(string[i]) !== -1) {
+            vowelsCount += 1;
+        }
+      }
+   return vowelsCount;
+   }
+   document.write("O número de vogais:") 
+   document.write(getVowels("A Computer"));
+// https://www.geeksforgeeks.org/how-to-get-a-number-of-vowels-in-a-string-in-javascript/
+</script>

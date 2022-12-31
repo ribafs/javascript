@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit</title>
+
+    <link rel="stylesheet" href="styles/tailwind.min.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+    <div class="container mx-auto">
+      <br />
+      <br />
+      <h1 class="text-xl mb-3">Product edit</h1>
+
+      <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="addProductTitle"
+          >
+            Title
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="product_title"
+            placeholder="Product Title"
+          />
+        </div>
+        <div class="mb-6">
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="addProductPrice"
+          >
+            Price
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            id="product_price"
+            type="text"
+            placeholder="Price..."
+          />
+        </div>
+      </div>
+
+      <p id="last_edit" class="md:w-2/3 block text-gray-600 font-bold"></p>
+
+      <button
+        id="remove_btn"
+        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded my-3"
+      >
+        Delete
+      </button>
+
+      <p>
+        <a href="./index.html">🠜 Back to index</a>
+      </p>
+    </div>
+
+    <script src="./scripts/moment.min.js"></script>
+    <script src="./scripts/jalali-moment.js"></script>
+    <script src="./scripts/functions.js"></script>
+    <script src="./scripts/edit-product.js"></script>
+  </body>
+</html>

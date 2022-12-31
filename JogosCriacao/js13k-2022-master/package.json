@@ -1,0 +1,47 @@
+{
+    "name": "js13k-2022",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jaredyork/js13k-2022.git"
+    },
+    "author": "Jared York",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jaredyork/js13k-2022/issues"
+    },
+    "homepage": "https://github.com/jaredyork/js13k-2022#readme",
+    "devDependencies": {
+        "browserify": "*",
+        "bundle-collapser": "*",
+        "commander": "*",
+        "express": "*",
+        "gulp": "*",
+        "gulp-buffer": "*",
+        "gulp-concat": "*",
+        "gulp-eslint": "*",
+        "gulp-htmlmin": "*",
+        "gulp-if": "*",
+        "gulp-micro": "*",
+        "gulp-size": "*",
+        "gulp-uglify": "*",
+        "gulp-util": "*",
+        "gulp-zip": "*",
+        "rimraf": "*",
+        "vinyl-source-stream": "*"
+    },
+    "scripts": {
+        "build": "gulp build",
+        "dist": "gulp dist --prod",
+        "start": "gulp watch serve",
+        "test": "gulp lint"
+    },
+    "dependencies": {
+        "gulp-advzip": "*",
+        "gulp-cache": "*",
+        "gulp-terser": "*",
+        "gulp-webp": "*"
+    }
+}

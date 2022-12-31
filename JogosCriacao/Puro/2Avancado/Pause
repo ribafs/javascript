@@ -1,0 +1,61 @@
+setTimeout(alert("4 seconds"),4000);
+
+
+function sleep(miliseconds) {
+   var currentTime = new Date().getTime();
+
+   while (currentTime + miliseconds >= new Date().getTime()) {
+   }
+}
+
+
+function writeNext(i)
+{
+    document.write(i);
+
+    if(i == 5)
+        return;
+
+    setTimeout(function()
+    {
+        writeNext(i + 1);
+
+    }, 2000);
+}
+
+writeNext(1);
+
+
+function myFunction() {
+    // your code to run after the timeout
+}
+
+// stop for sometime if needed
+setTimeout(myFunction, 2000);
+
+
+for (var i = 1; i <= 5; i++) {
+    var tick = function(i) {
+        return function() {
+            console.log(i);
+        }
+    };
+    setTimeout(tick(i), 500 * i);
+}
+
+
+wait(4000);
+var c = window.confirm("You like this tutorial?");
+if (c) alert("Thank you.");
+else alert("OK, you don't like this.");
+
+
+wait(4000);
+var n = calc(2);
+function calc(x)
+{
+    x = x * 1000 + 67;
+    alert(x);
+}
+
+

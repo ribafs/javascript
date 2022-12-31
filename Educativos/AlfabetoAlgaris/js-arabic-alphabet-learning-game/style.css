@@ -1,0 +1,148 @@
+body {
+    font-family: "Rubik", sans-serif;
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 10px;
+}
+
+.exercise {
+    padding: 2em;
+    margin: 2em;
+    border: 1px solid #808080;
+    border-radius: 0.5em;
+}
+
+.exercise:hover {
+    background-color: #eeecec;
+}
+
+.start-game {
+    float: right;
+    padding: 1em;
+    background-color: #0080ff;
+    color: white;
+    border: 1px solid black;
+    border-radius: 0.5em;
+    text-decoration: none;
+}
+
+.start-game:hover {
+    background-color: #034aa6;
+}
+
+.start-game:disabled {
+    background-color: #9fafc4;
+    text-decoration: line-through;
+}
+
+#game-area {
+    margin: 0 auto;
+    background-color: #eeeeee;
+    max-width: 100%;
+}
+
+#progress-bar {
+    border: 2px solid black;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+}
+
+.quizz-button {
+    font-size: x-large;
+    border: 2px solid darkgray;
+    width: 4em;
+    margin: 0.3em;
+}
+
+.quizz-button:hover {
+    border: 2px solid gray;
+}
+
+#button-area {
+    text-align: center;
+}
+
+details em {
+    font-size: xx-large;
+    font-style: normal;
+}
+
+.chapter-progress {
+    font-size: initial;
+}
+
+summary {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+canvas {
+    display: block;
+    touch-action: none;
+    background-color: #ffffff;
+}
+
+.modal__content {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* style for the modal part of the app 
+inspired by https://medium.com/@andrejsabrickis/a-fullscreen-modal-with-fixed-header-footer-and-a-scrollable-content-1656845c8171 */
+
+.modal {
+    display: none;
+    height: 99%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 98%;
+    padding: 1%;
+}
+
+.modal.open {
+    display: grid;
+    grid-template-rows: 100px auto 150px;
+}
+
+.modal__content {
+    overflow-y: auto;
+}
+
+.modal__footer {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.arabic {
+    font-family: "Amiri", "Rubik", sans-serif;
+    font-size: 2em;
+}
+
+.arabic_smaller {
+    font-family: "Amiri", "Rubik", sans-serif;
+    font-size: 1.5em;
+}
+
+td {
+    border-bottom: 1px solid black;
+}
+
+audio {
+    display: inline-block;
+    width: 100px;
+}
+
+.wrong-answer {
+    background-color: red;
+}
+
+.right-answer {
+    background-color: green;
+}

@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<TITLE> Preechimento de números </TITLE>
+<META NAME="Author" CONTENT="Thiago Della Serra Amaral - webmaster@asparena.eti.br">
+<script language="Javascript">
+<!--
+
+function preenche(campo, tamanho){
+
+//captura do texto
+var strText = campo.value;
+
+/*verifica se o campo está vazio e pede
+a confirmação do valor*/
+
+if (strText == "" ) {
+
+//apresenta a caixa de confirmação
+if (confirm("Texto vazio - preencher com " + tamanho + " zeros? ")) {
+//preeche com a quantidade de zeros informada no
+//parâmetro tamanho
+
+for (i=0; i<tamanho;i++)
+campo.value += "0";
+}else{
+//a pessoa clicou no cancelar, voltando o foco para 
+//o campo
+campo.focus();
+}
+
+}else{ //há alguma string no campo
+
+//tamanho da string
+var intTamStr = strText.length;
+
+/*verifica se o tamanho da string eh 
+menor ou igual ao tamanho que eh pedido
+na funcão*/
+
+if (intTamStr <= tamanho){//executa a adaptação do texto
+
+//quantos zeros serão incluídos no texto
+var intTam = parseInt(tamanho) - intTamStr;
+
+//preenchimento do campo
+for (i=0; i<intTam; i++){
+strText = "0" + strText;
+}
+
+//atribuição da variável ao campo
+campo.value = strText;
+
+}else{ 
+// o texto eh maior do que eh pedido na função
+alert("Este campo pode ter no máximo \n" + tamanho + " caracteres.");
+campo.focus();
+}
+}
+}
+//-->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+<FORM METHOD=POST ACTION="" name="fTest">
+<INPUT TYPE="text" NAME="primeiro" onBlur="preenche(this, 10)";>
+<INPUT TYPE="button">
+</FORM>
+</BODY>
+</HTML> 

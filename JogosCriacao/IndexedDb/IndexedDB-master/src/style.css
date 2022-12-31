@@ -1,0 +1,56 @@
+/* Thanks to...
+Complete CRUD Operation with IndexDB Database - JavaScript Project
+https://youtu.be/pcelNF8Ckhk */
+
+.d-flex input {
+	margin: 0.9rem 0em;
+}
+
+.d-flex button {
+	margin: 1.5rem 0.6em;
+	padding: 0.3rem 2.4em;
+}
+
+.container table{
+	margin: 1em 10em;
+}
+
+table .btnedit {
+	color: lightgreen;
+	cursor: pointer;
+}
+
+table .btnedit:hover {
+	background-color: #ebe3e3;
+	color: green;
+}
+
+table .btndelete {
+	color: tomato;
+	cursor: pointer;
+	animation: slideup 3.4s ease;
+}
+
+table .btndelete:hover {
+	background-color: #ebe3e3;
+	color: red;
+}
+
+/* message */
+.insertmsg, .updatemsg, .deletemsg {
+	position: absolute;
+	top: -40px;
+}
+
+.movedown {
+	animation: slideup 3.4s ease;
+}
+
+@keyframes slideup {
+	50% {
+		top: 0;
+	}
+	100% {
+		top: -40px;
+	}
+}

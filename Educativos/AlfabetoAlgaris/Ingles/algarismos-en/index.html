@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title> Alfabeto </title>
+    <style>
+    .centro{
+      font-size: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 50vh;
+      margin-left: 400px;
+      margin-right: 400px;
+      border-style: solid;
+      border-width: 100px;
+    }
+    h1{
+        text-align:center;
+        color: #0000FF;
+    }
+    </style>
+</head>
+
+<body>
+      <h1>Pressione um algarismo de 1 a 0</h1>
+      <div id="letter" class="centro"></div>
+      <audio id='0'><source src='algarismos/0.mp3' type='audio/mp3'></audio>
+      <audio id='1'><source src='algarismos/1.mp3' type='audio/mp3'></audio>
+      <audio id='2'><source src='algarismos/2.mp3' type='audio/mp3'></audio>
+      <audio id='3'><source src='algarismos/3.mp3' type='audio/mp3'></audio>
+      <audio id='4'><source src='algarismos/4.mp3' type='audio/mp3'></audio>
+      <audio id='5'><source src='algarismos/5.mp3' type='audio/mp3'></audio>
+      <audio id='6'><source src='algarismos/6.mp3' type='audio/mp3'></audio>
+      <audio id='7'><source src='algarismos/7.mp3' type='audio/mp3'></audio>
+      <audio id='8'><source src='algarismos/8.mp3' type='audio/mp3'></audio>
+      <audio id='9'><source src='algarismos/9.mp3' type='audio/mp3'></audio>
+      <audio id='erro'><source src='algarismos/erro.wav' type='audio/wav'></audio>
+
+    <script>
+    document.onkeypress = function(event){
+        const randColor = () =>  {
+            return "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
+            // https://www.educative.io/answers/how-to-generate-a-random-color-in-javascript
+        }
+        let letra = event.key
+
+        if(letra < '0' || letra > '9') {
+            document.getElementById("letter").innerHTML = '';
+        }else{         
+            document.getElementById("letter").style.color = randColor();
+            document.getElementById("letter").innerHTML = letra.toUpperCase();
+        }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if(e.keyCode >= 33 && e.keyCode <= 45 || e.keyCode == 12) alert ('Parece que o NumLock está desligado. Ligue-o')
+
+      if(e.keyCode == 48 || e.keyCode == 96) document.getElementById('0').play();
+      if(e.keyCode == 49 || e.keyCode == 97) document.getElementById('1').play();
+      if(e.keyCode == 50 || e.keyCode == 98) document.getElementById('2').play();
+      if(e.keyCode == 51 || e.keyCode == 99) document.getElementById('3').play();
+      if(e.keyCode == 52 || e.keyCode == 100) document.getElementById('4').play();
+      if(e.keyCode == 53 || e.keyCode == 101) document.getElementById('5').play();
+      if(e.keyCode == 54 || e.keyCode == 102) document.getElementById('6').play();
+      if(e.keyCode == 55 || e.keyCode == 103) document.getElementById('7').play();
+      if(e.keyCode == 56 || e.keyCode == 104) document.getElementById('8').play();
+      if(e.keyCode == 57 || e.keyCode == 105) document.getElementById('9').play();
+
+      if(e.keyCode < 48 || e.keyCode > 105 ) document.getElementById('erro').play();
+      if(e.keyCode >= 65 || e.keyCode >= 95 ) document.getElementById('erro').play();
+      if(e.keyCode < 33 || (e.keyCode > 45 && e.keyCode < 48)) document.getElementById('erro').play();
+    });
+    </script>
+
+</body>
+</html>

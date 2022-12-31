@@ -1,0 +1,81 @@
+<h3>Alphabet-piano</h3>
+<p>Type letters from "a" to "z" in the field to hear the corresponding note.
+<br>Press PLAY to play the whole string.
+<br>The character "0" represents a silence.
+<br>Use the second field to compose a second track.
+<br>
+<br>
+<hr>
+<br>
+
+1) <input id=i1 value="miffif00mifbfh00heaehe00ifffif00iheaehefffff" size=80>
+<br>
+<br>
+2) <input id=i2 value="aaabbb00aaabbc00aaabbb00aaabbc00aaabbcccbbbb" size=80>
+<br>
+<br>
+
+Note length: <input id=len value=0.3 size=4>
+<br>
+<br>
+<button id=p>PLAY</button>
+
+<br>
+<br>
+<hr>
+<br>
+<details>
+<summary>Player's source code:</summary>
+<br>
+<br>
+<textarea cols=80 rows=16>P = D => {
+  if(!D)return;           // D = melody string (a-z + 0 for silence)
+  I=+len.value;           // I = note length in seconds
+  with(new AudioContext)
+  with(G=createGain())
+  for(i=0;i<D.length;i++)
+  with(createOscillator())
+  if(D[i=+i]&&D[i]!="0")
+  connect(G),
+  G.connect(destination),
+  start(i*I+.3),
+  frequency.setValueAtTime(440*1.06**(-105+D.charCodeAt(i)),i*I+.3),
+  type='sine',            // or triangle or square or sawtooth
+  gain.setValueAtTime(.5,i*I+.3),
+  gain.setTargetAtTime(.001,i*I+.3+.1,.05),
+  stop(i*I+.3+I-.01);
+}</textarea>
+</details>
+
+<script>
+P = (D,delay) => {
+  if(D){         // D = melody string (a-z + 0 for silence)
+    I=+len.value; // I = note length in seconds
+    with(new AudioContext)
+    with(G=createGain())
+    for(i=0;i<D.length;i++)
+    with(createOscillator())
+    if(D[i=+i]&&D[i]!="0")
+    connect(G),
+    G.connect(destination),
+    start(i*I+delay),
+    frequency.setValueAtTime(440*1.06**(-105+D.charCodeAt(i)),i*I+delay),
+    type='sine',
+    gain.setValueAtTime(.5,i*I+delay),
+    gain.setTargetAtTime(.001,i*I+delay+.1,.05),
+    stop(i*I+delay+I-.01);
+  }
+}
+
+p.onclick = () => {
+  P(i1.value,.3);
+  P(i2.value,.3);
+}
+
+i1.oninput = i2.oninput = e => {
+  P(e.data[0],0);
+}
+</script>
+<style>
+input { font-family: courier, monospace }
+</style>

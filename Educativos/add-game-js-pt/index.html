@@ -1,0 +1,73 @@
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jogo da soma de 2 números!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+<body onload="playGame()">
+<div>
+	<h1 style="margin-left:50px">Jogo da soma de 2 números!</h1>
+</div>
+<hr>
+<div class="score">
+  <div class="score-content">
+    <div class="score-options">
+      <div class="score-field">
+        <div class="score-block" id="correctScore">
+          Pontos atuais = 0
+        </div>
+      </div>
+      <div class="score-field">
+        <div class="score-block" id="wrongScore">
+          Erros = 0
+        </div>
+      </div>
+      <div class="score-field">
+        <div class="score-block" id="totalScore">
+          Total de pontos = 0
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="quiz">
+  <div class="quiz-content">
+    <div class="question">
+      Quanto vale a soma de <span class="text-info" id="field1">5</span> e <span class="text-info" id="field2">5</span>?
+    </div>
+    <div class="options">
+      <div class="fields animated ZoomIn">
+        <div class="field-block" id="option1" onclick="CheckAnswer(this);">
+          10
+        </div>
+      </div>
+      <div class="fields animated ZoomIn">
+        <div class="field-block" id="option2" onclick="CheckAnswer(this);">
+          10
+        </div>
+      </div>
+      <div class="fields animated ZoomIn">
+        <div class="field-block" id="option3" onclick="CheckAnswer(this);">
+          10
+        </div>
+      </div>
+      <div class="fields animated ZoomIn">
+        <div class="field-block" id="option4" onclick="CheckAnswer(this);">
+          10
+        </div>
+      </div>
+    </div>
+    <div class="after hide" id="after">
+
+    </div>
+    <div class="play-again">
+      <a class="button" onclick="playAgain()">Jogar Novamente</a>
+    </div>
+  </div>
+</div>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+</body>
+</html>

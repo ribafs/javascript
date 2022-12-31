@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title></title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			border: 0;
+		}
+		canvas{
+			background-color: #ccc;
+			cursor: crosshair;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="500" height="500"></canvas>
+
+<script>
+	const cnv = document.querySelector('canvas')
+	const ctx = cnv.getContext('2d')
+	
+	const obj = {
+		x: cnv.width/2,
+		y: cnv.height/2,
+		radius: 50,
+		newRadius: 50,
+		draw: function(){
+			ctx.beginPath()
+			ctx.arc(this.x,this.y,this.radius,0,Math.PI*2,false)
+			ctx.fill()
+		},
+		shrink: function(){
+			if(this.newRadius < this.radius){
+				this.radius -= .5
+			}
+		},
+		update(){
+			this.shrink()
+			this.draw()
+		}
+	}
+	
+	cnv.addEventListener('mousedown',(e)=>{
+		e.preventDefault()
+		
+		const distance = Math.hypot(e.clientX - obj.x, e.clientY - obj.y)
+		
+		if(distance < obj.radius){
+			obj.newRadius = obj.radius - 10
+		}
+	})
+	
+	function loop(){
+		requestAnimationFrame(loop)
+		ctx.clearRect(0,0,cnv.width,cnv.height)
+		obj.update()
+	}
+	
+	loop()
+</script>
+</body>
+</html>

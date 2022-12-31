@@ -1,0 +1,22 @@
+#################################################
+############### Pastinha 0.9 ####################
+## Biblioteca Javascript para Pasta com Abas ####
+#################################################
+################################################
+#################################################
+###### Autor: DANTE VASCONCELOS MEIRA ###########
+######    Licença: domínio público    ###########
+#################################################
+################################################
+################################################
+## Para utilizar a biblioteca faça a chamada ao 
+## arquivo pastinha-v0.9.js no &lt;head&gt;  da sua 
+## página e utilize as tags HTML customizadas 
+## &lt;uma-pasta&gt; e &lt;uma-aba&gt;, fechadas 
+## respectivamente com as tags &lt;/uma-pasta&gt; e 
+## &lt;/uma-aba&gt;, para criar a estrutura de pastas 
+## com abas dentro das pastas.
+################################################
+################################################
+################################################
+

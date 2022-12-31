@@ -1,0 +1,72 @@
+
+/*Website CSS*/
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.game {
+  /* box-shadow: 1px 1px 2px 3px #ccc; */
+  overflow: hidden;
+  max-width: 600px;
+  max-height: 450px;
+  position: relative;
+}
+
+/* Game CSS */
+
+.lava { 
+  background: url("fire.gif");
+  background-position: center;
+  background-size: contain;
+}
+
+.wall { 
+  background: url("wall.jpg");
+  background-position: center;
+  background-size: contain;
+}
+
+.player { 
+  background: no-repeat url("char.png");
+  background-position: center;
+  background-size: contain; 
+}
+
+.background { 
+  background:url("background.png");
+  background-size: contain;
+  table-layout: fixed;
+  border-spacing: 0;   
+}
+
+.background td { 
+  padding: 0;          
+}
+
+.actor  { 
+  position: absolute;  
+}
+
+.coin { 
+  background: url("coin.png");
+  background-position: center;
+  background-size: contain;
+}
+
+.lost .player {
+  background: no-repeat url("chardead.png");
+  background-position: center;
+  background-size: contain; 
+}
+
+.won .player {
+  box-shadow: -4px -7px 8px white, 4px -7px 8px white;
+  background: no-repeat url("charwin.png");
+  background-position: center;
+  background-size: contain;  
+}

@@ -1,0 +1,73 @@
+As variáveis são úteis para operações rápidas, mas inúteis para uma execução a longo prazo. Nós devemos usar propriedades para armazenar informações que podemos utilizar depois.
+
+Você pode usar propriedades da mesma forma que você usa variáveis, mas elas existem apenas dentro de Objetos. Objetos são coisas muito abstratas.
+
+Como criar e usar propriedades:
+
+this.maxHealth = 100;
+this.health = this.maxHealth;
+
+this.maxMana = this.mana = 100;
+
+this.name = 'ct.js';
+this.title = 'The Almighty Cat';
+
+this.invincible = true;
+this.stunned = false;
+this.bleed = false;
+
+Como você pode notar, a diferença mais significante é que não precisamos declarar as propriedades. Podemos simplesmente definir de forma direta valores para ela.
+Também tem uma nova palavra reservada: this. this representa o objeto atual, o qual é usado para acessar a propriedade no código. Se você escreve um código no evento 'On Step' de uma Copy, então this representa o exato e atual objeto de copy. Escrevendo this.health = 100; faz com que seja armazenado dentro da propriedade health do objeto copy atual o valor 100.
+
+this.health = 10;
+this.health += 5; // health is now 15
+this.health /= 5; // 3
+this.health *= 10; // 30
+this.health -= 20; // 10
+
+Existe também um operador que modifica o valor da propriedade em 1 unidade:
+this.counter = 10;
+this.counter++; // this.counter is now 11
+this.counter++; // 12
+this.counter--; // 11 again
+
+Alerta! Coisas estranhas acontecem quando misturamos strings com operações numéricas:
+var money = 100,
+    price = '5';
+var case1 = money - price, // 95
+    case2 = money + price; // 1005 (!)
+
+Isso acontece porque no case1 o JavaScript converte a string price automaticamente para um valor numérico, enquanto que no case2 o operador + utilizado é uma concatenação de string e não uma operação numérica. Então a regra é muito simples, armazene os valores numéricos como números e não como strings. Se você precisa converter uma String para um número, use Number.parseFloat(suaString) ou Number.parseInt(suaString), a primeira é para números decimais e a segunda é para números inteiros.
+
+health < maxHealth; // true
+mana > maxMana; // false
+mana >= maxMana; // true
+health <= maxHealth; // true
+health == maxHealth; // são iguais? false
+health != maxHealth; // não são iguais, certo? true
+
+var cat = 'Albert',
+    dog = 'Snowball';
+cat == dog; // false
+cat != dog; // true
+
+5 == '5'; // true
+5 === '5'; // false, because '5' is String, not a Number
+5 === parseFloat('5') // true, because parseFloat returns a Number, and so is 5
+Os valores booleanos têm os seus próprios operadores também. O mais básico é a !, o qual nega o valor booleano.
+!true; // false
+!false; // true
+
+var health = 50,
+    alive = !(health <= 0); // true
+var dead = !alive; // false
+Também existe os operadores && e ||. O primeiro representa "E", enquanto que o segundo representa "OU". Eles são usados para combinar os diferentes valores Booleanos.
+this.onGround = true;
+var keyUp = ct.keyboard.down['up'], // it will be 'true' if an upper arrow key is held down
+    canJump = this.onGround && keyUp;
+
+this.powerFromLeft = false;
+this.powerFromRight = true;
+this.poweredOn = this.powerFromLeft || this.powerFromRight; // true
+
+

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title> Alfabeto </title>
+    <style>
+    .centro{
+      font-size: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 50vh;
+      margin-left: 400px;
+      margin-right: 400px;
+      border-style: solid;
+      border-width: 100px;
+    }
+    h1{
+        text-align:center;
+        color: #0000FF;
+    }
+    </style>
+
+</head>
+	<body>
+        <h1>Pressione uma das letras do alfabeto</h1>
+<div id="letter" class="centro"></div>
+      <audio id='a'><source src='letras/a.wav' type='audio/wav'></audio>
+      <audio id='b'><source src='letras/b.wav' type='audio/wav'></audio>
+      <audio id='c'><source src='letras/c.wav' type='audio/wav'></audio>
+      <audio id='d'><source src='letras/d.wav' type='audio/wav'></audio>
+      <audio id='e'><source src='letras/e.wav' type='audio/wav'></audio>
+      <audio id='f'><source src='letras/f.wav' type='audio/wav'></audio>
+      <audio id='g'><source src='letras/g.wav' type='audio/wav'></audio>
+      <audio id='h'><source src='letras/h.wav' type='audio/wav'></audio>
+      <audio id='i'><source src='letras/i.wav' type='audio/wav'></audio>
+      <audio id='j'><source src='letras/j.wav' type='audio/wav'></audio>
+      <audio id='k'><source src='letras/k.wav' type='audio/wav'></audio>
+      <audio id='l'><source src='letras/l.wav' type='audio/wav'></audio>
+      <audio id='m'><source src='letras/m.wav' type='audio/wav'></audio>
+      <audio id='n'><source src='letras/n.wav' type='audio/wav'></audio>
+      <audio id='o'><source src='letras/o.wav' type='audio/wav'></audio>
+      <audio id='p'><source src='letras/p.wav' type='audio/wav'></audio>
+      <audio id='q'><source src='letras/q.wav' type='audio/wav'></audio>
+      <audio id='r'><source src='letras/r.wav' type='audio/wav'></audio>
+      <audio id='s'><source src='letras/s.wav' type='audio/wav'></audio>
+      <audio id='t'><source src='letras/t.wav' type='audio/wav'></audio>
+      <audio id='u'><source src='letras/u.wav' type='audio/wav'></audio>
+      <audio id='v'><source src='letras/v.wav' type='audio/wav'></audio>
+      <audio id='w'><source src='letras/w.wav' type='audio/wav'></audio>
+      <audio id='x'><source src='letras/x.wav' type='audio/wav'></audio>
+      <audio id='y'><source src='letras/y.wav' type='audio/wav'></audio>
+      <audio id='z'><source src='letras/z.wav' type='audio/wav'></audio>
+      <audio id='erro'><source src='letras/erro.wav' type='audio/wav'></audio>
+
+<script>
+document.onkeypress = function(event){
+    const randColor = () =>  {
+        return "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
+        // https://www.educative.io/answers/how-to-generate-a-random-color-in-javascript
+    }
+    let erro = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','']
+    let letra = event.key
+
+    if(letra < 'a' || letra > 'z') {
+        document.getElementById("letter").innerHTML = '';
+    }else{         
+        document.getElementById("letter").style.color = randColor();
+        document.getElementById("letter").innerHTML = letra.toUpperCase();
+    }
+}
+
+document.addEventListener('keydown', function(e) {
+  let letr = String.fromCharCode(e.keyCode).toLowerCase();
+  if(e.keyCode == 65) document.getElementById(letr).play();
+  if(e.keyCode == 66) document.getElementById(letr).play();
+  if(e.keyCode == 67) document.getElementById('c').play();
+  if(e.keyCode == 68) document.getElementById('d').play();
+  if(e.keyCode == 69) document.getElementById('e').play();
+  if(e.keyCode == 70) document.getElementById('f').play();
+  if(e.keyCode == 71) document.getElementById('g').play();
+  if(e.keyCode == 72) document.getElementById('h').play();
+  if(e.keyCode == 73) document.getElementById('i').play();
+  if(e.keyCode == 74) document.getElementById('j').play();
+  if(e.keyCode == 75) document.getElementById('k').play();
+  if(e.keyCode == 76) document.getElementById('l').play();
+  if(e.keyCode == 77) document.getElementById('m').play();
+  if(e.keyCode == 78) document.getElementById('n').play();
+  if(e.keyCode == 79) document.getElementById('o').play();
+  if(e.keyCode == 80) document.getElementById('p').play();
+  if(e.keyCode == 81) document.getElementById('q').play();
+  if(e.keyCode == 82) document.getElementById('r').play();
+  if(e.keyCode == 83) document.getElementById('s').play();
+  if(e.keyCode == 84) document.getElementById('t').play();
+  if(e.keyCode == 85) document.getElementById('u').play();
+  if(e.keyCode == 86) document.getElementById('v').play();
+  if(e.keyCode == 87) document.getElementById('w').play();
+  if(e.keyCode == 88) document.getElementById('x').play();
+  if(e.keyCode == 89) document.getElementById('y').play();
+  if(e.keyCode == 90) document.getElementById('z').play();
+  if(e.keyCode < 65 || e.keyCode > 95 ) document.getElementById("erro").play();
+});
+</script>
+
+	</body>
+</html>

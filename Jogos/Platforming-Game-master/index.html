@@ -1,0 +1,32 @@
+<!doctype html>
+
+<head>
+  <script src="game.js"></script>
+  <script src="levels.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <meta name="description" content="A platformer game made in pure JS.">
+  <title>Platformer Game</title>
+</head>
+
+<body>
+    <div>
+      <h1>Controls</h1>
+      <ul>
+        <li>↑ Jump</li>
+        <li>→ Move Forwards</li>
+        <li>← Move Backwards</li>
+      </ul>
+      <p>
+        You can run and jump at the same time. 
+        <br>
+        This is required to cross several levels.
+        <br>
+        Collect all the coins in each level. 
+      </p>
+    </div>
+</body>
+
+<script>
+  runGame(GAME_LEVELS, DOMDisplay);
+</script>

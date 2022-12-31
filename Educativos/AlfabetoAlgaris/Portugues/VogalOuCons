@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>Curso JavaScript Progressivo</title>
+   Digite apenas UM caractere:
+
+   <input id="char" type="text"> <br />
+   <button onclick="check()">Checar</button>
+
+   <script type="text/javascript">
+
+    function check(){
+     var letra = document.getElementById("char").value;
+     letra = letra.toLowerCase();
+
+     if(letra=='a' || letra=='e' || letra=='i' || letra=='o' || letra=='u')
+   alert("Vogal");
+  else     
+      alert("Consoante");
+    }
+// https://www.javascriptprogressivo.net/2018/08/Vogal-Consoante-JavaScript-exercicio.html
+ </script>
+
+ </head>
+</html>

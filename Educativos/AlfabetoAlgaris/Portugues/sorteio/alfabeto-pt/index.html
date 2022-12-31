@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title> Alfabeto </title>
+    <style>
+    .centro{
+      font-size: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 50vh;
+      margin-left: 400px;
+      margin-right: 400px;
+      border-style: solid;
+      border-width: 100px;
+    }
+    h1{
+        text-align:center;
+        color: #0000FF;
+    }
+    </style>
+
+</head>
+	<body>
+        <h1>Pressione uma das letras do alfabeto</h1>
+<div id="letter" class="centro"></div>
+      <audio id='a'><source src='letras/a.mp3' type='audio/mp3'></audio>
+      <audio id='b'><source src='letras/b.mp3' type='audio/mp3'></audio>
+      <audio id='c'><source src='letras/c.mp3' type='audio/mp3'></audio>
+      <audio id='d'><source src='letras/d.mp3' type='audio/mp3'></audio>
+      <audio id='e'><source src='letras/e.mp3' type='audio/mp3'></audio>
+      <audio id='f'><source src='letras/f.mp3' type='audio/mp3'></audio>
+      <audio id='g'><source src='letras/g.mp3' type='audio/mp3'></audio>
+      <audio id='h'><source src='letras/h.mp3' type='audio/mp3'></audio>
+      <audio id='i'><source src='letras/i.mp3' type='audio/mp3'></audio>
+      <audio id='j'><source src='letras/j.mp3' type='audio/mp3'></audio>
+      <audio id='k'><source src='letras/k.mp3' type='audio/mp3'></audio>
+      <audio id='l'><source src='letras/l.mp3' type='audio/mp3'></audio>
+      <audio id='m'><source src='letras/m.mp3' type='audio/mp3'></audio>
+      <audio id='n'><source src='letras/n.mp3' type='audio/mp3'></audio>
+      <audio id='o'><source src='letras/o.mp3' type='audio/mp3'></audio>
+      <audio id='p'><source src='letras/p.mp3' type='audio/mp3'></audio>
+      <audio id='q'><source src='letras/q.mp3' type='audio/mp3'></audio>
+      <audio id='r'><source src='letras/r.mp3' type='audio/mp3'></audio>
+      <audio id='s'><source src='letras/s.mp3' type='audio/mp3'></audio>
+      <audio id='t'><source src='letras/t.mp3' type='audio/mp3'></audio>
+      <audio id='u'><source src='letras/u.mp3' type='audio/mp3'></audio>
+      <audio id='v'><source src='letras/v.mp3' type='audio/mp3'></audio>
+      <audio id='w'><source src='letras/w.mp3' type='audio/mp3'></audio>
+      <audio id='x'><source src='letras/x.mp3' type='audio/mp3'></audio>
+      <audio id='y'><source src='letras/y.mp3' type='audio/mp3'></audio>
+      <audio id='z'><source src='letras/z.mp3' type='audio/mp3'></audio>
+      <audio id='erro'><source src='letras/erro.wav' type='audio/wav'></audio>
+
+<script>
+    const randColor = () =>  {
+        return "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
+        // https://www.educative.io/answers/how-to-generate-a-random-color-in-javascript
+    }
+// Function to generate random number 
+function randomNumber(min, max) { 
+    return Math.floor(Math.random() * (max - min) + min);
+    // https://www.geeksforgeeks.org/how-to-generate-random-number-in-given-range-using-javascript/
+} 
+
+function letraAleat() {
+  var text = "";
+  var possible = "abcdefghijklmnopqrstuvwxyz";
+
+  text += possible.charAt(Math.floor(Math.random() * possible.length));
+  return text;
+}
+
+document.getElementById(letraAleat()).style.color = randColor();
+document.getElementById(letraAleat().toString()).innerHTML = letraAleat().toString().toUpperCase();
+
+</script>
+
+	</body>
+</html>

@@ -1,0 +1,15 @@
+Pesquisar pelo conteúdo de um arquivo - Ctrl+F
+Pesquisar pelo conteúdo em todos os arquivos de um projeto/pasta - Ctrl+Shift+F
+Procurar uma string e sobrescrever com outra - Ctrl+H
+Procurar uma string e sobrescrever com outra em todos os arquivos de um projeto - Ctrl+Shift+H
+Abrir um arquivo - Ctrl+O
+Abrir um novo arquivo - Ctrl+N
+Fechar um arquivo - Ctrl+W
+Selecionar todo um arquivo - Ctrl+A
+Mostrar todos os comandos - F1
+Abrir terminal - Ctrl+Shift+`
+Dividir terminal em dois ou mais - Ctrl+Shift+5 (para fechar clique na lixeira à direita de bash)
+Exibir painel de extensões - Ctrl+Shift+X
+Exibir painel com arquivos e pastas - Ctrl+Shift+E
+Abrir seleção de linguagens - Ctrl+K M (Então uma boa sequência seria: Ctrl+N e Ctrl+K M)
+Exibir todas as teclas de atalho - Ctrl+K Ctrl+S (observe que existe uma caixa de busca acima)

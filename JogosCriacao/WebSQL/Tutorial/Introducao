@@ -1,0 +1,20 @@
+
+
+Uma API de banco de dados Web SQL não é realmente parte da especificação HTML5, mas é uma especificação separada que apresenta um conjunto de APIs para manipular bancos de dados do lado do cliente usando SQL.
+
+Presumo que você seja um ótimo desenvolvedor da web e, se for esse o caso, sem dúvida, você conhece bem os conceitos de SQL e RDBMS. Se você ainda deseja ter uma sessão com SQL, pode seguir nosso Tutorial de SQL.
+
+O banco de dados Web SQL funcionará na versão mais recente do Safari, Chrome e Opera.
+
+Os Métodos Básicos
+
+Existem três critérios definidos na especificação que irei abordar neste tutorial -
+
+      openDatabase - Este método cria o objeto de banco de dados usando o banco de dados existente ou criando um novo.
+
+      Transação - Este método nos dá a capacidade de controlar uma transação e realizar o commit ou rollback com base na situação.
+
+      executeSql - este método é usado para executar uma consulta SQL real.
+
+https://www.tutorialspoint.com/html5/html5_web_sql.htm
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>||Trabalhando com elementos||</title>
+    <link rel="stylesheet" href="">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="div1">O texto acima foi criado dinamicamente.</div>
+    <script type="text/javascript" src=""></script>
+    <script>
+document.body.onload = adcElemento;
+
+function adcElemento () {
+  // cria um novo elemento div
+  // e dá à ele conteúdo
+  var divNova = document.createElement("div");
+  var conteudoNovo = document.createTextNode("Olá, cumprimentos!");
+  divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
+
+  // adiciona o novo elemento criado e seu conteúdo ao DOM
+  var divAtual = document.getElementById("div1");
+  document.body.insertBefore(divNova, divAtual);
+}
+// https://developer.mozilla.org/pt-BR/docs/Web/API/Document/createElement
+    </script>
+</body>
+</html>

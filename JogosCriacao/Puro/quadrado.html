@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br"> 
+    <head>
+        <meta charset="utf-8"/>
+        <title>Quadrado com asteriscos</title>
+        <style>
+
+        </style>
+        <link rel="stylesheet" type="text/css" href="style.css">        
+    </head>
+<body>
+
+<h1>Quadrado com asteriscos</h1>
+
+<script>
+// Desenhar um quadrado com asteriscos
+let n = 10; // row or column count
+// defining an empty string
+let carac = "";
+
+for(let i = 0; i < n; i++) { // external loop
+  for(let j = 0; j < n; j++) { // internal loop
+    carac += "*";
+  }
+  // newline after each row
+  carac += "\n";
+}
+// printing the string
+console.log('Quadrado com asteriscos');
+console.log(carac);
+// https://www.tutorialstonight.com/js/javascript-star-pattern.php
+</script>

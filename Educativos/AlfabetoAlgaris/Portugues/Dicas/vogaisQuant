@@ -1,0 +1,122 @@
+
+
+As the introduction of forEach in ES5 this could be achieved in a functional approach, in a more compact way, and also have the count for each vowel and store that count in an Object.
+
+function vowelCount(str){
+  let splitString=str.split('');
+  let obj={};
+  let vowels="aeiou";
+  splitString.forEach((letter)=>{
+    if(vowels.indexOf(letter.toLowerCase())!==-1){
+      if(letter in obj){
+        obj[letter]++;
+      }else{
+        obj[letter]=1;
+      }
+    }   
+
+ });
+ return obj;    
+}
+
+
+count = function(a) {
+  //var a=document.getElementById("t");
+  console.log(a); //to see input string on console
+  n = a.length;
+  console.log(n); //calculated length of string
+  var c = 0;
+  for (i = 0; i < n; i++) {
+    if ((a[i] == "a") || (a[i] == "e") || (a[i] == "i") || (a[i] == "o") || (a[i] == "u")) {
+      console.log(a[i]); //just to verify
+      c += 1;
+    }
+  }
+
+  document.getElementById("p").innerText = c;
+}
+
+<p>count of vowels </p>
+<p id="p"></p>
+<input id="t" />
+<input type="button" value="count" onclick="count(t.value)" />
+
+
+function getVowelsCount(s) {
+      let vowels = ["a", "e", "i", "o", "u"];
+      let count=0;
+
+    for(let v of s) {
+        if(vowels.includes(v)){
+            console.log(v);
+            count=count+1;
+        }
+           
+    }
+     console.log(count);
+
+}
+
+
+function vowelCount (string) {
+  let vowel = "aeiouy"; // can also be array
+  let result = 0;
+
+  for (let i = 0; i < string.length; i++) {
+    
+    if (vowel.includes(string[i].toLowerCase())) {
+      result++;
+    }
+  }
+
+    
+  return result;
+}
+
+
+
+console.log(vowelCount("cAkeYE"));
+
+function getVowels(str) {
+  var m = str.match(/[aeiou]/gi);
+  return m === null ? 0 : m.length;
+}
+
+const countVowels = str => Array.from(str)
+  .filter(letter => 'aeiou'.includes(letter)).length;
+
+console.log(countVowels('abcdefghijklmnopqrstuvwxyz')); // 5
+console.log(countVowels('test')); // 1
+console.log(countVowels('ddd')); // 0
+
+function countVowels(subject) {
+    return subject.match(/[aeiou]/gi).length;
+}
+
+
+
+Short and ES6, you can use the function count(str);
+
+const count = str => (str.match(/[aeiou]/gi) || []).length;
+
+
+or if you prefer ES6
+
+const vowelCount = (str) => ( str.replace(/[^aeiou]/gi,"").length )
+
+
+
+
+Use match but be careful as it can return a null if no match is found
+
+const countVowels = (subject => (subject.match(/[aeiou]/gi) || []).length);
+
+
+const vowel_count = string => [...string].filter(c => 'aeiou'.includes(c.toLowerCase())).length;
+
+console.log(vowel_count('aaaa'));            // 4
+console.log(vowel_count('AAAA'));            // 4
+console.log(vowel_count('foo BAR baz QUX')); // 5
+console.log(vowel_count('Hello, world!'));   // 3
+
+

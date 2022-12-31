@@ -1,0 +1,15 @@
+html {
+  text-align: center;
+  background: #c4b80d;
+  font-family: 'Roboto', sans-serif;
+}
+
+.random-background {
+  background: #79BD8F;
+}
+
+#Alphabet {
+  margin: auto auto;
+  font-size: 70vh;
+  height: 100%;
+}

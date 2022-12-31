@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequência de Palavras</title>
+    <script
+			  src="https://code.jquery.com/jquery-2.2.4.min.js"
+			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+			  crossorigin="anonymous"></script>
+    <style>
+:root {
+  --color-main: #f9f7e8;
+  --color-text: #333;
+  --color-accent: #61bfad;
+  --color-dark: #ddd;
+  --width-max: 30rem;
+}
+html {
+  height: 100%;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+  color: var(--color-text);
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.content {
+  margin: 0 auto;
+  flex: 1 0 auto;
+  padding: 0 0.5rem;
+  width: 100%;
+  max-width: var(--width-max);
+}
+h1 {
+  text-align: center;
+}
+footer {
+  width: 100%;
+  text-align: center;
+  color: var(--color-text);
+  padding: 0 2rem;
+}
+
+button {
+  color: var(--color-text);
+  background: var(--color-dark);
+  border: 1px solid var(--color-dark);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+}
+button:hover {
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  color: white;
+}
+textarea {
+  color: var(--color-text);
+  border: 1px solid var(--color-dark);
+  outline: none;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  width: 100%;
+  height: 30vh;
+  resize: none;
+}
+textarea:focus {
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+}
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--color-text);
+}
+a:hover {
+  color: var(--color-accent);
+}
+
+#div-table {
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+}
+td {
+  word-break: break-all;
+  padding: 0.5rem;
+  border: 1px solid var(--color-dark);
+}
+tr:nth-child(even) {
+  background-color: #eee;
+}
+tr:hover {
+  background-color: var(--color-dark);
+}
+th {
+  border: 1px solid var(--color-accent);
+  padding: 0.5rem 0.5rem;
+  text-align: left;
+  background-color: var(--color-accent);
+  color: white;
+}
+td:nth-child(3) {
+  width: 100%;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Frequência de Palavras</h1>
+<div class="content">
+  <h1>Word Frequency Counter</h1>
+  <textarea name="inputString" id="inputString" spellcheck="true">Paste your text content here!</textarea>
+  <br>
+  <button type="button" id="myButton">Count Those Words!</button>
+  <div id="div-table"></div>
+</div>
+
+<footer>
+  <p>By <a href="https://codepen.io/maxotar/" target="_blank">Max Tarver</a> with colors from <a href="http://www.vanschneider.com/colors" target="_blank">Color Claim</a>.</p>
+</footer>
+
+<!-- TODO
+option to filter out most common words
+option to sort each column
+dynamically update after each word
+limit table row size
+add other stats: average letters/word, how many words there are
+style everything
+-->
+    <script>
+"use strict";
+const getUserInput = () => document.getElementById("inputString").value;
+const printInput = input =>
+  (document.getElementById("ouput").innerHTML = input);
+const cleanInput = str =>
+  str
+    .replace(/[?.!,"\(\)]/g, "")
+    .replace(/[ ]{2,}/g, "")
+    .trim()
+    .toLowerCase();
+const wordFreq = string =>
+  string
+    .split(/\s/)
+    .reduce(
+      (output, word) =>
+        Object.assign(output, { [word]: output[word] ? output[word] + 1 : 1 }),
+      {}
+    );
+const sortByValue = obj =>
+  Object.entries(obj)
+    .map(currentValue => [currentValue[1], currentValue[0]])
+    .sort((a, b) => parseInt(b) - parseInt(a))
+    .map((currentValue, index) => [
+      index + 1,
+      currentValue[0],
+      currentValue[1]
+    ]);
+
+const divFreq = "div-table";
+const headersFreq = ["Rank", "Count", "Word"];
+const dataFreq = [[1, 52, "words"], [2, 50, "dog"]];
+
+const addTable = (divId, headers, data) => {
+  const myTableDiv = document.getElementById(divId);
+  const table = document.createElement("table");
+
+  //TABLE Headers
+  const tr = document.createElement("tr");
+  table.appendChild(tr);
+  headers.forEach(currentValue => {
+    const th = document.createElement("th");
+    th.appendChild(document.createTextNode(currentValue));
+    tr.appendChild(th);
+  });
+
+  //TABLE ROWS
+  data.forEach(currentValue => {
+    const tr = document.createElement("tr");
+    currentValue.forEach(currentValue => {
+      const td = document.createElement("td");
+      td.appendChild(document.createTextNode(currentValue));
+      tr.appendChild(td);
+    });
+    table.appendChild(tr);
+  });
+
+  myTableDiv.appendChild(table);
+};
+
+const processData = () => {
+  const sortedFreq = sortByValue(wordFreq(cleanInput(getUserInput())));
+  //console.table(sortedFreq);
+  //let str = JSON.stringify(freq, null, 4);
+  document.getElementById("div-table").innerHTML = "";
+  addTable(divFreq, headersFreq, sortedFreq);
+};
+
+$(document).ready(function() {
+  $("#myButton").on("click", processData);
+});
+// https://codepen.io/maxotar/pen/aLrwJM
+    </script>
+</body>
+</html>
